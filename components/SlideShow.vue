@@ -89,8 +89,7 @@
     }
 
     .carrusel-wrapper {
-      @apply 
-      mx-auto
+      @apply mx-auto
       sm:border
       sm:border-slate-600/50
       sm:bg-slate-100/75
