@@ -68,8 +68,8 @@
     z-20
     w-screen 
     mx-auto
-    py-8
-    px-5
+    pb-8
+    md:px-5
     bg-slate-50
     dark:bg-slate-600;
 
@@ -89,22 +89,21 @@
     }
 
     .carrusel-wrapper {
-      @apply w-11/12
+      @apply 
       mx-auto
-      p-2
-      border
-      border-slate-600/50
-      bg-slate-100/75
-      dark:bg-slate-300/75
-      dark:border-slate-800/80
+      sm:border
+      sm:border-slate-600/50
+      sm:bg-slate-100/75
+      sm:dark:bg-slate-300/75
+      sm:dark:border-slate-800/80
       md:w-8/12
       md:p-3
       lg:w-7/12;
 
       .wrapper {
-        @apply p-2
-        bg-slate-600
-        dark:bg-slate-500;
+        @apply sm:p-2
+        sm:bg-slate-600
+        sm:dark:bg-slate-500;
       }
       .gallery {
         @apply relative content-before;

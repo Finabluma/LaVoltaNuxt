@@ -26,7 +26,7 @@
   <section class="today">
     <h2 class="sr-only">Horario del día</h2>
     <div v-if="dag.length === 0" class="state">
-      <div><IcTwotoneSchedule /> <span> Hoy cerramos</span></div>
+      <div><IcTwotoneSchedule class="mr-1"/> <span> Hoy cerramos</span></div>
     </div>
     <div v-if="dag.length === 1" class="state">
       <div>
@@ -65,7 +65,7 @@
     flex
     justify-center
     items-center
-    bg-slate-300
+    bg-slate-200
     text-slate-700
     dark:bg-slate-600
     dark:text-slate-100

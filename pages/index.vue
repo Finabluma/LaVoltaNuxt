@@ -44,8 +44,8 @@
           pinSpacing: false,
         },
       })
-      .to(q('h1'), { y: '-=60', autoAlpha: 0 })
-      .to(q('.destacado'), { yPercent: -10, autoAlpha: 0 }, '0')
+      .to(q('h1'), { yPercent: -20, autoAlpha: 0 })
+      .to(q('.destacado'), { yPercent: -40, autoAlpha: 0 }, '0')
     return tl
   }
 
@@ -222,10 +222,18 @@
     dark:bg-slate-600
     border-t-2
     border-t-slate-300/50
-    
+    flex
+    flex-col
+    justify-evenly
     py-6
     sm:pb-12
     md:portrait:min-h-full
     md:portrait:h-[60dvh];
+
+    .artHomeContent {
+      @apply flex
+      flex-col
+      justify-evenly;
+    }
   }
 </style>
