@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @apply bg-slate-300 dark:bg-slate-600;
+  }
+  body {
+    @apply text-base/snug
+    overflow-x-hidden
+    text-balance
+    text-slate-600
+    dark:text-slate-300/80;
+
+    & a {
+      @apply transition-colors duration-500;
+    }
+
+    ::after {
+      @apply h-2 bg-slate-300 dark:bg-slate-400;
+    }
+  }
+
+  .page {
+    @apply w-screen
+    min-h-dvh
+    overflow-x-hidden
+    flex
+    flex-col;
+
+    main {
+      @apply bg-slate-50 
+      dark:bg-slate-600      
+      z-10;
+    }
+
+    .main_content {
+      @apply w-11/12 mx-auto;
+    }
+
+    h1 {
+      @apply text-8xl/tight;
+    }
+    h2 {
+      @apply text-5xl/6;
+    }
+    h3 {
+      @apply text-3xl;
+    }
+
+    aside {
+      @apply relative 
+      z-30
+      pb-10
+      bg-slate-50
+      dark:bg-slate-600;
+    }
+
+    #footer {
+      @apply mt-auto
+    bg-slate-50
+    dark:bg-slate-600;
+    }
+  }
+}
+@layer components {
+  .card {
+    @apply relative 
+    w-11/12
+    mx-auto
+    mb-5
+    md:w-8/12;
+
+    article {
+      @apply relative
+      w-full
+      flex
+      justify-center
+      items-center
+      box-border
+      shadow-md
+      mb-5;
+
+      .content {
+        @apply w-full
+        p-5
+        bg-slate-200
+        dark:bg-slate-500;
+
+        .content_title {
+          @apply text-2xl
+          font-cameo
+          dark:text-slate-300
+          content-after
+          mb-2;
+
+          &:after {
+            @apply block
+                w-1/12
+                h-1
+                mt-3
+                bg-slate-500
+                dark:bg-slate-300;
+          }
+        }
+      }
+    }
+  }
+  .banner {
+    @apply bg-slate-50
+    dark:bg-slate-600
+    pt-2
+    mb-10
+    content-before
+    content-after;
+
+    &:before {
+      @apply block
+      w-8
+      h-3
+      mx-auto
+      bg-slate-500/30
+      dark:bg-slate-400/50;
+    }
+
+    &::before {
+      @apply mb-5
+      md:mb-7;
+    }
+
+    .banner_wrapper {
+      @apply w-11/12
+      mx-auto
+      lg:w-8/12;
+
+      .image {
+        @apply relative
+        p-1
+        border-2
+        border-slate-300/80
+        bg-slate-200
+        dark:bg-slate-400
+        rounded-full
+        w-24
+        h-24
+        mx-auto
+        overflow-hidden
+        content-before;
+
+        &::before {
+          @apply absolute
+          top-0
+          z-10
+          w-full
+          h-full
+          bg-gradient-radial
+          from-transparent
+          to-slate-300/45
+          dark:to-slate-500/30;
+        }
+
+        img {
+          @apply rounded-full;
+        }
+      }
+
+      .banner_content {
+        @apply text-center
+        text-balance
+        p-2
+        mx-auto
+        max-w-screen-xl
+        sm:w-11/12
+        lg:w-10/12;
+
+        h2 {
+          @apply text-3xl/snug 
+          mb-2
+          capitalize
+          content-after;
+
+          &:after{
+            @apply block
+            w-1/12
+            h-1
+          }
+        }
+
+        .inner-content {
+          @apply py-2
+          mb-12
+          font-mono
+          text-base/normal;
+        }
+
+        .enlace {
+          @apply block
+          mx-auto;
+
+          a {
+            @apply font-bold
+            p-2
+            border-2
+            rounded-md
+            border-slate-400
+            bg-slate-200
+            dark:border-slate-500
+            dark:bg-slate-700
+            sm:p-3;
+          }
+        }
+
+        /* & a {
+          @apply mx-auto
+          p-3 
+          block
+        bg-slate-600
+        text-slate-300
+          lg:w-4/12;
+        } */
+      }
+    }
+  }
+  .obs {
+    @apply font-mono
+      text-lg/tight
+      text-balance
+      text-center
+      mx-auto
+      max-w-screen-sm
+      py-2
+      mb-7
+      md:mb-14
+      lg:py-5
+      content-before;
+
+    &:before,
+    &:after {
+      @apply content-['*']
+        block 
+        bg-transparent
+        text-xs;
+    }
+    &:after {
+      @apply mt-1;
+    }
+  }
+  .noImg {
+    @apply w-full
+    h-full
+    bg-azulejos
+    bg-cover
+    content-before;
+
+    &:before {
+      @apply w-full
+      h-[50vh]
+      absolute
+      top-0
+      left-0
+      bg-gradient-to-b
+      from-slate-200/20
+      to-slate-200
+      dark:from-slate-200/10
+      dark:to-slate-200/90;
+    }
+  }
+}
