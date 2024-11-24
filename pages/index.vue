@@ -217,7 +217,7 @@
 <style lang="postcss" scoped>
   .articleHome {
     @apply relative 
-    min-h-[90dvh]
+    min-h-dvh
     bg-slate-50
     dark:bg-slate-600
     border-t-2
@@ -228,7 +228,7 @@
     py-6
     sm:pb-12
     md:portrait:min-h-full
-    md:portrait:h-[60dvh];
+    md:portrait:h-[70dvh];
 
     .artHomeContent {
       @apply flex
