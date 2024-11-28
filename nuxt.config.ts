@@ -117,6 +117,7 @@ export default defineNuxtConfig({
     classSuffix: ''
   },
   image:{
+    dir: 'assets/images',
     provider:'sanity',
     sanity:{
       projectId: process.env.SANITY_PROJECT_ID,
