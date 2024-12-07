@@ -9,7 +9,7 @@
       </div>
       <div class="center">
         <AppNav :links="siteNav?.navFooter" class="pie" nav="Main Nav" />
-        
+
         <AppColorMode />
       </div>
       <div class="bottom">
@@ -24,7 +24,11 @@
             >Contacta</NuxtLink
           >
           *
-          <NuxtLink to="https://bro.sanity.studio/" title="Escribe a la Volta" class="ml-2"
+          <NuxtLink
+            to="https://bro.sanity.studio/"
+            target="_blank"
+            title="Escribe a la Volta"
+            class="ml-2"
             >Login</NuxtLink
           >
         </div>
