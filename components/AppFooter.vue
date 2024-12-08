@@ -74,49 +74,49 @@
         flex-col
         items-center
         justify-center
-        lg:w-11/12;
+        xl:w-11/12;
       }
       .top {
         @apply mb-10
-        lg:mb-5
-        lg:flex-row
-        lg:px-8
-        lg:border-b
-        lg:border-slate-600
-        lg:dark:border-slate-300
-        lg:pt-0
-        lg:pb-5;
+        xl:mb-5
+        xl:flex-row
+        xl:px-8
+        xl:border-b
+        xl:border-slate-600
+        xl:dark:border-slate-300
+        xl:pt-0
+        xl:pb-5;
 
         #boveda {
           @apply w-36
-          lg:w-32 
-          lg:ml-auto;
+          xl:w-32 
+          xl:ml-auto;
         }
       }
       .center {
         @apply pb-5
-        lg:border-b
-        lg:border-slate-600
-        lg:dark:border-slate-300
-        lg:flex-row
-        lg:justify-between
-        lg:px-7;
+        xl:border-b
+        xl:border-slate-600
+        xl:dark:border-slate-300
+        xl:flex-row
+        xl:justify-between
+        xl:px-7;
       }
       .bottom {
         @apply text-xs/normal
         pt-5
         pb-10
-        lg:flex-row
-        lg:items-start
-        lg:justify-between
-        lg:px-4;
+        xl:flex-row
+        xl:items-start
+        xl:justify-between
+        xl:px-4;
       }
 
       .info {
         @apply w-full flex flex-col justify-center
         items-center
-        lg:w-auto
-        lg:items-end;
+        xl:w-auto
+        xl:items-end;
       }
     }
   }

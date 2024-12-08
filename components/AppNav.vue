@@ -67,8 +67,8 @@
   }
   .pie {
     @apply mb-5 w-full 
-    lg:w-auto 
-    lg:mb-0;
+    xl:w-auto 
+    xl:mb-0;
     ul {
       @apply w-full 
       mx-auto 
@@ -77,9 +77,9 @@
       items-center 
       flex-col 
       px-10
-      lg:flex-row
-      lg:justify-end
-      lg:px-0;
+      xl:flex-row
+      xl:justify-end
+      xl:px-0;
 
       li {
         @apply block
@@ -87,9 +87,9 @@
         capitalize
         tracking-wider
         font-typewriter
-        lg:w-auto
-        lg:tracking-normal
-        lg:text-sm;
+        xl:w-auto
+        xl:tracking-normal
+        xl:text-sm;
 
         a {
           @apply w-full
@@ -97,10 +97,10 @@
           text-center
           content-after
           mb-3
-          lg:flex
-          lg:items-center
-          lg:mb-0
-          lg:pr-2;
+          xl:flex
+          xl:items-center
+          xl:mb-0
+          xl:pr-2;
 
           &:after {
             @apply block
@@ -110,11 +110,11 @@
             mt-3
             bg-slate-500
             dark:bg-slate-300
-            lg:w-1
-            lg:h-1
-            lg:rounded
-            lg:mt-0
-            lg:ml-2;
+            xl:w-1
+            xl:h-1
+            xl:rounded
+            xl:mt-0
+            xl:ml-2;
           }
         }
 
@@ -132,8 +132,8 @@
       flex 
       justify-center 
       px-10
-      lg:ml-0
-      lg:px-0;
+      xl:ml-0
+      xl:px-0;
 
       li {
         @apply capitalize;
@@ -144,9 +144,9 @@
           content-after
           text-slate-600 
           dark:text-slate-300
-          lg:flex
-          lg:items-center
-          lg:mb-0;
+          xl:flex
+          xl:items-center
+          xl:mb-0;
 
           &:after {
             @apply block
