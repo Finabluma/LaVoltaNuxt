@@ -276,6 +276,8 @@
         text-yellow-600
       } */
 
+      @apply bg-slate-100/75 dark:bg-slate-500/75;
+
       .svg {
         @apply bg-yellow-500;
         svg {

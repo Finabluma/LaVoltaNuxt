@@ -221,7 +221,8 @@
     bg-slate-50
     dark:bg-slate-600
     border-t-2
-    border-t-slate-300/50
+    border-t-slate-200
+    dark:border-t-slate-700
     flex
     flex-col
     justify-evenly
