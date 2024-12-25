@@ -17,7 +17,7 @@
         </span>
       </li>
       <li v-if="update">
-        <time :datetime="$dayjs(update).fromNow()" itemprop="dateUpdated">
+        <time :datetime="$dayjs(update).fromNow()" itemprop="dateCreated">
           || Actualizado el {{ $dayjs(update).format('DD MMM YYYY') }}
         </time>
       </li>

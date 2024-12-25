@@ -92,7 +92,7 @@
         }
 
         &::before {
-          @apply mt-6 mb-4 bg-slate-400;
+          @apply mt-6 mb-4 bg-slate-300 dark:bg-slate-400;
         }
       }
     }

@@ -232,7 +232,7 @@
         > div:first-of-type {
           .enlace {
             @apply mb-2
-            text-xl/tight
+            text-xl/none
             font-sans
             /* pb-2
             border-b
