@@ -50,6 +50,7 @@
                 crop: image.crop,
                 hotspot: image.hotspot,
                 q: 80,
+                sat:-100
               }"
               fit="cover"
               format="webp"

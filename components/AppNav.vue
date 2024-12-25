@@ -95,8 +95,8 @@
           @apply w-full
           block
           text-center
-          content-after
-          mb-3
+          /* content-after */
+          mb-5
           xl:flex
           xl:items-center
           xl:mb-0
@@ -141,7 +141,7 @@
         a {
           @apply flex
           items-center
-          content-after
+          /* content-after */
           text-slate-600 
           dark:text-slate-300
           xl:flex

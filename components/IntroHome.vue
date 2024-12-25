@@ -74,12 +74,14 @@
 
       .inner__items {
         @apply text-balance
-        content-after;
+        content-after
+        content-before;
         p {
           @apply text-xl lg:text-xl;
         }
 
-        &::after {
+        &::after,
+        &::before {
           @apply block
           w-1/12
           h-2;
@@ -90,7 +92,7 @@
         }
 
         &::before {
-          @apply mt-6 mb-4;
+          @apply mt-6 mb-4 bg-slate-400;
         }
       }
     }

@@ -82,7 +82,8 @@
         xl:flex-row
         xl:px-8
         xl:border-b
-        xl:border-slate-600
+        xl:border-slate-400
+        xl:border-dotted
         xl:dark:border-slate-300
         xl:pt-0
         xl:pb-5;
@@ -95,15 +96,16 @@
       }
       .center {
         @apply pb-5
-        xl:border-b
+        /* xl:border-b
         xl:border-slate-600
-        xl:dark:border-slate-300
+        xl:dark:border-slate-300 */
         xl:flex-row
-        xl:justify-between
+        xl:justify-end
         xl:px-7;
       }
       .bottom {
-        @apply text-xs/normal
+        @apply relative
+        text-xs/normal
         pt-5
         pb-10
         xl:flex-row

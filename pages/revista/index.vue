@@ -92,7 +92,7 @@
               </ArticleTeaser>
             </div>
             <div v-if="notFeatured" class="portada">
-              <div class="titleblock">Quizá tb. te interese ...</div>
+              <div class="titleblock">Quizá tb?</div>
               <div v-for="item in notFeatured" :key="item.slug">
                 <ArticleTeaser :heading="item.article.title">
                   <template #media>

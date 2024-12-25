@@ -252,37 +252,20 @@
       }
     }
 
+    .foodCard.carta .svg,
+    .foodCard.menudia .svg {
+      @apply bg-slate-300
+        dark:bg-slate-600;
+      svg {
+        @apply stroke-slate-400/80 stroke-2 dark:stroke-slate-300;
+      }
+    }
+
     .foodCard.carta {
       @apply relative;
-
-      .svg {
-        @apply bg-yellow-500 dark:bg-slate-600;
-        svg {
-          @apply w-full stroke-yellow-100 dark:stroke-slate-300;
-        }
-      }
-
-      /* .cta a {
-        @apply border-orange-400
-        bg-orange-200
-        text-orange-600;
-      } */
     }
     .foodCard.menudia {
-      /* .cta a{
-        @apply border-yellow-500
-        bg-yellow-200
-        text-yellow-600
-      } */
-
-      @apply bg-slate-100/75 dark:bg-slate-500/75;
-
-      .svg {
-        @apply bg-yellow-500 dark:bg-slate-600;
-        svg {
-          @apply stroke-yellow-100 dark:stroke-slate-300;
-        }
-      }
+      @apply bg-slate-400/75 dark:bg-slate-500/75;
     }
   }
 </style>
