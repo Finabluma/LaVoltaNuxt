@@ -7,6 +7,7 @@
       type: String,
     },
   })
+ 
 </script>
 <template>
   <div class="carrusel">
@@ -15,14 +16,11 @@
       <div class="wrapper">
         <Swiper
           :height="450"
+          :init="false"
           :auto-height="false"
           :modules="[SwiperAutoplay, SwiperFreeMode, SwiperPagination]"
           :slides-per-view="1"
-          :space-between="0"
-          :autoplay="{
-            delay: 5000,
-            disableOnInteraction: false,
-          }"
+          :space-between="10"
           :speed="1000"
           :free-mode="true"
           :pagination="{ clickable: true }"
