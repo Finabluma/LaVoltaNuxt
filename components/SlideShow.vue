@@ -68,10 +68,10 @@
     z-20
     w-screen 
     mx-auto
-    pb-8
-    md:px-5
-    bg-slate-50
-    dark:bg-slate-600;
+    py-8
+    /* md:px-5 */
+    /* bg-slate-100
+    dark:bg-slate-600; */;
 
     h2 {
       @apply text-lg
@@ -90,20 +90,19 @@
 
     .carrusel-wrapper {
       @apply mx-auto
-      sm:border
-      sm:border-slate-600/50
+      /* sm:border */
+      /* sm:border-slate-600/50
       sm:bg-slate-100/75
       sm:dark:bg-slate-300/75
-      sm:dark:border-slate-800/80
-      md:w-8/12
-      md:p-3
-      lg:w-7/12;
+      sm:dark:border-slate-800/80 */
+      md:w-full
+      md:py-1;
 
-      .wrapper {
-        @apply sm:p-2
+      /* .wrapper {
+        @apply sm:p-1
         sm:bg-slate-600
         sm:dark:bg-slate-500;
-      }
+      } */
       .gallery {
         @apply relative content-before;
 

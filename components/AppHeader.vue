@@ -13,7 +13,12 @@
 
   const route = useRoute()
   const isWhite = computed(() => {
-    return route.name === 'la-carta' || route.name === 'reservas'
+    return (
+      route.name === 'la-carta' ||
+      route.name === 'reservas' ||
+      route.name === 'el-menu' ||
+      route.name === 'index'
+    )
   })
 
   onMounted(() => {

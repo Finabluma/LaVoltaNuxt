@@ -29,7 +29,10 @@
       content-after
       transition-all
       duration-300
-      p-1;
+      p-1
+      
+      /* text-pink-400 */
+      dark:text-slate-300;
     }
 
     .panel-body {
@@ -46,10 +49,9 @@
         @apply border-none;
       }
 
-      .panel-header,
       .panel-header:hover {
         @apply text-pink-500
-        dark:text-yellow-400;
+         dark:text-slate-400;
       }
     }
 
