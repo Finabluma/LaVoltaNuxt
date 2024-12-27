@@ -15,7 +15,10 @@
   const isWhite = computed(() => {
     return (
       route.name === 'reservas' ||
-      route.name === 'el-menu' 
+      route.name === 'el-menu' ||
+      route.name === 'index' ||
+      route.name === 'la-carta' ||
+      route.name === 'revista'
     )
   })
 
