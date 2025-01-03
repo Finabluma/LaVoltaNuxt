@@ -139,7 +139,7 @@
                       <div v-if="destacado.subtitle" class="subtitle">
                         {{ destacado.subtitle }}
                       </div>
-                      <ArticleDate />
+                      <!-- <ArticleDate /> -->
                       <div v-if="destacado.categories" class="categories">
                         <ArticleCategories
                           :tags="destacado.categories"

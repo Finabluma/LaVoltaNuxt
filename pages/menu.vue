@@ -3,6 +3,10 @@
   const { menu } = usePagesStore()
   const { menuDia } = useMenuStore()
 
+  function formatPrice(num) {
+    return parseFloat(num).toFixed(2)
+  }
+
   // meta
   usePageHead({
     title: menuDia.title,
@@ -127,8 +131,8 @@
             </div>
             <div class="precio">
               <div class="inner_precio">
-                {{ menuDia.price }}€
-                <p class="font-typewriter">*El precio incluye IVA.</p>
+                {{ formatPrice(menuDia.price) }}€
+                <p class="font-typewriter">*El precio no incluye bebida.</p>
               </div>
             </div>
           </section>
@@ -220,7 +224,7 @@
         pt-[8%]
         pb-[5%]
         sm:pt-[3%]
-        sm:pb-[1%]
+        sm:pb-[8%]
         flex
         justify-center;
         .inner_precio {
@@ -228,7 +232,7 @@
           text-8xl;
 
           p {
-            @apply pb-2 content-before text-sm;
+            @apply pb-5 content-before text-sm;
 
             &:before {
               @apply block w-1/12 h-1 mb-2 bg-slate-300 dark:bg-slate-600;

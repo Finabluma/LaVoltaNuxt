@@ -1,6 +1,8 @@
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
+  import { ref, computed, onMounted, onUnmounted } from 'vue'
   import { articleQuery } from '~/queries'
+  const { siteNav } = useMainStore()
+
   const props = defineProps({
     error: Object,
   })
@@ -13,6 +15,7 @@
     query: articleQuery,
     params: params,
   })
+
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
 
@@ -71,7 +74,7 @@
           </li>
           <li>{{ data.title }}</li>
         </ArticleBreadcrumb>
-        <ArticleDate :data="data" class="mb-5 sm:w-11/12 mx-auto" />
+        <!-- <ArticleDate :data="data" class="mb-5 sm:w-11/12 mx-auto" /> -->
         <div v-if="data.summary" class="mb-5">
           <ArticleSummary :summary="data.summary" />
         </div>
@@ -83,12 +86,42 @@
         </div>
       </div>
     </main>
+    <!-- <aside v-if="data.optionalContent !== null">
+      <div v-for="item in data.optionalContent" :key="item._key" class="banner">
+        <div class="banner_wrapper">
+          <div v-if="item.image" class="image">
+            <ElementsMediaImageItem
+              :src="item.image.asset._ref"
+              :alt="item.image.alt"
+              height="150"
+              sizes="xs:150px"
+              :modifiers="{
+                crop: item.image.crop,
+                hotspot: item.image.hotspot,
+                q: 80,
+              }"
+              fit="cover"
+              format="webp"
+            />
+          </div>
+          <div class="banner_content">
+            <h2>{{ item.title }}</h2>
+            <div v-if="item.banner" class="inner-content">
+              {{ item.banner }}
+            </div>
+            <div v-if="item.enlace" class="enlace">
+              <ElementsTextLink>
+                {{ item.enlace.linkTarget._type }}
+              </ElementsTextLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside> -->
     <LazyAppFooter />
   </div>
   <div v-else>
     <h1>Hola</h1>
-    <br>
-    <br>
     <NuxtLink to="/">Go back home</NuxtLink>
   </div>
 </template>

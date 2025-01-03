@@ -117,8 +117,7 @@
     }
   }
   .banner {
-    @apply bg-slate-50
-    dark:bg-slate-600
+    @apply 
     pt-5
     mb-10
     sm:pt-7

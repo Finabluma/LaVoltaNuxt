@@ -16,7 +16,7 @@
   ul {
     @apply pt-4;
     li {
-      @apply font-sans;
+      @apply font-sans pb-2;
     }
   }
 </style>
