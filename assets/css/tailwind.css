@@ -236,7 +236,7 @@
       lg:py-10;
 
     .blockContent {
-      @apply content-after leading-relaxed;
+      @apply content-after leading-snug;
       p {
         @apply text-[1.1rem];
       }
