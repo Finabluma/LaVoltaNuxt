@@ -74,7 +74,7 @@
     @apply relative 
     w-11/12
     mx-auto
-    mb-2;
+    pb-2;
 
     article {
       @apply relative
@@ -96,7 +96,7 @@
         p-5
         shadow-md
       bg-slate-200
-      dark:bg-slate-400;
+      dark:bg-slate-500;
 
         .content_title {
           @apply text-xl
@@ -227,28 +227,31 @@
       mx-auto
       max-w-screen-md
       text-balance
-      pt-8
-      pb-2
+      pt-4
+      pb-4
       px-10
       mb-7
       md:mb-14
       md:px-[2%]
-      lg:py-5
-      content-after;
+      lg:py-10;
 
-    &:after {
-      @apply block 
+    .blockContent {
+      @apply content-after;
+      p {
+        @apply text-[1.1rem];
+      }
+      h2 {
+        @apply text-lg;
+      }
+      &:after {
+        @apply block 
         bg-slate-600
         dark:bg-slate-400
         w-1/12
         h-2
-        mt-6;
-    }
-    &:after {
-      @apply mt-1;
-    }
-    .blockContent h2 {
-      @apply text-lg;
+        mt-3
+        lg:mt-5;
+      }
     }
   }
   .noImg {

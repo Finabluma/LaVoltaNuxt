@@ -95,7 +95,7 @@
         <div class="menu_content">
           <section>
             <h1 class="sr-only">{{ menuDia.title }}</h1>
-            <div class="obs text-pretty text-[0.95rem]">
+            <div class="obs text-pretty">
               <ElementsTextContent
                 :blocks="menu.menuConditions"
                 class="text-balance"

@@ -91,7 +91,7 @@
             <template #header>
               <div
                 v-if="reservas.introTerms"
-                class="obs text-pretty text-[1rem]"
+                class="obs text-pretty"
               >
                 <ElementsTextContent
                   :blocks="reservas.introTerms"
