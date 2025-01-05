@@ -14,7 +14,7 @@
 </template>
 <style lang="postcss" scoped>
   ul {
-    @apply pt-4;
+    @apply pt-3;
     li {
       @apply font-sans pb-2;
     }

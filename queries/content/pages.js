@@ -58,6 +58,10 @@ export const pagesQuery = groq`{
     },
     "menu":*[_type=='menuPageType'][0]{
         ${headItems},
+        menuConditions,
+        price,
+        pricehalf,
+        priceshare,
         ${optionalContent},
         seo{
             ${seoQuery}
@@ -66,6 +70,7 @@ export const pagesQuery = groq`{
     },
     "carta":*[_type=='cartaPageType'][0]{
         ${headItems},
+        warning,
         seo{
             ${seoQuery}
         },
@@ -76,7 +81,8 @@ export const pagesQuery = groq`{
         seo{
             ${seoQuery}
         },
-        "reservasIntro": *[_type=='conditionsType'][0]{ title, introTerms },
+        introTerms,
+        "reservasIntro": *[_type=='conditionsType'][0]{ title },
         "conditions": *[_type=='conditionsType'][0]{ conditions[]->{title, terms}},
         ${optionalContent}
     },

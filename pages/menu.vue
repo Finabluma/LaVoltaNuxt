@@ -95,14 +95,19 @@
         <div class="menu_content">
           <section>
             <h1 class="sr-only">{{ menuDia.title }}</h1>
-            <div class="obs">
-              <small>{{ menuDia.menuConditions }}</small>
+            <div class="obs text-pretty text-[0.95rem]">
+              <ElementsTextContent
+                :blocks="menu.menuConditions"
+                class="text-balance"
+              />
             </div>
             <div class="card">
               <div>
                 <article class="skew">
                   <div class="content">
-                    <h2 class="content_title">{{ menuDia.primeros.title }}</h2>
+                    <h2 class="content_title font-bold">
+                      {{ menuDia.primeros.title }}
+                    </h2>
                     <MenuItems
                       :platos="menuDia.primeros.platos"
                       class="menu-items"
@@ -130,9 +135,23 @@
               </div>
             </div>
             <div class="precio">
-              <div class="inner_precio">
-                {{ formatPrice(menuDia.price) }}€
-                <p class="font-typewriter">*El precio no incluye bebida.</p>
+              <div>
+                <div class="inner_precio">
+                  {{ formatPrice(menu.price) }}€
+                  <p class="font-typewriter text-xs">
+                    * El precio no incluye bebida.
+                  </p>
+                </div>
+                <div class="excepciones">
+                  <div>
+                    Medio menu
+                    <span>{{ formatPrice(menu.pricehalf) }}€</span>
+                  </div>
+                  <div>
+                    Menú compartido
+                    <span>{{ formatPrice(menu.priceshare) }}€</span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -207,28 +226,30 @@
     .obs {
       @apply mb-4;
     }
+
     section {
       @apply relative;
       .card {
         @apply relative 
         w-11/12
         mx-auto
-        md:w-8/12;
+        md:w-11/12;
       }
       .precio {
         @apply relative
         z-10
-        w-full
         bg-slate-50
         dark:bg-slate-600
         pt-[8%]
         pb-[5%]
         sm:pt-[3%]
-        sm:pb-[8%]
+        sm:pb-[10%]
+        w-screen
         flex
-        justify-center;
+        justify-center
+        items-center;
         .inner_precio {
-          @apply max-w-screen-md mx-auto 
+          @apply max-w-sm mx-auto 
           text-8xl;
 
           p {
@@ -237,6 +258,15 @@
             &:before {
               @apply block w-1/12 h-1 mb-2 bg-slate-300 dark:bg-slate-600;
             }
+          }
+        }
+        .excepciones {
+          @apply max-w-sm
+          mx-auto
+          font-mono;
+
+          span {
+            @apply font-bold;
           }
         }
       }

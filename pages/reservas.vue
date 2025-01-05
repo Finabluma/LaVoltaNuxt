@@ -89,8 +89,14 @@
           <h1 class="sr-only">{{ reservas.title }}</h1>
           <ReservasConditions>
             <template #header>
-              <div v-if="reservas.reservasIntro" class="obs">
-                <small>{{ reservas.reservasIntro.introTerms }}</small>
+              <div
+                v-if="reservas.introTerms"
+                class="obs text-pretty text-[1rem]"
+              >
+                <ElementsTextContent
+                  :blocks="reservas.introTerms"
+                  class="text-balance"
+                />
               </div>
               <ConditionsIntro :title="reservas.reservasIntro.title" />
             </template>
@@ -111,6 +117,7 @@
 <style lang="postcss" scoped>
   .page .main_content {
     @apply w-screen;
+
     .obs {
       @apply mb-5;
     }

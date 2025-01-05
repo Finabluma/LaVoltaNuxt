@@ -74,41 +74,41 @@
     @apply relative 
     w-11/12
     mx-auto
-    mb-5;
+    mb-2;
 
     article {
       @apply relative
       w-full
-      md:w-8/12
-      lg:w-7/12
+      md:w-10/12
+      lg:w-10/12
       xl:w-6/12
       mx-auto
       flex
       justify-center
       items-center
-      box-border
-      shadow-md
-      mb-5;
+      box-border      
+      p-2
+      bg-slate-50
+      dark:bg-slate-600;
 
       .content {
         @apply w-full
         p-5
-        bg-slate-200
-        dark:bg-slate-500;
+        shadow-md
+      bg-slate-200
+      dark:bg-slate-400;
 
         .content_title {
           @apply text-xl
-          font-cameo
-
-          dark:text-slate-300
+         dark:text-slate-300
           content-after
           mb-2;
 
           &:after {
             @apply block
-                w-3
-                h-3
-                mt-3
+                w-6
+                h-6
+                mt-5
                 bg-slate-500/50
                 dark:bg-slate-300/20;
           }
@@ -117,8 +117,7 @@
     }
   }
   .banner {
-    @apply 
-    pt-5
+    @apply pt-5
     mb-10
     sm:pt-7
     md:pt-10
@@ -225,25 +224,31 @@
   .obs {
     @apply font-mono
       text-lg/tight
-      text-balance
-      text-center
       mx-auto
       max-w-screen-md
-      py-2
+      text-balance
+      pt-8
+      pb-2
+      px-10
       mb-7
       md:mb-14
+      md:px-[2%]
       lg:py-5
-      content-before;
+      content-after;
 
-    &:before,
     &:after {
-      @apply content-['*']
-        block 
-        bg-transparent
-        text-xs;
+      @apply block 
+        bg-slate-600
+        dark:bg-slate-400
+        w-1/12
+        h-2
+        mt-6;
     }
     &:after {
       @apply mt-1;
+    }
+    .blockContent h2 {
+      @apply text-lg;
     }
   }
   .noImg {

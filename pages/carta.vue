@@ -81,8 +81,11 @@
           <article>
             <h1 class="sr-only">{{ carta.title }}</h1>
             <section class="platos">
-              <div class="obs skew">
-                <small>{{ obs.warning }}</small>
+              <div class="obs text-pretty text-sm skew">
+                <ElementsTextContent
+                  :blocks="carta.warning"
+                  class="text-balance"
+                />
               </div>
               <h2 class="skew">Platos</h2>
 
