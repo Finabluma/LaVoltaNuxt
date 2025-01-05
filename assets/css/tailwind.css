@@ -73,8 +73,7 @@
   .card {
     @apply relative 
     w-11/12
-    mx-auto
-    pb-2;
+    mx-auto;
 
     article {
       @apply relative

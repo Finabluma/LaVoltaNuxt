@@ -232,8 +232,7 @@
       .card {
         @apply relative 
         w-11/12
-        mx-auto
-        md:w-11/12;
+        mx-auto;
       }
       .precio {
         @apply relative
