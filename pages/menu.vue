@@ -222,7 +222,7 @@
     @apply w-screen;
   }
   .menu_content {
-    @apply relative pb-[calc(2%)];
+    @apply relative;
     .obs {
       @apply mb-4;
     }
