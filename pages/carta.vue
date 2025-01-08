@@ -213,8 +213,8 @@
       /* text-pink-400 */
         dark:text-slate-500
         px-[5%]
-        mb-5
-        content-after;
+        mb-5;
+        /* content-after; */
 
       &:after {
         @apply block h-1 w-10 mt-6 bg-pink-400 dark:bg-slate-400;
