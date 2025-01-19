@@ -214,9 +214,9 @@
             .inner_content {
               @apply text-balance
                 px-1
-                mb-4
+                mb-10
                 text-lg
-                md:mb-7;
+                md:mb-10;
 
               p:first-of-type {
                 @apply uppercase

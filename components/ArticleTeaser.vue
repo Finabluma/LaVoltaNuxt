@@ -76,7 +76,6 @@
         @apply relative
         border
         border-slate-600/80
-        p-1
         bg-slate-600
         dark:bg-slate-300/75
         content-before
@@ -108,12 +107,13 @@
         md:flex;
 
         > div:first-of-type {
-          @apply mb-2
+          @apply mb-1
+          text-center
           md:w-10/12
           md:mx-auto
-          md:mb-5
+          md:mb-1
           md:bg-slate-600/80
-          md:backdrop-blur
+          md:backdrop-blur-sm
           md:text-slate-300
           md:p-2
           lg:mb-10;
@@ -121,20 +121,22 @@
           a {
             @apply mb-3
               block
-              text-2xl/none
+              text-4xl/tight
               md:text-slate-300;
           }
           .subtitle {
-            @apply text-sm mb-1;
+            @apply text-sm leading-none mb-1
+            lg:text-lg;
           }
         }
 
         .categories {
-          @apply flex items-center 
-          w-full
-          pt-2
-          pb-0
-          md:border-t-slate-300;
+          @apply flex 
+          justify-center
+          items-center 
+          /* w-full */
+          pt-1
+          pb-0;
 
           h3 {
             @apply sr-only;
@@ -163,22 +165,24 @@
     pb-10
     mb-5
     pt-2
-    sm:w-11/12
-    lg:w-9/12;
+    sm:w-11/12;
 
     .titleblock {
-      @apply mb-10
-      pt-3
+      @apply mb-4
+      pt-1
+      font-cameo
+      text-lg
+      dark:text-slate-400
       content-after
-      md:mt-16
+      md:mt-4
       lg:mt-8
       xl:mt-10;
 
       &:after {
         @apply block
-        w-6
-        h-6
-        mt-5
+        w-1/12
+        h-2
+        mt-2
         bg-slate-300/75
         dark:bg-slate-300/75;
       }
@@ -188,21 +192,23 @@
     }
     article {
       @apply px-1
-      mb-5
+      mb-2
       flex
-      flex-row-reverse
-      lg:items-center;
+      flex-row
+      items-center
+      xl:ml-auto;
 
       .media {
         @apply relative
-        w-20
-        h-20
+        w-28
+        h-28
+        p-1
         border-slate-600/80
         dark:border-slate-300/80
         content-before
         mr-3
-        sm:w-24
-        sm:h-24
+        sm:w-32
+        sm:h-32
         lg:mr-5;
 
         &:before {
@@ -226,21 +232,17 @@
       }
 
       .content {
-        @apply w-9/12
-        lg:w-10/12;
+        @apply w-9/12;
 
         > div:first-of-type {
           .enlace {
-            @apply mb-2
-            text-xl/none
+            @apply mb-0.5
+            text-xl/tight
             font-sans
-            /* pb-2
-            border-b
-            border-b-slate-600 */
-            dark:border-b-slate-300;
+            md:text-2xl;
           }
           .subtitle {
-            @apply text-sm/snug;
+            @apply text-sm/snug xl:text-lg;
           }
         }
       }

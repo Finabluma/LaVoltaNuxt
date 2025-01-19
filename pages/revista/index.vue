@@ -92,7 +92,7 @@
               </ArticleTeaser>
             </div>
             <div v-if="notFeatured" class="portada">
-              <div class="titleblock">Quizá tb?</div>
+              <div class="titleblock">otras cosas ...</div>
               <div v-for="item in notFeatured" :key="item.slug">
                 <ArticleTeaser :heading="item.article.title">
                   <template #media>
@@ -202,6 +202,6 @@
   .main_content section {
     @apply mx-auto 
     lg:w-11/12
-    xl:w-10/12;
+    xl:w-11/12;
   }
 </style>

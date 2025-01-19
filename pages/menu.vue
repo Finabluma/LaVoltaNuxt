@@ -242,7 +242,7 @@
         pt-[8%]
         pb-[5%]
         sm:pt-[3%]
-        sm:pb-[10%]
+        sm:pb-[5%]
         w-screen
         flex
         justify-center

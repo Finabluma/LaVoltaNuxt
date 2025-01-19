@@ -14,27 +14,27 @@
     <div class="carrusel-wrapper">
       <div class="wrapper">
         <Swiper
-          :height="450"
-          :init="false"
+          :height="300"
           :auto-height="false"
           :modules="[SwiperAutoplay, SwiperFreeMode, SwiperPagination]"
           :slides-per-view="1"
           :space-between="10"
           :speed="1000"
-          :free-mode="true"
-          :pagination="{ clickable: true }"
+          :free-mode="false"
+          :centered-slides="auto"
+          :pagination="{ clickable: true, vertical }"
           :loop="true"
           :breakpoints="{
             320: {
               slidesPerView: 1,
-              spaceBetween: 0,
+              spaceBetween: 10,
             },
             640: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 0,
             },
             1024: {
-              slidesPerView: 1,
+              slidesPerView: 2,
               spaceBetween: 0,
             },
           }"
