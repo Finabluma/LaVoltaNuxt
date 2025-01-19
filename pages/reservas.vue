@@ -89,10 +89,7 @@
           <h1 class="sr-only">{{ reservas.title }}</h1>
           <ReservasConditions>
             <template #header>
-              <div
-                v-if="reservas.introTerms"
-                class="obs text-pretty"
-              >
+              <div v-if="reservas.introTerms" class="obs text-pretty">
                 <ElementsTextContent
                   :blocks="reservas.introTerms"
                   class="text-balance"

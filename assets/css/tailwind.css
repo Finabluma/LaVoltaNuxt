@@ -138,10 +138,11 @@
         drop-shadow
         border-slate-300/80
         dark:bg-slate-300
-        rounded-full
-        w-24
-        h-24
+        /* rounded-full */
+        w-32
+        h-32
         mx-auto
+        mb-4
         overflow-hidden
         content-before;
 
@@ -157,44 +158,46 @@
           dark:to-slate-500/30;
         }
 
-        img {
+        /* img {
           @apply rounded-full;
-        }
+        } */
       }
 
       .banner_content {
         @apply text-center
         text-balance
-        p-2
+        py-2
         mx-auto
-        max-w-screen-lg
+        max-w-screen-md
         sm:w-11/12
         lg:w-10/12;
 
         h2 {
-          @apply text-3xl/snug 
-          mb-2
+          @apply text-5xl/tight 
+          mb-5
           capitalize
           content-after;
 
-          &:after {
+          /* &:after {
             @apply block
             w-1/12
             h-1;
-          }
+          } */
         }
 
         .inner-content {
-          @apply py-2
-          mb-12
+          @apply py-1
+          mb-20
           font-mono
-          text-base/normal;
+          text-base/normal
+          capitalize
+          lg:text-lg;
         }
 
         .enlace {
           @apply block
           mx-auto
-          mt-5;
+          mt-8;
 
           a {
             @apply font-bold
@@ -208,15 +211,6 @@
             sm:p-6;
           }
         }
-
-        /* & a {
-          @apply mx-auto
-          p-3 
-          block
-        bg-slate-600
-        text-slate-300
-          lg:w-4/12;
-        } */
       }
     }
   }

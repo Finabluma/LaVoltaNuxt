@@ -226,7 +226,7 @@
                 &:after {
                   @apply block
                     w-1/12
-                    mt-5;
+                    mt-3;
                 }
               }
             }
