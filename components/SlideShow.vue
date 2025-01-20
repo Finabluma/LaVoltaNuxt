@@ -21,8 +21,7 @@
           :space-between="10"
           :speed="1000"
           :free-mode="false"
-          :centered-slides="auto"
-          :pagination="{ clickable: true, vertical }"
+          :pagination="{ clickable: true }"
           :loop="true"
           :breakpoints="{
             320: {
@@ -65,10 +64,7 @@
     z-20
     w-screen 
     mx-auto
-    py-8
-    /* md:px-5 */
-    /* bg-slate-100
-    dark:bg-slate-600; */;
+    py-8;
 
     h2 {
       @apply text-lg

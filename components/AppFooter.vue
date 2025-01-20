@@ -82,7 +82,7 @@
         xl:flex-row
         xl:px-8
         xl:border-b
-        xl:border-slate-400
+        xl:border-slate-600
         xl:border-dotted
         xl:dark:border-slate-300
         xl:pt-0
@@ -96,9 +96,10 @@
       }
       .center {
         @apply pb-5
-        /* xl:border-b
+        xl:border-b
+        xl:border-dotted
         xl:border-slate-600
-        xl:dark:border-slate-300 */
+        xl:dark:border-slate-300
         xl:flex-row
         xl:justify-end
         xl:px-7;
