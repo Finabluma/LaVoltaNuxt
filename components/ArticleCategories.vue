@@ -16,9 +16,10 @@
     </div>
     <ul>
       <li v-for="item in tags" :key="item.id">
-        <NuxtLink :to="`/revista/categoria/${item.slug}`">
+        <!-- <NuxtLink :to="`/revista/categoria/${item.slug}`">
           {{ item.title }}
-        </NuxtLink>
+        </NuxtLink> -->
+        {{ item.title }}
       </li>
     </ul>
   </div>
