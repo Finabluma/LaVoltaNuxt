@@ -92,9 +92,9 @@
             h-full
             bg-gradient-radial
             from-slate-50/10
-            to-slate-200/40
+            to-slate-800/40
             dark:from-slate-600/30
-            dark:to-slate-700/70;
+            dark:to-slate-950/70;
         }
       }
 
