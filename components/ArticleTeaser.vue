@@ -45,6 +45,7 @@
       content-after
       content-before
       lg:mb-10
+      md:text-2xl
       flex
       items-center
       justify-center;
@@ -90,9 +91,10 @@
             w-full
             h-full
             bg-gradient-radial
-            from-slate-600/30
-            to-slate-600/10
-            mix-blend-multiply;
+            from-slate-50/10
+            to-slate-200/40
+            dark:from-slate-600/30
+            dark:to-slate-700/70;
         }
       }
 
@@ -111,9 +113,9 @@
           text-center
           md:w-10/12
           md:mx-auto
-          md:mb-1
-          md:bg-slate-600/80
-          md:backdrop-blur-sm
+          md:mb-10
+          md:bg-slate-800/60
+          dark:md:bg-slate-600/80
           md:text-slate-300
           md:p-2
           lg:mb-10;
@@ -128,29 +130,10 @@
             @apply text-sm leading-none mb-1
             lg:text-lg;
           }
-        }
 
-        .categories {
-          @apply flex 
-          justify-center
-          items-center 
-          /* w-full */
-          pt-1
-          pb-0;
-
-          h3 {
-            @apply sr-only;
-          }
-
-          > div {
-            @apply mb-0;
-          }
-
-          li {
-            @apply text-sm;
-
-            &:after {
-              @apply md:bg-slate-300;
+          .categories ul li {
+            a {
+              @apply text-sm xl:text-lg;
             }
           }
         }

@@ -103,15 +103,12 @@
             ref="intro"
           />
           <CartaMenu :items="home.cartamenu" ref="food" />
-          <div v-if="home.portada" class="articleHome">
+          <div v-if="isFeatured" class="articleHome">
             <div class="artHomeContent">
               <h1 class="text-center leading-1">
                 {{ home.portada.portada.title }}
               </h1>
-              <div
-                v-if="isFeatured"
-                class="destacado w-11/12 md:w-9/12 lg:w-8/12 xl:w-6/12"
-              >
+              <div class="destacado w-11/12 md:w-9/12 lg:w-8/12 xl:w-6/12">
                 <ArticleTeaser title="Destacado" :heading="destacado.title">
                   <template #media>
                     <ElementsMediaImageItem
