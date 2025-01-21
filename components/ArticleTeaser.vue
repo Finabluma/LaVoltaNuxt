@@ -35,7 +35,7 @@
 <style lang="postcss">
   /* Inicio */
   .destacado {
-    @apply mx-auto;
+    @apply mx-auto mb-2;
 
     .title {
       @apply text-xl
@@ -123,7 +123,8 @@
           a {
             @apply mb-3
               block
-              text-4xl/tight
+              text-3xl/tight
+              md:text-4xl
               md:text-slate-300;
           }
           .subtitle {
