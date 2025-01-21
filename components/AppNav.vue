@@ -57,6 +57,12 @@
           &:hover {
             @apply text-slate-300;
           }
+
+          &.router-link-active {
+            @apply cursor-default 
+            text-slate-200
+            dark:text-yellow-600;
+          }
         }
 
         &:first-of-type a {
@@ -100,7 +106,13 @@
           xl:flex
           xl:items-center
           xl:mb-0
-          xl:pr-2;
+          xl:pr-5;
+
+          &.router-link-active {
+            @apply cursor-default 
+            text-slate-400
+            dark:text-yellow-500;
+          }
 
           &:after {
             @apply block
@@ -114,7 +126,7 @@
             xl:h-1
             xl:rounded
             xl:mt-0
-            xl:ml-2;
+            xl:ml-5;
           }
         }
 

@@ -108,7 +108,7 @@
               <h1 class="text-center leading-1">
                 {{ home.portada.portada.title }}
               </h1>
-              <div class="destacado w-11/12 md:w-9/12 lg:w-8/12 xl:w-6/12">
+              <div class="destacado w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12">
                 <ArticleTeaser title="Destacado" :heading="destacado.title">
                   <template #media>
                     <ElementsMediaImageItem

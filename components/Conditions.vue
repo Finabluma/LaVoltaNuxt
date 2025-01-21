@@ -44,3 +44,9 @@
     </article>
   </div>
 </template>
+<style lang="postcss" scoped>
+  .card article{
+    @apply lg:w-8/12;
+
+  }
+</style>

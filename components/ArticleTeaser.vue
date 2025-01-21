@@ -180,7 +180,8 @@
       flex
       flex-row
       items-center
-      xl:ml-auto;
+      xl:ml-auto
+      xl:mb-3;
 
       .media {
         @apply relative
@@ -193,7 +194,9 @@
         mr-3
         sm:w-32
         sm:h-32
-        lg:mr-5;
+        lg:mr-5
+        xl:w-36
+        xl:h-36;
 
         &:before {
           @apply absolute
