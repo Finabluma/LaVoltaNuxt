@@ -77,7 +77,7 @@
       md:left-1/4
       z-30
       font-cameo
-      dark:text-slate-300;
+      dark:text-slate-600;
     }
 
     .carrusel-wrapper {
@@ -108,7 +108,7 @@
           from-slate-600/20
           to-slate-600/30
           dark:from-slate-900/10
-          dark:to-slate-900/60;
+          dark:to-slate-900/40;
         }
       }
     }
