@@ -49,87 +49,17 @@
       <div class="main_content">
         <section>
           <h1 class="sr-only">{{ revista.title }}</h1>
-          <section>
-            <h1 class="text-center">{{ revista.portada.title }}</h1>
-            <div v-if="isFeatured" class="destacado">
-              <ArticleTeaser title="Destacado" :heading="destacado.title">
-                <template #media>
-                  <ElementsMediaImageItem
-                    :src="destacado.mainImage.asset._ref"
-                    :alt="destacado.mainImage.alt"
-                    :modifiers="{
-                      crop: destacado.mainImage.crop,
-                      hotspot: destacado.mainImage.hotspot,
-                      q: 80,
-                    }"
-                    sizes="xs:100vw"
-                    height="200"
-                    fit="cover"
-                    format="webp"
-                  />
-                </template>
-                <template #default>
-                  <div>
-                    <ElementsTextLink
-                      link-type="internalLinkType"
-                      route="revista-slug"
-                      :slug="destacado.slug"
-                      >{{ destacado.title }}
-                    </ElementsTextLink>
-
-                    <div v-if="destacado.subtitle" class="subtitle">
-                      {{ destacado.subtitle }}
-                    </div>
-                    <!-- <ArticleDate /> -->
-                    <div v-if="destacado.categories" class="categories">
-                      <ArticleCategories
-                        :tags="destacado.categories"
-                        title="Categorias"
-                      />
-                    </div>
-                  </div>
-                </template>
-              </ArticleTeaser>
+          <div>
+            <div class="flex justify-center">
+              <h1>{{ revista.portada.title }}</h1>
             </div>
-            <div v-if="notFeatured" class="portada">
-              <div class="titleblock">otras cosas ...</div>
-              <div v-for="item in notFeatured" :key="item.slug">
-                <ArticleTeaser :heading="item.article.title">
-                  <template #media>
-                    <ElementsMediaImageItem
-                      :src="item.article.mainImage.asset._ref"
-                      :alt="item.article.mainImage.alt"
-                      :modifiers="{
-                        crop: item.article.mainImage.crop,
-                        hotspot: item.article.mainImage.hotspot,
-                        q: 80,
-                      }"
-                      sizes="xs:200px"
-                      height="200"
-                      fit="cover"
-                      format="webp"
-                    />
-                  </template>
-                  <template #default>
-                    <div>
-                      <div class="enlace">
-                        <ElementsTextLink
-                          link-type="internalLinkType"
-                          route="revista-slug"
-                          :slug="item.article.slug"
-                          >{{ item.article.title }}
-                        </ElementsTextLink>
-                      </div>
-                      <div v-if="item.article.subtitle" class="subtitle">
-                        {{ item.article.subtitle }}
-                      </div>
-                      <!-- <ArticleDate /> -->
-                    </div>
-                  </template>
-                </ArticleTeaser>
-              </div>
+            <div v-if="isFeatured.length > 0">
+              <ArticleDestacado :items="destacado" />
             </div>
-          </section>
+            <div v-if="notFeatured">
+              <ArticlesPortada :items="notFeatured" />
+            </div>
+          </div>
         </section>
       </div>
     </main>
@@ -203,5 +133,22 @@
     @apply mx-auto 
     lg:w-11/12
     xl:w-11/12;
+
+    h1 {
+      @apply text-xl
+        font-normal
+        lowercase
+        tracking-[1.5rem]
+        pl-[1.5rem]
+        py-8
+        sm:pb-0
+        text-slate-400
+      dark:text-slate-400
+        sm:text-2xl;
+    }
+
+    .destacado {
+      @apply lg:w-11/12;
+    }
   }
 </style>

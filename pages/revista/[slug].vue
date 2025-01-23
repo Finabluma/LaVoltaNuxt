@@ -16,6 +16,7 @@
     params: params,
   })
 
+
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
 

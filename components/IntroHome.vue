@@ -54,7 +54,9 @@
 
     .intro_inner {
       @apply w-full
-      p-8
+      pt-5
+      pb-8
+      px-5
       mx-auto
       sm:text-center
       sm:p-8
@@ -66,8 +68,9 @@
         @apply leading-none
         mb-6
         capitalize
-        font-mono
-        text-6xl
+        font-mono        
+        min-[375px]:text-6xl
+        sm:text-6xl
         lg:text-5xl
         xl:text-6xl;
       }

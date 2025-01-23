@@ -29,6 +29,7 @@ export const linkQuery = groq`
             linkTarget->_type == "articleType" => "revista-slug",
             linkTarget->_type == "contactaType" => "contacta",
             linkTarget->_type == "termsType" => "aviso-legal",
+            "categoryType" => "categoria-slug",
         ),
         "slug":linkTarget->slug.current,
     },

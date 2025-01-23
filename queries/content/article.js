@@ -31,3 +31,17 @@ export const articleQuery = groq`*[_type == 'articleType' && slug.current == $sl
         }      
     }
 `
+
+export const articleCategory = groq`*[_type == 'articleType']{
+        ${headItems},
+        "slug":slug.current,
+        mainImage,
+        "id":_id,
+        subtitle,
+        categories[]->{
+                "id":_id,
+                title,
+                "slug":slug.current
+        },      
+    }
+`

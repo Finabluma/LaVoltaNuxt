@@ -103,50 +103,12 @@
             ref="intro"
           />
           <CartaMenu :items="home.cartamenu" ref="food" />
-          <div v-if="isFeatured" class="articleHome">
+          <div v-if="isFeatured.length > 0" class="articleHome">
             <div class="artHomeContent">
               <h1 class="text-center leading-1">
                 {{ home.portada.portada.title }}
               </h1>
-              <div class="destacado w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12">
-                <ArticleTeaser title="Destacado" :heading="destacado.title">
-                  <template #media>
-                    <ElementsMediaImageItem
-                      :src="destacado.mainImage.asset._ref"
-                      :alt="destacado.mainImage.alt"
-                      :modifiers="{
-                        crop: destacado.mainImage.crop,
-                        hotspot: destacado.mainImage.hotspot,
-                        q: 80,
-                      }"
-                      sizes="xs:100vw"
-                      height="200"
-                      fit="cover"
-                      format="webp"
-                    />
-                  </template>
-                  <template #default>
-                    <div>
-                      <ElementsTextLink
-                        link-type="internalLinkType"
-                        route="revista-slug"
-                        :slug="destacado.slug"
-                        >{{ destacado.title }}
-                      </ElementsTextLink>
-                      <div v-if="destacado.subtitle" class="subtitle">
-                        {{ destacado.subtitle }}
-                      </div>
-                      <!-- <ArticleDate /> -->
-                      <div v-if="destacado.categories" class="categories">
-                        <ArticleCategories
-                          :tags="destacado.categories"
-                          title="Categorias"
-                        />
-                      </div>
-                    </div>
-                  </template>
-                </ArticleTeaser>
-              </div>
+              <ArticleDestacado :items="destacado" />
             </div>
           </div>
         </section>
@@ -214,8 +176,8 @@
 <style lang="postcss" scoped>
   .articleHome {
     @apply relative 
-    min-h-dvh
-    bg-slate-50
+    min-h-[85dvh]
+    bg-slate-500
     dark:bg-slate-600
     border-t-2
     border-t-slate-200
@@ -224,14 +186,23 @@
     flex-col
     justify-evenly
     py-6
-    sm:pb-12
-    md:portrait:min-h-full
-    md:portrait:h-[70dvh];
+    sm:py-12;
 
     .artHomeContent {
       @apply flex
       flex-col
+      items-center
       justify-evenly;
+
+      h1 {
+        @apply text-xl
+        font-mono
+        lowercase
+        tracking-[1rem]
+        pl-5
+        text-slate-300
+        dark:text-slate-400;
+      }
     }
   }
 </style>
