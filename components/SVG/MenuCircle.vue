@@ -18,7 +18,7 @@
       stroke-[5px]
       stroke-slate-900/20
       fill-slate-500/80
-      dark:fill-slate-300
+      dark:fill-slate-500 
       dark:stroke-slate-400/50;
     }
   }

@@ -16,8 +16,8 @@
     .object {
       @apply invisible
       stroke-[5px]
-      stroke-slate-900/20 
-      fill-slate-400/80 
+      stroke-slate-900/30 
+      fill-slate-500/90 
       dark:fill-slate-500 
       dark:stroke-slate-400/50;
     }

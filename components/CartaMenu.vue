@@ -15,11 +15,11 @@
         .timeline()
         .set(q('.content'), { visibility: 'visible', autoAlpha: 0 })
         .set(q('svg'), { visibility: 'visible' })
+        .set(q('path'), { strokeOpacity: 0 })
         .set(q('.object'), {
           visibility: 'visible',
-          fill: 'none',
           strokeOpacity: 0,
-          strokeWidth: 0
+          strokeWidth: 0,
         })
         .add('svg')
         .from(
