@@ -12,8 +12,11 @@
 </template>
 <style lang="postcss" scoped>
   .object {
-    @apply fill-slate-500/80
-    dark:fill-slate-400 
+    @apply stroke-2 
+    stroke-slate-200/80
+    fill-slate-500/80 
+    dark:fill-slate-500 
+    dark:stroke-slate-400
     invisible;
   }
 </style>

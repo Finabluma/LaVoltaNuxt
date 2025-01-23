@@ -69,7 +69,6 @@
         .from(
           q('.object'),
           {
-            stroke: 'currentColor',
             drawSVG: '100%',
           },
           'svg'
@@ -258,15 +257,6 @@
     .foodCard.menudia .svg {
       @apply bg-slate-400/75
         dark:bg-slate-600;
-      svg {
-        @apply stroke-slate-100/80 stroke-2 dark:stroke-slate-300;
-      }
-    }
-
-    .foodCard.carta .svg {
-      svg {
-        @apply stroke-slate-600/80 stroke-[3px] dark:stroke-slate-600;
-      }
     }
 
     .foodCard.carta {
