@@ -13,7 +13,7 @@
 <style lang="postcss" scoped>
   .object {
     @apply stroke-2 
-    stroke-slate-200/80
+    stroke-slate-800/80
     fill-slate-500/80 
     dark:fill-slate-500 
     dark:stroke-slate-400
