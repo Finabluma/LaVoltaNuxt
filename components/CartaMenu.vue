@@ -13,34 +13,24 @@
       let q = gsap.utils.selector(panel)
       const tl = gsap
         .timeline()
-        .set(q('.content'), { autoAlpha: 0 })
+        .set(q('.content'), { visibility: 'visible', autoAlpha: 0 })
         .set(q('svg'), { visibility: 'visible' })
         .set(q('.object'), {
           visibility: 'visible',
           fill: 'none',
           strokeOpacity: 0,
-          strokeWidth: 0,
+          strokeWidth: 0
         })
         .add('svg')
         .from(
           q('.object'),
           {
             strokeOpacity: 1,
-            strokeWidth: 2,
+            strokeWidth: 5,
             drawSVG: 0,
-            rotate: -8,
+            rotate: -5,
           },
           'svg'
-        )
-        .from(
-          q('.object'),
-          {
-            duration: 0.5,
-            css: {
-              fill: 'currenColor',
-            },
-          },
-          'svg-=0.25'
         )
         .to(
           q('.content'),
@@ -52,7 +42,7 @@
         .from(
           q('.inner'),
           {
-            yPercent: 10,
+            yPercent: 20,
           },
           'svg'
         )
@@ -72,16 +62,6 @@
       const tl = gsap
         .timeline()
         .add('svg')
-        .from(
-          q('.object'),
-          {
-            duration: 0.5,
-            css: {
-              fillOpacity: 0.4,
-            },
-          },
-          'svg'
-        )
         .from(
           q('.object'),
           {
@@ -159,12 +139,12 @@
             <button class="cta">
               <div v-if="index == 0">
                 <NuxtLink to="la-carta" :title="item.link.linkTarget.title">
-                  {{ item.heading }}
+                  {{ item.link.title || item.link.linkTarget.title }}
                 </NuxtLink>
               </div>
               <div v-if="index == 1">
                 <NuxtLink to="el-menu" :title="item.link.linkTarget.title">
-                  {{ item.heading }}
+                  {{ item.link.title || item.link.linkTarget.title }}
                 </NuxtLink>
               </div>
             </button>
@@ -218,7 +198,8 @@
         }
       }
       .content {
-        @apply relative
+        @apply invisible
+          relative
           py-5
           px-2
           mx-auto
@@ -260,7 +241,8 @@
                     w-1/12
                     h-1
                     mt-3
-                    bg-slate-600;
+                    bg-slate-600
+                    dark:bg-slate-400;
                 }
               }
             }
@@ -284,14 +266,22 @@
       .content .inner .inner-wrapper .cta a {
         @apply bg-slate-600/80 border-slate-700
         text-slate-50/50;
+
+        &:hover {
+          @apply bg-slate-700 text-slate-300;
+        }
       }
     }
     .foodCard.menudia {
       @apply bg-slate-100/50 dark:bg-slate-600/40;
 
       .content .inner .inner-wrapper .cta a {
-        @apply bg-slate-400 border-slate-400
-        text-slate-600/90;
+        @apply bg-slate-600 border-slate-500/80
+        text-slate-400/90;
+
+        &:hover {
+          @apply bg-slate-700 text-slate-300;
+        }
       }
     }
   }
