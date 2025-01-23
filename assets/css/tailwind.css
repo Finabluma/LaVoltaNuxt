@@ -115,6 +115,19 @@
       }
     }
   }
+  .cta {
+    @apply text-lg/tight
+      lg:text-xl;
+
+    a {
+      @apply px-6 py-4
+      border
+      bg-slate-300
+      font-coordinates
+      dark:bg-slate-600
+      dark:border-slate-600;
+    }
+  }
   .banner {
     @apply pt-5
     mb-10

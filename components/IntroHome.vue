@@ -20,6 +20,7 @@
           pin: true,
           scrub: true,
           pinSpacing: false,
+          snap:1
         },
       })
       .to(q('h2'), { y: '+=80', autoAlpha: 0 })

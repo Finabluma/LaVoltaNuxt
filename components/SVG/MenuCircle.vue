@@ -10,3 +10,10 @@
     />
   </svg>
 </template>
+<style lang="postcss" scoped>
+  .object {
+    @apply fill-slate-500/80
+    dark:fill-slate-400 
+    invisible;
+  }
+</style>

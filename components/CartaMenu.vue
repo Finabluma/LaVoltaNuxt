@@ -15,15 +15,9 @@
         .timeline()
         .set(q('svg'), { display: 'block' })
         .set(q('.content'), { autoAlpha: 0 })
-        .set(q('path'), { fillOpacity: 1, strokeWidth: 0, strokeOpacity: 0 })
+        .set(q('path'), { strokeWidth: 0, strokeOpacity: 0 })
+        .set(q('.object'), { visibility: 'visible', fillOpacity: 0 })
         .add('svg')
-        .from(
-          q('path'),
-          {
-            fillOpacity: 1,
-          },
-          'svg'
-        )
         .from(
           q('.object'),
           {
@@ -33,6 +27,13 @@
             rotate: -10,
           },
           'svg'
+        )
+        .from(
+          q('.object'),
+          {
+            fillOpacity: 0,
+          },
+          'svg+=0.5'
         )
         .to(
           q('.content'),
@@ -68,6 +69,7 @@
         .from(
           q('.object'),
           {
+            stroke: 'currentColor',
             drawSVG: '100%',
           },
           'svg'
@@ -118,12 +120,20 @@
         <div class="inner">
           <div class="inner-wrapper">
             <div v-if="index == 0" class="heading">
-              <NuxtLink to="la-carta" :title="item.link.linkTarget.title">
+              <NuxtLink
+                to="la-carta"
+                :title="item.link.linkTarget.title"
+                class="enlace"
+              >
                 <h2>{{ item.heading }}</h2>
               </NuxtLink>
             </div>
             <div v-if="index == 1" class="heading">
-              <NuxtLink to="el-menu" :title="item.link.linkTarget.title">
+              <NuxtLink
+                to="el-menu"
+                :title="item.link.linkTarget.title"
+                class="enlace"
+              >
                 <h2>{{ item.heading }}</h2>
               </NuxtLink>
             </div>
@@ -153,7 +163,7 @@
   .wrapper {
     @apply relative
     bg-slate-400
-        dark:bg-slate-500;
+    dark:bg-slate-500;
 
     .foodCard {
       @apply relative
@@ -204,9 +214,8 @@
           lg:w-6/12;
         .inner {
           .inner-wrapper {
-            a {
-              @apply block
-                md:py-2;
+            .enlace {
+              @apply block;
 
               h2 {
                 @apply text-6xl/tight font-coordinates;
@@ -216,8 +225,8 @@
             .inner_content {
               @apply text-balance
                 px-1
-                mb-10
-                md:mb-10;
+                mb-8
+                md:mb-12;
 
               p {
                 @apply font-sans;
@@ -235,25 +244,9 @@
                   @apply block
                     w-1/12
                     h-1
-                    mt-2;
+                    mt-3
+                    bg-slate-600;
                 }
-              }
-            }
-
-            .cta {
-              @apply text-lg
-                lg:text-xl;
-
-              a {
-                @apply p-4 
-                border-2
-                rounded-lg
-                border-slate-300
-                bg-slate-200
-                font-bold
-                
-                dark:bg-slate-600
-                dark:border-slate-600;
               }
             }
           }
@@ -270,11 +263,27 @@
       }
     }
 
+    .foodCard.carta .svg {
+      svg {
+        @apply stroke-slate-600/80 stroke-[3px] dark:stroke-slate-600;
+      }
+    }
+
     .foodCard.carta {
       @apply relative;
+
+      .content .inner .inner-wrapper .cta a {
+        @apply bg-slate-600/80 border-slate-700
+        text-slate-50/50;
+      }
     }
     .foodCard.menudia {
-      @apply bg-slate-100/75 dark:bg-slate-500/75;
+      @apply bg-slate-100/75 dark:bg-slate-600/40;
+
+      .content .inner .inner-wrapper .cta a {
+        @apply bg-slate-400 border-slate-400
+        text-slate-600/90;
+      }
     }
   }
 </style>
