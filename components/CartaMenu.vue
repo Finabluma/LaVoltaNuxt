@@ -28,7 +28,7 @@
             strokeOpacity: 1,
             strokeWidth: 2,
             drawSVG: 0,
-            rotate: -10,
+            rotate: -8,
           },
           'svg'
         )
