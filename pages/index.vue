@@ -177,7 +177,7 @@
   .articleHome {
     @apply relative 
     min-h-[85dvh]
-    bg-slate-600
+    bg-slate-200
     dark:bg-slate-600
     border-t-2
     border-t-slate-200
@@ -196,12 +196,13 @@
 
       h1 {
         @apply text-xl
-        font-mono
+        font-typewriter
         lowercase
         tracking-[1rem]
-        pl-5
+        pt-5
         mb-5
-        text-slate-300
+        ml-[1rem]        
+        text-slate-400
         dark:text-slate-400;
       }
     }

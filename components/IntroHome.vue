@@ -68,7 +68,7 @@
         @apply leading-none
         mb-6
         capitalize
-        font-mono        
+        font-coordinates        
         min-[375px]:text-6xl
         sm:text-6xl
         lg:text-5xl
@@ -80,14 +80,17 @@
         content-after
         content-before;
         p {
-          @apply text-xl lg:text-xl;
+          @apply font-sans
+          text-lg 
+          lg:text-xl;
         }
 
         &::after,
         &::before {
           @apply block
           w-1/12
-          h-2;
+          h-1
+          ml-2;
         }
 
         &::after {

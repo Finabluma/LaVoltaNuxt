@@ -125,8 +125,8 @@
       @apply fixed
       top-0  
       backdrop-blur-sm
-      bg-slate-50/70
-      dark:bg-slate-600/70;
+      /* bg-slate-50/70
+      dark:bg-slate-600/70 */;
 
       .misc .linktocarta .linkNav svg {
         @apply fill-slate-300;

@@ -75,7 +75,7 @@
             &:before {
               @apply block
               bg-slate-300
-              dark:bg-slate-500
+              dark:bg-slate-300
               h-1
               w-10
               mb-2;

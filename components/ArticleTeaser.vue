@@ -28,23 +28,8 @@
 <style lang="postcss" scoped>
   /* Inicio */
   .destacado {
-    
     .title {
-      @apply max-sm:hidden
-      flex
-      text-lg
-      font-mono
-      uppercase
-      text-slate-400
-      dark:text-slate-400
-      mx-auto
-      my-5
-      content-before
-      content-after
-      lg:mb-10
-      md:text-xl
-      items-center
-      justify-center;
+      @apply sr-only;
 
       &:after,
       &:before {
@@ -68,8 +53,9 @@
 
       .media {
         @apply relative
-        bg-slate-600
+        bg-slate-400
         dark:bg-slate-300/75
+        p-2
         content-before
         mb-2;
 
@@ -117,8 +103,7 @@
 
   .portada {
     article {
-      @apply
-      mb-3
+      @apply mb-3
       flex
       flex-row
       items-center

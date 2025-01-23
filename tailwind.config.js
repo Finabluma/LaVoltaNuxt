@@ -18,6 +18,7 @@ export default {
       fontFamily: {
         sans: ['ibm-plex-mono', 'sans-serif'],
         serif: ['dejanire-headline', 'serif'],
+        coordinates: ['coordinates-variable', 'sans -serif '],
         cameo: ['nitti-typewriter-cameo', 'sans-serif'],
         typewriter: ['nitti-typewriter-normal', 'sans-serif'],
       },

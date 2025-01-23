@@ -151,15 +151,15 @@
 </template>
 <style lang="postcss" scoped>
   .wrapper {
-    @apply relative;
+    @apply relative
+    bg-slate-400
+        dark:bg-slate-500;
 
     .foodCard {
       @apply relative
         mx-auto
         pt-8
-        pb-12
-        bg-slate-100
-        dark:bg-slate-500
+        pb-12        
         md:px-10
         lg:flex
         lg:items-center
@@ -194,10 +194,12 @@
       }
       .content {
         @apply relative
-          p-5
+          py-5
+          px-2
           mx-auto
           opacity-40
           text-center
+          text-balance
           lg:text-left
           lg:w-6/12;
         .inner {
@@ -207,7 +209,7 @@
                 md:py-2;
 
               h2 {
-                @apply text-6xl/tight font-sans;
+                @apply text-6xl/tight font-coordinates;
               }
             }
 
@@ -215,18 +217,25 @@
               @apply text-balance
                 px-1
                 mb-10
-                text-lg
                 md:mb-10;
 
+              p {
+                @apply font-sans;
+              }
+
               p:first-of-type {
-                @apply uppercase
+                @apply px-2
+                  uppercase
                   mb-2
-                  content-after;
+                  content-after
+                  lg:px-0
+                  lg:mb-5;
 
                 &:after {
                   @apply block
                     w-1/12
-                    mt-3;
+                    h-1
+                    mt-2;
                 }
               }
             }

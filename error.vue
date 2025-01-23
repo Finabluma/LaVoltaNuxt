@@ -5,19 +5,17 @@
 </script>
 
 <template>
-  <div class="relative bg-slate-200 dark:bg-slate-600">
+  <div class="page">
     <AppHeader />
     <main>
-      <div class="wrapper relative max-w-screen-2xl flex justify-center">
+      <div class="wrapper">
         <div class="content">
-          <h1 class="statusCode sr-only">
+          <h1 class="statusCode">
             {{ error.statusCode }}
           </h1>
-          <NuxtLink
-            to="/"
-            class="font-cameo text-slate-800 dark:text-slate-400 absolute bottom-20 xl:bottom-0 right-auto w-full h-[10vh] left-auto flex justify-center"
-          >
-            <span class="block mr-2">Algo salió mal </span> Vuelve al Inicio
+          <NuxtLink to="/" class="enlace">
+            Algo salió mal. Vuelve al
+            <span class="underline dark:text-slate-300 font-cameo">inicio</span>
           </NuxtLink>
         </div>
         <div class="svg overflow-hidden">
@@ -29,7 +27,34 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  /* .statusCode {
-    @apply font-cameo text-slate-500/20 dark:text-slate-800/30 text-pretty  text-[35rem];
-  } */
+  .wrapper {
+    @apply relative 
+    max-w-screen-2xl 
+    flex 
+    justify-center;
+
+    .statusCode {
+      @apply sr-only;
+    }
+
+    .enlace {
+      @apply font-sans
+      font-bold 
+      text-lg
+      text-center
+      bg-slate-400/60
+      dark:bg-slate-700/40
+      text-slate-600/80
+      dark:text-slate-400/80
+      absolute  
+      top-[40%] 
+      max-sm:w-8/12
+      p-2 
+      h-[12vh] 
+      flex-col
+      justify-center
+      items-center
+      flex-wrap;
+    }
+  }
 </style>

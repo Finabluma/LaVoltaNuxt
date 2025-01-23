@@ -173,9 +173,10 @@
         lg:w-10/12;
 
         h2 {
-          @apply text-5xl/tight 
-          mb-5
+          @apply font-coordinates
+          text-5xl/tight 
           capitalize
+          mb-5
           content-after;
 
           /* &:after {
