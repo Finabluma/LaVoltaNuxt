@@ -56,7 +56,7 @@
             <div v-if="isFeatured.length > 0">
               <ArticleDestacado :items="destacado" />
             </div>
-            <div v-if="notFeatured">
+            <div v-if="notFeatured.length > 0">
               <ArticlesPortada :items="notFeatured" />
             </div>
           </div>

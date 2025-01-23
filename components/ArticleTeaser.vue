@@ -49,7 +49,7 @@
         @apply block
         w-2/12
         h-0.5
-        bg-slate-500/50;
+        bg-slate-300/50;
       }
 
       &:after {
