@@ -177,7 +177,7 @@
   .articleHome {
     @apply relative 
     min-h-[85dvh]
-    bg-slate-200
+    bg-slate-50
     dark:bg-slate-600
     border-t-2
     border-t-slate-200

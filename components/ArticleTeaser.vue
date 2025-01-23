@@ -53,9 +53,9 @@
 
       .media {
         @apply relative
-        bg-slate-400
+        bg-slate-100
         dark:bg-slate-300/75
-        p-2
+        p-1
         content-before
         mb-2;
 

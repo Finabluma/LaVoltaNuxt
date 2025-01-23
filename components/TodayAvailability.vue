@@ -65,7 +65,7 @@
     flex
     justify-center
     items-center
-    bg-slate-200
+    bg-slate-300
     text-slate-700
     dark:bg-slate-600
     dark:text-slate-300

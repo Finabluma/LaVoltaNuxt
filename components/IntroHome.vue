@@ -20,7 +20,7 @@
           pin: true,
           scrub: true,
           pinSpacing: false,
-          snap:1
+          snap: 1,
         },
       })
       .to(q('h2'), { y: '+=80', autoAlpha: 0 })
@@ -50,7 +50,7 @@
   .intro {
     @apply relative
     w-screen
-    bg-slate-50
+    bg-slate-300
     dark:bg-slate-600;
 
     .intro_inner {
@@ -91,7 +91,9 @@
           @apply block
           w-1/12
           h-1
-          ml-2;
+          ml-2
+          bg-slate-800/20
+          dark:bg-slate-400;
         }
 
         &::after {
@@ -99,7 +101,7 @@
         }
 
         &::before {
-          @apply mt-6 mb-4 bg-slate-300 dark:bg-slate-400;
+          @apply mt-6 mb-4;
         }
       }
     }

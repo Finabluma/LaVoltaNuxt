@@ -15,11 +15,11 @@
     @apply invisible;
     .object {
       @apply invisible
-      stroke-[3px] 
-      stroke-slate-800/20 
-      fill-slate-600/80
+      stroke-[5px]
+      stroke-slate-900/20 
+      fill-slate-400/80 
       dark:fill-slate-500 
-      dark:stroke-slate-400;
+      dark:stroke-slate-400/50;
     }
   }
 </style>
