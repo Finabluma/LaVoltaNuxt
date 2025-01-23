@@ -14,16 +14,13 @@
       const tl = gsap
         .timeline()
         .set(q('.content'), { autoAlpha: 0 })
+        .set(q('svg'), { visibility: 'visible' })
         .set(q('path'), {
           strokeWidth: 0,
           strokeOpacity: 0,
           fillOpacity: 0,
         })
-        .set(q('path.content'), {
-          strokeWidth: 0,
-          strokeOpacity: 0,
-          fillOpacity: 0,
-        })
+        .set(q('.object'), { fill: 'none', strokeOpacity: 0 })
         .add('svg')
         .from(
           q('.object'),
@@ -38,8 +35,9 @@
         .from(
           q('.object'),
           {
+            duration: 0.5,
             css: {
-              fillOpacity: 0,
+              fill: 'currenColor',
             },
           },
           'svg+=0.5'
@@ -73,7 +71,6 @@
       let q = gsap.utils.selector(panel)
       const tl = gsap
         .timeline()
-        .set(q('svg'), { visibility: 'visible' })
         .add('svg')
         .from(
           q('.object'),
@@ -276,6 +273,9 @@
     .foodCard.menudia .svg {
       @apply bg-slate-400/75
         dark:bg-slate-600;
+      svg {
+        @apply invisible;
+      }
     }
 
     .foodCard.carta {
