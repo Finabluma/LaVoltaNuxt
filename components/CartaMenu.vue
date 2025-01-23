@@ -15,12 +15,12 @@
         .timeline()
         .set(q('.content'), { autoAlpha: 0 })
         .set(q('svg'), { visibility: 'visible' })
-        .set(q('path'), {
-          strokeWidth: 0,
+        .set(q('.object'), {
+          visibility: 'visible',
+          fill: 'none',
           strokeOpacity: 0,
-          fillOpacity: 0,
+          strokeWidth: 0,
         })
-        .set(q('.object'), { fill: 'none', strokeOpacity: 0 })
         .add('svg')
         .from(
           q('.object'),
@@ -40,7 +40,7 @@
               fill: 'currenColor',
             },
           },
-          'svg+=0.5'
+          'svg-=0.25'
         )
         .to(
           q('.content'),
@@ -77,7 +77,7 @@
           {
             duration: 0.5,
             css: {
-              fillOpacity: 0.8,
+              fillOpacity: 0.4,
             },
           },
           'svg'

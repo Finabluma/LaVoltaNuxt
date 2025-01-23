@@ -11,11 +11,15 @@
   </svg>
 </template>
 <style lang="postcss" scoped>
-  .object {
-    @apply stroke-[3px] 
-    stroke-slate-800/20 
-    fill-slate-600/80
-    dark:fill-slate-500 
-    dark:stroke-slate-400;
+  svg {
+    @apply invisible;
+    .object {
+      @apply invisible
+      stroke-[3px] 
+      stroke-slate-800/20 
+      fill-slate-600/80
+      dark:fill-slate-500 
+      dark:stroke-slate-400;
+    }
   }
 </style>
