@@ -148,7 +148,8 @@
     }
 
     .destacado {
-      @apply lg:w-11/12;
+      @apply lg:w-10/12
+      xl:w-8/12;
     }
   }
 </style>

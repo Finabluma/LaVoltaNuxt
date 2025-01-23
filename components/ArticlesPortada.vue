@@ -57,8 +57,8 @@
     pt-2
     w-full
     md:w-10/12
-    lg:w-10/12
-    xl:w-8/12;
+    lg:w-11/12
+    xl:w-9/12;
 
     .titleblock {
       @apply mb-4
@@ -86,7 +86,7 @@
     article {
       .enlace {
         @apply font-sans
-        text-xl/tight
+        text-lg/tight
         text-slate-500
         dark:text-slate-300
         md:text-2xl
@@ -101,11 +101,12 @@
 
         &:before {
           @apply block
-              bg-slate-300
-              dark:bg-slate-500
-              h-1
-              w-10
-              mb-2;
+          bg-slate-300
+          dark:bg-slate-500
+          h-1
+          w-10
+          mb-1
+          mt-2;
         }
       }
 

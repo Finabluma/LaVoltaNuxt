@@ -28,6 +28,7 @@
 <style lang="postcss" scoped>
   /* Inicio */
   .destacado {
+    
     .title {
       @apply flex
       text-lg
@@ -106,7 +107,7 @@
           p-2
           md:mb-10
           lg:mb-10
-          lg:w-9/12;
+          lg:w-10/12;
         }
       }
     }
@@ -115,8 +116,8 @@
 
   .portada {
     article {
-      @apply px-1
-      mb-5
+      @apply
+      mb-3
       flex
       flex-row
       items-center
@@ -125,8 +126,8 @@
 
       .media {
         @apply relative
-        w-28
-        h-28
+        w-20
+        h-20
         p-1
         border-slate-600/80
         dark:border-slate-300/80
