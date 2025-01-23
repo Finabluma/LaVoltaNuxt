@@ -13,6 +13,7 @@ const cartaMenuItems = groq`
         excerpt,
         heading,
         link{
+            title,
             linkTarget->{
                 title,
                 mainImage{
