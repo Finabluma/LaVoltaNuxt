@@ -48,7 +48,8 @@
       li {
         @apply flex items-center pl-2 font-typewriter 
         content-after
-        after:last-of-type:content-none;
+        after:last-of-type:content-none
+        text-slate-300/70;
 
         &:first-of-type {
           @apply pl-1;
@@ -60,7 +61,7 @@
 
         &:after {
           @apply block
-          bg-slate-600
+          bg-slate-400
           dark:bg-slate-400
           h-1
           w-1
@@ -78,8 +79,11 @@
       ul {
         @apply w-11/12;
 
-        li:after {
-          @apply bg-slate-200;
+        li {
+          @apply text-slate-400;
+          &:after {
+            @apply bg-slate-400;
+          }
         }
       }
     }

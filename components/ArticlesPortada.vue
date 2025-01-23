@@ -87,11 +87,26 @@
       .enlace {
         @apply font-sans
         text-xl/tight
+        text-slate-500
+        dark:text-slate-300
         md:text-2xl
         mb-0.5;
       }
       .subtitle {
-        @apply text-base/snug xl:text-lg;
+        @apply text-sm text-slate-500
+        dark:text-slate-300
+        mb-2
+        xl:text-lg
+        content-before;
+
+        &:before {
+          @apply block
+              bg-slate-300
+              dark:bg-slate-500
+              h-1
+              w-10
+              mb-2;
+        }
       }
 
       .categories {

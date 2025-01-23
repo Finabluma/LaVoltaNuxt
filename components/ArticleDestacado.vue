@@ -55,9 +55,10 @@
       .content {
         .content-wrapper {
           .enlace {
-            @apply text-slate-300
+            @apply text-slate-200
               text-xl/tight
               font-sans
+              font-thin
               sm:pr-[2%]
               sm:text-2xl
               lg:text-5xl/none;
@@ -65,8 +66,20 @@
           .subtitle {
             @apply text-balance
             font-mono
-            leading-none text-sm my-2
-            lg:text-base;
+            leading-none 
+            text-sm 
+            mt-5
+            mb-2
+            content-before;
+
+            &:before {
+              @apply block
+              bg-slate-300
+              dark:bg-slate-500
+              h-1
+              w-10
+              mb-2;
+            }
           }
 
           .categories {
@@ -75,6 +88,17 @@
 
             & > div {
               @apply justify-start;
+            }
+
+            ul li {
+              @apply text-slate-400;
+              &:after {
+                @apply bg-opacity-85;
+              }
+
+              & a {
+                @apply text-slate-400;
+              }
             }
           }
         }
