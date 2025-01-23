@@ -134,9 +134,9 @@
         mr-3
         sm:w-32
         sm:h-32
-        lg:mr-5
-        xl:w-36
-        xl:h-36;
+        lg:mr-3
+        lg:w-36
+        lg:h-36;
 
         &:before {
           @apply absolute

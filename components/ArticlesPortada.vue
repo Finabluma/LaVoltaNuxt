@@ -85,12 +85,10 @@
 
     article {
       .enlace {
-        @apply mb-0.5
-            text-xl/tight
-            md:text-xl;
-        & h2 {
-          @apply font-sans;
-        }
+        @apply font-sans
+        text-xl/tight
+        md:text-2xl
+        mb-0.5;
       }
       .subtitle {
         @apply text-base/snug xl:text-lg;
