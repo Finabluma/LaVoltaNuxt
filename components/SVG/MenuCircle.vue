@@ -16,7 +16,6 @@
     stroke-slate-800/80
     fill-slate-500/80 
     dark:fill-slate-500 
-    dark:stroke-slate-400
-    invisible;
+    dark:stroke-slate-400;
   }
 </style>

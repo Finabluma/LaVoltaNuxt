@@ -13,10 +13,17 @@
       let q = gsap.utils.selector(panel)
       const tl = gsap
         .timeline()
-        .set(q('svg'), { display: 'block' })
         .set(q('.content'), { autoAlpha: 0 })
-        .set(q('path'), { strokeWidth: 0, strokeOpacity: 0 })
-        .set(q('.object'), { visibility: 'visible', fillOpacity: 0 })
+        .set(q('path'), {
+          strokeWidth: 0,
+          strokeOpacity: 0,
+          fillOpacity: 0,
+        })
+        .set(q('path.content'), {
+          strokeWidth: 0,
+          strokeOpacity: 0,
+          fillOpacity: 0,
+        })
         .add('svg')
         .from(
           q('.object'),
@@ -31,7 +38,9 @@
         .from(
           q('.object'),
           {
-            fillOpacity: 0,
+            css: {
+              fillOpacity: 0,
+            },
           },
           'svg+=0.5'
         )
@@ -64,8 +73,18 @@
       let q = gsap.utils.selector(panel)
       const tl = gsap
         .timeline()
-        .set(q('svg'), { display: 'block' })
+        .set(q('svg'), { visibility: 'visible' })
         .add('svg')
+        .from(
+          q('.object'),
+          {
+            duration: 0.5,
+            css: {
+              fillOpacity: 0.8,
+            },
+          },
+          'svg'
+        )
         .from(
           q('.object'),
           {
@@ -268,7 +287,7 @@
       }
     }
     .foodCard.menudia {
-      @apply bg-slate-100/75 dark:bg-slate-600/40;
+      @apply bg-slate-100/50 dark:bg-slate-600/40;
 
       .content .inner .inner-wrapper .cta a {
         @apply bg-slate-400 border-slate-400
