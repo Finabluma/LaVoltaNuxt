@@ -89,6 +89,7 @@
         text-lg/tight
         text-slate-500
         dark:text-slate-300
+        sm:text-xl
         md:text-2xl
         mb-0.5;
       }

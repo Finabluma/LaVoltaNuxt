@@ -30,7 +30,8 @@
   .destacado {
     
     .title {
-      @apply flex
+      @apply max-sm:hidden
+      flex
       text-lg
       font-mono
       uppercase

@@ -68,7 +68,7 @@
     bg-slate-200
     text-slate-700
     dark:bg-slate-600
-    dark:text-slate-100
+    dark:text-slate-300
     sm:h-8;
     .state {
       @apply flex

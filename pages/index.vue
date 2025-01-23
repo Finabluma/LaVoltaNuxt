@@ -200,6 +200,7 @@
         lowercase
         tracking-[1rem]
         pl-5
+        mb-5
         text-slate-300
         dark:text-slate-400;
       }
