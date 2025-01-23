@@ -47,7 +47,7 @@
     w-11/12
     md:w-10/12
     lg:w-9/12
-    xl:w-8/12
+    xl:w-10/12
     mx-auto;
 
     article {
@@ -57,6 +57,7 @@
           .enlace {
             @apply text-slate-300
               text-xl/tight
+              font-sans
               sm:pr-[2%]
               sm:text-2xl
               lg:text-5xl/none;
