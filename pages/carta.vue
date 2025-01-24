@@ -135,61 +135,9 @@
         </div>
       </div>
     </main>
-    <aside v-if="carta.optionalContent !== null">
-      <div v-if="carta.optionalContent.gallery !== null">
-        <LazySlideShow
-          :title="carta.optionalContent.gallery.description"
-          :images="carta.optionalContent.gallery.gallery.images"
-        />
-      </div>
-      <div v-if="carta.optionalContent.bannerBody !== null" class="banner">
-        <div class="banner_wrapper">
-          <div v-if="carta.optionalContent.bannerBody.image" class="image">
-            <ElementsMediaImageItem
-              :src="carta.optionalContent.bannerBody.image.asset._ref"
-              :alt="carta.optionalContent.bannerBody.image.alt"
-              height="150"
-              sizes="xs:150px"
-              :modifiers="{
-                crop: carta.optionalContent.bannerBody.image.crop,
-                hotspot: carta.optionalContent.bannerBody.image.hotspot,
-                q: 80,
-              }"
-              fit="cover"
-              format="webp"
-            />
-          </div>
-          <div class="banner_content">
-            <h2>{{ carta.optionalContent.bannerBody.title }}</h2>
-            <div
-              v-if="carta.optionalContent.bannerBody.banner"
-              class="inner-content"
-            >
-              {{ carta.optionalContent.bannerBody.banner }}
-            </div>
-            <div v-if="carta.optionalContent.bannerBody.enlace" class="enlace">
-              <div
-                v-if="carta.optionalContent.bannerBody.enlace.linkTarget.slug"
-              >
-                <NuxtLink
-                  :to="`revista/${carta.optionalContent.bannerBody.enlace.linkTarget.slug}`"
-                  :title="
-                    carta.optionalContent.bannerBody.enlace.linkTarget.title
-                  "
-                  >{{
-                    carta.optionalContent.bannerBody.enlace.title !== null
-                      ? carta.optionalContent.bannerBody.enlace.title
-                      : carta.optionalContent.bannerBody.enlace.linkTarget.title
-                  }}</NuxtLink
-                >
-              </div>
-              <div v-else>
-                <OptionalLink :link="carta.optionalContent.bannerBody.enlace" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <aside v-if="carta.optionalContent !== null || carta.galleryRef !== null">
+      <GalleryReference :page="carta" />
+      <OptionalContent :page="carta" />
     </aside>
     <AppFooter />
   </div>
@@ -214,7 +162,7 @@
         dark:text-slate-500
         px-[5%]
         mb-5;
-        /* content-after; */
+      /* content-after; */
 
       &:after {
         @apply block h-1 w-10 mt-6 bg-pink-400 dark:bg-slate-400;

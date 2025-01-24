@@ -3,6 +3,7 @@ import {
   headItems,
   contactItems,
   portadaItems,
+  gallery,
 } from '../helpers/common'
 import { optionalContent } from '../helpers/components'
 
@@ -40,6 +41,7 @@ export const pagesQuery = groq`{
         subtitle,
         content,
         ${cartaMenuItems},
+        ${gallery},
         ${optionalContent},
         "portada":*[_type=='revistaType'][0]{
             "portada":revista->{
@@ -63,6 +65,7 @@ export const pagesQuery = groq`{
         price,
         pricehalf,
         priceshare,
+        ${gallery},
         ${optionalContent},
         seo{
             ${seoQuery}
@@ -75,6 +78,7 @@ export const pagesQuery = groq`{
         seo{
             ${seoQuery}
         },
+        ${gallery},
         ${optionalContent}
     },
     "reservas":*[_type=='reservasType'][0]{

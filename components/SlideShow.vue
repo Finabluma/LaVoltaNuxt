@@ -63,14 +63,13 @@
     @apply relative
     z-20
     w-screen 
-    mx-auto
-    py-8;
+    mx-auto;
 
     h2 {
       @apply text-lg
       py-2
       absolute
-      w-auto
+      w-8/12
       top-[12%]
       right-0
       left-10
@@ -82,19 +81,7 @@
 
     .carrusel-wrapper {
       @apply mx-auto
-      /* sm:border */
-      /* sm:border-slate-600/50
-      sm:bg-slate-100/75
-      sm:dark:bg-slate-300/75
-      sm:dark:border-slate-800/80 */
-      md:w-full
-      md:py-1;
-
-      /* .wrapper {
-        @apply sm:p-1
-        sm:bg-slate-600
-        sm:dark:bg-slate-500;
-      } */
+      md:w-full;
       .gallery {
         @apply relative content-before;
 

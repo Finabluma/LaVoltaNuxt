@@ -68,6 +68,8 @@
   onUnmounted(() => {
     ctx.revert()
   })
+
+  console.log(home.galleryRef)
 </script>
 <template>
   <div class="page" ref="main">
@@ -114,61 +116,10 @@
         </section>
       </div>
     </main>
-    <aside v-if="home.optionalContent !== null">
-      <div v-if="home.optionalContent.gallery !== null">
-        <LazySlideShow
-          :title="home.optionalContent.gallery.description"
-          :images="home.optionalContent.gallery.gallery.images"
-        />
-      </div>
-      <div v-if="home.optionalContent.bannerBody !== null" class="banner">
-        <div class="banner_wrapper">
-          <div v-if="home.optionalContent.bannerBody.image" class="image">
-            <ElementsMediaImageItem
-              :src="home.optionalContent.bannerBody.image.asset._ref"
-              :alt="home.optionalContent.bannerBody.image.alt"
-              height="150"
-              sizes="xs:150px"
-              :modifiers="{
-                crop: home.optionalContent.bannerBody.image.crop,
-                hotspot: home.optionalContent.bannerBody.image.hotspot,
-                q: 80,
-              }"
-              fit="cover"
-              format="webp"
-            />
-          </div>
-          <div class="banner_content">
-            <h2>{{ home.optionalContent.bannerBody.title }}</h2>
-            <div
-              v-if="home.optionalContent.bannerBody.banner"
-              class="inner-content"
-            >
-              {{ home.optionalContent.bannerBody.banner }}
-            </div>
-            <div v-if="home.optionalContent.bannerBody.enlace" class="enlace">
-              <div
-                v-if="home.optionalContent.bannerBody.enlace.linkTarget.slug"
-              >
-                <NuxtLink
-                  :to="`revista/${home.optionalContent.bannerBody.enlace.linkTarget.slug}`"
-                  :title="
-                    home.optionalContent.bannerBody.enlace.linkTarget.title
-                  "
-                  >{{
-                    home.optionalContent.bannerBody.enlace.title !== null
-                      ? home.optionalContent.bannerBody.enlace.title
-                      : home.optionalContent.bannerBody.enlace.linkTarget.title
-                  }}</NuxtLink
-                >
-              </div>
-              <div v-else>
-                <OptionalLink :link="home.optionalContent.bannerBody.enlace" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <aside>
+      <!-- <LazyOptionalContent :page="home" />
+      <LazyGalleryReference :page="home" /> -->
+      <LazyUniverseCallBadge />
     </aside>
     <AppFooter />
   </div>

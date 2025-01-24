@@ -17,6 +17,7 @@ export const siteContact = groq`
         ${contactItems}
     }
 `
+
 export const optionalContent = groq`
     optionalContent{
         'gallery':optionalContent[@->._type == 'galleriesType'][0]->{

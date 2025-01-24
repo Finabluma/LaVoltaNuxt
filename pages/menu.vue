@@ -158,61 +158,9 @@
         </div>
       </div>
     </main>
-    <aside v-if="menu.optionalContent !== null">
-      <div v-if="menu.optionalContent.gallery !== null">
-        <LazySlideShow
-          :title="menu.optionalContent.gallery.description"
-          :images="menu.optionalContent.gallery.gallery.images"
-        />
-      </div>
-      <div v-if="menu.optionalContent.bannerBody !== null" class="banner">
-        <div class="banner_wrapper">
-          <div v-if="menu.optionalContent.bannerBody.image" class="image">
-            <ElementsMediaImageItem
-              :src="menu.optionalContent.bannerBody.image.asset._ref"
-              :alt="menu.optionalContent.bannerBody.image.alt"
-              height="150"
-              sizes="xs:150px"
-              :modifiers="{
-                crop: menu.optionalContent.bannerBody.image.crop,
-                hotspot: menu.optionalContent.bannerBody.image.hotspot,
-                q: 80,
-              }"
-              fit="cover"
-              format="webp"
-            />
-          </div>
-          <div class="banner_content">
-            <h2>{{ menu.optionalContent.bannerBody.title }}</h2>
-            <div
-              v-if="menu.optionalContent.bannerBody.banner"
-              class="inner-content"
-            >
-              {{ menu.optionalContent.bannerBody.banner }}
-            </div>
-            <div v-if="menu.optionalContent.bannerBody.enlace" class="enlace">
-              <div
-                v-if="menu.optionalContent.bannerBody.enlace.linkTarget.slug"
-              >
-                <NuxtLink
-                  :to="`revista/${menu.optionalContent.bannerBody.enlace.linkTarget.slug}`"
-                  :title="
-                    menu.optionalContent.bannerBody.enlace.linkTarget.title
-                  "
-                  >{{
-                    menu.optionalContent.bannerBody.enlace.title !== null
-                      ? menu.optionalContent.bannerBody.enlace.title
-                      : menu.optionalContent.bannerBody.enlace.linkTarget.title
-                  }}</NuxtLink
-                >
-              </div>
-              <div v-else>
-                <OptionalLink :link="menu.optionalContent.bannerBody.enlace" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <aside v-if="menu.optionalContent !== null || menu.galleryRef !== null">
+      <GalleryReference :page="menu" />
+      <OptionalContent :page="menu" />
     </aside>
     <AppFooter />
   </div>

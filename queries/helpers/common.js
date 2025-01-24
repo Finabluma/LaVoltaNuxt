@@ -45,3 +45,15 @@ export const optionalsWithText = groq`
         linkTarget->{title,"slug":slug.current}
     }
 `
+export const gallery = groq`
+    galleryRef->{
+        title,
+        description,
+        gallery{
+            images[]{
+                asset,
+                alt
+            }
+        }
+    }
+`
