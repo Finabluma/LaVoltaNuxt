@@ -50,7 +50,7 @@
   .intro {
     @apply relative
     w-screen
-    bg-slate-300
+    bg-slate-100
     dark:bg-slate-600;
 
     .intro_inner {

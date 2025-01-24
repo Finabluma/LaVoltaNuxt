@@ -15,22 +15,30 @@
         .timeline()
         .set(q('.content'), { visibility: 'visible', autoAlpha: 0 })
         .set(q('svg'), { visibility: 'visible' })
-        .set(q('path'), { strokeOpacity: 0 })
         .set(q('.object'), {
-          visibility: 'visible',
-          strokeOpacity: 0,
-          strokeWidth: 0,
+          css: {
+            visibility: 'visible',
+            fillOpacity: 0,
+            strokeOpacity: 0,
+          },
         })
         .add('svg')
         .from(
           q('.object'),
           {
-            strokeOpacity: 1,
-            strokeWidth: 5,
+            strokeOpacity: 0,
             drawSVG: 0,
             rotate: -5,
           },
           'svg'
+        )
+        .to(
+          q('.object'),
+          {
+            duration: 0.2,
+            fillOpacity: 1,
+          },
+          'svg+=0.25'
         )
         .to(
           q('.content'),
@@ -253,7 +261,7 @@
 
     .foodCard.carta .svg,
     .foodCard.menudia .svg {
-      @apply bg-slate-400/75
+      @apply bg-slate-300/75
         dark:bg-slate-600;
       svg {
         @apply invisible;
