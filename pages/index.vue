@@ -117,9 +117,9 @@
       </div>
     </main>
     <aside>
-      <!-- <LazyOptionalContent :page="home" />
-      <LazyGalleryReference :page="home" /> -->
-      <LazyUniverseCallBadge />
+      <LazyOptionalContent :page="home" />
+      <LazyGalleryReference :page="home" />
+      <!-- <LazyUniverseCallBadge /> -->
     </aside>
     <AppFooter />
   </div>
