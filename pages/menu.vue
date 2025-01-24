@@ -158,7 +158,7 @@
         </div>
       </div>
     </main>
-    <aside v-if="menu.optionalContent !== null || menu.galleryRef !== null">
+    <aside>
       <GalleryReference :page="menu" />
       <OptionalContent :page="menu" />
     </aside>

@@ -135,7 +135,7 @@
         </div>
       </div>
     </main>
-    <aside v-if="carta.optionalContent !== null || carta.galleryRef !== null">
+    <aside>
       <GalleryReference :page="carta" />
       <OptionalContent :page="carta" />
     </aside>
