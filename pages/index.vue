@@ -177,10 +177,10 @@
   .articleHome {
     @apply relative 
     min-h-[85dvh]
-    bg-slate-50
+    bg-slate-600
     dark:bg-slate-600
     border-t-2
-    border-t-slate-200
+    border-t-slate-500
     dark:border-t-slate-700
     flex
     flex-col
@@ -195,12 +195,12 @@
       justify-evenly;
 
       h1 {
-        @apply text-xl
-        font-typewriter
+        @apply text-lg
+        font-coordinates
         lowercase
         tracking-[1rem]
-        pt-5
-        mb-5
+        pt-10
+        mb-10
         ml-[1rem]        
         text-slate-400
         dark:text-slate-400;

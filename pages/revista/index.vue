@@ -49,7 +49,7 @@
       <div class="main_content">
         <section>
           <h1 class="sr-only">{{ revista.title }}</h1>
-          <div>
+          <div class="destacado-wrapper">
             <div class="flex justify-center">
               <h1>{{ revista.portada.title }}</h1>
             </div>
@@ -135,16 +135,15 @@
     xl:w-11/12;
 
     h1 {
-      @apply text-xl
-        font-normal
+      @apply text-lg
+        font-coordinates
         lowercase
-        tracking-[1.5rem]
-        pl-[1.5rem]
-        py-8
-        sm:pb-0
+        tracking-[1rem]
+        pt-14
+        mb-10
+        ml-[1rem]        
         text-slate-400
-      dark:text-slate-400
-        sm:text-2xl;
+        dark:text-slate-400;
     }
 
     .destacado {
