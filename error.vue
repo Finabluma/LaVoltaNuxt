@@ -47,14 +47,16 @@
       text-slate-600/80
       dark:text-slate-400/80
       absolute  
-      top-[40%] 
+      top-[40%]
+      left-1/2
       max-sm:w-8/12
       p-2 
       h-[12vh] 
       flex-col
       justify-center
       items-center
-      flex-wrap;
+      flex-wrap
+      xl:h-auto;
     }
   }
 </style>

@@ -134,7 +134,8 @@
     flex-col
     justify-evenly
     py-6
-    sm:py-12;
+    sm:py-12
+    xl:h-[95dvh];
 
     .artHomeContent {
       @apply flex

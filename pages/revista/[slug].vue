@@ -16,7 +16,6 @@
     params: params,
   })
 
-
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
 
@@ -60,6 +59,8 @@
     title: data.title,
     seo: data.seoPage,
   })
+
+  console.log(data)
 </script>
 <template>
   <div v-if="data" class="pageArticle">
@@ -75,7 +76,6 @@
           </li>
           <li>{{ data.title }}</li>
         </ArticleBreadcrumb>
-        <!-- <ArticleDate :data="data" class="mb-5 sm:w-11/12 mx-auto" /> -->
         <div v-if="data.summary" class="mb-5">
           <ArticleSummary :summary="data.summary" />
         </div>
@@ -83,10 +83,19 @@
           <ElementsTextContent :blocks="data?.maincontent" />
         </div>
         <div v-if="data.categories" class="mb-5">
-          <ArticleCategories title="Categorias" :tags="data.categories" />
+          <ArticleCategories
+            title="Categorias"
+            :tags="data.categories"
+            class="categories"
+          />
         </div>
       </div>
+      <div class="inner_bottom"></div>
     </main>
+    <aside v-if="data.optionalContent !== null">
+      <OptionalContent :page="data.optionalContent" />
+    </aside>
+    <AppFooter />
     <!-- <aside v-if="data.optionalContent !== null">
       <div v-for="item in data.optionalContent" :key="item._key" class="banner">
         <div class="banner_wrapper">
@@ -119,7 +128,6 @@
         </div>
       </div>
     </aside> -->
-    <LazyAppFooter />
   </div>
   <div v-else>
     <h1>Hola</h1>

@@ -1,4 +1,5 @@
 import { headItems } from '../helpers/common'
+import { optional } from '../helpers/components'
 export const articleQuery = groq`*[_type == 'articleType' && slug.current == $slug][0]{
         ${headItems},
         "slug":slug.current,
@@ -15,20 +16,7 @@ export const articleQuery = groq`*[_type == 'articleType' && slug.current == $sl
                 title,
                 "slug":slug.current
         },
-        optionalContent[]-> {
-                image{
-                        asset
-                },
-                banner,
-                title,
-                enlace{
-                        title,
-                        linkTarget->{
-                                _type,
-                                title
-                        }
-                }
-        }      
+        ${optional}      
     }
 `
 

@@ -30,7 +30,8 @@
   .categories {
     @apply w-11/12
     mx-auto
-    pt-5;
+    pt-5
+    flex;
 
     div {
       @apply flex 
