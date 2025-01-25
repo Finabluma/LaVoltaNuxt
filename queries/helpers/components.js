@@ -18,19 +18,10 @@ export const siteContact = groq`
     }
 `
 
-export const optionalContent = groq`
+export const optional = groq`
     optionalContent{
-        'gallery':optionalContent[@->._type == 'galleriesType'][0]->{
-            title,
-            description,
-            gallery{
-                images[]{
-                    asset,
-                    alt
-                }
-            }
-        },
-        'bannerBody': optionalContent[@->._type == 'bannerBodyType'][0]->{
+        'bannerBody': optionalContent[@->._type == 'bannerBodyType']->{
+            "id":_id,
             title,
             image,
             banner,

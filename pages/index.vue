@@ -68,8 +68,6 @@
   onUnmounted(() => {
     ctx.revert()
   })
-
-  console.log(home.galleryRef)
 </script>
 <template>
   <div class="page" ref="main">
