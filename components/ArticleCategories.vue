@@ -1,6 +1,7 @@
 <script setup>
   import { ref } from 'vue'
   const catPortada = ref(false)
+  const catDestacado = ref(false)
   const props = defineProps({
     title: {
       type: String,
@@ -11,7 +12,10 @@
   })
 </script>
 <template>
-  <div :class="{ catPortada: catPortada }">
+  <div
+    :class="{ catPortada: catPortada, catDestacado: catDestacado }"
+    class="categories"
+  >
     <div>
       <span><LazyTags /></span>
       <span class="sr-only">{{ title }}</span>
@@ -30,7 +34,7 @@
   .categories {
     @apply w-11/12
     mx-auto
-    pt-5
+    pt-3
     flex;
 
     div {
@@ -50,7 +54,8 @@
         @apply flex items-center pl-2 font-typewriter 
         content-after
         after:last-of-type:content-none
-        text-slate-300/70;
+        text-slate-600
+        dark:text-slate-300/70;
 
         &:first-of-type {
           @apply pl-1;
@@ -62,7 +67,7 @@
 
         &:after {
           @apply block
-          bg-slate-400
+          bg-slate-600
           dark:bg-slate-400
           h-1
           w-1
@@ -85,6 +90,21 @@
           &:after {
             @apply bg-slate-400;
           }
+        }
+      }
+    }
+
+    &.catDestacado {
+      @apply w-auto;
+
+      ul li {
+        @apply text-slate-200;
+        &:after {
+          @apply bg-slate-200 bg-opacity-85;
+        }
+
+        & a {
+          @apply text-slate-400;
         }
       }
     }

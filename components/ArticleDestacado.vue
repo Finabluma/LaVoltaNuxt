@@ -34,8 +34,12 @@
       <div v-if="items.subtitle" class="subtitle">
         {{ items.subtitle }}
       </div>
-      <div v-if="items.categories" class="categories">
-        <ArticleCategories :tags="items.categories" title="Categorias" />
+      <div v-if="items.categories" class="cat">
+        <ArticleCategories
+          :tags="items.categories"
+          title="Categorias"
+          class="catDestacado"
+        />
       </div>
     </template>
   </ArticleTeaser>
@@ -82,22 +86,22 @@
             }
           }
 
-          .categories {
+          .cat {
             @apply max-sm:hidden
             mt-1;
 
-            & > div {
-              @apply justify-start;
-            }
+            .catDestacado {
+              
 
-            ul li {
-              @apply text-slate-400;
-              &:after {
-                @apply bg-opacity-85;
-              }
+              ul li {
+                @apply text-slate-200;
+                &:after {
+                  @apply bg-opacity-85;
+                }
 
-              & a {
-                @apply text-slate-400;
+                & a {
+                  @apply text-slate-400;
+                }
               }
             }
           }

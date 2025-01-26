@@ -96,7 +96,7 @@
       .subtitle {
         @apply text-sm text-slate-500
         dark:text-slate-300
-        mb-2
+        mb-0
         xl:text-lg
         content-before;
 
@@ -113,7 +113,7 @@
 
       .categories {
         @apply max-sm:hidden
-        mt-2;
+        mt-0;
       }
     }
   }
