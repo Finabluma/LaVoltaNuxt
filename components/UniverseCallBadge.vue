@@ -20,7 +20,7 @@
 <template>
   <div class="universeCallBadge">
     <div class="wrapper">
-      <div class="cta">
+      <div class="contacta">
         <div class="inner">
           <NuxtLink to="tel:+34977651416" aria-label="teléfono reservas">
             <SVGAppCallBadge ref="bruja" />
@@ -60,7 +60,7 @@
         dark:from-slate-500
         dark:to-slate-700;
       }
-      .cta {
+      .contacta {
         @apply relative
         z-20
         max-h-dvh
@@ -77,7 +77,7 @@
           xl:max-w-3xl;
 
           a {
-            @apply w-full py-3;
+            @apply w-full;
           }
         }
       }

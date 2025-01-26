@@ -60,7 +60,14 @@
     seo: data.seoPage,
   })
 
-  console.log(data)
+  const related = computed(() => {
+    return data.value.relatedContent
+  })
+
+  const banner = computed(() => {
+    return data.value.optionalContent
+  })
+
 </script>
 <template>
   <div v-if="data" class="pageArticle">
@@ -90,44 +97,18 @@
           />
         </div>
       </div>
-      <div class="inner_bottom"></div>
-    </main>
-    <aside v-if="data.optionalContent !== null">
-      <OptionalContent :page="data.optionalContent" />
-    </aside>
-    <AppFooter />
-    <!-- <aside v-if="data.optionalContent !== null">
-      <div v-for="item in data.optionalContent" :key="item._key" class="banner">
-        <div class="banner_wrapper">
-          <div v-if="item.image" class="image">
-            <ElementsMediaImageItem
-              :src="item.image.asset._ref"
-              :alt="item.image.alt"
-              height="150"
-              sizes="xs:150px"
-              :modifiers="{
-                crop: item.image.crop,
-                hotspot: item.image.hotspot,
-                q: 80,
-              }"
-              fit="cover"
-              format="webp"
-            />
-          </div>
-          <div class="banner_content">
-            <h2>{{ item.title }}</h2>
-            <div v-if="item.banner" class="inner-content">
-              {{ item.banner }}
-            </div>
-            <div v-if="item.enlace" class="enlace">
-              <ElementsTextLink>
-                {{ item.enlace.linkTarget._type }}
-              </ElementsTextLink>
-            </div>
+      <div class="inner_bottom">
+        <div v-if="related">
+          <div v-for="item in related.articleRelated" :key="item._id">
+            <pre>{{ item }}</pre>
           </div>
         </div>
       </div>
-    </aside> -->
+    </main>
+    <aside v-if="banner.optionalContent !== null">
+      <OptionalContent :page="banner.optionalContent" />
+    </aside>
+    <AppFooter />
   </div>
   <div v-else>
     <h1>Hola</h1>

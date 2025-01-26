@@ -16,6 +16,18 @@ export const articleQuery = groq`*[_type == 'articleType' && slug.current == $sl
                 title,
                 "slug":slug.current
         },
+        relatedContent{
+                articleRelated[]->{
+                        mainImage,
+                        title,
+                        "slug":slug.current,
+                        categories[]->{
+                                "id":_id,
+                                title,
+                                "slug":slug.current
+                        },
+                },
+        },
         ${optional}      
     }
 `
