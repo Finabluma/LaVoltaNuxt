@@ -29,34 +29,41 @@
 <style lang="postcss" scoped>
   .wrapper {
     @apply relative 
-    max-w-screen-2xl 
+    max-w-prose 
+    mx-auto
     flex 
     justify-center;
 
-    .statusCode {
-      @apply sr-only;
-    }
-
-    .enlace {
-      @apply font-sans
-      font-bold 
-      text-lg
-      text-center
-      bg-slate-400/60
-      dark:bg-slate-700/40
-      text-slate-600/80
-      dark:text-slate-400/80
-      absolute  
+    .content {
+      @apply absolute
+      w-11/12
       top-[40%]
-      left-1/2
-      max-sm:w-8/12
-      p-2 
-      h-[12vh] 
+      left-[5%]
+      flex
       flex-col
-      justify-center
-      items-center
-      flex-wrap
-      xl:h-auto;
+      items-center;
+
+      .statusCode {
+        @apply mb-2
+        text-8xl;
+      }
+
+      .enlace {
+        @apply font-coordinates
+        font-bold 
+        text-lg
+        text-center
+        bg-slate-400/60
+        dark:bg-slate-700/40
+        text-slate-600/80
+        dark:text-slate-400/80
+        
+        px-2 
+        flex-col
+        justify-center
+        items-center
+        flex-wrap;
+      }
     }
   }
 </style>
