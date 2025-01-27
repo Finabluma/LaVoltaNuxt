@@ -85,7 +85,7 @@
         flex;
 
         .content-wrapper {
-          @apply mb-1
+          @apply mb-5
           w-auto
           mx-auto
           bg-slate-800/60
