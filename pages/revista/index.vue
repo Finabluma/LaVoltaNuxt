@@ -80,11 +80,13 @@
         font-coordinates
         lowercase
         tracking-[1rem]
-        pt-14
-        mb-10
+        pt-8
+        mb-5
         ml-[1rem]        
         text-slate-400
-        dark:text-slate-400;
+        dark:text-slate-400
+        lg:pt-12
+        lg:mb-10;
     }
 
     .destacado {
