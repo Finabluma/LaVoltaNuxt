@@ -94,13 +94,13 @@
           text-xl/tight
           text-slate-500
           dark:text-slate-300
-          mb-2
           xl:text-2xl;
         }
         .subtitle {
           @apply text-sm 
           text-slate-500
           dark:text-slate-300
+          px-0.5
           sm:text-base
           xl:text-lg
           content-before;
@@ -108,16 +108,16 @@
           &:before {
             @apply block
             bg-slate-300
-            dark:bg-slate-500
+            dark:bg-slate-400
             h-1
             w-6
-            mt-3;
+            my-2;
           }
         }
 
         .categories {
           @apply max-sm:hidden
-          mt-0;
+          mt-1;
         }
       }
     }

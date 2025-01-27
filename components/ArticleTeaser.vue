@@ -92,10 +92,10 @@
           bg-slate-800/60
           dark:md:bg-slate-600/80
           text-slate-300
-          px-2
+          p-2
           md:mb-10
           lg:mb-10
-          lg:w-10/12;
+          lg:w-11/12;
         }
       }
     }

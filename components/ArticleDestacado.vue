@@ -71,7 +71,6 @@
           .subtitle {
             @apply text-balance
             font-coordinates
-            my-2
             content-before;
 
             &:before {

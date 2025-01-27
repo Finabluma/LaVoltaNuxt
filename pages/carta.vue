@@ -145,7 +145,8 @@
 <style lang="postcss" scoped>
   .main_content {
     @apply w-screen
-    my-0;
+    my-0
+    lg:mb-10;
 
     .obs {
       @apply max-w-screen-md;
