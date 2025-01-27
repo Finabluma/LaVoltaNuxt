@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue'
-  const catPortada = ref(false)
-  const catDestacado = ref(false)
+  const portada = ref(false)
+  const destacado = ref(false)
   const props = defineProps({
     title: {
       type: String,
@@ -13,7 +13,7 @@
 </script>
 <template>
   <div
-    :class="{ catPortada: catPortada, catDestacado: catDestacado }"
+    :class="{ destacado: catdestacado, portada: portada }"
     class="categories"
   >
     <div>
@@ -24,7 +24,7 @@
       <li v-for="item in tags" :key="item.id">
         {{ item.title }}
         <!-- <NuxtLink :to="`/revista/categoria/${item.slug}`">
-          
+          {{ item.title }}
         </NuxtLink> -->
       </li>
     </ul>
@@ -34,17 +34,12 @@
   .categories {
     @apply w-11/12
     mx-auto
-    pt-3
     flex;
 
     div {
       @apply flex 
       justify-center
-      items-start
-      mb-1;
-      h3 {
-        @apply sr-only;
-      }
+      items-start;
     }
 
     ul {
@@ -53,9 +48,7 @@
       li {
         @apply flex items-center pl-2 font-typewriter 
         content-after
-        after:last-of-type:content-none
-        text-slate-600
-        dark:text-slate-300/70;
+        after:last-of-type:content-none;
 
         &:first-of-type {
           @apply pl-1;
@@ -76,36 +69,14 @@
       }
     }
 
-    &.catPortada {
-      @apply p-0 w-full;
-      div {
-        @apply w-auto justify-start mb-0;
-      }
-
-      ul {
-        @apply w-11/12;
-
-        li {
-          @apply text-slate-400;
-          &:after {
-            @apply bg-slate-400;
-          }
-        }
-      }
+    &.catportada {
+      @apply w-auto max-sm:hidden;
     }
 
-    &.catDestacado {
-      @apply w-auto;
-
+    &.catdestacado {
+      @apply w-auto max-sm:hidden;
       ul li {
-        @apply text-slate-200;
-        &:after {
-          @apply bg-slate-200 bg-opacity-85;
-        }
-
-        & a {
-          @apply text-slate-400;
-        }
+        @apply text-slate-400;
       }
     }
   }

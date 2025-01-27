@@ -28,7 +28,8 @@ export const articleQuery = groq`*[_type == 'articleType' && slug.current == $sl
                         },
                 },
         },
-        ${optional}      
+        optionalContent[]->
+             
     }
 `
 

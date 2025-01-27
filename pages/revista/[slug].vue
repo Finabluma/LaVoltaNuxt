@@ -60,13 +60,13 @@
     seo: data.seoPage,
   })
 
-  // const related = computed(() => {
-  //   return data.value.relatedContent
-  // })
+  const related = computed(() => {
+    return data.value.relatedContent
+  })
 
-  // const banner = computed(() => {
-  //   return data.value.optionalContent
-  // })
+  const banner = computed(() => {
+    return data.value.optionalContent
+  })
 </script>
 <template>
   <div v-if="data" class="pageArticle">
@@ -96,23 +96,61 @@
           />
         </div>
       </div>
-      <!-- <div class="inner_bottom">
-        <div v-if="related">
-          <div v-for="item in related.articleRelated" :key="item._id">
-            <pre>{{ item }}</pre>
+      <div class="inner_bottom">
+        <div v-if="related" class="related">
+          <h2>Continúa leyendo</h2>
+          <div class="sm:flex">
+            <div
+              v-for="item in related.articleRelated"
+              :key="item._id"
+              class="mb-3 sm:w-6/12 sm:p-2 sm:mb-0"
+            >
+              <ArticleTeaser class="portada">
+                <template #media>
+                  <ElementsMediaImageItem
+                    :src="item.mainImage.asset._ref"
+                    :alt="item.mainImage.alt"
+                    :modifiers="{
+                      crop: item.mainImage.crop,
+                      hotspot: item.mainImage.hotspot,
+                      q: 80,
+                    }"
+                    sizes="xs:100px"
+                    height="100"
+                    fit="cover"
+                    format="webp"
+                  />
+                </template>
+                <template #default>
+                  <ElementsTextLink
+                    link-type="internalLinkType"
+                    route="revista-slug"
+                    :slug="item.slug"
+                    class="enlace"
+                    >{{ item.title }}
+                  </ElementsTextLink>
+                  <div v-if="item.categories">
+                    <ArticleCategories
+                      :tags="item.categories"
+                      title="Categorias"
+                      class="catDestacado"
+                    />
+                  </div>
+                </template>
+              </ArticleTeaser>
+            </div>
           </div>
         </div>
-      </div> -->
+      </div>
     </main>
     <!-- <aside v-if="banner !== null">
-      <OptionalContent :page="banner" />
+      <div v-for="item in banner" :key="item._id">
+        <pre>{{ item }}</pre>
+      </div>
     </aside> -->
     <AppFooter />
   </div>
-  <div v-else>
-    <h1>Hola</h1>
-    <NuxtLink to="/">Go back home</NuxtLink>
-  </div>
+  <div v-else>hola</div>
 </template>
 <style lang="postcss" scoped>
   .pageArticle {
@@ -126,6 +164,50 @@
       z-30
       bg-slate-200
       dark:bg-slate-600;
+
+      .inner_bottom {
+        @apply w-11/12
+        mx-auto
+        my-10
+        py-3
+        sm:w-11/12
+        md:w-10/12
+        lg:w-8/12;
+
+        .related {
+          h2 {
+            @apply mb-5 
+            font-cameo
+            text-xl
+            text-center
+            dark:text-slate-400
+            sm:pl-[5%]
+            sm:text-left;
+          }
+
+          article {
+            .enlace {
+              @apply font-sans
+              text-lg/tight
+              text-slate-500
+              dark:text-slate-300
+              xl:text-xl;
+            }
+
+            .categories {
+              @apply w-auto 
+              mt-2;
+            }
+          }
+        }
+
+        .portada {
+          @apply p-1
+          bg-slate-400/30
+          dark:bg-slate-500
+          lg:p-3;
+        }
+      }
     }
 
     #footer {

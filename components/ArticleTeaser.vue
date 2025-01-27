@@ -1,5 +1,8 @@
 <script setup>
-  import { computed } from 'vue'
+  import { ref } from 'vue'
+  const portada = ref(false)
+  const destacado = ref(false)
+  const related = ref(false)
   const props = defineProps({
     title: {
       type: String,
@@ -10,8 +13,7 @@
   })
 </script>
 <template>
-  <div>
-    <p class="title">{{ title }}</p>
+  <div :class="{ portada: portada, destacado: destacado, related: related }">
     <article>
       <h2 class="sr-only">{{ heading }}</h2>
       <div class="media">
@@ -55,7 +57,6 @@
         @apply relative
         bg-slate-100
         dark:bg-slate-300/75
-        p-1
         content-before
         mb-2;
 
@@ -91,7 +92,7 @@
           bg-slate-800/60
           dark:md:bg-slate-600/80
           text-slate-300
-          p-2
+          px-2
           md:mb-10
           lg:mb-10
           lg:w-10/12;
@@ -102,13 +103,13 @@
   /* Revista */
 
   .portada {
+    @apply py-2;
     article {
-      @apply mb-3
-      flex
-      flex-row
+      @apply flex
+      flex-row-reverse
       items-center
-      xl:ml-auto
-      xl:mb-3;
+      justify-between
+      xl:ml-auto;
 
       .media {
         @apply relative
@@ -118,12 +119,9 @@
         border-slate-600/80
         dark:border-slate-300/80
         content-before
-        mr-3
-        sm:w-32
-        sm:h-32
-        lg:mr-3
-        lg:w-36
-        lg:h-36;
+        ml-3
+        sm:w-auto
+        sm:h-auto;
 
         &:before {
           @apply absolute

@@ -91,7 +91,6 @@
           @apply block
           w-1/12
           h-1
-          ml-2
           bg-slate-800/20
           dark:bg-slate-400;
         }

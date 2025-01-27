@@ -1,5 +1,5 @@
 <script setup>
-  import { computed } from 'vue'
+  import { ref, computed, onMounted, onUnmounted } from 'vue'
   const { revista } = usePagesStore()
 
   const isFeatured = computed(() => {
@@ -18,6 +18,34 @@
   usePageHead({
     title: revista.title,
     seo: revista.seo,
+  })
+
+  //GSAP
+  const { gsap, ScrollTrigger } = useGsap()
+
+  let main = ref(),
+    ctx = ref()
+
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      let q = gsap.utils.selector('.highlight-block')
+      let tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.highlight-block',
+            start: 'top top',
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+          },
+        })
+        .to(q('h1'), { autoAlpha: 0, y: '10' })
+        .to(q('.destacado'), { autoAlpha: 0, yPercent: '10' }, '0')
+    }, main.value)
+  })
+
+  onUnmounted(() => {
+    ctx.revert()
   })
 </script>
 <template>
@@ -50,12 +78,13 @@
         <section>
           <h1 class="sr-only">{{ revista.title }}</h1>
           <div class="destacado-wrapper">
-            <div class="flex justify-center">
+            <div class="highlight-block">
               <h1>{{ revista.portada.title }}</h1>
+              <div v-if="isFeatured.length > 0">
+                <ArticleDestacado :items="destacado" />
+              </div>
             </div>
-            <div v-if="isFeatured.length > 0">
-              <ArticleDestacado :items="destacado" />
-            </div>
+
             <div v-if="notFeatured.length > 0">
               <ArticlesPortada :items="notFeatured" />
             </div>
@@ -75,6 +104,13 @@
     lg:w-11/12
     xl:w-11/12;
 
+    .highlight-block {
+      @apply flex 
+      flex-col 
+      justify-center 
+      items-center;
+    }
+
     h1 {
       @apply text-lg
         font-coordinates
@@ -87,11 +123,6 @@
         dark:text-slate-400
         lg:pt-12
         lg:mb-10;
-    }
-
-    .destacado {
-      @apply lg:w-10/12
-      xl:w-8/12;
     }
   }
 </style>

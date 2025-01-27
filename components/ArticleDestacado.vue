@@ -38,7 +38,7 @@
         <ArticleCategories
           :tags="items.categories"
           title="Categorias"
-          class="catDestacado"
+          class="catdestacado"
         />
       </div>
     </template>
@@ -48,10 +48,11 @@
   .destacado {
     @apply relative
     mb-10
-    w-11/12
+    w-full
+    sm:w-8/12
     md:w-10/12
-    lg:w-9/12
-    xl:w-10/12
+    lg:w-8/12
+    xl:w-7/12
     mx-auto;
 
     article {
@@ -69,38 +70,17 @@
           }
           .subtitle {
             @apply text-balance
-            font-mono
-            leading-none 
-            text-sm 
-            mt-5
-            lg:text-base
+            font-coordinates
+            my-2
             content-before;
 
             &:before {
               @apply block
               bg-slate-200/80
-              dark:bg-slate-300
+              dark:bg-slate-300/80
               h-1
               w-10
-              mb-2;
-            }
-          }
-
-          .cat {
-            @apply max-sm:hidden
-            mt-1;
-
-            .catDestacado {
-              ul li {
-                @apply text-slate-300;
-                &:after {
-                  @apply bg-opacity-85;
-                }
-
-                & a {
-                  @apply text-slate-400;
-                }
-              }
+              my-2;
             }
           }
         }
