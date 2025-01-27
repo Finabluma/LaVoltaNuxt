@@ -60,14 +60,13 @@
     seo: data.seoPage,
   })
 
-  const related = computed(() => {
-    return data.value.relatedContent
-  })
+  // const related = computed(() => {
+  //   return data.value.relatedContent
+  // })
 
-  const banner = computed(() => {
-    return data.value.optionalContent
-  })
-
+  // const banner = computed(() => {
+  //   return data.value.optionalContent
+  // })
 </script>
 <template>
   <div v-if="data" class="pageArticle">
@@ -97,17 +96,17 @@
           />
         </div>
       </div>
-      <div class="inner_bottom">
+      <!-- <div class="inner_bottom">
         <div v-if="related">
           <div v-for="item in related.articleRelated" :key="item._id">
             <pre>{{ item }}</pre>
           </div>
         </div>
-      </div>
+      </div> -->
     </main>
-    <aside v-if="banner.optionalContent !== null">
-      <OptionalContent :page="banner.optionalContent" />
-    </aside>
+    <!-- <aside v-if="banner !== null">
+      <OptionalContent :page="banner" />
+    </aside> -->
     <AppFooter />
   </div>
   <div v-else>
