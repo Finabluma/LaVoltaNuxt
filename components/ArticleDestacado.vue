@@ -73,7 +73,7 @@
             leading-none 
             text-sm 
             mt-5
-            mb-2
+            lg:text-base
             content-before;
 
             &:before {
@@ -91,10 +91,8 @@
             mt-1;
 
             .catDestacado {
-              
-
               ul li {
-                @apply text-slate-200;
+                @apply text-slate-300;
                 &:after {
                   @apply bg-opacity-85;
                 }

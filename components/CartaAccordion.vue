@@ -46,7 +46,7 @@
     &.is-open {
       @apply mb-3;
       .panel-header {
-        @apply border-none;
+        @apply border-none text-pink-500 dark:text-slate-400;
       }
 
       .panel-header:hover {
