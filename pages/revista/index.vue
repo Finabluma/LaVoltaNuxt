@@ -21,32 +21,32 @@
   })
 
   //GSAP
-  const { gsap, ScrollTrigger } = useGsap()
+  // const { gsap, ScrollTrigger } = useGsap()
 
-  let main = ref(),
-    ctx = ref()
+  // let main = ref(),
+  //   ctx = ref()
 
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      let q = gsap.utils.selector('.highlight-block')
-      let tl = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: '.highlight-block',
-            start: 'top top',
-            pin: true,
-            pinSpacing: false,
-            scrub: true,
-          },
-        })
-        .to(q('h1'), { autoAlpha: 0, y: '10' })
-        .to(q('.destacado'), { autoAlpha: 0, yPercent: '10' }, '0')
-    }, main.value)
-  })
+  // onMounted(() => {
+  //   ctx = gsap.context((self) => {
+  //     let q = gsap.utils.selector('.highlight-block')
+  //     let tl = gsap
+  //       .timeline({
+  //         scrollTrigger: {
+  //           trigger: '.highlight-block',
+  //           start: 'top top',
+  //           pin: true,
+  //           pinSpacing: false,
+  //           scrub: true,
+  //         },
+  //       })
+  //       .to(q('h1'), { autoAlpha: 0, y: '10' })
+  //       .to(q('.destacado'), { autoAlpha: 0, yPercent: '10' }, '0')
+  //   }, main.value)
+  // })
 
-  onUnmounted(() => {
-    ctx.revert()
-  })
+  // onUnmounted(() => {
+  //   ctx.revert()
+  // })
 </script>
 <template>
   <div class="page">
