@@ -18,29 +18,7 @@
 </script>
 <template>
   <div class="page">
-    <HeroSection>
-      <template #content>
-        {{ revista.title }}
-      </template>
-      <template #default>
-        <div v-if="revista.mainImage">
-          <ElementsMediaImageItem
-            :src="revista.mainImage.asset._ref"
-            :alt="revista.mainImage.alt"
-            height="550"
-            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
-            :modifiers="{
-              crop: revista.mainImage.crop,
-              hotspot: revista.mainImage.hotspot,
-              q: 80,
-            }"
-            fit="cover"
-            format="webp"
-          />
-        </div>
-        <div v-else class="noImg" />
-      </template>
-    </HeroSection>
+    <HeroSection :items="revista" />
     <main>
       <div class="main_content">
         <section>

@@ -67,29 +67,7 @@
 </script>
 <template>
   <div class="page">
-    <HeroSection>
-      <template #content>
-        {{ menuDia.title }}
-      </template>
-      <template #default>
-        <div v-if="menu.mainImage">
-          <ElementsMediaImageItem
-            :src="menu.mainImage.asset._ref"
-            :alt="menu.mainImage.alt"
-            height="450"
-            sizes="xs:100vw sm:100vw md:100vw lg:100vw"
-            :modifiers="{
-              crop: menu.mainImage.crop,
-              hotspot: menu.mainImage.hotspot,
-              q: 80,
-            }"
-            fit="cover"
-            format="webp"
-          />
-        </div>
-        <div v-else class="noImg" />
-      </template>
-    </HeroSection>
+    <HeroSection :items="menu" />
     <main>
       <div class="main_content">
         <div class="menu_content">

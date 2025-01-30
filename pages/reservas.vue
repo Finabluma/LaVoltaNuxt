@@ -57,32 +57,7 @@
 </script>
 <template>
   <div class="page">
-    <HeroSection>
-      <template #content>
-        {{ reservas.title }}
-      </template>
-      <template #default>
-        <div
-          v-if="reservas.mainImage"
-          class="img border-t border-t-neutral-content"
-        >
-          <ElementsMediaImageItem
-            :src="reservas.mainImage.asset._ref"
-            :alt="reservas.mainImage.alt"
-            height="450"
-            sizes="xs:100vw sm:100vw md:100vw lg:100vw"
-            :modifiers="{
-              crop: reservas.mainImage.crop,
-              hotspot: reservas.mainImage.hotspot,
-              q: 80,
-            }"
-            fit="cover"
-            format="webp"
-          />
-        </div>
-        <div v-else class="noImg" />
-      </template>
-    </HeroSection>
+    <HeroSection :items="reservas" />
     <main>
       <div class="main_content">
         <section>

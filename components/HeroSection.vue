@@ -1,5 +1,10 @@
 <script setup>
   import { ref, onMounted, onUnmounted } from 'vue'
+  const props = defineProps({
+    items: {
+      type: Object,
+    },
+  })
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
   let main = ref(),
@@ -41,11 +46,28 @@
   <div class="hero" ref="main">
     <div class="content">
       <div class="inner">
-        <slot name="content"></slot>
+        <div>
+          {{ items.title }}
+        </div>
       </div>
     </div>
     <div class="inner_hero">
-      <slot />
+      <div v-if="items.mainImage">
+        <ElementsMediaImageItem
+          :src="items.mainImage.asset._ref"
+          :alt="items.mainImage.alt"
+          height="450"
+          sizes="xs:100vw sm:100vw md:100vw lg:100vw"
+          :modifiers="{
+            crop: items.mainImage.crop,
+            hotspot: items.mainImage.hotspot,
+            q: 80,
+          }"
+          fit="cover"
+          format="webp"
+        />
+      </div>
+      <div v-else class="noImg" />
     </div>
   </div>
 </template>

@@ -61,29 +61,7 @@
 </script>
 <template>
   <div class="page" ref="main">
-    <HeroSection>
-      <template #content>
-        {{ home.title }}
-      </template>
-      <template #default>
-        <div v-if="home.mainImage">
-          <ElementsMediaImageItem
-            :src="home.mainImage.asset._ref"
-            :alt="home.mainImage.alt"
-            height="450"
-            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
-            :modifiers="{
-              crop: home.mainImage.crop,
-              hotspot: home.mainImage.hotspot,
-              q: 80,
-            }"
-            fit="cover"
-            format="webp"
-          />
-        </div>
-        <div v-else class="noImg" />
-      </template>
-    </HeroSection>
+    <HeroSection :items="home" />
     <main>
       <div class="home_content">
         <section>
