@@ -18,7 +18,7 @@
 </template>
 <style lang="postcss">
   #breadcrumb {
-    @apply py-2;
+    @apply py-4;
 
     ol {
       @apply flex items-center;

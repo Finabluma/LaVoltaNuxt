@@ -55,7 +55,8 @@
   }
 
   .homePortada {
-    @apply mb-10;
+    @apply mb-5
+    md:mb-10;
     .title_destacado {
       @apply text-lg
       font-coordinates

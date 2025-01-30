@@ -133,7 +133,7 @@
       flex-row-reverse
       items-center
       justify-between
-      mb-5
+      mb-0
       xl:ml-auto;
 
     .media {
@@ -160,11 +160,6 @@
             lg:text-xl;
         }
       }
-
-      .categories {
-        @apply hidden
-          sm:flex;
-      }
     }
   }
 
@@ -174,7 +169,7 @@
       items-center
       justify-between
       p-3
-      mb-4
+      mb-2
       lg:mb-0
       lg:min-h-[125px]
       border

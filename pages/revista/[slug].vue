@@ -92,7 +92,7 @@
           <ArticleCategories
             title="Categorias"
             :tags="data.categories"
-            class="categories"
+            class="catslug"
           />
         </div>
       </div>

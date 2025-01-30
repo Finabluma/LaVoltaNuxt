@@ -185,8 +185,8 @@
           content-before
           lg:w-6/12;
         .svg {
-          @apply w-32
-            h-32
+          @apply w-28
+            h-28
             md:w-40
             md:h-40
             lg:w-60
