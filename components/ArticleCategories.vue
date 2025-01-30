@@ -1,7 +1,4 @@
 <script setup>
-  import { ref } from 'vue'
-  const portada = ref(false)
-  const destacado = ref(false)
   const props = defineProps({
     title: {
       type: String,
@@ -12,10 +9,7 @@
   })
 </script>
 <template>
-  <div
-    :class="{ destacado: catdestacado, portada: portada }"
-    class="categories"
-  >
+  <div class="categories" :class="{ catrelated: catrelated }">
     <div>
       <span><LazyTags /></span>
       <span class="sr-only">{{ title }}</span>
@@ -32,13 +26,13 @@
 </template>
 <style lang="postcss" scoped>
   .categories {
-    @apply w-11/12
+    @apply w-full
     mx-auto
     flex;
 
     div {
       @apply flex 
-      justify-center
+      justify-start
       items-start;
     }
 
@@ -60,23 +54,19 @@
 
         &:after {
           @apply block
-          bg-slate-600
+          bg-slate-300
           dark:bg-slate-400
           h-1
           w-1
-          ml-1;
+          ml-2;
         }
       }
     }
 
-    &.catportada {
-      @apply w-auto max-sm:hidden;
-    }
-
-    &.catdestacado {
-      @apply w-auto max-sm:hidden;
-      ul li {
-        @apply text-slate-400;
+    &.catrelated {
+      ul li:after {
+        @apply bg-slate-500
+        dark:bg-slate-400;
       }
     }
   }

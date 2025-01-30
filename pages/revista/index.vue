@@ -1,13 +1,9 @@
 <script setup>
-  import { ref, computed, onMounted, onUnmounted } from 'vue'
+  import { computed } from 'vue'
   const { revista } = usePagesStore()
 
   const isFeatured = computed(() => {
     return revista.portada.cover.filter((item) => item.featured !== false)
-  })
-
-  const destacado = computed(() => {
-    return isFeatured.value[0].article
   })
 
   const notFeatured = computed(() => {
@@ -19,34 +15,6 @@
     title: revista.title,
     seo: revista.seo,
   })
-
-  //GSAP
-  // const { gsap, ScrollTrigger } = useGsap()
-
-  // let main = ref(),
-  //   ctx = ref()
-
-  // onMounted(() => {
-  //   ctx = gsap.context((self) => {
-  //     let q = gsap.utils.selector('.highlight-block')
-  //     let tl = gsap
-  //       .timeline({
-  //         scrollTrigger: {
-  //           trigger: '.highlight-block',
-  //           start: 'top top',
-  //           pin: true,
-  //           pinSpacing: false,
-  //           scrub: true,
-  //         },
-  //       })
-  //       .to(q('h1'), { autoAlpha: 0, y: '10' })
-  //       .to(q('.destacado'), { autoAlpha: 0, yPercent: '10' }, '0')
-  //   }, main.value)
-  // })
-
-  // onUnmounted(() => {
-  //   ctx.revert()
-  // })
 </script>
 <template>
   <div class="page">
@@ -78,13 +46,13 @@
         <section>
           <h1 class="sr-only">{{ revista.title }}</h1>
           <div class="destacado-wrapper">
-            <div class="highlight-block">
-              <h1>{{ revista.portada.title }}</h1>
-              <div v-if="isFeatured.length > 0">
-                <ArticleDestacado :items="destacado" />
-              </div>
+            <div v-if="isFeatured.length > 0">
+              <ArticleDestacado
+                :item="isFeatured"
+                class="homePortada"
+                :title="revista.portada.title"
+              />
             </div>
-
             <div v-if="notFeatured.length > 0">
               <ArticlesPortada :items="notFeatured" />
             </div>
@@ -103,26 +71,5 @@
     @apply mx-auto 
     lg:w-11/12
     xl:w-11/12;
-
-    .highlight-block {
-      @apply flex 
-      flex-col 
-      justify-center 
-      items-center;
-    }
-
-    h1 {
-      @apply text-lg
-        font-coordinates
-        lowercase
-        tracking-[1rem]
-        pt-8
-        mb-5
-        ml-[1rem]        
-        text-slate-400
-        dark:text-slate-400
-        lg:pt-12
-        lg:mb-10;
-    }
   }
 </style>

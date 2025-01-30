@@ -6,10 +6,6 @@
     return home.portada.portada.cover.filter((item) => item.featured !== false)
   })
 
-  const destacado = computed(() => {
-    return isFeatured.value[0].article
-  })
-
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
 
@@ -45,18 +41,12 @@
         },
       })
       .to(q('h1'), { yPercent: -20, autoAlpha: 0 })
-      .to(q('.destacado'), { yPercent: -40, autoAlpha: 0 }, '0')
+      .to(q('.homeDestacado'), { yPercent: -40, autoAlpha: 0 }, '0')
     return tl
   }
 
   function smDestacadoMaster() {
-    let mm = gsap.matchMedia()
-    mm.add('(min-width: 320px) and (orientation:portrait)', () => {
-      let tl = gsap.timeline().add(smDestacadoIn()).add(smDestacadoOut())
-    }).add('(min-width:1024px)', () => {
-      let tl1 = gsap.timeline().add(smDestacadoIn()).add(smDestacadoOut())
-    })
-    return mm
+    gsap.timeline().add(smDestacadoIn()).add(smDestacadoOut())
   }
 
   onMounted(() => {
@@ -108,7 +98,7 @@
               <h1 class="text-center leading-1">
                 {{ home.portada.portada.title }}
               </h1>
-              <ArticleDestacado :items="destacado" />
+              <ArticleDestacado :item="isFeatured" class="homeDestacado" />
             </div>
           </div>
         </section>
@@ -124,7 +114,7 @@
 <style lang="postcss" scoped>
   .articleHome {
     @apply relative 
-    min-h-[85dvh]
+    min-h-[90dvh]
     bg-slate-600
     dark:bg-slate-600
     border-t-2
@@ -134,7 +124,8 @@
     flex-col
     justify-evenly
     py-6
-    sm:py-12
+    sm:pt-0
+    md:h-[50dvh]
     xl:h-[95dvh]
     xl:mb-52;
 

@@ -10,7 +10,7 @@
 </script>
 <template>
   <div class="carrusel">
-    <h2>{{ title }}</h2>
+    <h2><span class="sr-only">Galería de Imágenes</span> {{ title }}</h2>
     <div class="carrusel-wrapper">
       <div class="wrapper">
         <Swiper

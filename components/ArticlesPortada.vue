@@ -9,9 +9,13 @@
   <div class="articlesportada">
     <div class="titleblock">otras cosas ...</div>
     <div class="portada_wrapper">
-      <div v-for="item in items" :key="item.slug">
-        <ArticleTeaser :heading="item.article.title" class="portada">
-          <template #media>
+      <div v-for="item in items" :key="item.id">
+        <ArticleTeaser
+          :article="item.article"
+          :heading="item.article.title"
+          class="portada"
+        >
+          <template #default>
             <ElementsMediaImageItem
               :src="item.article.mainImage.asset._ref"
               :alt="item.article.mainImage.alt"
@@ -26,25 +30,13 @@
               format="webp"
             />
           </template>
-          <template #default>
-            <div class="enlace">
-              <ElementsTextLink
-                link-type="internalLinkType"
-                route="revista-slug"
-                :slug="item.article.slug"
-                >{{ item.article.title }}
-              </ElementsTextLink>
-            </div>
-            <div v-if="item.article.subtitle" class="subtitle">
-              {{ item.article.subtitle }}
-            </div>
-            <div v-if="item.article.categories">
-              <ArticleCategories
-                :tags="item.article.categories"
-                title="Categorias"
-                class="catportada"
-              />
-            </div>
+
+          <template #categories>
+            <ArticleCategories
+              :tags="item.article.categories"
+              title="Categorias"
+              v-if="item.article.categories"
+            />
           </template>
         </ArticleTeaser>
       </div>
@@ -58,26 +50,7 @@
     bg-slate-50 
     dark:bg-slate-600;
     .titleblock {
-      @apply mb-4
-      pt-1
-      font-sans
-      text-xl
-      tracking-widest
-      dark:text-slate-400
-      content-after
-      md:mt-4
-      lg:mt-8
-      xl:mt-10
-      hidden;
-
-      &:after {
-        @apply block
-        w-1/12
-        h-1
-        mt-2
-        bg-slate-300/75
-        dark:bg-slate-300/75;
-      }
+      @apply sr-only;
     }
 
     .portada_wrapper {
@@ -86,40 +59,7 @@
       mx-auto
       md:w-11/12
       lg:w-10/12
-      xl:w-9/12;
-
-      article {
-        .enlace {
-          @apply font-sans
-          text-xl/tight
-          text-slate-500
-          dark:text-slate-300
-          xl:text-2xl;
-        }
-        .subtitle {
-          @apply text-sm 
-          text-slate-500
-          dark:text-slate-300
-          px-0.5
-          sm:text-base
-          xl:text-lg
-          content-before;
-
-          &:before {
-            @apply block
-            bg-slate-300
-            dark:bg-slate-400
-            h-1
-            w-6
-            my-2;
-          }
-        }
-
-        .categories {
-          @apply max-sm:hidden
-          mt-1;
-        }
-      }
+      xl:w-10/12;
     }
   }
 </style>
