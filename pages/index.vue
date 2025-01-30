@@ -41,7 +41,7 @@
         },
       })
       .to(q('h1'), { yPercent: -20, autoAlpha: 0 })
-      .to(q('.homeDestacado'), { yPercent: -40, autoAlpha: 0 }, '0')
+      .to(q('.homeDestacado'), { yPercent: -20, autoAlpha: 0 }, '0')
     return tl
   }
 
@@ -92,7 +92,7 @@
 <style lang="postcss" scoped>
   .articleHome {
     @apply relative 
-    min-h-[90dvh]
+    h-dvh
     bg-slate-600
     dark:bg-slate-600
     border-t-2
@@ -103,7 +103,7 @@
     justify-evenly
     py-6
     sm:pt-0
-    md:h-[50dvh]
+    md:h-[75dvh]
     xl:h-[95dvh]
     xl:mb-52;
 
@@ -118,8 +118,7 @@
         font-coordinates
         lowercase
         tracking-[1rem]
-        pt-10
-        mb-10
+        mb-2
         ml-[1rem]        
         text-slate-400
         dark:text-slate-400;

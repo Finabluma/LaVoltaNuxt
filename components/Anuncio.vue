@@ -14,11 +14,11 @@
 <template>
   <div>
     <h2>{{ title }}</h2>
-    <div v-if="image">
+    <!-- <div v-if="image">
       <ElementsMediaImageItem
         :src="image.asset._ref"
         :alt="image.alt"
-        height="450"
+        height="100"
         sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
         :modifiers="{
           crop: image.crop,
@@ -32,6 +32,6 @@
     <div v-if="banner">
       <p>{{ banner }}</p>
     </div>
-    <slot></slot>
+    <slot></slot> -->
   </div>
 </template>

@@ -129,100 +129,7 @@
       dark:border-slate-600;
     }
   }
-  .banner {
-    @apply pt-5
-    mb-10
-    sm:pt-7
-    md:pt-10
-    content-after;
 
-    &::before {
-      @apply mb-5
-      md:mb-7;
-    }
-
-    .banner_wrapper {
-      @apply w-11/12
-      mx-auto
-      lg:w-8/12;
-
-      .image {
-        @apply relative
-        p-1
-        drop-shadow
-        border-slate-300/80
-        dark:bg-slate-300
-        rounded-full
-        w-28
-        h-28
-        mx-auto
-        mb-4
-        overflow-hidden
-        content-before;
-
-        &::before {
-          @apply absolute
-          top-0
-          z-10
-          w-full
-          h-full
-          bg-gradient-radial
-          from-transparent
-          to-slate-300/45
-          dark:to-slate-500/30;
-        }
-
-        img {
-          @apply rounded-full;
-        }
-      }
-
-      .banner_content {
-        @apply text-center
-        text-balance
-        py-2
-        mx-auto
-        max-w-screen-md
-        sm:w-11/12
-        lg:w-10/12;
-
-        h2 {
-          @apply font-coordinates
-          text-5xl/tight 
-          capitalize
-          mb-5
-          content-after;
-        }
-
-        .inner-content {
-          @apply py-1
-          mb-20
-          font-mono
-          text-base/normal
-          capitalize
-          lg:text-lg;
-        }
-
-        .enlace {
-          @apply block
-          mx-auto
-          mt-8;
-
-          a {
-            @apply font-bold
-            p-5
-            border
-            rounded-sm
-            border-slate-300
-            bg-slate-100
-            dark:border-slate-600
-            dark:bg-slate-700/50
-            sm:p-6;
-          }
-        }
-      }
-    }
-  }
   .obs {
     @apply font-mono
       text-lg/tight
@@ -254,26 +161,6 @@
         mt-3
         lg:mt-5;
       }
-    }
-  }
-  .noImg {
-    @apply w-full
-    h-full
-    bg-azulejos
-    bg-cover
-    content-before;
-
-    &:before {
-      @apply w-full
-      h-[50vh]
-      absolute
-      top-0
-      left-0
-      bg-gradient-to-b
-      from-slate-200/20
-      to-slate-200
-      dark:from-slate-200/10
-      dark:to-slate-200/90;
     }
   }
 }

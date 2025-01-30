@@ -67,7 +67,6 @@
     }
     .enlace {
       @apply font-sans
-      font-thin
       sm:pr-[2%]
       content-after;
 
@@ -113,14 +112,17 @@
           xl:w-10/12;
 
         .enlace {
-          @apply md:portrait:text-3xl
+          @apply text-lg
+            md:portrait:text-3xl
             lg:text-3xl/tight
             xl:text-5xl;
 
           .subtitle {
-            @apply md:portrait:text-lg
-              lg:text-lg/tight
-              mb-2;
+            @apply text-base
+            mt-1
+            md:portrait:text-lg
+            lg:text-lg/tight
+            mb-2;
           }
         }
       }

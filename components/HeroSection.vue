@@ -108,6 +108,27 @@
         dark:from-slate-600/30
         dark:to-slate-600/70;
       }
+
+      .noImg {
+        @apply w-full
+        h-full
+        bg-azulejos
+        bg-cover
+        content-before;
+
+        &:before {
+          @apply w-full
+          h-[50vh]
+          absolute
+          top-0
+          left-0
+          bg-gradient-to-b
+          from-slate-200/20
+          to-slate-200
+          dark:from-slate-200/10
+          dark:to-slate-200/90;
+        }
+      }
     }
   }
 </style>

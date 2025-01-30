@@ -14,4 +14,3 @@
     {{ link.title }}
   </ElementsTextLink>
 </template>
-<style></style>
