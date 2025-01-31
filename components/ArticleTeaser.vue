@@ -113,7 +113,7 @@
 
         .enlace {
           @apply font-coordinates
-            font-medium
+            font-semibold
             text-lg
             md:portrait:text-3xl
             lg:text-3xl/tight
@@ -121,6 +121,7 @@
 
           .subtitle {
             @apply text-base
+            font-normal
             mt-1
             md:portrait:text-lg
             lg:text-lg/tight
