@@ -28,11 +28,10 @@
         <MdiHeart />
       </div>
     </div>
-
     <div class="content">
       <h2>{{ optional.title }}</h2>
-      <div v-if="optional.banner" class="inner-content">
-        {{ optional.banner }}
+      <div v-if="optional.banner || optional.subtitle" class="inner-content">
+        {{ optional.banner || optional.subtitle }}
       </div>
       <div v-if="optional.enlace" class="enlace">
         <div v-if="optional.enlace.linkTarget.slug">

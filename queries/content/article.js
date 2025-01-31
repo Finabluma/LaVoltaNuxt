@@ -1,5 +1,5 @@
 import { headItems } from '../helpers/common'
-import { optional } from '../helpers/components'
+import { linkQuery } from '../site/linkQuery'
 export const articleQuery = groq`*[_type == 'articleType' && slug.current == $slug][0]{
         ${headItems},
         "slug":slug.current,
@@ -28,7 +28,20 @@ export const articleQuery = groq`*[_type == 'articleType' && slug.current == $sl
                         },
                 },
         },
-        optionalContent[]->
+        optionalContent[]->{
+                "id":_id,
+                title,
+                image,
+                banner,
+                enlace{
+                title,
+                ${linkQuery},
+                linkTarget->{
+                        title,
+                        "slug":slug.current
+                }
+            }
+        }
              
     }
 `

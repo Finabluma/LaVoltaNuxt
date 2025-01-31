@@ -222,7 +222,7 @@
               @apply block;
 
               h2 {
-                @apply text-6xl/tight font-coordinates;
+                @apply text-6xl/tight font-coordinates font-semibold;
               }
             }
 

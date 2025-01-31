@@ -67,6 +67,10 @@
   const banner = computed(() => {
     return data.value.optionalContent
   })
+
+  const estilos = computed(() => {
+    return data.value.optionalContent.length == 1 ? 'single' : 'compound'
+  })
 </script>
 <template>
   <div v-if="data" class="pageArticle">
@@ -100,11 +104,17 @@
         <ArticleRelated :related="related.articleRelated" v-if="related" />
       </div>
     </main>
-    <!-- <aside v-if="banner !== null">
-      <div v-for="item in banner" :key="item._id">
-        <pre>{{ item }}</pre>
+    <aside v-if="banner !== null" :class="estilos">
+      <div class="content_wrapper">
+        <div
+          v-for="(item, index) in banner"
+          :key="item._id"
+          :class="index == 0 ? 'first' : 'second'"
+        >
+          <LazyBannerBottom :optional="item" />
+        </div>
       </div>
-    </aside> -->
+    </aside>
     <AppFooter />
   </div>
   <div v-else>hola</div>

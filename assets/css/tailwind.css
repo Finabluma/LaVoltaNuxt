@@ -117,6 +117,7 @@
   }
   .cta {
     @apply font-coordinates
+    font-semibold
     text-lg/tight
     lg:text-xl;
 
@@ -129,7 +130,6 @@
       dark:border-slate-600;
     }
   }
-
   .obs {
     @apply font-mono
       text-lg/tight
@@ -160,6 +160,241 @@
         h-2
         mt-3
         lg:mt-5;
+      }
+    }
+  }
+  .single {
+    @apply w-11/12
+    mx-auto
+    pt-10
+    pb-24
+    content-before;
+
+    &:before {
+      @apply block
+      w-9/12
+      h-0.5
+      mx-auto
+      mb-10
+      bg-slate-300
+      dark:bg-slate-500;
+    }
+
+    .content_wrapper {
+      @apply flex
+      justify-center;
+
+      .first {
+        .optional {
+          @apply flex
+          flex-col
+          items-center;
+
+          .media {
+            @apply mb-10;
+
+            .image {
+              @apply w-24
+              h-24              
+              overflow-hidden
+              p-1 
+              drop-shadow 
+              rounded-full
+              border-slate-300/80 dark:bg-slate-300
+              content-before
+              sm:w-28
+              sm:h-28;
+
+              &:before {
+                @apply absolute top-0
+                z-10
+                w-full
+                h-full bg-gradient-radial
+                from-transparent to-slate-300/45
+                dark:to-slate-500/30;
+              }
+
+              img {
+                @apply rounded-full;
+              }
+            }
+
+            .noImg {
+              @apply flex 
+              justify-start
+              items-center 
+              lg:justify-center
+              lg:w-32 
+              lg:h-32 
+              bg-slate-300/50
+              dark:bg-slate-500/50 
+              rounded-full;
+            }
+          }
+          .content {
+            @apply max-w-screen-md
+            text-center;
+
+            h2 {
+              @apply font-coordinates
+              font-semibold
+              mb-5
+              text-5xl
+              content-after;
+
+              &:after {
+                @apply block
+                w-1/12
+                h-2
+                mx-auto
+                bg-current
+                mt-6
+                xl:mt-5;
+              }
+            }
+
+            .inner-content {
+              @apply text-balance
+              font-mono
+              mb-10
+              sm:mb-14
+              sm:text-lg;
+            }
+
+            .enlace {
+              @apply font-coordinates 
+              font-bold
+              leading-none
+              text-center
+              text-xl
+              uppercase
+              xl:text-2xl;
+
+              a {
+                @apply hover:text-pink-500
+                dark:hover:text-yellow-600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .compound {
+    @apply max-md:mb-5;
+
+    .content_wrapper {
+      @apply md:flex;
+
+      .first,
+      .second {
+        @apply pt-8
+        pb-14
+        md:w-6/12
+        md:flex
+        md:justify-center
+        md:pt-16
+        md:pb-20;
+
+        .optional {
+          @apply w-11/12
+          mx-auto
+          md:w-11/12
+          lg:w-8/12;
+
+          .media {
+            @apply mb-5 hidden;
+            .image {
+              @apply relative
+              mx-auto
+              w-24
+              content-before
+              rounded-full;
+
+              &:before {
+                @apply absolute
+                w-auto
+                h-full
+                z-10
+                bg-gradient-radial
+                from-transparent 
+                to-slate-300/45
+                dark:to-slate-800/30;
+              }
+
+              img {
+                @apply rounded-full;
+              }
+            }
+          }
+
+          .content {
+            h2 {
+              @apply font-coordinates
+              font-semibold
+              text-5xl/relaxed              
+              text-center
+              md:mb-5
+              md:text-3xl
+              content-after;
+
+              &:after {
+                @apply block
+                w-9/12
+                h-2
+                mx-auto
+                bg-current;
+              }
+            }
+
+            .inner-content {
+              @apply text-balance
+              text-lg
+              text-center
+              
+              mt-2
+              mb-5
+              md:min-h-[120px]
+              md:mb-8;
+            }
+
+            .enlace {
+              @apply font-coordinates 
+              font-bold
+              leading-none
+              text-center
+              text-xl
+              uppercase;
+
+              a {
+                @apply hover:text-slate-500
+                dark:hover:text-slate-50;
+              }
+            }
+          }
+        }
+      }
+
+      .first {
+        @apply bg-slate-300
+        dark:bg-slate-700;
+
+        .optional .content h2::after {
+          @apply w-1/12
+          h-1
+          md:w-9/12
+          md:h-2;
+        }
+      }
+
+      .second {
+        @apply md:bg-slate-400
+        md:dark:bg-slate-500;
+
+        .optional .media {
+          @apply max-md:flex;
+        }
       }
     }
   }

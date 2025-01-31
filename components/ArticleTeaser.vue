@@ -112,7 +112,9 @@
           xl:w-10/12;
 
         .enlace {
-          @apply text-lg
+          @apply font-coordinates
+            font-medium
+            text-lg
             md:portrait:text-3xl
             lg:text-3xl/tight
             xl:text-5xl;

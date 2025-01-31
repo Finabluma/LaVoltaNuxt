@@ -23,7 +23,9 @@ export const optional = groq`
         'bannerBody': optionalContent[@->._type == 'bannerBodyType']->{
             "id":_id,
             title,
-            image,
+            image{
+                asset,
+            },
             banner,
             enlace{
               title,
@@ -33,6 +35,15 @@ export const optional = groq`
                 "slug":slug.current
               }
             }
+        },
+        'article': optionalContent[@->._type == 'articleType']->{
+            "id":_id,
+            title,
+            "slug":slug.current,
+            "image":mainImage{
+                asset,
+            },
+            subtitle
         },
     } 
 `
