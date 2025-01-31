@@ -7,25 +7,28 @@
 </script>
 <template>
   <div class="optional">
-    <div v-if="optional.image" class="image">
-      <ElementsMediaImageItem
-        :src="optional.image.asset._ref"
-        :alt="optional.image.alt"
-        :modifiers="{
-          crop: optional.image.crop,
-          hotspot: optional.image.hotspot,
-          q: 80,
-          'max-w': '350',
-          'max-h': '350',
-        }"
-        sizes="xs:100vw"
-        fit="cover"
-        format="webp"
-      />
+    <div class="media">
+      <div v-if="optional.image" class="image">
+        <ElementsMediaImageItem
+          :src="optional.image.asset._ref"
+          :alt="optional.image.alt"
+          :modifiers="{
+            crop: optional.image.crop,
+            hotspot: optional.image.hotspot,
+            q: 80,
+            'max-w': '350',
+            'max-h': '350',
+          }"
+          sizes="xs:100vw"
+          fit="cover"
+          format="webp"
+        />
+      </div>
+      <div v-else class="noImg">
+        <MdiHeart />
+      </div>
     </div>
-    <div v-else class="noImg">
-      <MdiHeart />
-    </div>
+
     <div class="content">
       <h2>{{ optional.title }}</h2>
       <div v-if="optional.banner" class="inner-content">

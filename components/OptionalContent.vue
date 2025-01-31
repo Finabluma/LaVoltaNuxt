@@ -53,35 +53,38 @@
           flex-col
           items-center;
 
-          .image {
-            @apply w-24
-            h-24
-            mb-10
-            overflow-hidden
-            p-1 
-            drop-shadow 
-            rounded-full
-            border-slate-300/80 dark:bg-slate-300
-            content-before
-            sm:w-32
-            sm:h-32;
+          .media {
+            @apply mb-10;
 
-            &:before {
-              @apply absolute top-0
-              z-10
-              w-full
-              h-full bg-gradient-radial
-              from-transparent to-slate-300/45
-            dark:to-slate-500/30;
+            .image {
+              @apply w-24
+              h-24              
+              overflow-hidden
+              p-1 
+              drop-shadow 
+              rounded-full
+              border-slate-300/80 dark:bg-slate-300
+              content-before
+              sm:w-32
+              sm:h-32;
+
+              &:before {
+                @apply absolute top-0
+                z-10
+                w-full
+                h-full bg-gradient-radial
+                from-transparent to-slate-300/45
+              dark:to-slate-500/30;
+              }
+
+              img {
+                @apply rounded-full;
+              }
             }
 
-            img {
-              @apply rounded-full;
+            .noImg {
+              @apply hidden;
             }
-          }
-
-          .noImg {
-            @apply hidden;
           }
 
           .content {
@@ -168,42 +171,44 @@
         .optional {
           @apply lg:flex;
 
-          .image {
-            @apply hidden
-            relative
-            content-before
-            rounded-full
-            lg:flex
-            lg:w-32
-            lg:mr-4;
+          .media {
+            @apply lg:mr-4;
+            .image {
+              @apply hidden
+              relative
+              content-before
+              rounded-full
+              lg:flex
+              lg:w-32;
 
-            &:before {
-              @apply absolute
-              w-auto
-              h-full
-              z-10
-              bg-gradient-radial
-              from-transparent 
-              to-slate-300/45
-              dark:to-slate-800/30;
+              &:before {
+                @apply absolute
+                w-auto
+                h-full
+                z-10
+                bg-gradient-radial
+                from-transparent 
+                to-slate-300/45
+                dark:to-slate-800/30;
+              }
+
+              img {
+                @apply rounded-full;
+              }
             }
 
-            img {
-              @apply rounded-full;
+            .noImg {
+              @apply flex 
+              justify-start
+              items-center 
+              lg:justify-center
+              lg:w-32 
+              lg:h-32 
+              bg-slate-300/50
+              dark:bg-slate-500/50 
+              rounded-full 
+              mr-3;
             }
-          }
-
-          .noImg {
-            @apply flex 
-            justify-start
-            items-center 
-            lg:justify-center
-            lg:w-32 
-            lg:h-32 
-            bg-slate-300/50
-            dark:bg-slate-500/50 
-            rounded-full 
-            mr-3;
           }
 
           .content {
