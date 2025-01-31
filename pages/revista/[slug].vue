@@ -141,7 +141,7 @@
 
     #footer {
       @apply mt-auto
-      bg-slate-200 
+      bg-slate-200
       dark:bg-slate-600;
     }
   }
@@ -152,5 +152,10 @@
     max-w-screen-lg
     sm:w-11/12
     md:w-10/12;
+  }
+
+  .compound .content_wrapper .second {
+    @apply bg-slate-200 md:bg-slate-400 dark:bg-slate-600
+    md:dark:bg-slate-500;
   }
 </style>

@@ -93,7 +93,7 @@
   .articleHome {
     @apply relative 
     h-dvh
-    bg-slate-600
+    bg-slate-500
     dark:bg-slate-600
     border-t-2
     border-t-slate-500

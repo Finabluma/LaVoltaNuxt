@@ -56,7 +56,7 @@
       @apply absolute z-10 w-full h-full flex justify-center items-end;
 
       .inner {
-        @apply text-lg font-cameo dark:text-slate-300 pb-3 w-11/12 mx-auto sm:w-9/12 md:w-9/12 md:pb-10 lg:w-8/12;
+        @apply text-lg font-cameo text-slate-300 pb-3 w-11/12 mx-auto sm:w-9/12 md:w-9/12 md:pb-10 lg:w-8/12;
       }
     }
 

@@ -70,7 +70,9 @@
         mb-6
         capitalize
         font-coordinates 
-        font-bold      
+        font-semibold
+        text-slate-500
+        dark:text-slate-400      
         min-[375px]:text-6xl
         sm:text-6xl
         lg:text-5xl

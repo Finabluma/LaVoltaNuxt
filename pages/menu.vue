@@ -165,8 +165,8 @@
         z-10
         bg-slate-50
         dark:bg-slate-600
-        pt-[8%]
-        pb-[5%]
+        pt-[5%]
+        pb-[10%]
         sm:pt-[3%]
         sm:pb-[5%]
         w-screen
