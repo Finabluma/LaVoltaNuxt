@@ -26,7 +26,7 @@
     @apply fixed
     top-20
     md:top-24
-    z-50
+    z-40
     w-full
     justify-center;
 
