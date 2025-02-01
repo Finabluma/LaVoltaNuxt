@@ -160,9 +160,12 @@
     md:w-10/12;
   }
 
-  .compound .content_wrapper .second,
-  .single .content_wrapper .first {
+  .compound .content_wrapper .second {
     @apply bg-slate-200 md:bg-slate-400 dark:bg-slate-600
     md:dark:bg-slate-500;
+  }
+
+  .single .content_wrapper .first {
+    @apply bg-slate-200  dark:bg-slate-600;
   }
 </style>
