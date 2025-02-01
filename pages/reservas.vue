@@ -57,6 +57,11 @@
 </script>
 <template>
   <div class="page">
+    <AppModal
+      :budskap="reservas"
+      v-show="showModal"
+      @close-modal="showModal = false"
+    />
     <HeroSection :items="reservas" />
     <main>
       <div class="main_content">

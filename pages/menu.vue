@@ -67,6 +67,11 @@
 </script>
 <template>
   <div class="page">
+    <AppModal
+      :budskap="menu"
+      v-show="showModal"
+      @close-modal="showModal = false"
+    />
     <HeroSection :items="menu" />
     <main>
       <div class="main_content">

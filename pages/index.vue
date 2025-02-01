@@ -12,7 +12,8 @@
   let main = ref(),
     ctx = ref(),
     intro = ref(),
-    food = ref()
+    food = ref(),
+    showModal = ref(true)
 
   function smDestacadoIn() {
     let q = gsap.utils.selector('.destacado')
@@ -61,14 +62,14 @@
 </script>
 <template>
   <div class="page" ref="main">
-    <!-- <AppModal /> -->
+    <AppModal
+      :budskap="home"
+      v-show="showModal"
+      @close-modal="showModal = false"
+    />
     <HeroSection :items="home" />
     <main>
       <div class="home_content">
-        <!-- <div v-if="home.bannerUrgent !== null">
-          MODALS!!
-          <pre>{{ home.bannerUrgent.urgentContent.banner }}</pre>
-        </div> -->
         <section>
           <IntroHome
             :subtitle="home.subtitle"

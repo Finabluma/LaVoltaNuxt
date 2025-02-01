@@ -18,6 +18,11 @@
 </script>
 <template>
   <div class="page">
+    <AppModal
+      :budskap="revista"
+      v-show="showModal"
+      @close-modal="showModal = false"
+    />
     <HeroSection :items="revista" />
     <main>
       <div class="main_content">
