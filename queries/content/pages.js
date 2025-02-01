@@ -5,7 +5,7 @@ import {
   portadaItems,
   gallery,
 } from '../helpers/common'
-import { optional } from '../helpers/components'
+import { optional, mensaje } from '../helpers/components'
 
 const cartaMenuItems = groq`
     cartamenu[]{
@@ -35,6 +35,7 @@ export const pagesQuery = groq`{
         ${cartaMenuItems},
         ${gallery},
         ${optional},
+        ${mensaje},
         "portada":*[_type=='revistaType'][0]{
             "portada":revista->{
                     ${portadaItems}
@@ -47,6 +48,7 @@ export const pagesQuery = groq`{
             ${seoQuery}
         },
         ${optional},
+        ${mensaje},
         "portada":revista->{
             ${portadaItems}
         }
@@ -59,6 +61,7 @@ export const pagesQuery = groq`{
         priceshare,
         ${gallery},
         ${optional},
+        ${mensaje},
         seo{
             ${seoQuery}
         },
@@ -71,17 +74,18 @@ export const pagesQuery = groq`{
             ${seoQuery}
         },
         ${gallery},
-        ${optional}
+        ${optional},
+        ${mensaje},
     },
     "reservas":*[_type=='reservasType'][0]{
         ${headItems},
+        ${mensaje},
         seo{
             ${seoQuery}
         },
         introTerms,
         "reservasIntro": *[_type=='conditionsType'][0]{ title },
         "conditions": *[_type=='conditionsType'][0]{ conditions[]->{title, terms}},
-        ${optional}
     },
     "terms":*[_type=='termsType'][0]{
         title,

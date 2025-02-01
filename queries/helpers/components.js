@@ -47,6 +47,15 @@ export const optional = groq`
         },
     } 
 `
+export const mensaje = groq`
+    bannerUrgent{
+        urgentContent[0]->{
+            "id":_id,
+            title,
+            banner
+        }
+    }
+`
 export const phoneContact = groq`*[_type == "siteContactType"][0]{phone}`
 export const cartaLink = groq`*[_type == "siteNavType" ][0]{title}`
 

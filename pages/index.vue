@@ -61,15 +61,21 @@
 </script>
 <template>
   <div class="page" ref="main">
+    <!-- <AppModal /> -->
     <HeroSection :items="home" />
     <main>
       <div class="home_content">
+        <!-- <div v-if="home.bannerUrgent !== null">
+          MODALS!!
+          <pre>{{ home.bannerUrgent.urgentContent.banner }}</pre>
+        </div> -->
         <section>
           <IntroHome
             :subtitle="home.subtitle"
             :content="home.content"
             ref="intro"
           />
+
           <CartaMenu :items="home.cartamenu" ref="food" />
           <div v-if="isFeatured.length > 0" class="articleHome">
             <div class="artHomeContent">

@@ -117,12 +117,11 @@
   }
   .cta {
     @apply font-coordinates
-    font-semibold
     text-lg/tight
     lg:text-xl;
 
     a {
-      @apply px-6 py-4
+      @apply px-6 py-5
       border
       bg-slate-300
       font-coordinates
@@ -147,7 +146,7 @@
     .blockContent {
       @apply content-after leading-snug;
       p {
-        @apply text-[1.1rem];
+        @apply text-[1.2rem];
       }
       h2 {
         @apply text-lg;
@@ -160,6 +159,48 @@
         h-2
         mt-3
         lg:mt-5;
+      }
+    }
+  }
+  .single,
+  .compound {
+    .content h2 {
+      @apply font-coordinates
+        text-4xl              
+        text-center
+        md:mb-5
+        content-after;
+
+      &:after {
+        @apply block
+          w-2
+          h-2
+          rounded-full
+          mx-auto
+          mt-5
+          bg-current;
+      }
+    }
+    .enlace {
+      @apply font-sans 
+        leading-none
+        text-center
+        text-lg;
+
+      a {
+        @apply border
+        border-slate-400
+        dark:border-slate-700
+        px-5
+        py-4
+        bg-slate-300
+        text-slate-600
+        dark:text-slate-300
+        dark:bg-slate-500
+        hover:bg-slate-800
+        hover:text-slate-100
+        dark:hover:bg-slate-700
+        dark:hover:text-slate-50;
       }
     }
   }
@@ -236,45 +277,12 @@
             @apply max-w-screen-md
             text-center;
 
-            h2 {
-              @apply font-coordinates
-              font-semibold
-              mb-5
-              text-5xl
-              content-after;
-
-              &:after {
-                @apply block
-                w-1/12
-                h-2
-                mx-auto
-                bg-current
-                mt-6
-                xl:mt-5;
-              }
-            }
-
             .inner-content {
               @apply text-balance
               font-mono
               mb-10
               sm:mb-14
               sm:text-lg;
-            }
-
-            .enlace {
-              @apply font-coordinates 
-              font-bold
-              leading-none
-              text-center
-              text-xl
-              uppercase
-              xl:text-2xl;
-
-              a {
-                @apply hover:text-pink-500
-                dark:hover:text-yellow-600;
-              }
             }
           }
         }
@@ -303,73 +311,18 @@
           lg:w-8/12;
 
           .media {
-            @apply mb-5 hidden;
-            .image {
-              @apply relative
-              mx-auto
-              w-24
-              content-before
-              rounded-full;
-
-              &:before {
-                @apply absolute
-                w-auto
-                h-full
-                z-10
-                bg-gradient-radial
-                from-transparent 
-                to-slate-300/45
-                dark:to-slate-800/30;
-              }
-
-              img {
-                @apply rounded-full;
-              }
-            }
+            @apply hidden;
           }
 
           .content {
-            h2 {
-              @apply font-coordinates
-              font-semibold
-              text-5xl/relaxed              
-              text-center
-              md:mb-5
-              md:text-3xl
-              content-after;
-
-              &:after {
-                @apply block
-                w-9/12
-                h-1
-                mx-auto
-                bg-current;
-              }
-            }
-
             .inner-content {
               @apply text-balance
               text-lg
               text-center
-              
               mt-2
-              mb-5
-              md:min-h-[120px]
+              mb-10
+              md:min-h-[110px]
               md:mb-8;
-            }
-
-            .enlace {
-              @apply font-coordinates 
-              font-bold
-              leading-none
-              text-center
-              text-xl
-              uppercase;
-
-              a {
-                @apply hover:text-slate-500
-                dark:hover:text-slate-50;
-              }
             }
           }
         }
@@ -379,11 +332,14 @@
         @apply bg-slate-300
         dark:bg-slate-700;
 
-        .optional .content h2::after {
-          @apply w-1/12
-          h-1
-          md:w-9/12
-          md:h-1;
+        .enlace {
+          a {
+            @apply text-slate-300
+            bg-slate-600
+            hover:bg-slate-800
+            dark:hover:bg-slate-500
+            dark:hover:text-slate-200;
+          }
         }
       }
 
@@ -392,7 +348,61 @@
          md:dark:bg-slate-500;
 
         .optional .media {
-          @apply max-md:flex;
+          @apply max-md:flex
+          max-md:justify-center
+          max-md:mb-6;
+
+          .image {
+            @apply relative
+              w-24
+              h-24              
+              overflow-hidden
+              p-1 
+              drop-shadow 
+              rounded-full
+              border-slate-300/80 dark:bg-slate-300
+              content-before
+              sm:w-28
+              sm:h-28;
+
+            &:before {
+              @apply absolute top-0
+                z-10
+                w-full
+                h-full bg-gradient-radial
+                from-transparent to-slate-300/45
+                dark:to-slate-500/30;
+            }
+
+            img {
+              @apply rounded-full;
+            }
+          }
+
+          .noImg {
+            @apply flex 
+              justify-start
+              items-center 
+              lg:justify-center
+              lg:w-32 
+              lg:h-32 
+              bg-slate-300/50
+              dark:bg-slate-500/50 
+              rounded-full;
+          }
+        }
+
+        .enlace {
+          a {
+            @apply bg-slate-600
+            text-slate-300
+            dark:bg-slate-700
+            dark:text-slate-300
+            hover:bg-slate-300
+            hover:text-slate-600
+            dark:hover:bg-slate-400
+            dark:hover:text-slate-50;
+          }
         }
       }
     }

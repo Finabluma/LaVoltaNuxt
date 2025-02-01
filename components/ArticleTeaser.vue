@@ -113,10 +113,11 @@
 
         .enlace {
           @apply font-coordinates
-            font-semibold
+            font-light
             text-lg
+            leading-none
             md:portrait:text-3xl
-            lg:text-3xl/tight
+            lg:text-3xl
             xl:text-5xl;
 
           .subtitle {

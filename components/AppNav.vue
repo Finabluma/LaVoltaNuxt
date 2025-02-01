@@ -75,6 +75,7 @@
     @apply mb-5 w-full 
     xl:w-auto 
     xl:mb-0;
+    
     ul {
       @apply w-full 
       mx-auto 
@@ -95,13 +96,12 @@
         font-typewriter
         xl:w-auto
         xl:tracking-normal
-        xl:text-sm;
+        xl:text-lg;
 
         a {
           @apply w-full
           block
           text-center
-          /* content-after */
           mb-5
           xl:flex
           xl:items-center
@@ -111,7 +111,7 @@
           &.router-link-active {
             @apply cursor-default 
             text-slate-400
-            dark:text-yellow-500;
+            dark:text-slate-400;
           }
 
           &:after {

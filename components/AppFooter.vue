@@ -58,7 +58,8 @@
     @apply relative
     z-30
     pt-10
-    pb-5;
+    pb-5
+    md:pt-20;
     .innerfooter {
       @apply w-full 
       flex
@@ -78,13 +79,9 @@
       }
       .top {
         @apply mb-10
-        xl:mb-5
+        xl:mb-0
         xl:flex-row
         xl:px-8
-        xl:border-b
-        xl:border-slate-600
-        xl:border-dotted
-        xl:dark:border-slate-300
         xl:pt-0
         xl:pb-5;
 
@@ -95,11 +92,11 @@
         }
       }
       .center {
-        @apply pb-5
-        xl:border-b
+        @apply pb-2
+        xl:border-b-2
         xl:border-dotted
-        xl:border-slate-600
-        xl:dark:border-slate-300
+        xl:border-slate-600/80
+        xl:dark:border-slate-300/60
         xl:flex-row
         xl:justify-end
         xl:px-7;
@@ -109,6 +106,7 @@
         text-xs/normal
         pt-5
         pb-10
+        xl:text-sm/normal
         xl:flex-row
         xl:items-start
         xl:justify-between

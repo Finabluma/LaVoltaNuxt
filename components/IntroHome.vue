@@ -69,8 +69,7 @@
         @apply leading-none
         mb-6
         capitalize
-        font-coordinates 
-        font-semibold
+        font-coordinates
         text-slate-500
         dark:text-slate-400      
         min-[375px]:text-6xl
