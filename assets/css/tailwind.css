@@ -280,6 +280,7 @@
             .inner-content {
               @apply text-balance
               font-mono
+              mt-4
               mb-10
               sm:mb-14
               sm:text-lg;
