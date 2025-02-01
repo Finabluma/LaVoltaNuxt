@@ -72,7 +72,7 @@
   <div id="drawer" ref="drawer">
     <div class="drawerInner">
       <button id="close" aria-label="close drawer" @click="drawerOut()">
-        <NuxtIcon name="MaterialSymbolsClose" />
+        <NuxtIcon name="MaterialSymbolsClose" class="opacity-50" />
       </button>
       <div class="contentInner" @click="drawerOut()">
         <div class="mainNav">

@@ -89,7 +89,7 @@
 </template>
 <style lang="postcss" scoped>
   .globalHeader {
-    @apply absolute w-screen top-12 z-50
+    @apply absolute w-screen top-12 z-30
     sm:top-8;
     .globalNav {
       @apply max-w-screen-lg
