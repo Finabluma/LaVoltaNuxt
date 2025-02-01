@@ -85,7 +85,7 @@
 <style lang="postcss" scoped>
   #drawer {
     @apply fixed
-    z-50
+    z-[100]
     inset-0
     invisible
     bg-slate-700/90
