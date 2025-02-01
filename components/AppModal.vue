@@ -25,7 +25,7 @@
   .modal-overlay {
     @apply fixed
     top-20
-    lg:top-24
+    md:top-24
     z-50
     w-full
     justify-center;
@@ -64,7 +64,7 @@
 
         .content {
           @apply w-9/12
-          lg:w-11/12;
+          md:w-11/12;
 
           p {
             @apply font-mono 
