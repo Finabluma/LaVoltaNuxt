@@ -124,7 +124,9 @@
     @apply w-screen
     min-h-dvh
     flex
-    flex-col;
+    flex-col
+    bg-slate-200
+    dark:bg-slate-600;
 
     main {
       @apply relative
@@ -138,6 +140,10 @@
         mx-auto;
       }
     }
+
+    /* aside {
+      @apply bg-slate-200 dark:bg-slate-600;
+    } */
 
     #footer {
       @apply mt-auto
@@ -154,7 +160,8 @@
     md:w-10/12;
   }
 
-  .compound .content_wrapper .second {
+  .compound .content_wrapper .second,
+  .single .content_wrapper .first {
     @apply bg-slate-200 md:bg-slate-400 dark:bg-slate-600
     md:dark:bg-slate-500;
   }

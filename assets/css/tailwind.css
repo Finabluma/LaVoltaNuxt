@@ -263,12 +263,14 @@
 
             .noImg {
               @apply flex 
-              justify-start
-              items-center 
+              justify-center
+              items-center
+              w-28
+              h-28 
               lg:justify-center
               lg:w-32 
               lg:h-32 
-              bg-slate-300/50
+              bg-slate-300/80
               dark:bg-slate-500/50 
               rounded-full;
             }
