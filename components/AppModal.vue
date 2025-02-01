@@ -44,11 +44,14 @@
 
       .close {
         @apply absolute
-        top-0
+        top-1
         right-2
-        p-2
         opacity-50
         cursor-pointer;
+
+        svg{
+          @apply p-1
+        }
       }
 
       .modal {
