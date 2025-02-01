@@ -50,7 +50,7 @@
   .intro {
     @apply relative
     w-screen
-    bg-slate-100
+    bg-slate-200
     dark:bg-slate-600;
 
     .intro_inner {
@@ -70,6 +70,7 @@
         mb-6
         capitalize
         font-coordinates
+        font-bold
         text-slate-500
         dark:text-slate-400      
         min-[375px]:text-6xl
@@ -81,7 +82,9 @@
       .inner__items {
         @apply text-balance
         content-after
-        content-before;
+        content-before
+        text-slate-500
+        dark:text-slate-400;
         p {
           @apply font-sans
           text-lg 
