@@ -25,7 +25,7 @@
   onMounted(() => {
     ctx = gsap.context(() => {
       ScrollTrigger.create({
-        start: 'clamp(top+=10% top)',
+        start: 'top top',
         end: 10000,
         toggleClass: {
           targets: '.globalHeader',
