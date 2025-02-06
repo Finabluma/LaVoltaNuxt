@@ -1,8 +1,22 @@
 <script setup>
+  const { gsap } = useGsap()
   const props = defineProps({
     budskap: {
       type: Object,
     },
+  })
+
+  function banner() {
+    let q = gsap.utils.selector('.modal-overlay')
+    gsap
+      .timeline({
+        delay: 0.5,
+      })
+      .set('.modal-overlay', { visibility: 'visible' })
+      .from(q('.wrapper'), { autoAlpha: 0 })
+  }
+  defineExpose({
+    banner,
   })
 </script>
 <template>
@@ -28,7 +42,8 @@
     md:top-20
     z-50
     w-full
-    justify-center;
+    justify-center
+    invisible;
 
     .wrapper {
       @apply relative

@@ -67,11 +67,13 @@
 </script>
 <template>
   <div class="page">
-    <AppModal
-      :budskap="menu"
-      v-show="showModal"
-      @close-modal="showModal = false"
-    />
+    <div v-if="menu.bannerUrgent !== null">
+      <AppModal
+        :budskap="menu"
+        v-show="showModal"
+        @close-modal="showModal = false"
+      />
+    </div>
     <HeroSection :items="menu" />
     <main>
       <div class="main_content">

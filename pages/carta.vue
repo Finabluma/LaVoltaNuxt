@@ -50,11 +50,13 @@
 </script>
 <template>
   <div class="page">
-    <AppModal
-      :budskap="carta"
-      v-show="showModal"
-      @close-modal="showModal = false"
-    />
+    <div v-if="carta.bannerUrgent !== null">
+      <AppModal
+        :budskap="carta"
+        v-show="showModal"
+        @close-modal="showModal = false"
+      />
+    </div>
     <HeroSection :items="carta" />
     <main>
       <div class="main_content">

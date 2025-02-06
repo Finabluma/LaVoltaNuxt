@@ -13,7 +13,8 @@
     ctx = ref(),
     intro = ref(),
     food = ref(),
-    showModal = ref(true)
+    showModal = ref(true),
+    banner = ref()
 
   function smDestacadoIn() {
     let q = gsap.utils.selector('.destacado')
@@ -52,7 +53,10 @@
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      food.value.masterToFood(), intro.value.intro(), smDestacadoMaster()
+      banner.value.banner(),
+        food.value.masterToFood(),
+        intro.value.intro(),
+        smDestacadoMaster()
     }, main.value)
   })
 
@@ -62,11 +66,14 @@
 </script>
 <template>
   <div class="page" ref="main">
-    <AppModal
-      :budskap="home"
-      v-show="showModal"
-      @close-modal="showModal = false"
-    />
+    <div v-if="home.bannerUrgent !== null">
+      <AppModal
+        :budskap="home"
+        v-show="showModal"
+        @close-modal="showModal = false"
+        ref="banner"
+      />
+    </div>
     <HeroSection :items="home" />
     <main>
       <div class="home_content">

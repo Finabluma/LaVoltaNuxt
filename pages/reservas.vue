@@ -57,11 +57,13 @@
 </script>
 <template>
   <div class="page">
-    <AppModal
-      :budskap="reservas"
-      v-show="showModal"
-      @close-modal="showModal = false"
-    />
+    <div v-if="reservas.bannerUrgent !== null">
+      <AppModal
+        :budskap="reservas"
+        v-show="showModal"
+        @close-modal="showModal = false"
+      />
+    </div>
     <HeroSection :items="reservas" />
     <main>
       <div class="main_content">

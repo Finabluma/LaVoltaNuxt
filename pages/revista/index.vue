@@ -18,11 +18,13 @@
 </script>
 <template>
   <div class="page">
-    <AppModal
-      :budskap="revista"
-      v-show="showModal"
-      @close-modal="showModal = false"
-    />
+    <div v-if="revista.bannerUrgent !== null">
+      <AppModal
+        :budskap="revista"
+        v-show="showModal"
+        @close-modal="showModal = false"
+      />
+    </div>
     <HeroSection :items="revista" />
     <main>
       <div class="main_content">
