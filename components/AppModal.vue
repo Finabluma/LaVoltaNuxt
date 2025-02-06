@@ -24,7 +24,7 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    top-28
+    bottom-5
     md:top-24
     z-50
     w-full
@@ -49,8 +49,8 @@
         opacity-50
         cursor-pointer;
 
-        svg{
-          @apply p-1
+        svg {
+          @apply p-1;
         }
       }
 
