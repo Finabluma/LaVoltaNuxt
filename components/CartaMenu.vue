@@ -56,8 +56,8 @@
         )
       ScrollTrigger.create({
         trigger: panel,
-        start: 'top+=10% center+=20%',
-        end: 'bottom bottom-=10%',
+        start: 'clamp(top center)',
+        end: 'clamp(bottom bottom-=10%)',
         scrub: true,
         animation: tl,
       })

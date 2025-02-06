@@ -118,8 +118,11 @@
         <a href="#main">Skip to main content</a>
       </li>
     </ul>
+
     <TodayAvailability />
     <AppHeader />
-    <NuxtPage />
+    <GsapScrollsmoother :settings="'2'">
+      <NuxtPage />
+    </GsapScrollsmoother>
   </div>
 </template>
