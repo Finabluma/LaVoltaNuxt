@@ -97,14 +97,15 @@
       w-full h-full content-before;
 
       &:before {
-        @apply w-full
+        @apply content-['']
+        w-full
         h-full
         absolute
         top-0
         left-0
         bg-gradient-to-b
         from-slate-600/20
-        to-slate-600/80
+        to-slate-800/90
         dark:from-slate-600/30
         dark:to-slate-600/70;
       }

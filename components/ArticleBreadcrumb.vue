@@ -27,7 +27,7 @@
         @apply flex items-center text-xs leading-none content-after;
 
         &:after {
-          @apply w-1 h-1 bg-current rounded-full mx-2;
+          @apply content-[''] w-1 h-1 bg-current rounded-full mx-2;
         }
 
         &:last-child {

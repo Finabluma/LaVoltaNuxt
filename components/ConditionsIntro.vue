@@ -47,7 +47,8 @@
           md:text-left;
 
           &:after {
-            @apply block
+            @apply content-[''] 
+            block
             h-1
             w-1/12
             mx-auto

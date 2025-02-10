@@ -115,7 +115,8 @@
           }
 
           &:after {
-            @apply block
+            @apply content-['']
+            block
             w-10
             h-0.5
             mx-auto

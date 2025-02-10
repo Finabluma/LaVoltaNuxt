@@ -62,7 +62,8 @@
         }
 
         &:after {
-          @apply block
+          @apply content-['']
+          block
           bg-slate-300
           dark:bg-slate-400
           h-1

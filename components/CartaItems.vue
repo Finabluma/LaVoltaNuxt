@@ -108,7 +108,8 @@
           italic;
 
           &:after {
-            @apply block
+            @apply content-['']
+            block
             mx-2
             h-1
             w-1

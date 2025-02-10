@@ -86,7 +86,8 @@
         @apply relative content-before;
 
         &:before {
-          @apply w-full
+          @apply content-['']
+          w-full
           h-full
           absolute
           top-0

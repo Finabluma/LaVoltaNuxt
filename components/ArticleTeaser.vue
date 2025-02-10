@@ -51,7 +51,8 @@
         mb-2;
 
       &:before {
-        @apply absolute
+        @apply content-['']
+        absolute
           top-0
           left-0
           z-10
@@ -71,7 +72,8 @@
       content-after;
 
       &:after {
-        @apply block
+        @apply content-['']
+        block
         bg-slate-400/80
         dark:bg-slate-300/80
         h-1

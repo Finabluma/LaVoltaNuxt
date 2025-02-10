@@ -93,7 +93,8 @@
 
         &::after,
         &::before {
-          @apply block
+          @apply content-['']
+          block
           w-1/12
           h-1
           bg-slate-800/20

@@ -245,7 +245,8 @@
                   lg:mb-5;
 
                 &:after {
-                  @apply block
+                  @apply content-['']
+                  block
                     w-1/12
                     h-1
                     mt-3

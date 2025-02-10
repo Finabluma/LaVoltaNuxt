@@ -104,10 +104,11 @@
           mb-2;
 
           &:after {
-            @apply block
+            @apply content-['']
+            block
               w-6
               h-6
-              mt-5
+              mt-3
               bg-slate-500/50
               dark:bg-slate-300/20;
           }
@@ -152,7 +153,8 @@
         @apply text-lg;
       }
       &:after {
-        @apply block 
+        @apply content-['']
+         block 
         bg-slate-600
         dark:bg-slate-400
         w-1/12
@@ -172,7 +174,8 @@
         content-after;
 
       &:after {
-        @apply block
+        @apply content-['']
+        block
           w-2
           h-2
           rounded-full
@@ -212,7 +215,8 @@
     content-before;
 
     &:before {
-      @apply block
+      @apply content-['']
+      block
       w-9/12
       h-0.5
       mx-auto
@@ -248,7 +252,8 @@
               sm:h-28;
 
               &:before {
-                @apply absolute top-0
+                @apply content-['']
+                absolute top-0
                 z-10
                 w-full
                 h-full bg-gradient-radial
@@ -369,7 +374,8 @@
               sm:h-28;
 
             &:before {
-              @apply absolute top-0
+              @apply content-['']
+              absolute top-0
                 z-10
                 w-full
                 h-full bg-gradient-radial

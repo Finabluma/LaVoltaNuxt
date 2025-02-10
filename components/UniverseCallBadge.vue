@@ -49,7 +49,8 @@
       content-before;
 
       &:before {
-        @apply absolute
+        @apply content-['']
+        absolute
         top-0
         left-0
         w-screen

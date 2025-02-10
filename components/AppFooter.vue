@@ -19,11 +19,11 @@
             nav="Secondary Nav"
             class="mr-2"
           />
-          *
+          |
           <NuxtLink :to="datos?.mail" title="Escribe a la Volta" class="mx-2"
             >Contacta</NuxtLink
           >
-          *
+          |
           <NuxtLink
             to="https://bro.sanity.studio/"
             target="_blank"
