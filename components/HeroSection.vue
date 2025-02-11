@@ -74,7 +74,7 @@
 <style lang="postcss">
   .hero {
     @apply relative
-    h-[180px]
+    h-[20vh]
     sm:h-[35vh]
     md:h-[28dvh]
     md:landscape:h-[33dvh]
