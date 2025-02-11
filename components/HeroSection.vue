@@ -74,7 +74,7 @@
 <style lang="postcss">
   .hero {
     @apply relative
-    h-[18dvh]
+    h-[180px]
     sm:h-[35vh]
     md:h-[28dvh]
     md:landscape:h-[33dvh]
@@ -85,10 +85,10 @@
     overflow-y-hidden;
 
     .content {
-      @apply absolute z-10 w-full h-full flex justify-center items-center;
+      @apply absolute z-10 w-full h-full flex justify-center items-end;
 
       .inner {
-        @apply text-lg font-sans text-slate-300 pt-[10%] w-9/12 mx-auto sm:w-6/12 md:w-7/12 lg:w-6/12;
+        @apply text-lg font-sans text-slate-300 py-[10%] w-9/12 mx-auto sm:w-6/12 md:w-7/12 lg:w-6/12;
       }
     }
 
