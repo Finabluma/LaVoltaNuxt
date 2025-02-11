@@ -24,6 +24,7 @@
 
   onMounted(() => {
     ctx = gsap.context(() => {
+      gsap.to('.ab', { stagger: 0.25, autoAlpha: 1 })
       ScrollTrigger.create({
         start: 'clamp(top+=5% top+=10%)',
         end: 10000,
@@ -50,11 +51,11 @@
           labelledby="logo"
           title="Bienvenidos a la Volta"
         >
-          <SVGAppLogo />
+          <SVGAppLogo class="ab" />
         </NuxtLink>
       </div>
       <div class="misc">
-        <div v-if="phone">
+        <div v-if="phone" class="ab">
           <ElementsTextLink
             :to="phone?.phone"
             class="linkNav"
@@ -65,7 +66,7 @@
             ></ElementsTextLink
           >
         </div>
-        <div v-if="linkCarta" class="linktocarta">
+        <div v-if="linkCarta" class="linktocarta ab">
           <ElementsTextLink
             link-type="internalLinkType"
             route="la-carta"
@@ -78,7 +79,7 @@
             }}</span></ElementsTextLink
           >
         </div>
-        <button @click="drawerOn()" class="btn btn-ghost btn-circle">
+        <button @click="drawerOn()" class="btn btn-ghost btn-circle ab">
           <NuxtIcon name="HeroiconsBars3BottomRight16Solid" size="36" />
         </button>
       </div>
@@ -91,6 +92,10 @@
   .globalHeader {
     @apply absolute w-screen top-12 z-40
     sm:top-8;
+
+    .ab {
+      @apply opacity-0;
+    }
     .globalNav {
       @apply max-w-screen-lg
       mx-auto
@@ -126,8 +131,7 @@
       top-0  
       backdrop-blur-sm
       /* bg-slate-50/70
-      dark:bg-slate-600/70 */
-      ;
+      dark:bg-slate-600/70 */;
 
       .misc .linktocarta .linkNav svg {
         @apply fill-slate-300;
