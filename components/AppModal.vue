@@ -55,7 +55,7 @@
       dark:bg-yellow-600
       dark:text-yellow-900
       md:w-10/12
-      lg:w-9/12;
+      lg:w-6/12;
 
       .close {
         @apply absolute

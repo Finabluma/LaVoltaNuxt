@@ -35,7 +35,7 @@
         .to(
           q('.object'),
           {
-            duration: 0.2,
+            duration: 0.5,
             fillOpacity: 1,
           },
           'svg+=0.25'
@@ -50,14 +50,14 @@
         .from(
           q('.inner'),
           {
-            yPercent: 20,
+            yPercent: 30,
           },
           'svg'
         )
       ScrollTrigger.create({
         trigger: panel,
-        start: 'clamp(top center)',
-        end: 'clamp(bottom bottom-=10%)',
+        start: 'clamp(top center-=10%)',
+        end: 'clamp(bottom bottom-=30%)',
         scrub: true,
         animation: tl,
       })
