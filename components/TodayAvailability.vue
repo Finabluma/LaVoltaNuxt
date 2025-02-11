@@ -26,7 +26,7 @@
   <section class="today">
     <h2 class="sr-only">Horario del día</h2>
     <div v-if="dag.length === 0" class="state">
-      <div><IcTwotoneSchedule class="mr-1"/> <span> Hoy cerramos</span></div>
+      <div><IcTwotoneSchedule class="mr-1" /> <span> Hoy cerramos</span></div>
     </div>
     <div v-if="dag.length === 1" class="state">
       <div>
@@ -59,6 +59,7 @@
 <style lang="postcss" scoped>
   .today {
     @apply relative
+    z-20
     h-12
     text-[16px]
     p-1

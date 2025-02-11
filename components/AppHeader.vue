@@ -25,11 +25,15 @@
   onMounted(() => {
     ctx = gsap.context(() => {
       ScrollTrigger.create({
-        start: 'top top',
+        start: 'clamp(top+=5% top+=10%)',
         end: 10000,
         toggleClass: {
           targets: '.globalHeader',
           className: 'scrolled',
+        },
+        markers: {
+          startColor: 'white',
+          endColor: 'white',
         },
       })
     }, header.value)
@@ -125,8 +129,8 @@
       @apply fixed
       top-0  
       backdrop-blur-sm
-      /* bg-slate-50/70
-      dark:bg-slate-600/70 */;
+      bg-slate-50/70
+      dark:bg-slate-600/70;
 
       .misc .linktocarta .linkNav svg {
         @apply fill-slate-300;

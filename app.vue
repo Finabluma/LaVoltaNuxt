@@ -121,6 +121,8 @@
 
     <TodayAvailability />
     <AppHeader />
-    <NuxtPage />
+    <GsapScrollsmoother :settings="2">
+      <NuxtPage />
+    </GsapScrollsmoother>
   </div>
 </template>
