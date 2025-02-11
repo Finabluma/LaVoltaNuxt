@@ -88,7 +88,18 @@
       @apply absolute z-10 w-full h-full flex justify-center items-end;
 
       .inner {
-        @apply text-lg font-sans text-slate-300 py-[10%] w-9/12 mx-auto sm:w-6/12 md:w-7/12 lg:w-6/12;
+        @apply text-lg 
+        font-coordinates
+        font-semibold 
+        uppercase
+        text-slate-300
+        dark:text-slate-300/80
+        py-[5%] 
+        w-9/12 
+        mx-auto 
+        sm:w-6/12 
+        md:w-7/12 
+        lg:w-6/12;
       }
     }
 
@@ -104,10 +115,10 @@
         top-0
         left-0
         bg-gradient-to-b
-        from-slate-600/20
-        to-slate-800/90
+        from-slate-600/30
+        to-slate-700
         dark:from-slate-600/30
-        dark:to-slate-600/70;
+        dark:to-slate-800;
       }
 
       .noImg {
