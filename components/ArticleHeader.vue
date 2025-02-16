@@ -22,7 +22,7 @@
         <ElementsMediaImageItem
           :src="data.mainImage.asset._ref"
           :alt="data.mainImage.alt"
-          height="450"
+          height="800"
           sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
           :modifiers="{
             crop: data.mainImage.crop,
@@ -41,10 +41,10 @@
   .hero {
     @apply relative
     w-screen
-    h-[22dvh]
+    h-[25dvh]
     sm:h-[45vh]
     md:h-[28dvh]
-    md:landscape:h-[30dvh]
+    md:landscape:h-[40dvh]
     lg:landscape:h-[35dvh]
     lg:portrait:h-[20dvh]
     xl:landscape:h-[35dvh]
