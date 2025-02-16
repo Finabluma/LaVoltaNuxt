@@ -63,7 +63,8 @@
       sm:p-8
       md:py-10
       lg:w-9/12
-      lg:py-14;
+      lg:pt-5
+      lg:pb-10;
 
       h2 {
         @apply leading-none
