@@ -62,7 +62,7 @@
       sm:text-center
       sm:p-8
       md:py-10
-      lg:w-8/12
+      lg:w-9/12
       lg:py-14;
 
       h2 {
@@ -74,8 +74,8 @@
         dark:text-slate-400      
         min-[375px]:text-6xl
         sm:text-6xl
-        lg:text-5xl
-        xl:text-6xl;
+        lg:text-6xl
+        xl:text-7xl;
       }
 
       .inner__items {
