@@ -48,7 +48,7 @@
 
     article {
       @apply mx-auto
-      sm:w-6/12
+      sm:w-9/12
       md:portrait:w-9/12
       lg:w-8/12;
     }

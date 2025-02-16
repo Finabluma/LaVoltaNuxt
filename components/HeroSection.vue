@@ -69,6 +69,7 @@
       </div>
       <div v-else class="noImg" />
     </div>
+    <AppDivider class="down" />
   </div>
 </template>
 <style lang="postcss">
@@ -92,13 +93,15 @@
         font-coordinates
         font-semibold 
         uppercase
-        text-slate-300
+        text-center
+        text-slate-300/80
         dark:text-slate-300/80
-        py-[5%] 
+        pb-[8%] 
         w-9/12 
         mx-auto 
         sm:w-6/12 
         md:w-7/12 
+        md:text-left
         lg:w-6/12;
       }
     }

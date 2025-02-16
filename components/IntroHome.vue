@@ -50,7 +50,7 @@
   .intro {
     @apply relative
     w-screen
-    bg-slate-200
+    bg-slate-50
     dark:bg-slate-600;
 
     .intro_inner {
@@ -70,7 +70,6 @@
         mb-6
         capitalize
         font-coordinates
-        font-bold
         text-slate-500
         dark:text-slate-400      
         min-[375px]:text-6xl
@@ -95,8 +94,9 @@
         &::before {
           @apply content-['']
           block
-          w-1/12
-          h-1
+          w-4
+          h-4
+          md:mx-auto
           bg-slate-800/20
           dark:bg-slate-400;
         }

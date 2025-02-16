@@ -38,7 +38,7 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    top-24
+    top-28
     md:top-20
     z-50
     w-full
@@ -49,6 +49,7 @@
       @apply relative
       w-11/12
       mx-auto
+      rounded-lg
       drop-shadow-lg
       bg-red-600
       text-slate-300

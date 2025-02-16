@@ -132,7 +132,7 @@
         font-coordinates
         lowercase
         tracking-[1rem]
-        mb-2
+        mb-10
         ml-[1rem]        
         text-slate-400
         dark:text-slate-400;

@@ -36,7 +36,7 @@
           q('.object'),
           {
             duration: 0.5,
-            fillOpacity: 1,
+            fillOpacity: 0.5,
           },
           'svg+=0.25'
         )
@@ -56,7 +56,7 @@
         )
       ScrollTrigger.create({
         trigger: panel,
-        start: 'clamp(top center-=10%)',
+        start: 'clamp(top center+=20%)',
         end: 'clamp(bottom bottom-=30%)',
         scrub: true,
         animation: tl,
@@ -174,6 +174,7 @@
         pt-8
         pb-12        
         md:px-10
+        md:py-20
         lg:flex
         lg:items-center
         lg:py-12;
@@ -185,13 +186,13 @@
           content-before
           lg:w-6/12;
         .svg {
-          @apply w-28
-            h-28
-            md:w-40
-            md:h-40
+          @apply w-32
+            h-32
+            md:w-44
+            md:h-44
             lg:w-60
             lg:h-60
-            rounded-xl
+            rounded-full
             shadow-lg
             mx-auto
             flex
@@ -247,10 +248,12 @@
                 &:after {
                   @apply content-['']
                   block
-                    w-1/12
-                    h-1
-                    mt-3
-                    bg-slate-600
+                    w-2
+                    h-2
+                    my-4
+                    mx-auto
+                    lg:ml-0
+                    bg-slate-500
                     dark:bg-slate-400;
                 }
               }
