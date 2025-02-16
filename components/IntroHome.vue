@@ -62,9 +62,10 @@
       sm:text-center
       sm:p-8
       md:py-10
-      lg:w-9/12
+      lg:w-10/12
       lg:pt-5
-      lg:pb-10;
+      lg:pb-10
+      xl:w-9/12;
 
       h2 {
         @apply leading-none
@@ -75,7 +76,7 @@
         dark:text-slate-400      
         min-[375px]:text-6xl
         sm:text-6xl
-        lg:text-6xl
+        lg:text-7xl
         xl:text-7xl;
       }
 
