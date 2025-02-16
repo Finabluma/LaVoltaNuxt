@@ -39,7 +39,7 @@
   .modal-overlay {
     @apply fixed
     top-28
-    md:top-20
+    md:top-24
     z-50
     w-full
     justify-center
