@@ -177,7 +177,8 @@
         md:py-20
         lg:flex
         lg:items-center
-        lg:py-12;
+        lg:py-12
+        xl:w-8/12;
       .media {
         @apply relative
           z-20
@@ -275,16 +276,28 @@
     .foodCard.carta {
       @apply relative;
 
-      .content .inner .inner-wrapper .cta a {
+      /* .content .inner .inner-wrapper .cta a {
         @apply bg-slate-600/80 border-slate-700
         text-slate-50/50;
 
         &:hover {
           @apply bg-slate-700 text-slate-300;
         }
+      } */
+    }
+
+    .foodCard.menudia,
+    .foodCard.carta {
+      .content .inner .inner-wrapper .cta a {
+        @apply bg-slate-600 border-slate-500/80
+        text-slate-400/90;
+
+        &:hover {
+          @apply bg-slate-700 text-slate-300;
+        }
       }
     }
-    .foodCard.menudia {
+    /* .foodCard.menudia {
       @apply bg-slate-100/50 dark:bg-slate-600/40;
 
       .content .inner .inner-wrapper .cta a {
@@ -295,6 +308,6 @@
           @apply bg-slate-700 text-slate-300;
         }
       }
-    }
+    } */
   }
 </style>
