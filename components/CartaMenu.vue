@@ -217,7 +217,7 @@
           text-center
           text-balance
           lg:text-left
-          lg:w-6/12;
+          lg:w-8/12;
         .inner {
           .inner-wrapper {
             .enlace {
@@ -232,10 +232,12 @@
               @apply text-balance
                 px-1
                 mb-8
-                md:mb-12;
+                md:mb-12
+                lg:mb-16;
 
               p {
-                @apply font-sans;
+                @apply font-sans
+                lg:text-lg;
               }
 
               p:first-of-type {
