@@ -64,7 +64,7 @@
       md:py-10
       lg:w-10/12
       lg:pt-5
-      lg:pb-10
+      lg:pb-8
       xl:w-9/12;
 
       h2 {
