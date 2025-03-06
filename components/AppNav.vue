@@ -37,10 +37,12 @@
     @apply w-full;
 
     ul {
-      @apply flex flex-col justify-evenly;
+      @apply flex 
+      flex-col 
+      justify-evenly;
 
       li {
-        @apply font-mono
+        @apply font-light
         text-8xl/tight
         text-balance
         landscape:text-3xl/tight
@@ -52,16 +54,15 @@
           py-3
           no-underline
           cursor-pointer
-          text-slate-300/60;
+          text-primary;
 
           &:hover {
-            @apply text-slate-300;
+            @apply text-white/80;
           }
 
           &.router-link-active {
             @apply cursor-default 
-            text-slate-200
-            dark:text-yellow-600;
+            text-cyan100;
           }
         }
 
@@ -75,7 +76,7 @@
     @apply mb-5 w-full 
     xl:w-auto 
     xl:mb-0;
-    
+
     ul {
       @apply w-full 
       mx-auto 
@@ -106,28 +107,11 @@
           xl:flex
           xl:items-center
           xl:mb-0
-          xl:pr-5;
+          xl:pr-3;
 
           &.router-link-active {
             @apply cursor-default 
-            text-slate-400
-            dark:text-slate-400;
-          }
-
-          &:after {
-            @apply content-['']
-            block
-            w-10
-            h-0.5
-            mx-auto
-            mt-3
-            bg-slate-500
-            dark:bg-slate-300
-            xl:w-1
-            xl:h-1
-            xl:rounded
-            xl:mt-0
-            xl:ml-5;
+            text-primary/50;
           }
         }
 
@@ -154,9 +138,7 @@
         a {
           @apply flex
           items-center
-          /* content-after */
-          text-slate-600 
-          dark:text-slate-300
+          text-primary
           xl:flex
           xl:items-center
           xl:mb-0;

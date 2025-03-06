@@ -139,17 +139,22 @@
     @apply w-screen;
   }
   .carta_content {
-    @apply mx-auto pb-8;
+    @apply mx-auto 
+    pb-10
+    md:pb-20;
+    
     h2 {
       @apply font-cameo
-      /* text-pink-400 */
-        dark:text-slate-500
         px-[5%]
         mb-5;
-      /* content-after; */
 
       &:after {
-        @apply block h-1 w-10 mt-6 bg-pink-400 dark:bg-slate-400;
+        @apply content-['']
+        block 
+        h-1 
+        w-10 
+        mt-2 
+        bg-primary;
       }
     }
 

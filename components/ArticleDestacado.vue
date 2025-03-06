@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from 'vue'
-  const homePortada = ref(false)
+  const revistaPortada = ref(false)
   const homeDestacado = ref(false)
   const props = defineProps({
     item: {
@@ -12,8 +12,10 @@
   })
 </script>
 <template>
-  <div :class="{ homePortada: homePortada, homeDestacado: homeDestacado }">
-    <p class="title_destacado">{{ title }}</p>
+  <div
+    :class="{ revistaPortada: revistaPortada, homeDestacado: homeDestacado }"
+  >
+    <p v-if="title" class="title_destacado">{{ title }}</p>
     <ArticleTeaser :article="item[0].article" class="destacado">
       <template #default>
         <ElementsMediaImageItem
@@ -24,8 +26,8 @@
             hotspot: item[0].article.mainImage.hotspot,
             q: 80,
           }"
-          sizes="xs:100vw"
-          height="200"
+          sizes="xs:100vw sm:100vw"
+          height="400"
           fit="cover"
           format="webp"
         />
@@ -42,42 +44,22 @@
 </template>
 <style lang="postcss" scoped>
   .homeDestacado {
-    .title_destacado {
-      @apply sr-only;
-    }
-
-    article {
-      @apply mx-auto
-      sm:w-9/12
-      md:portrait:w-9/12
-      lg:w-8/12;
-    }
+    @apply w-screen;
   }
 
-  .homePortada {
+  .revistaPortada {
     @apply mb-5
     md:mb-10;
     .title_destacado {
-      @apply text-lg
-      font-coordinates
-      lowercase
+      @apply lowercase
       tracking-[1rem]
       text-center
       pt-8
       mb-5
       ml-[1rem]        
-      text-slate-400
-      dark:text-slate-400
       lg:pt-12
       lg:mb-10
       lg:text-xl;
-    }
-
-    article {
-      @apply mx-auto
-      sm:w-8/12
-      md:portrait:w-9/12
-      lg:w-8/12;
     }
   }
 </style>

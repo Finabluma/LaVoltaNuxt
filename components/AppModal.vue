@@ -38,8 +38,8 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    top-28
-    md:top-24
+    top-14
+    md:top-16
     z-50
     w-full
     justify-center
@@ -51,12 +51,14 @@
       mx-auto
       rounded-lg
       drop-shadow-lg
-      bg-red-600
+      bg-cyan300
+      dark:bg-[#2A3E57]
+      /* bg-red-600
       text-slate-300
       dark:bg-yellow-600
-      dark:text-yellow-900
+      dark:text-yellow-900 */
       md:w-10/12
-      lg:w-6/12;
+      lg:w-11/12;
 
       .close {
         @apply absolute
@@ -86,7 +88,8 @@
           md:w-11/12;
 
           p {
-            @apply font-mono 
+            @apply font-coordinates
+            font-semibold 
             text-sm;
           }
         }

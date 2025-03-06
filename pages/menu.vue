@@ -80,11 +80,8 @@
         <div class="menu_content">
           <section>
             <h1 class="sr-only">{{ menuDia.title }}</h1>
-            <div class="obs text-pretty">
-              <ElementsTextContent
-                :blocks="menu.menuConditions"
-                class="text-balance"
-              />
+            <div class="obs">
+              <ElementsTextContent :blocks="menu.menuConditions" />
             </div>
             <div class="card">
               <div>
@@ -163,39 +160,52 @@
     section {
       @apply relative;
       .card {
-        @apply relative 
-        w-11/12
-        mx-auto;
+        @apply relative;
       }
       .precio {
         @apply relative
         z-10
-        bg-slate-50
-        dark:bg-slate-600
-        pt-[5%]
-        pb-[10%]
-        sm:pt-[3%]
-        sm:pb-[5%]
+        pt-10
+        pb-5
         w-screen
         flex
+        flex-col
         justify-center
-        items-center;
+        items-center
+        bg-white
+        dark:bg-[#4A647D];
+
+        &:after {
+          @apply content-['']
+          block
+          w-10/12
+          h-1
+          mt-10
+          bg-primary
+          bg-[#A8B2BB];
+        }
         .inner_precio {
-          @apply max-w-sm mx-auto 
+          @apply max-w-sm 
+          mx-auto 
           text-8xl;
 
           p {
-            @apply pb-5 content-before text-sm;
+            @apply pb-5 
+            text-sm;
 
             &:before {
-              @apply block w-1/12 h-1 mb-2 bg-slate-300 dark:bg-slate-600;
+              @apply block 
+              w-1/12 
+              h-1 
+              mb-2 
+              bg-current;
             }
           }
         }
         .excepciones {
           @apply max-w-sm
           mx-auto
-          font-mono;
+          font-typewriter;
 
           span {
             @apply font-bold;

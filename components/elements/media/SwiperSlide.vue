@@ -71,19 +71,13 @@
     @apply w-full
       p-3
       border
-      border-slate-600/50
-      bg-slate-100/75
-      dark:bg-slate-300/75
-      dark:border-slate-400/50
       md:p-5
       lg:w-11/12
       lg:mb-10
       lg:mx-auto;
 
     .wrapper {
-      @apply p-2
-      bg-slate-400
-      dark:bg-slate-500;
+      @apply p-2;
     }
   }
   .gallery {
@@ -94,12 +88,7 @@
         h-full
         absolute
         top-0
-        left-0
-        bg-gradient-to-b
-        from-slate-600/20
-        to-slate-600/40
-        dark:from-slate-600/10
-        dark:to-slate-600/50;
+        left-0;
     }
   }
 </style>

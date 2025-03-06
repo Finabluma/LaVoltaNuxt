@@ -125,14 +125,14 @@
     min-h-dvh
     flex
     flex-col
-    bg-slate-200
-    dark:bg-slate-600;
+    bg-white
+    dark:bg-[#4A647D];
 
     main {
       @apply relative
       z-30
-      bg-slate-200
-      dark:bg-slate-600;
+      bg-white
+      dark:bg-[#4A647D];
 
       .inner_bottom {
         @apply w-11/12
@@ -141,31 +141,26 @@
       }
     }
 
-    /* aside {
-      @apply bg-slate-200 dark:bg-slate-600;
-    } */
-
     #footer {
       @apply mt-auto
-      bg-slate-200
-      dark:bg-slate-600;
+      bg-white
+      dark:bg-[#4A647D];
     }
   }
   .inner_main {
-    @apply w-screen
+    @apply max-w-prose
     mx-auto
     px-2
-    max-w-screen-lg
     sm:w-11/12
     md:w-10/12;
   }
 
-  .compound .content_wrapper .second {
+  /* .compound .content_wrapper .second {
     @apply bg-slate-200 md:bg-slate-400 dark:bg-slate-600
     md:dark:bg-slate-500;
   }
 
   .single .content_wrapper .first {
     @apply bg-slate-200  dark:bg-slate-600;
-  }
+  } */
 </style>

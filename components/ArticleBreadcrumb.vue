@@ -18,20 +18,22 @@
 </template>
 <style lang="postcss">
   #breadcrumb {
-    @apply py-4;
+    @apply py-6;
 
     ol {
       @apply flex items-center;
 
       li {
-        @apply flex items-center text-xs leading-none content-after;
+        @apply flex items-center text-sm leading-none;
 
         &:after {
-          @apply content-[''] w-1 h-1 bg-current rounded-full mx-2;
+          @apply content-[''] w-1 h-1 
+          bg-current 
+          rounded-full mx-2;
         }
 
         &:last-child {
-          @apply text-slate-400 dark:text-slate-400;
+          @apply text-primary/75;
           &:after {
             @apply content-none;
           }

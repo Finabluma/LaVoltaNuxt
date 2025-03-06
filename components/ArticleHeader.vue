@@ -14,11 +14,11 @@
         <div class="text-lg/snug">
           {{ data.title }}
         </div>
-        <small class="font-sans">{{ data.subtitle }}</small>
+        <small class="font-coordinates">{{ data.subtitle }}</small>
       </div>
     </div>
     <div class="inner_hero">
-      <div v-if="data.mainImage" class="img border-t border-t-slate-300">
+      <div v-if="data.mainImage" class="image">
         <ElementsMediaImageItem
           :src="data.mainImage.asset._ref"
           :alt="data.mainImage.alt"
@@ -41,42 +41,42 @@
   .hero {
     @apply relative
     w-screen
-    h-[25dvh]
-    sm:h-[45vh]
-    md:h-[28dvh]
-    md:landscape:h-[40dvh]
-    lg:landscape:h-[35dvh]
-    lg:portrait:h-[20dvh]
-    xl:landscape:h-[35dvh]
-    2xl:landscape:h-[40dvh]
-    overflow-y-hidden
-    bg-black;
+    h-[18vh]
+    max-sm:landscape:h-[40vh]
+    sm:max-md:h-[40vh]
+    md:max-lg:landscape:h-[30vh]
+    md:max-lg:portrait:h-[30vh]
+    lg:max-xl:portrait:h-[40vh]
+    lg:max-xl:landscape:h-[40vh]
+    xl:landscape:h-[45vh]
+    overflow-y-hidden;
 
     .content {
-      @apply absolute z-10 w-full h-full flex justify-center items-end;
+      @apply absolute  
+      w-full 
+      h-full 
+      flex 
+      justify-center 
+      items-end;
 
       .inner {
-        @apply text-lg font-cameo text-slate-300 pb-3 w-11/12 mx-auto sm:w-9/12 md:w-9/12 md:pb-10 lg:w-8/12;
+        @apply font-bold 
+        text-white
+        dark:text-[#A8B2BB]
+        pb-3 
+        w-11/12 
+        mx-auto 
+        sm:w-9/12 
+        md:w-9/12 
+        md:pb-10 
+        lg:w-8/12;
       }
     }
 
     .inner_hero {
       @apply relative
-      w-full h-full content-before;
-
-      &:before {
-        @apply content-['']
-        w-full
-        h-full
-        absolute
-        top-0
-        left-0
-        bg-gradient-to-b
-        from-slate-600/20
-        to-slate-600/80
-        dark:from-slate-600/30
-        dark:to-slate-600/70;
-      }
+      w-full 
+      h-full;
     }
   }
 </style>

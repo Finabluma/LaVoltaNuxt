@@ -13,18 +13,17 @@
   function intro() {
     let q = gsap.utils.selector('.intro_inner')
     let tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.intro',
-          start: 'top top',
-          pin: true,
-          scrub: true,
-          pinSpacing: false,
-          snap: 1,
-        },
-      })
-      .to(q('h2'), { y: '+=80', autoAlpha: 0 })
+      .timeline()
+      .to(q('h1'), { y: '+=10', autoAlpha: 0 })
       .to(q('p'), { autoAlpha: 0, y: '+=60' }, '-=0.5')
+    ScrollTrigger.create({
+      trigger: '.intro',
+      start: 'top top',
+      pin: true,
+      pinSpacing: false,
+      scrub: true,
+      animation: tl,
+    })
 
     return tl
   }
@@ -36,9 +35,9 @@
 <template>
   <div class="intro">
     <div class="intro_inner">
-      <h2>
+      <h1>
         {{ subtitle }}
-      </h2>
+      </h1>
 
       <div class="inner__items">
         <p>{{ content }}</p>
@@ -49,67 +48,62 @@
 <style lang="postcss" scoped>
   .intro {
     @apply relative
-    w-screen
-    bg-slate-50
-    dark:bg-slate-600;
+    py-8
+    px-6
+    min-[414px]:px-9
+    sm:max-lg:px-16
+    sm:max-lg:py-12
+    lg:py-16
+    lg:px-12;
+
+    &::after {
+      @apply content-['']
+        block
+        mx-auto
+        w-1
+        h-20
+        mt-6
+        bg-current;
+    }
 
     .intro_inner {
-      @apply w-full
-      pt-5
-      pb-8
-      px-5
+      @apply text-center
       mx-auto
-      sm:text-center
-      sm:p-8
-      md:py-10
-      lg:w-10/12
-      lg:pt-5
-      lg:pb-8
-      xl:w-9/12;
+      w-full
+      sm:max-lg:w-10/12
+      lg:w-8/12;
 
-      h2 {
-        @apply leading-none
-        mb-6
-        capitalize
-        font-coordinates
-        text-slate-500
-        dark:text-slate-400      
-        min-[375px]:text-6xl
-        sm:text-6xl
-        lg:text-7xl
-        xl:text-7xl;
+      h1 {
+        @apply font-light
+        leading-none
+        flex
+        justify-center
+        items-center
+        lg:text-6xl
+        lg:mb-5;
+
+        &:after {
+          @apply content-[''];
+        }
+
+        &::before {
+          @apply content-[''];
+        }
+
+        &:after,
+        &:before {
+          @apply block      
+          w-1/12
+          h-1
+          mt-0
+          mx-3
+          bg-current;
+        }
       }
 
       .inner__items {
-        @apply text-balance
-        content-after
-        content-before
-        text-slate-500
-        dark:text-slate-400;
-        p {
-          @apply font-sans
-          text-lg 
-          lg:text-xl;
-        }
-
-        &::after,
-        &::before {
-          @apply content-['']
-          block
-          w-4
-          h-4
-          md:mx-auto
-          bg-slate-800/20
-          dark:bg-slate-400;
-        }
-
-        &::after {
-          @apply mt-6 mb-4;
-        }
-
-        &::before {
-          @apply mt-6 mb-4;
-        }
+        @apply py-3
+        lg:px-10;
       }
     }
   }

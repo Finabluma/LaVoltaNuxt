@@ -41,7 +41,9 @@
       left-[5%]
       flex
       flex-col
-      items-center;
+      items-center
+      p-5
+      bg-cyan300/80;
 
       .statusCode {
         @apply mb-2
@@ -50,14 +52,8 @@
 
       .enlace {
         @apply font-coordinates
-        font-bold 
-        text-lg
-        text-center
-        bg-slate-400/60
-        dark:bg-slate-700/40
-        text-slate-600/80
-        dark:text-slate-400/80
-        
+        font-bold
+        text-center        
         px-2 
         flex-col
         justify-center

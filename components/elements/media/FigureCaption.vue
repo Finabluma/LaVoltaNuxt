@@ -62,9 +62,9 @@
     sm:mb-8
     sm:mt-10;
 
-    picture {
+    /* picture {
       @apply border border-slate-600/50 dark:border-slate-300/50 p-1 mb-2;
-    }
+    } */
 
     figcaption {
       @apply text-sm

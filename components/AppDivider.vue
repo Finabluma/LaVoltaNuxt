@@ -31,8 +31,8 @@
       z-20;
     .is-divider {
       @apply w-full
-      fill-slate-50
-      dark:fill-slate-600;
+      fill-white
+      dark:fill-[#4A647D];
     }
 
     &.down,

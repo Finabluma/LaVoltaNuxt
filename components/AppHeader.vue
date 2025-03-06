@@ -16,9 +16,7 @@
     return (
       route.name === 'reservas' ||
       route.name === 'el-menu' ||
-      route.name === 'index' ||
-      route.name === 'la-carta' ||
-      route.name === 'revista'
+      route.name === 'la-carta' 
     )
   })
 
@@ -90,7 +88,10 @@
 </template>
 <style lang="postcss" scoped>
   .globalHeader {
-    @apply absolute w-screen top-12 z-40
+    @apply absolute 
+    w-screen 
+    top-12 
+    z-40
     sm:top-8;
 
     .ab {
@@ -110,19 +111,19 @@
       .misc {
         @apply flex items-center ml-auto;
 
-        .linktocarta .linkNav {
-          @apply bg-slate-600;
+        /* .linktocarta .linkNav {
+          @apply bg-pink-400;
           svg {
-            @apply fill-slate-300;
+            @apply fill-white;
           }
-        }
+        } */
       }
 
       .globalLogo a #favicon,
       .misc .linkNav svg,
       .misc .btn-ghost svg {
-        @apply fill-slate-600
-        dark:fill-slate-300;
+        /* @apply fill-pink-400
+        dark:fill-slate-300; */
       }
     }
 
@@ -133,19 +134,19 @@
       /* bg-slate-50/70
       dark:bg-slate-600/70 */;
 
-      .misc .linktocarta .linkNav svg {
+      /* .misc .linktocarta .linkNav svg {
         @apply fill-slate-300;
-      }
+      } */
     }
 
     &:not(.scrolled).white {
       .globalLogo a #favicon,
       .misc .linkNav svg,
       .misc .btn-ghost svg {
-        @apply fill-slate-300;
+        /* @apply fill-slate-300; */
       }
       .misc .linktocarta .linkNav svg {
-        @apply fill-slate-300;
+        /* @apply fill-slate-300; */
       }
     }
   }

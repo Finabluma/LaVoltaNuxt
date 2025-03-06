@@ -13,10 +13,8 @@
 </template>
 <style lang="postcss" scoped>
   #botero {
-    @apply w-full min-h-dvh;
-    path {
-      @apply fill-slate-400
-      dark:fill-slate-700/50;
-    }
+    @apply w-11/12 
+    mx-auto
+    h-[90vh];
   }
 </style>

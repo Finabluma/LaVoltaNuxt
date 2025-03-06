@@ -20,14 +20,3 @@ span.swiper-pagination-bullet {
   border: solid thin rgba(0, 0, 0, 0.2);
   opacity: 1;
 }
-
-
-/* :loop="true"
-        :modules="modules"
-        :navigation="true"
-        :slides-per-view="1"
-        :space-between="150"
-        @slideChange="onSlideChange"
-        @swiper="onSwiper"
-        :pagination="true"
-        :draggable="true" */

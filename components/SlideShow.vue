@@ -10,7 +10,7 @@
 </script>
 <template>
   <div class="carrusel">
-    <h2><span class="sr-only">Galería de Imágenes</span> {{ title }}</h2>
+    <h2>{{ title }}</h2>
     <div class="carrusel-wrapper">
       <div class="wrapper">
         <Swiper
@@ -28,7 +28,7 @@
               slidesPerView: 1,
               spaceBetween: 10,
             },
-            640: {
+            768: {
               slidesPerView: 2,
               spaceBetween: 0,
             },
@@ -38,7 +38,7 @@
             },
           }"
         >
-          <SwiperSlide v-for="image in images" :key="image.id" class="gallery">
+          <SwiperSlide v-for="image in images" :key="image.id" class="image">
             <ElementsMediaImageItem
               :src="image.asset._ref"
               :alt="image.alt"
@@ -62,42 +62,32 @@
   .carrusel {
     @apply relative
     z-20
-    w-screen 
-    mx-auto;
+    w-screen
+    mx-auto
+    md:py-10
+    bg-white
+    dark:bg-[#4A647D];
 
     h2 {
-      @apply text-lg
-      py-2
-      absolute
+      @apply font-coordinates
+      font-bold
+      text-2xl
+      mx-auto
       w-8/12
-      top-[12%]
-      right-0
-      left-10
-      md:left-1/4
       z-30
-      font-cameo
-      dark:text-slate-600;
+      mb-10
+      sm:w-6/12
+      md:text-center;
     }
 
     .carrusel-wrapper {
       @apply mx-auto
-      md:w-full;
-      .gallery {
-        @apply relative content-before;
-
-        &:before {
-          @apply content-['']
-          w-full
-          h-full
-          absolute
-          top-0
-          left-0
-          bg-gradient-to-b
-          from-slate-600/20
-          to-slate-600/30
-          dark:from-slate-900/10
-          dark:to-slate-900/40;
-        }
+      w-11/12
+      sm:w-10/12
+      md:w-11/12;
+      .image {
+        @apply relative
+        overflow-hidden;
       }
     }
   }

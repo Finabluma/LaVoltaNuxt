@@ -47,8 +47,9 @@
   .articlesportada {
     @apply relative
       z-50
-    bg-slate-50 
-    dark:bg-slate-600;
+    /* bg-slate-50 
+    dark:bg-slate-600 */
+    ;
     .titleblock {
       @apply sr-only;
     }

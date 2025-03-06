@@ -16,47 +16,11 @@
     showModal = ref(true),
     banner = ref()
 
-  function smDestacadoIn() {
-    let q = gsap.utils.selector('.destacado')
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.articleHome',
-        start: 'top top',
-        end: 'bottom bottom-=10%',
-        scrub: true,
-        snap: 1,
-      },
-    })
-    return tl
-  }
-
-  function smDestacadoOut() {
-    let q = gsap.utils.selector('.artHomeContent')
-    let tl = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: '.articleHome',
-          start: 'top top',
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      })
-      .to(q('h1'), { yPercent: -20, autoAlpha: 0 })
-      .to(q('.homeDestacado'), { yPercent: -20, autoAlpha: 0 }, '0')
-    return tl
-  }
-
-  function smDestacadoMaster() {
-    gsap.timeline().add(smDestacadoIn()).add(smDestacadoOut())
-  }
-
   onMounted(() => {
     ctx = gsap.context((self) => {
       banner.value.banner(),
-        food.value.masterToFood(),
-        intro.value.intro(),
-        smDestacadoMaster()
+      food.value.masterToFood()
+      intro.value.intro()
     }, main.value)
   })
 
@@ -83,7 +47,6 @@
             :content="home.content"
             ref="intro"
           />
-
           <CartaMenu :items="home.cartamenu" ref="food" />
           <div v-if="isFeatured.length > 0" class="articleHome">
             <div class="artHomeContent">
@@ -106,20 +69,11 @@
 <style lang="postcss" scoped>
   .articleHome {
     @apply relative 
-    h-dvh
-    bg-slate-500
-    dark:bg-slate-600
-    border-t-2
-    border-t-slate-500
-    dark:border-t-slate-700
+    min-h-dvh
     flex
     flex-col
     justify-evenly
-    py-6
-    sm:pt-0
-    md:h-[75dvh]
-    xl:h-[95dvh]
-    xl:mb-52;
+    md:py-10;
 
     .artHomeContent {
       @apply flex
@@ -128,14 +82,13 @@
       justify-evenly;
 
       h1 {
-        @apply text-lg
-        font-coordinates
+        @apply font-light
+        text-lg
         lowercase
         tracking-[1rem]
+        ml-[1rem]
         mb-10
-        ml-[1rem]        
-        text-slate-400
-        dark:text-slate-400;
+        md:text-xl;
       }
     }
   }

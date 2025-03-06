@@ -58,10 +58,10 @@
 </template>
 <style lang="postcss" scoped>
   h3 {
-    @apply font-mono
+    @apply font-coordinates
     text-6xl/tight
     md:text-7xl
-    tracking-widest
+    tracking-wider
     align-middle
     lowercase
     flex
@@ -69,42 +69,57 @@
     lg:px-2;
   }
   .items {
-    @apply mb-2 px-2 lg:px-3;
+    @apply font-bold
+    text-cyan400
+    dark:text-cyan400/60
+    mb-2 
+    px-2 
+    lg:px-3;
     .item-precio {
       @apply flex px-0;
       .item {
-        @apply font-sans
-        leading-normal
+        @apply leading-normal
         w-full
         flex
         items-start
         justify-start
         pr-5;
         .solidario {
-          @apply ml-5 flex items-center dark:bg-transparent;
+          @apply ml-5 
+          flex 
+          items-center 
+          dark:bg-transparent;
         }
       }
 
       .precio {
-        @apply ml-auto font-sans;
+        @apply ml-auto font-bold;
       }
     }
     .misc {
-      @apply w-full flex flex-col;
+      @apply w-full 
+      flex 
+      flex-col;
       .do {
-        @apply font-typewriter;
+        @apply font-coordinates
+        font-normal;
 
         abbr {
-          @apply no-underline mr-1;
+          @apply no-underline 
+          mr-1;
         }
       }
       .variedad {
-        @apply flex flex-wrap w-9/12;
+        @apply w-9/12
+        flex 
+        flex-wrap;
+
         div {
           @apply flex
           items-center
           content-after
-          font-typewriter
+          font-coordinates
+          font-normal
           italic;
 
           &:after {
@@ -113,7 +128,9 @@
             mx-2
             h-1
             w-1
-            rounded-full;
+            rounded-full
+            bg-cyan300
+            dark:bg-cyan400/75;
           }
 
           &:last-child:after {

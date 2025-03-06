@@ -59,7 +59,9 @@
     z-30
     pt-10
     pb-5
-    md:pt-20;
+    md:pt-20
+    bg-white
+    dark:bg-[#4A647D];
     .innerfooter {
       @apply w-full 
       flex
@@ -93,10 +95,6 @@
       }
       .center {
         @apply pb-2
-        xl:border-b-2
-        xl:border-dotted
-        xl:border-slate-600/80
-        xl:dark:border-slate-300/60
         xl:flex-row
         xl:justify-end
         xl:px-7;

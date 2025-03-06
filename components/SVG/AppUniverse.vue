@@ -267,31 +267,39 @@
 <style lang="postcss" scoped>
   #stelarium {
     @apply w-full;
-    & #cardinales {
-      @apply stroke-cardinales/40 fill-cardinales/90 dark:fill-cyan-200;
+    #cardinales {
+      @apply stroke-cardinales/40 fill-cardinales/90;
     }
-    & #constelaciones {
-      @apply stroke-green-300 fill-green-900 dark:stroke-constlines/80 dark:fill-constlines/80;
-    }
-    & #estrellas circle {
-      @apply stroke-pink-600 fill-slate-500 dark:stroke-gray-300/60 dark:fill-gray-300/80;
+    #constelaciones {
+      @apply stroke-green300/80 fill-orbit;
     }
 
-    & #orbitas path {
-      @apply fill-slate-300/30 stroke-cyan-400/30 dark:fill-orbit/20 dark:stroke-slate-300/10;
+    #estrellas circle {
+      @apply stroke-orbit fill-cyan400;
+    }
+    #orbitas path {
+      @apply stroke-orbit fill-transparent;
     }
 
-    & #sol path {
-      @apply fill-yellow-400 dark:fill-yellow-100;
+    #sol path {
+      @apply fill-yellow300;
     }
 
-    & #planetas circle,
+    #sol #iris {
+      @apply fill-orange400;
+    }
+
+    #planetas circle,
     #planetas path {
-      @apply fill-cardinales stroke-slate-400/30 dark:fill-slate-300/75;
+      @apply fill-cardinales/75;
     }
+
+    /*
+
+    
 
     & #sol #iris {
       @apply fill-orange-400 dark:fill-slate-600/50;
-    }
+    } */
   }
 </style>

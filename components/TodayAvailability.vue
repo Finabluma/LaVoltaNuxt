@@ -59,23 +59,22 @@
 <style lang="postcss" scoped>
   .today {
     @apply relative
-    z-20
-    h-12
     text-[16px]
+    font-coordinates
+    font-bold
+    z-20
+    h-12    
     p-1
     flex
     justify-center
     items-center
-    bg-slate-300
-    text-slate-700
-    dark:bg-slate-600
-    dark:text-slate-300
     sm:h-8;
+
     .state {
       @apply flex
-        flex-col
+        flex-wrap
         items-center
-        font-mono
+        justify-center
         sm:w-11/12
         sm:flex-row
         sm:justify-center
@@ -86,16 +85,16 @@
       }
 
       .franjas {
-        @apply flex;
+        @apply flex px-1;
       }
 
       .franja:last-child {
-        @apply flex justify-center items-center content-before;
+        @apply flex justify-center items-center;
 
         &:before {
-          @apply block
-            content-['&']
-            mx-2;
+          @apply content-['&']
+          block
+          mx-1;
         }
       }
     }

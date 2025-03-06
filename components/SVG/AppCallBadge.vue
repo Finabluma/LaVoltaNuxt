@@ -179,30 +179,25 @@
 </template>
 <style lang="postcss" scoped>
   #callNow {
-    @apply mx-auto lg:w-9/12 xl:w-auto;
+    @apply mx-auto 
+    lg:w-9/12 
+    xl:w-auto;
 
     #rings path:first-of-type {
-      @apply fill-slate-600
-      dark:fill-slate-800/60;
+      @apply fill-cyan400/30;
     }
     #rings path:nth-child(2) {
-      @apply fill-slate-300/60;
+      @apply fill-cyan300/75;
     }
     #rings path:last-of-type {
-      @apply fill-slate-200
-      dark:fill-slate-700/90;
-    }
-
-    #bruja {
-      @apply fill-slate-600/80
-      dark:fill-slate-300/70;
+      @apply fill-current;
     }
 
     #letters {
       @apply fill-none;
 
       path {
-        @apply fill-slate-600 dark:fill-slate-300/90;
+        @apply fill-cyan100;
       }
 
       path:first-of-type {

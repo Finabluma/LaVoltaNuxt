@@ -43,7 +43,6 @@
           text-center
           capitalize
           mb-5
-          dark:text-slate-400
           md:text-left;
 
           &:after {
@@ -52,8 +51,8 @@
             h-1
             w-1/12
             mx-auto
-            bg-slate-500
-            mt-5;
+            mt-5
+            bg-primary;
           }
         }
       }

@@ -6,5 +6,6 @@ export default () => {
     ScrollTrigger: nuxtApp.$ScrollTrigger,
     DrawSVGPlugin: nuxtApp.$DrawSVGPlugin,
     ScrollToPlugin: nuxtApp.$ScrollToPlugin,
+    CSSRulePlugin: nuxtApp.$CSSRulePlugin,
   }
 }

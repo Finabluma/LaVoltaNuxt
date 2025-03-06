@@ -23,8 +23,7 @@
       font-mono
       italic
       border-l-4 
-      border-l-slate-600/50
-      dark:border-l-slate-300/50;
+      border-l-current;
     }
   }
 </style>

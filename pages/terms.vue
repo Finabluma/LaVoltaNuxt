@@ -28,8 +28,8 @@
     min-h-dvh
     flex
     flex-col
-    bg-slate-200
-    dark:bg-slate-600;
+    bg-white
+    dark:bg-[#4A647D];
 
     .main_content {
       section {
@@ -44,7 +44,8 @@
 
         h1 {
           @apply text-5xl/none
-          font-mono
+          font-coordinates
+          font-bold
           px-2
           mb-5
           content-after
@@ -61,19 +62,21 @@
 
         .blockContent {
           @apply text-balance;
-          h2 {
-            @apply text-xl
-            font-mono
-            mb-1;
+          h2,
+          h3 {
+            @apply font-coordinates
+            font-semibold
+            text-lg
+            mb-2;
           }
           p {
-            @apply mb-3;
+            @apply mb-6;
           }
 
           ul {
             li {
               @apply not-italic
-              font-sans;
+              font-bold;
             }
           }
         }

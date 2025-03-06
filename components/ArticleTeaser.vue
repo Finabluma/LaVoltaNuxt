@@ -2,6 +2,7 @@
   import { ref } from 'vue'
   const portada = ref(false)
   const destacado = ref(false)
+  const revistaPortada = ref(false)
   const related = ref(false)
   const props = defineProps({
     title: {
@@ -17,10 +18,15 @@
 </script>
 <template>
   <article
-    :class="{ portada: portada, destacado: destacado, related: related }"
+    :class="{
+      portada: portada,
+      destacado: destacado,
+      revistaPortada: revistaPortada,
+      related: related,
+    }"
   >
     <h2 class="sr-only">{{ article.title }}</h2>
-    <div class="media">
+    <div class="image">
       <slot></slot>
     </div>
     <div class="content">
@@ -43,28 +49,8 @@
 </template>
 <style lang="postcss" scoped>
   article {
-    .media {
-      @apply relative
-        bg-slate-100
-        dark:bg-slate-100/75
-        content-before
-        mb-2;
-
-      &:before {
-        @apply content-['']
-        absolute
-          top-0
-          left-0
-          z-10
-          block
-          w-full
-          h-full
-          bg-gradient-radial
-          from-slate-50/10
-          to-slate-800/40
-          dark:from-slate-300/30
-          dark:to-slate-700/60;
-      }
+    .image {
+      @apply relative;
     }
     .enlace {
       @apply font-sans
@@ -74,16 +60,14 @@
       &:after {
         @apply content-['']
         block
-        bg-slate-400/80
-        dark:bg-slate-300/80
         h-1
         w-10
-        my-2;
+        mt-2;
       }
 
       .subtitle {
-        @apply text-balance
-        font-coordinates;
+        @apply font-typewriter
+        text-balance;
       }
     }
   }
@@ -91,47 +75,69 @@
   /* Inicio */
   .destacado {
     @apply relative;
+
+    .image {
+      @apply w-11/12
+      mx-auto
+      sm:w-10/12
+      md:max-lg:portrait:w-11/12
+      lg:max-xl:landscape:w-10/12;
+    }
     .content {
-      @apply px-2
+      @apply p-3
         absolute
-        bottom-0
+        bottom-1/3
         left-0
         z-30
         w-full
-        flex;
+        flex
+        justify-center
+        sm:bottom-1/4;
 
       .content-wrapper {
-        @apply mb-5
-          w-11/12
-          mx-auto
-          bg-slate-800/60
-          dark:md:bg-slate-600/80
-          text-slate-300
-          p-2
-          md:mb-10
-          lg:mb-10
-          lg:w-9/12
-          xl:w-10/12;
+        @apply w-11/12
+        sm:w-9/12
+        md:w-7/12
+        px-2
+        py-1
+        mx-auto
+        mb-5
+        bg-cyan100/80;
 
         .enlace {
-          @apply font-coordinates
-            font-light
-            text-lg
-            leading-none
-            md:portrait:text-3xl
-            lg:text-3xl
-            xl:text-5xl;
+          @apply font-bold
+            leading-snug
+            md:text-lg;
+
+          &:after {
+            @apply content-none;
+          }
 
           .subtitle {
-            @apply text-base
-            font-normal
-            mt-1
-            md:portrait:text-lg
-            lg:text-lg/tight
-            mb-2;
+            @apply font-typewriter
+            text-base
+            mt-1;
+
+            &:before {
+              @apply content-['']
+              block
+              w-10
+              h-1
+              bg-current;
+            }
           }
         }
       }
+    }
+  }
+
+  .revistaPortada {
+    @apply relative;
+
+    .image {
+      @apply w-full
+      mx-auto
+      pb-0;
     }
   }
 
@@ -141,7 +147,7 @@
       flex-row-reverse
       items-center
       justify-between
-      mb-0
+      mb-2
       xl:ml-auto;
 
     .media {
@@ -149,23 +155,26 @@
         w-auto
         h-auto
         p-1
-        border-slate-600/80
-        dark:border-slate-300/80
         ml-3;
     }
 
     .content {
-      @apply w-9/12;
+      @apply w-9/12
+      sm:w-10/12;
 
       .enlace {
-        @apply text-lg
-          md:text-xl
-          lg:text-2xl;
-
+        @apply font-bold;
         .subtitle {
-          @apply text-base
-            md:text-lg
-            lg:text-xl;
+          @apply leading-tight;
+
+          &:before {
+            @apply content-['']
+            block
+            w-6
+            h-0.5
+            mt-1
+            bg-current;
+          }
         }
       }
     }
@@ -179,12 +188,7 @@
       p-3
       mb-2
       lg:mb-0
-      lg:min-h-[125px]
-      border
-      border-slate-500/75
-      dark:border-slate-400/50
-      bg-slate-300
-    dark:bg-slate-700/50;
+      lg:min-h-[125px];
 
     .media {
       @apply mb-0;
@@ -192,6 +196,16 @@
 
     .content {
       @apply w-full;
+
+      .enlace {
+        @apply mb-2;
+        &:after {
+          @apply content-none;
+        }
+        a {
+          @apply font-bold;
+        }
+      }
     }
   }
 </style>

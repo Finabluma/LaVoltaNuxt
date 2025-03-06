@@ -56,10 +56,10 @@
     ul,
     ol,
     p {
-      @apply mb-3 px-2;
+      @apply mb-3;
 
       strong {
-        @apply font-mono font-bold;
+        @apply font-bold;
       }
     }
 
@@ -76,11 +76,9 @@
       pl-3
       italic
       border-l-4 
-      border-l-slate-600/50
-      dark:border-l-slate-300/50;
     }
-    a {
+    /* a {
       @apply cursor-pointer underline text-pink-500 dark:text-yellow-300;
-    }
+    } */
   }
 </style>

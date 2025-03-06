@@ -4,26 +4,28 @@
 
 @layer base {
   :root {
-    @apply bg-slate-300 dark:bg-slate-600;
+    @apply bg-primary
+    text-primary
+    fill-primary
+    dark:bg-[#2A3E57]
+    dark:text-[#A8B2BB]
+    dark:fill-[#A8B2BB];
   }
 
   body {
     @apply text-base/snug
     overflow-x-hidden
+    font-houschka
     text-balance
-    text-slate-600
-    dark:text-slate-300/80;
+    bg-white
+    dark:bg-[#4A647D];
 
     & a {
       @apply transition-colors duration-500;
     }
 
-    ::after {
-      @apply h-2 bg-slate-300 dark:bg-slate-400;
-    }
-
     ::selection {
-      @apply bg-pink-300 text-pink-50;
+      @apply bg-primary text-white;
     }
   }
 
@@ -35,9 +37,9 @@
     flex-col;
 
     main {
-      @apply bg-slate-50 
-      dark:bg-slate-600      
-      z-10;
+      @apply z-10
+      bg-white
+      dark:bg-[#4A647D];
     }
 
     .main_content {
@@ -45,187 +47,175 @@
     }
 
     h1 {
-      @apply text-8xl/tight;
+      @apply text-5xl/tight;
     }
     h2 {
-      @apply text-5xl/6;
+      @apply text-3xl/tight;
     }
     h3 {
-      @apply text-3xl;
+      @apply text-2xl;
     }
 
     aside {
       @apply relative 
       z-30
-      pb-10
-      bg-slate-50
-      dark:bg-slate-600;
+      pb-10;
     }
 
     #footer {
-      @apply mt-auto
-    bg-slate-50
-    dark:bg-slate-600;
+      @apply mt-auto;
     }
   }
 }
 @layer components {
+  .image:before {
+    @apply content-['']
+    absolute
+    top-0
+    left-0
+    w-full
+    h-full
+    z-20
+    bg-cyan400/30
+    mix-blend-screen;
+  }
   .card {
     @apply relative 
-    w-11/12
     mx-auto;
 
     article {
       @apply relative
       w-full
       md:w-10/12
-      lg:w-10/12
-      xl:w-6/12
       mx-auto
       flex
       justify-center
       items-center
       box-border      
-      p-2
-      bg-slate-50
-      dark:bg-slate-600;
+      px-4
+      md:px-[10%]
+      lg:px-[7%]
+       bg-white
+       dark:bg-[#4A647D];
 
       .content {
         @apply w-full
-        p-5
-        shadow-md
-      bg-slate-200
-      dark:bg-slate-500;
+        py-5
+        px-2;
 
         .content_title {
           @apply text-xl
-         dark:text-slate-300
-          content-after
-          mb-2;
+          font-coordinates
+          font-semibold
+          capitalize;
 
           &:after {
             @apply content-['']
             block
-              w-6
-              h-6
-              mt-3
-              bg-slate-500/50
-              dark:bg-slate-300/20;
+            w-2
+            h-1
+            mb-3
+            bg-current;
           }
         }
       }
     }
   }
   .cta {
-    @apply font-coordinates
-    text-lg/tight
-    lg:text-xl;
-
+    @apply capitalize;
     a {
-      @apply px-6 py-5
-      border
-      rounded-xl
-      bg-slate-300
-      font-coordinates
-      dark:bg-slate-600
-      dark:border-slate-600;
+      @apply py-4
+      px-6
+      border-4
+      font-bold;
     }
   }
   .obs {
-    @apply font-mono
-      text-lg/tight
-      mx-auto
-      max-w-screen-md
-      text-balance
-      pt-4
-      pb-4
-      px-10
-      mb-7
-      md:mb-14
-      md:px-[2%]
-      lg:py-10;
+    @apply mx-auto
+    max-w-screen-md    
+    pt-4
+    pb-4
+    px-10
+    mb-7
+    md:mb-14
+    md:px-[5%]
+    lg:py-10;
 
     .blockContent {
-      @apply content-after leading-snug;
-      p {
-        @apply text-[1.2rem];
-      }
+      @apply font-coordinates
+      text-base
+      text-balance;
+
       h2 {
-        @apply text-lg;
+        @apply leading-tight 
+        text-base;
       }
-      &:after {
-        @apply content-['']
-         block 
-        bg-slate-600
-        dark:bg-slate-400
-        w-1/12
-        h-2
-        mt-3
-        lg:mt-5;
+
+      strong {
+        @apply font-bold;
       }
     }
   }
+
   .single,
   .compound {
-    .content h2 {
-      @apply font-coordinates
-        text-4xl              
-        text-center
-        md:mb-5
-        content-after;
-
-      &:after {
-        @apply content-['']
-        block
-          w-2
-          h-2
-          rounded-full
-          mx-auto
-          mt-5
-          bg-current;
+    @apply dark:bg-[#4A647D];
+    .first,
+    .second {
+      .enlace {
+        @apply leading-snug
+          text-center;
+        a {
+          @apply font-bold
+          inline-block
+          py-4
+          px-6
+          border-t-4
+        border-t-primary
+          bg-white
+          text-primary
+          dark:bg-[#4A647D]
+          dark:text-[#A8B2BB]
+          hover:border-primary
+          hover:text-white
+          hover:bg-primary
+          dark:hover:bg-[#A8B2BB]/20
+          dark:border-t-[#A8B2BB];
+        }
       }
-    }
-    .enlace {
-      @apply font-sans 
-        leading-none
-        text-center
-        text-lg;
+      .media {
+        @apply mb-5;
+        .image {
+          @apply relative
+          w-20
+          h-20
+          md:w-20
+          md:h-20
+          rounded-full
+          overflow-hidden;
+        }
 
-      a {
-        @apply border
-        border-slate-400
-        dark:border-slate-700
-        rounded-xl
-        px-5
-        py-4
-        bg-slate-300
-        text-slate-600
-        dark:text-slate-300
-        dark:bg-slate-500
-        hover:bg-slate-800
-        hover:text-slate-100
-        dark:hover:bg-slate-700
-        dark:hover:text-slate-50;
+        .noImg {
+          @apply w-20
+          h-20
+          flex
+          justify-center
+          items-center
+          md:w-24
+          md:h-24
+          rounded-full
+          overflow-hidden
+          bg-cyan100
+          dark:bg-[#A8B2BB]/50;
+        }
       }
     }
   }
+
   .single {
     @apply w-11/12
     mx-auto
-    pt-10
-    pb-24
-    content-before;
-
-    &:before {
-      @apply content-['']
-      block
-      w-9/12
-      h-0.5
-      mx-auto
-      mb-10
-      bg-slate-300
-      dark:bg-slate-500;
-    }
+    py-20;
 
     .content_wrapper {
       @apply flex
@@ -236,64 +226,18 @@
           @apply flex
           flex-col
           items-center;
+        }
 
-          .media {
-            @apply mb-10;
+        .content {
+          @apply max-w-screen-sm
+          text-center;
 
-            .image {
-              @apply relative
-              w-24
-              h-24              
-              overflow-hidden
-              p-1 
-              drop-shadow 
-              rounded-full
-              border-slate-300/80 dark:bg-slate-300
-              content-before
-              sm:w-28
-              sm:h-28;
-
-              &:before {
-                @apply content-['']
-                absolute top-0
-                z-10
-                w-full
-                h-full bg-gradient-radial
-                from-transparent to-slate-300/45
-                dark:to-slate-500/30;
-              }
-
-              img {
-                @apply rounded-full;
-              }
-            }
-
-            .noImg {
-              @apply flex 
-              justify-center
-              items-center
-              w-28
-              h-28 
-              lg:justify-center
-              lg:w-32 
-              lg:h-32 
-              bg-slate-300/80
-              dark:bg-slate-500/50 
-              rounded-full;
-            }
-          }
-          .content {
-            @apply max-w-screen-md
-            text-center;
-
-            .inner-content {
-              @apply text-balance
-              font-mono
+          .inner-content {
+            @apply text-balance
+              font-bold
               mt-4
               mb-10
-              sm:mb-14
-              sm:text-lg;
-            }
+              sm:mb-14;
           }
         }
       }
@@ -301,118 +245,60 @@
   }
 
   .compound {
+    @apply py-10;
     .content_wrapper {
       @apply md:flex;
 
+      .first {
+        @apply md:border-b-0
+        md:border-r-4
+        md:border-r-primary
+        dark:md:border-r-[#A8B2BB];
+
+        &:after {
+          @apply content-['']
+          block
+          w-2
+          h-2
+          mx-auto
+          my-10
+          rounded-full
+          bg-current
+          dark:bg-[#A8B2BB]
+          md:content-none;
+        }
+      }
+
       .first,
       .second {
-        @apply pt-8
-        pb-14
+        @apply p-2
         md:w-6/12
         md:flex
-        md:justify-center
-        md:pt-16
-        md:pb-20;
+        md:justify-center;
 
         .optional {
           @apply w-11/12
-          mx-auto
-          md:w-11/12
-          lg:w-8/12;
+          mx-auto;
 
           .media {
-            @apply hidden;
+            @apply flex
+            justify-center;
           }
 
           .content {
+            @apply flex
+            flex-col
+            items-center;
+
             .inner-content {
               @apply text-balance
               text-lg
               text-center
               mt-2
               mb-10
-              md:min-h-[110px]
+              md:min-h-16
               md:mb-8;
             }
-          }
-        }
-      }
-
-      .first {
-        @apply bg-slate-300
-        dark:bg-slate-700;
-
-        .enlace {
-          a {
-            @apply text-slate-300
-            bg-slate-600
-            hover:bg-slate-800
-            dark:hover:bg-slate-500
-            dark:hover:text-slate-200;
-          }
-        }
-      }
-
-      .second {
-        @apply md:bg-slate-400
-         md:dark:bg-slate-500;
-
-        .optional .media {
-          @apply max-md:flex
-          max-md:justify-center
-          max-md:mb-6;
-
-          .image {
-            @apply relative
-              w-24
-              h-24              
-              overflow-hidden
-              p-1 
-              drop-shadow 
-              rounded-full
-              border-slate-300/80 dark:bg-slate-300
-              content-before
-              sm:w-28
-              sm:h-28;
-
-            &:before {
-              @apply content-['']
-              absolute top-0
-                z-10
-                w-full
-                h-full bg-gradient-radial
-                from-transparent to-slate-300/45
-                dark:to-slate-500/30;
-            }
-
-            img {
-              @apply rounded-full;
-            }
-          }
-
-          .noImg {
-            @apply flex 
-              justify-start
-              items-center 
-              lg:justify-center
-              lg:w-32 
-              lg:h-32 
-              bg-slate-300/50
-              dark:bg-slate-500/50 
-              rounded-full;
-          }
-        }
-
-        .enlace {
-          a {
-            @apply bg-slate-600
-            text-slate-300
-            dark:bg-slate-700
-            dark:text-slate-300
-            hover:bg-slate-300
-            hover:text-slate-600
-            dark:hover:bg-slate-400
-            dark:hover:text-slate-50;
           }
         }
       }

@@ -44,10 +44,10 @@
   </svg>
 </template>
 <style lang="postcss" scoped>
-  #ior path {
+  /* #ior path {
     @apply stroke-[3%]
       stroke-slate-600/40
       fill-slate-400
       dark:stroke-slate-900/40;
-  }
+  } */
 </style>

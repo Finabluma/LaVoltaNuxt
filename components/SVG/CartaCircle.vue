@@ -12,14 +12,19 @@
 </template>
 <style lang="postcss" scoped>
   svg {
-    @apply invisible;
+    .circle {
+      @apply fill-current
+        stroke-1
+      stroke-primary
+      dark:stroke-[#2A3E57]
+      dark:fill-[#2A3E57]/75;
+    }
     .object {
-      @apply invisible
-      stroke-[5px]
-      stroke-slate-600/50
-      fill-slate-500/80
-      dark:fill-slate-500 
-      dark:stroke-slate-400/50;
+      @apply fill-cyan100
+      stroke-current
+      stroke-[4px]
+     dark:fill-[#A8B2BB]/20
+     dark:stroke-white/20;
     }
   }
 </style>

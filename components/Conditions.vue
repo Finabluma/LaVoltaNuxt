@@ -36,7 +36,7 @@
   <div v-for="(condition, index) in conditions" :key="index" class="card skew">
     <article>
       <div class="content">
-        <h3 class="content_title font-cameo">{{ condition.title }}</h3>
+        <h3 class="content_title">{{ condition.title }}</h3>
         <div class="blockContent">
           <SanityContent :blocks="condition.terms" />
         </div>
@@ -45,8 +45,15 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  .card article{
+  .card article {
     @apply lg:w-8/12;
 
+    h3 {
+      @apply leading-tight;
+    }
+
+    .content .blockContent p {
+      @apply p-0;
+    }
   }
 </style>

@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const settingsScreens = require('./tailwind.settings.screens')
 const settingsFontSizes = require('./tailwind.settings.fontSizes')
+const colors = require('tailwindcss/colors')
 
 export default {
   content: [
@@ -12,15 +13,32 @@ export default {
     './app.vue',
   ],
   theme: {
+    colors: {
+      white: '#FFFFFF',
+      primary: '#ED80C0',
+      secondary: '#CA6DA4',
+      cyan100: '#cffafe',
+      cyan300: '#67e8f9',
+      cyan400: '#22d3ee',
+      green300: '#86efac',
+      yellow300: '#fde047',
+      orange400: '#fb923c',
+      transparent: 'transparent',
+      current: 'currentColor',
+    },
     extend: {
       screens: settingsScreens,
       fontSize: settingsFontSizes,
       fontFamily: {
-        sans: ['ibm-plex-mono', 'sans-serif'],
-        serif: ['dejanire-headline', 'serif'],
+        ibm: ['ibm-plex-mono', 'sans-serif'],
         coordinates: ['coordinates-variable', 'sans -serif '],
         cameo: ['nitti-typewriter-cameo', 'sans-serif'],
         typewriter: ['nitti-typewriter-normal', 'sans-serif'],
+        houschka: ['houschka-rounded', 'sans-serif'],
+        mozaic: ['mozaic-hum-variable', 'sans-serif'],
+        hero: [' hero-new', 'sans-serif'],
+        rooney: ['rooney-sans', 'sans-serif'],
+        gloss: ['gloss-drop', 'cursive'],
       },
       colors: {
         constlines: '#9cf',

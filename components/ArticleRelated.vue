@@ -43,13 +43,23 @@
   .relatedContent {
     @apply mx-auto
     py-10
-    lg:w-11/12;
+    md:w-10/12
+    lg:w-9/12;
 
     h2 {
       @apply font-cameo
       text-lg
       pl-[2%]
       mb-6;
+
+      &:after {
+        @apply content-['']
+        block
+        w-10
+        h-1
+        mt-2
+        bg-current;
+      }
     }
     .inner-content {
       @apply lg:flex

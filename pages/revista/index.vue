@@ -34,7 +34,7 @@
             <div v-if="isFeatured.length > 0">
               <ArticleDestacado
                 :item="isFeatured"
-                class="homePortada"
+                class="revistaPortada"
                 :title="revista.portada.title"
               />
             </div>
@@ -52,9 +52,12 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  .main_content section {
-    @apply mx-auto 
-    lg:w-11/12
-    xl:w-11/12;
+  .main_content {
+    section {
+      @apply mx-auto
+      w-full 
+      lg:w-11/12
+      xl:w-11/12;
+    }
   }
 </style>

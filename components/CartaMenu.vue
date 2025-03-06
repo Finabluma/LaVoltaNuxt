@@ -7,53 +7,72 @@
 
   //GSAP
   const { gsap, ScrollTrigger, DrawSVGPlugin } = useGsap()
+
   function entryToFood() {
     const panels = gsap.utils.toArray('.foodCard')
+
     panels.forEach((panel) => {
       let q = gsap.utils.selector(panel)
       const tl = gsap
         .timeline()
-        .set(q('.content'), { visibility: 'visible', autoAlpha: 0 })
-        .set(q('svg'), { visibility: 'visible' })
+        .set(q('.content'), { visibility: 'visible' })
+        .set(q('.item'), { y: '+=100' })
+        .set(q('svg'), { visibility: 'visible', rotation: 180 })
+        .set(q('.circle'), { strokeOpacity: 0, fillOpacity: 0, strokeWidth: 1 })
         .set(q('.object'), {
-          css: {
-            visibility: 'visible',
-            fillOpacity: 0,
-            strokeOpacity: 0,
-          },
+          fillOpacity: 0,
+          strokeWidth: 5,
         })
         .add('svg')
+        .to(
+          q('svg'),
+          {
+            rotate: 0,
+          },
+          'svg'
+        )
         .from(
+          q('.circle'),
+          {
+            strokeOpacity: 0,
+            drawSVG: 0,
+          },
+          'svg'
+        )
+        .to(
+          q('.circle'),
+          {
+            fillOpacity: '100%',
+          },
+          'svg+=0.5'
+        )
+        .to(
           q('.object'),
           {
             strokeOpacity: 0,
             drawSVG: 0,
-            rotate: -15,
           },
-          'svg'
+          'svg+=0.8'
         )
         .to(
           q('.object'),
           {
-            duration: 0.5,
-            fillOpacity: 0.5,
+            fillOpacity: 1,
           },
-          'svg+=0.25'
+          'svg'
         )
         .to(
-          q('.content'),
+          q('.item'),
           {
             autoAlpha: 1,
+            stagger: {
+              y: 0,
+              each: 0.1,
+            },
           },
           'svg'
         )
-        .from(
-          q('.inner'),
-          {
-            yPercent: 30,
-          },
-          'svg'
-        )
+
       ScrollTrigger.create({
         trigger: panel,
         start: 'clamp(top center+=20%)',
@@ -63,43 +82,8 @@
       })
     })
   }
-  function exitToFood() {
-    const panels = gsap.utils.toArray('.foodCard')
-    panels.forEach((panel) => {
-      let q = gsap.utils.selector(panel)
-      const tl = gsap
-        .timeline()
-        .add('svg')
-        .from(
-          q('.object'),
-          {
-            drawSVG: '100%',
-          },
-          'svg'
-        )
-        .to(q('.svg'), { scale: 0.8, rotate: 10 }, 'svg')
-        .to(
-          q('.inner-wrapper'),
-          {
-            yPercent: -60,
-            autoAlpha: 0,
-          },
-          'svg+=0.1'
-        )
-      ScrollTrigger.create({
-        trigger: panel,
-        start: 'top top',
-        scrub: true,
-        pin: panel,
-        pinSpacing: false,
-        animation: tl,
-        snap: 1,
-      })
-    })
-  }
   function masterToFood() {
-    const tl = gsap.timeline().add(entryToFood()).add(exitToFood())
-    return tl
+    entryToFood()
   }
   defineExpose({
     masterToFood,
@@ -117,7 +101,7 @@
         <div v-if="index == 0" class="svg">
           <SVGCartaCircle />
         </div>
-        <div v-if="index == 1" class="svg"><SVGMenuCircle /></div>
+        <div v-if="index == 1" class="svg item"><SVGMenuCircle /></div>
       </div>
       <div class="content">
         <div class="inner">
@@ -128,7 +112,8 @@
                 :title="item.link.linkTarget.title"
                 class="enlace"
               >
-                <h2>{{ item.heading }}</h2>
+                <h2 class="item">{{ item.heading }}</h2>
+                <p class="item">{{ item.tagline }}</p>
               </NuxtLink>
             </div>
             <div v-if="index == 1" class="heading">
@@ -137,14 +122,14 @@
                 :title="item.link.linkTarget.title"
                 class="enlace"
               >
-                <h2>{{ item.heading }}</h2>
+                <h2 class="item">{{ item.heading }}</h2>
+                <p class="item">{{ item.tagline }}</p>
               </NuxtLink>
             </div>
-            <div class="inner_content">
-              <p>{{ item.tagline }}</p>
+            <div class="inner_content item">
               <p>{{ item.excerpt }}</p>
             </div>
-            <button class="cta">
+            <button class="cta item">
               <div v-if="index == 0">
                 <NuxtLink to="la-carta" :title="item.link.linkTarget.title">
                   {{ item.link.title || item.link.linkTarget.title }}
@@ -165,101 +150,67 @@
 <style lang="postcss" scoped>
   .wrapper {
     @apply relative
-    bg-slate-400
-    dark:bg-slate-500;
-
+    lg:py-10
+    bg-white
+    dark:bg-[#4A647D];
     .foodCard {
       @apply relative
         mx-auto
-        pt-8
-        pb-12        
-        md:px-10
-        md:py-20
-        lg:flex
-        lg:items-center
-        lg:py-12
+        py-5
+        lg:w-10/12
         xl:w-9/12;
       .media {
         @apply relative
           z-20
-          mb-3
           mx-auto
-          content-before
           lg:w-6/12;
         .svg {
-          @apply w-32
-            h-32
-            md:w-44
-            md:h-44
-            lg:w-60
-            lg:h-60
-            rounded-full
-            shadow-lg
+          @apply w-28
+            h-28
+            md:w-36
+            md:h-36
             mx-auto
             flex
             items-center
-            justify-center
-            fill-transparent;
-
-          svg {
-            @apply w-full
-              stroke-[2px];
-          }
+            justify-center;
         }
       }
       .content {
         @apply invisible
           relative
-          py-5
-          px-2
+          py-2
           mx-auto
-          opacity-40
           text-center
-          text-balance
-          lg:text-left
-          lg:w-6/12;
+          text-balance;
         .inner {
+          @apply py-3
+          mb-6;
           .inner-wrapper {
+            @apply p-3;
+            .item {
+              @apply opacity-0;
+            }
             .enlace {
               @apply block;
 
               h2 {
-                @apply text-6xl/tight font-coordinates font-semibold;
+                @apply text-4xl/tight;
+              }
+
+              p {
+                @apply font-semibold
+                  uppercase
+                  lg:px-0;
               }
             }
 
             .inner_content {
-              @apply text-balance
-                px-1
-                mb-8
-                md:mb-12
-                lg:mb-16;
-
-              p {
-                @apply font-sans
-                lg:text-lg;
-              }
-
-              p:first-of-type {
-                @apply px-2
-                  uppercase
-                  mb-2
-                  content-after
-                  lg:px-0
-                  lg:mb-5;
-
-                &:after {
-                  @apply content-['']
-                  block
-                    w-2
-                    h-2
-                    my-4
-                    mx-auto
-                    lg:ml-0
-                    bg-slate-500
-                    dark:bg-slate-400;
-                }
-              }
+              @apply font-semibold
+              text-balance
+              mb-8
+              px-6
+              py-5
+              lg:px-0;
             }
           }
         }
@@ -268,26 +219,8 @@
 
     .foodCard.carta .svg,
     .foodCard.menudia .svg {
-      @apply bg-slate-300/75
-        dark:bg-slate-600;
       svg {
         @apply invisible;
-      }
-    }
-
-    .foodCard.carta {
-      @apply relative;
-    }
-
-    .foodCard.menudia,
-    .foodCard.carta {
-      .content .inner .inner-wrapper .cta a {
-        @apply bg-slate-600 border-slate-500/80
-        text-slate-400/90;
-
-        &:hover {
-          @apply bg-slate-700 text-slate-300;
-        }
       }
     }
   }

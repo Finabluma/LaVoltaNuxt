@@ -29,29 +29,25 @@
       content-after
       transition-all
       duration-300
-      p-1
-      
-      /* text-pink-400 */
-      dark:text-slate-300;
+      p-1;
     }
 
     .panel-body {
       @apply overflow-hidden
       h-auto
-      px-1
-      bg-slate-400/30
-      dark:bg-slate-500/70;
+      px-1;
     }
 
     &.is-open {
       @apply mb-3;
       .panel-header {
-        @apply border-none text-pink-500 dark:text-slate-400;
+        @apply border-none text-cyan400
+        dark:text-cyan300/70;
       }
 
       .panel-header:hover {
-        @apply text-pink-500
-         dark:text-slate-400;
+        @apply text-cyan400
+        dark:text-cyan300/70;
       }
     }
 

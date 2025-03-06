@@ -38,10 +38,10 @@
   .universeCallBadge {
     @apply relative
     w-screen
-    bg-slate-100
-    dark:bg-slate-600
     z-30
-    overflow-hidden;
+    overflow-hidden
+    bg-white
+    dark:bg-[#4A647D];
 
     .wrapper {
       @apply w-screen
@@ -55,11 +55,8 @@
         left-0
         w-screen
         h-full
-        bg-gradient-radial
-        from-slate-50
-        to-slate-300
-        dark:from-slate-500
-        dark:to-slate-700;
+        bg-white
+        dark:bg-[#4A647D];
       }
       .contacta {
         @apply relative
