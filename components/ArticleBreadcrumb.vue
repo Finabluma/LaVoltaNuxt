@@ -33,7 +33,8 @@
         }
 
         &:last-child {
-          @apply text-primary/75;
+          @apply text-primary/75
+          dark:text-[#A8B2BB]/75;
           &:after {
             @apply content-none;
           }

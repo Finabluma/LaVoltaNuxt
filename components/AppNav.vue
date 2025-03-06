@@ -54,15 +54,18 @@
           py-3
           no-underline
           cursor-pointer
-          text-primary;
+          text-primary
+          dark:text-[#A8B2BB];
 
           &:hover {
-            @apply text-white/80;
+            @apply text-white/80
+            dark:text-[#A8B2BB]/80;
           }
 
           &.router-link-active {
             @apply cursor-default 
-            text-cyan100;
+            text-cyan100
+            dark:text-primary;
           }
         }
 

@@ -42,12 +42,12 @@
       @apply mb-3;
       .panel-header {
         @apply border-none text-cyan400
-        dark:text-cyan300/70;
+        dark:text-[#A8B2BB];
       }
 
       .panel-header:hover {
         @apply text-cyan400
-        dark:text-cyan300/70;
+        dark:text-[#A8B2BB];
       }
     }
 

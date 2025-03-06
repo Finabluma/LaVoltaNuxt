@@ -71,7 +71,7 @@
   .items {
     @apply font-bold
     text-cyan400
-    dark:text-primary
+    dark:text-[#A8B2BB]
     mb-2 
     px-2 
     lg:px-3;
@@ -130,7 +130,7 @@
             w-1
             rounded-full
             bg-cyan300
-            dark:bg-cyan400/75;
+            dark:bg-[#A8B2BB];
           }
 
           &:last-child:after {

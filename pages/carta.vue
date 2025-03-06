@@ -142,7 +142,7 @@
     @apply mx-auto 
     pb-10
     md:pb-20;
-    
+
     h2 {
       @apply font-cameo
         px-[5%]
@@ -154,7 +154,8 @@
         h-1 
         w-10 
         mt-2 
-        bg-primary;
+        bg-primary
+        dark:bg-[#A8B2BB];
       }
     }
 

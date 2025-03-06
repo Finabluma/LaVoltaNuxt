@@ -52,7 +52,8 @@
             w-1/12
             mx-auto
             mt-5
-            bg-primary;
+            bg-primary
+            dark:bg-[#A8B2BB];
           }
         }
       }
