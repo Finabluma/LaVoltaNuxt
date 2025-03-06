@@ -54,7 +54,8 @@
       li {
         @apply font-coordinates
         flex 
-        items-center  
+        items-center
+        pl-2  
         after:last-of-type:content-none;
 
         &:first-of-type {

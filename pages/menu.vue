@@ -205,7 +205,7 @@
         .excepciones {
           @apply max-w-sm
           mx-auto
-          font-typewriter;
+          font-coordinates;
 
           span {
             @apply font-bold;

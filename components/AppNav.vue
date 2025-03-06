@@ -94,7 +94,7 @@
         w-full
         capitalize
         tracking-wider
-        font-typewriter
+        font-coordinates
         xl:w-auto
         xl:tracking-normal
         xl:text-lg;

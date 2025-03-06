@@ -30,15 +30,9 @@ export default {
       screens: settingsScreens,
       fontSize: settingsFontSizes,
       fontFamily: {
-        ibm: ['ibm-plex-mono', 'sans-serif'],
         coordinates: ['coordinates-variable', 'sans -serif '],
         cameo: ['nitti-typewriter-cameo', 'sans-serif'],
-        typewriter: ['nitti-typewriter-normal', 'sans-serif'],
         houschka: ['houschka-rounded', 'sans-serif'],
-        mozaic: ['mozaic-hum-variable', 'sans-serif'],
-        hero: [' hero-new', 'sans-serif'],
-        rooney: ['rooney-sans', 'sans-serif'],
-        gloss: ['gloss-drop', 'cursive'],
       },
       colors: {
         constlines: '#9cf',

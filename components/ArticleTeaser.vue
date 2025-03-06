@@ -53,7 +53,8 @@
       @apply relative;
     }
     .enlace {
-      @apply font-sans
+      @apply font-coordinates
+      leading-tight
       sm:pr-[2%]
       content-after;
 
@@ -66,7 +67,7 @@
       }
 
       .subtitle {
-        @apply font-typewriter
+        @apply font-bold
         text-balance;
       }
     }
@@ -105,24 +106,25 @@
         bg-cyan100/80;
 
         .enlace {
-          @apply font-bold
-            leading-snug
-            md:text-lg;
+          @apply font-coordinates
+          font-bold
+          leading-tight;
 
           &:after {
             @apply content-none;
           }
 
           .subtitle {
-            @apply font-typewriter
-            text-base
-            mt-1;
+            @apply font-normal
+            mb-2
+            ;
 
             &:before {
               @apply content-['']
               block
               w-10
-              h-1
+              h-0.5
+              mt-1
               bg-current;
             }
           }
@@ -163,16 +165,18 @@
       sm:w-10/12;
 
       .enlace {
-        @apply font-bold;
+        @apply font-coordinates
+        font-semibold;
         .subtitle {
-          @apply leading-tight;
+          @apply font-light 
+          leading-tight;
 
           &:before {
             @apply content-['']
             block
             w-6
             h-0.5
-            mt-1
+            my-1
             bg-current;
           }
         }
