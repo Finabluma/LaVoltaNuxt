@@ -14,7 +14,7 @@
   svg {
     @apply w-full;
     .circle {
-      @apply fill-transparent
+      @apply fill-current
         stroke-1
       stroke-primary
       dark:stroke-[#2A3E57]
