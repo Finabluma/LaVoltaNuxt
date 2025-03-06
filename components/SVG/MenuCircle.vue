@@ -12,6 +12,7 @@
 </template>
 <style lang="postcss" scoped>
   svg {
+    @apply w-full;
     .circle {
       @apply fill-current
         stroke-1
