@@ -13,7 +13,7 @@
 <style lang="postcss" scoped>
   svg {
     .circle {
-      @apply fill-current
+      @apply fill-transparent
         stroke-1
       stroke-primary
       dark:stroke-[#2A3E57]

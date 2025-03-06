@@ -71,7 +71,7 @@
   .items {
     @apply font-bold
     text-cyan400
-    dark:text-cyan400/60
+    dark:text-primary
     mb-2 
     px-2 
     lg:px-3;
