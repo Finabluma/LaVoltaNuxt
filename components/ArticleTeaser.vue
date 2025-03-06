@@ -103,7 +103,8 @@
         py-1
         mx-auto
         mb-5
-        bg-cyan100/80;
+        bg-cyan100/80
+        dark:bg-[#2A3E57]/80;
 
         .enlace {
           @apply font-coordinates
