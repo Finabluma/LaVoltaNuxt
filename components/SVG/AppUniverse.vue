@@ -271,7 +271,8 @@
       @apply stroke-cardinales/40 fill-cardinales/90;
     }
     #constelaciones {
-      @apply stroke-green300/80 fill-orbit;
+      @apply stroke-secondary fill-primary
+      dark:stroke-green300/80 dark:fill-orbit;
     }
 
     #estrellas circle {
