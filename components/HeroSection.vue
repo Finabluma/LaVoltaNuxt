@@ -105,9 +105,7 @@
 
         .title {
           @apply font-cameo
-          leading-snug
-          bg-white/90
-          dark:bg-[#4A647D];
+          leading-snug;
         }
       }
     }
