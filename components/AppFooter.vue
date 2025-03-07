@@ -81,7 +81,7 @@
       }
       .top {
         @apply mb-10
-        xl:mb-0
+        xl:mb-3
         xl:flex-row
         xl:px-8
         xl:pt-0

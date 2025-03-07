@@ -158,7 +158,7 @@
     px-10
     mb-7
     md:mb-14
-    md:px-[5%]
+    md:max-lg:px-[15%]
     lg:py-10;
 
     .blockContent {
@@ -169,6 +169,10 @@
       h2 {
         @apply leading-tight 
         text-base;
+      }
+
+      p{
+        @apply mb-2
       }
 
       strong {

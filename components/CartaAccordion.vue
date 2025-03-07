@@ -23,10 +23,8 @@
 </template>
 <style lang="postcss" scoped>
   .accordion-wrapper {
-    @apply max-w-screen-xl 
-    mx-auto 
-    px-[2%]
-    md:px-[5%];
+    @apply mx-auto 
+    px-[2%];
     .panel-header {
       @apply w-full      
       content-after

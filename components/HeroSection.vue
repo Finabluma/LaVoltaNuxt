@@ -83,7 +83,7 @@
     md:max-lg:portrait:h-[30vh]
     lg:max-xl:portrait:h-[40vh]
     lg:max-xl:landscape:h-[40vh]
-    xl:landscape:h-[45vh]
+    xl:landscape:h-[35vh]
     overflow-y-hidden;
 
     .content {

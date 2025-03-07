@@ -98,6 +98,7 @@
         capitalize
         tracking-wider
         font-coordinates
+        xl:text-sm
         xl:w-auto
         xl:tracking-normal;
 
@@ -113,7 +114,7 @@
 
           &.router-link-active {
             @apply cursor-default 
-            text-primary/50
+            text-cyan400
             dark:text-white/80;
           }
         }
@@ -136,7 +137,8 @@
       xl:px-0;
 
       li {
-        @apply capitalize;
+        @apply capitalize
+        xl:text-sm;
 
         a {
           @apply flex

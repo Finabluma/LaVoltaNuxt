@@ -139,7 +139,8 @@
     @apply w-screen;
   }
   .carta_content {
-    @apply mx-auto 
+    @apply max-w-screen-xl 
+    mx-auto 
     pb-10;
 
     h2 {
