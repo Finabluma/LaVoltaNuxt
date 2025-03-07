@@ -171,8 +171,8 @@
         text-base;
       }
 
-      p{
-        @apply mb-2
+      p {
+        @apply mb-2;
       }
 
       strong {

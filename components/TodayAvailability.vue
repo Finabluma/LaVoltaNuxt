@@ -25,32 +25,34 @@
 <template>
   <section class="today">
     <h2 class="sr-only">Horario del día</h2>
-    <div v-if="dag.length === 0" class="state">
-      <div><IcTwotoneSchedule class="mr-1" /> <span> Hoy cerramos</span></div>
-    </div>
-    <div v-if="dag.length === 1" class="state">
-      <div>
-        <IcTwotoneSchedule class="mr-1" />
-        <span class="sm:mr-2">Hoy abrimos</span>
+    <div class="flex justify-center items-center">
+      <div v-if="dag.length === 0" class="state">
+        <div><IcTwotoneSchedule class="mr-1" /> <span> Hoy cerramos</span></div>
       </div>
-      <div v-for="hours in dag" :key="hours.key" class="franjas">
-        <div class="franjas">
-          <span>{{ formatHour(hours.from) }}</span>
-          <span> -{{ formatHour(hours.to) }}</span
-          >pm
+      <div v-if="dag.length === 1" class="state">
+        <div>
+          <IcTwotoneSchedule class="mr-1" />
+          <span class="sm:mr-2">Hoy abrimos</span>
+        </div>
+        <div v-for="hours in dag" :key="hours.key" class="franjas">
+          <div class="franjas">
+            <span>{{ formatHour(hours.from) }}</span>
+            <span> -{{ formatHour(hours.to) }}</span
+            >pm
+          </div>
         </div>
       </div>
-    </div>
-    <div v-if="dag.length === 2" class="state">
-      <div>
-        <IcTwotoneSchedule class="mr-1" />
-        <span class="sm:mr-2">Hoy abrimos</span>
-      </div>
-      <div class="franjas">
-        <div v-for="hours in dag" :key="hours.key" class="franja">
-          <span>{{ formatHour(hours.from) }}</span>
-          <span> -{{ formatHour(hours.to) }}</span
-          >pm
+      <div v-if="dag.length === 2" class="state">
+        <div>
+          <IcTwotoneSchedule class="mr-1" />
+          <span class="sm:mr-2">Hoy abrimos</span>
+        </div>
+        <div class="franjas">
+          <div v-for="hours in dag" :key="hours.key" class="franja">
+            <span>{{ formatHour(hours.from) }}</span>
+            <span> -{{ formatHour(hours.to) }}</span
+            >pm
+          </div>
         </div>
       </div>
     </div>
@@ -63,19 +65,20 @@
     font-coordinates
     font-bold
     z-20
-    h-12    
+    h-14    
     p-1
     flex
+    flex-col
     justify-center
     items-center
-    sm:h-8;
+    sm:h-8
+    sm:justify-start;
 
     .state {
       @apply flex
         flex-wrap
         items-center
         justify-center
-        sm:w-11/12
         sm:flex-row
         sm:justify-center
         overflow-y-hidden;

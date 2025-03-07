@@ -16,7 +16,7 @@
     return (
       route.name === 'reservas' ||
       route.name === 'el-menu' ||
-      route.name === 'la-carta' 
+      route.name === 'la-carta'
     )
   })
 
@@ -88,11 +88,11 @@
 </template>
 <style lang="postcss" scoped>
   .globalHeader {
-    @apply absolute 
+    @apply absolute
     w-screen 
-    top-12 
     z-40
-    sm:top-8;
+    bg-white/20
+    dark:bg-[#4A647D]/20;
 
     .ab {
       @apply opacity-0;
@@ -119,20 +119,23 @@
         } */
       }
 
-      .globalLogo a #favicon,
+      /* .globalLogo a #favicon,
       .misc .linkNav svg,
       .misc .btn-ghost svg {
-        /* @apply fill-pink-400
-        dark:fill-slate-300; */
-      }
+        @apply fill-pink-400
+        dark:fill-slate-300;
+      } */
     }
 
     &.scrolled {
       @apply fixed
-      top-0  
+      top-0
       backdrop-blur-sm
+      bg-white/70
+      dark:bg-[#4A647D]/70;
+
       /* bg-slate-50/70
-      dark:bg-slate-600/70 */;
+      dark:bg-slate-600/70 */
 
       /* .misc .linktocarta .linkNav svg {
         @apply fill-slate-300;

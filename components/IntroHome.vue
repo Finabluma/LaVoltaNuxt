@@ -17,7 +17,7 @@
       .to(q('h1'), { y: '+=10', autoAlpha: 0 })
       .to(q('p'), { autoAlpha: 0, y: '+=60' }, '-=0.5')
     ScrollTrigger.create({
-      trigger: '.intro',
+      trigger: '.intro_wrapper',
       start: 'top top',
       pin: true,
       pinSpacing: false,
@@ -34,13 +34,15 @@
 </script>
 <template>
   <div class="intro">
-    <div class="intro_inner">
-      <h1>
-        {{ subtitle }}
-      </h1>
+    <div class="intro_wrapper">
+      <div class="intro_inner">
+        <h1>
+          {{ subtitle }}
+        </h1>
 
-      <div class="inner__items">
-        <p>{{ content }}</p>
+        <div class="inner__items">
+          <p>{{ content }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -50,6 +52,7 @@
     @apply relative
     py-8
     px-6
+    w-full
     min-[414px]:px-9
     sm:max-lg:px-16
     sm:max-lg:py-12

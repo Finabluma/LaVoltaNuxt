@@ -47,7 +47,7 @@
   <div class="hero" ref="main" :class="{ slug: slug }">
     <div class="content">
       <div class="inner">
-        <div>
+        <div class="title">
           {{ items.title }}
         </div>
       </div>
@@ -75,8 +75,8 @@
 <style lang="postcss">
   .hero {
     @apply relative
-    w-screen
-    h-[18vh]
+    w-full
+    h-[25vh]
     max-sm:landscape:h-[40vh]
     sm:max-md:h-[40vh]
     md:max-lg:landscape:h-[30vh]
@@ -84,7 +84,7 @@
     lg:max-xl:portrait:h-[40vh]
     lg:max-xl:landscape:h-[40vh]
     xl:landscape:h-[35vh]
-    overflow-y-hidden;
+    overflow-hidden;
 
     .content {
       @apply absolute
@@ -93,17 +93,22 @@
       h-full
       flex
       justify-center
-      items-end;
+      items-end
+      p-5
+      md:p-10;
 
       .inner {
-        @apply font-cameo
-        pb-[8%]
-        w-9/12
+        @apply w-9/12
         mx-auto
-        sm:w-6/12
-        md:w-7/12
-        md:text-left
-        lg:w-6/12;
+        flex
+        md:w-7/12;
+
+        .title {
+          @apply font-cameo
+          leading-snug
+          bg-white/90
+          dark:bg-[#4A647D];
+        }
       }
     }
 
