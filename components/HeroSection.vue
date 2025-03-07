@@ -76,7 +76,7 @@
   .hero {
     @apply relative
     w-full
-    h-[25vh]
+    h-[18vh]
     max-sm:landscape:h-[40vh]
     sm:max-md:h-[40vh]
     md:max-lg:landscape:h-[30vh]
