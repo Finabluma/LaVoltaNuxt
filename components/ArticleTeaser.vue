@@ -56,7 +56,7 @@
       @apply font-coordinates
         font-semibold;
       .subtitle {
-        @apply font-light 
+        @apply font-normal 
           leading-snug
           mt-1;
       }
