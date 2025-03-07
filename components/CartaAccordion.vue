@@ -23,7 +23,10 @@
 </template>
 <style lang="postcss" scoped>
   .accordion-wrapper {
-    @apply max-w-screen-xl mx-auto px-[2%];
+    @apply max-w-screen-xl 
+    mx-auto 
+    px-[2%]
+    md:px-[5%];
     .panel-header {
       @apply w-full      
       content-after
@@ -41,12 +44,12 @@
     &.is-open {
       @apply mb-3;
       .panel-header {
-        @apply border-none text-cyan400
+        @apply border-none text-primary/75
         dark:text-[#A8B2BB];
       }
 
       .panel-header:hover {
-        @apply text-cyan400
+        @apply text-primary/75
         dark:text-[#A8B2BB];
       }
     }

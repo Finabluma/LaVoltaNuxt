@@ -75,7 +75,7 @@
 <template>
   <div v-if="data" class="pageArticle">
     <ArticleHeader :data="data" />
-    <main class="relative z-20 bg-neutral-content dark:bg-neutral">
+    <main class="relative z-20">
       <h1 class="sr-only">{{ data.title }}</h1>
       <div class="inner_main">
         <ArticleBreadcrumb :data="data" class="lg:mt-5 sm:w-11/12 mx-auto">
@@ -154,13 +154,4 @@
     sm:w-11/12
     md:w-10/12;
   }
-
-  /* .compound .content_wrapper .second {
-    @apply bg-slate-200 md:bg-slate-400 dark:bg-slate-600
-    md:dark:bg-slate-500;
-  }
-
-  .single .content_wrapper .first {
-    @apply bg-slate-200  dark:bg-slate-600;
-  } */
 </style>

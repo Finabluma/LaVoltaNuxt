@@ -187,7 +187,8 @@
       @apply fill-cyan400/30;
     }
     #rings path:nth-child(2) {
-      @apply fill-cyan300/75;
+      @apply fill-cyan300/75
+      dark:fill-[#A8B2BB]/80;
     }
     #rings path:last-of-type {
       @apply fill-current;

@@ -54,18 +54,18 @@
           py-3
           no-underline
           cursor-pointer
-          text-primary
-          dark:text-[#A8B2BB];
+          text-white
+          dark:text-white/70;
 
           &:hover {
-            @apply text-white/80
+            @apply text-white/50
             dark:text-[#A8B2BB]/80;
           }
 
           &.router-link-active {
             @apply cursor-default 
-            text-cyan100
-            dark:text-primary;
+            text-white/70
+            dark:text-white/40;
           }
         }
 
@@ -99,8 +99,7 @@
         tracking-wider
         font-coordinates
         xl:w-auto
-        xl:tracking-normal
-        xl:text-lg;
+        xl:tracking-normal;
 
         a {
           @apply w-full
@@ -114,7 +113,8 @@
 
           &.router-link-active {
             @apply cursor-default 
-            text-primary/50;
+            text-primary/50
+            dark:text-white/80;
           }
         }
 

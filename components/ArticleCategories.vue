@@ -38,13 +38,12 @@
 <style lang="postcss" scoped>
   .categories {
     @apply hidden 
-    sm:flex 
-    sm:w-full;
+    sm:flex;
 
     div {
       @apply flex 
-      justify-start
-      items-start;
+      items-start
+      w-5;
     }
 
     ul {
@@ -53,6 +52,7 @@
 
       li {
         @apply font-coordinates
+        text-sm
         flex 
         items-center
         pl-2  

@@ -31,7 +31,7 @@
                 <span v-if="item.item.precio">
                   {{ formatPrice(item.item.precio) }}€</span
                 >
-                <span v-else><i>s/peso</i></span>
+                <span v-else class="font-bold"><i>s/peso</i></span>
               </div>
               <div v-else>
                 <span> {{ formatPrice(item.precio) }}€</span>
@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div v-else class="py-3 text-base-content">
+      <div v-else class="py-3 text-primary font-coordinates font-bold">
         <i>Por el momento no disponemos este producto.</i>
       </div>
     </template>
@@ -70,7 +70,7 @@
   }
   .items {
     @apply font-bold
-    text-cyan400
+    text-primary
     dark:text-[#A8B2BB]
     mb-2 
     px-2 
@@ -129,7 +129,7 @@
             h-1
             w-1
             rounded-full
-            bg-cyan300
+            bg-primary
             dark:bg-[#A8B2BB];
           }
 

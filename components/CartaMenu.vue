@@ -18,7 +18,7 @@
         .set(q('.content'), { visibility: 'visible' })
         .set(q('.item'), { y: '+=100' })
         .set(q('svg'), { visibility: 'visible', rotation: 180 })
-        .set(q('.circle'), { strokeOpacity: 0, fillOpacity: 0, strokeWidth: 1 })
+        .set(q('.circle'), { strokeOpacity: 0, fillOpacity: 0, strokeWidth: 4 })
         .set(q('.object'), {
           fillOpacity: 0,
           strokeWidth: 5,

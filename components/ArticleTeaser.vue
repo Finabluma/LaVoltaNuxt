@@ -54,82 +54,56 @@
     }
     .enlace {
       @apply font-coordinates
-      leading-tight
-      sm:pr-[2%]
-      content-after;
-
+        font-semibold;
+      .subtitle {
+        @apply font-light 
+          leading-snug
+          mt-1;
+      }
       &:after {
         @apply content-['']
-        block
-        h-1
-        w-10
-        mt-2;
-      }
-
-      .subtitle {
-        @apply font-bold
-        text-balance;
+          block
+          w-6
+          h-0.5
+          my-1
+          bg-current;
       }
     }
   }
 
   /* Inicio */
   .destacado {
-    @apply relative;
+    @apply relative
+    w-11/12
+    mx-auto
+    sm:w-10/12
+    md:max-lg:portrait:w-11/12
+    lg:max-xl:landscape:w-10/12;
 
-    .image {
-      @apply w-11/12
-      mx-auto
-      sm:w-10/12
-      md:max-lg:portrait:w-11/12
-      lg:max-xl:landscape:w-10/12;
-    }
     .content {
-      @apply p-3
-        absolute
-        bottom-1/3
-        left-0
-        z-30
-        w-full
-        flex
-        justify-center
-        sm:bottom-1/4;
+      @apply absolute
+      w-full
+      bottom-2
+      left-0
+      z-30
+      p-3
+      flex
+      justify-center
+      items-center
+      sm:bottom-5
+      lg:max-xl:landscape:w-11/12;
 
       .content-wrapper {
-        @apply w-11/12
-        sm:w-9/12
-        md:w-7/12
-        px-2
-        py-1
+        @apply w-full
+        md:w-10/12
+        p-2
         mx-auto
         mb-5
+        md:p-5
+        lg:max-xl:landscape:w-auto
+        lg:max-xl:landscape:mr-0
         bg-cyan100/80
         dark:bg-[#2A3E57]/80;
-
-        .enlace {
-          @apply font-coordinates
-          font-bold
-          leading-tight;
-
-          &:after {
-            @apply content-none;
-          }
-
-          .subtitle {
-            @apply font-normal
-            mb-2
-            ;
-
-            &:before {
-              @apply content-['']
-              block
-              w-10
-              h-0.5
-              mt-1
-              bg-current;
-            }
-          }
-        }
       }
     }
   }
@@ -137,10 +111,11 @@
   .revistaPortada {
     @apply relative;
 
-    .image {
-      @apply w-full
-      mx-auto
-      pb-0;
+    .destacado .content {
+      @apply lg:max-xl:landscape:w-full;
+      .content-wrapper {
+        @apply lg:max-xl:landscape:mx-auto;
+      }
     }
   }
 
@@ -149,8 +124,8 @@
     @apply flex
       flex-row-reverse
       items-center
-      justify-between
-      mb-2
+      justify-center
+      mb-5
       xl:ml-auto;
 
     .media {
@@ -158,30 +133,12 @@
         w-auto
         h-auto
         p-1
-        ml-3;
+        ml-2;
     }
 
     .content {
       @apply w-9/12
       sm:w-10/12;
-
-      .enlace {
-        @apply font-coordinates
-        font-semibold;
-        .subtitle {
-          @apply font-light 
-          leading-tight;
-
-          &:before {
-            @apply content-['']
-            block
-            w-6
-            h-0.5
-            my-1
-            bg-current;
-          }
-        }
-      }
     }
   }
 
@@ -189,8 +146,10 @@
     @apply flex
       flex-row-reverse
       items-center
-      justify-between
-      p-3
+      justify-center
+      border
+      border-current
+      p-2
       mb-2
       lg:mb-0
       lg:min-h-[125px];
@@ -201,16 +160,6 @@
 
     .content {
       @apply w-full;
-
-      .enlace {
-        @apply mb-2;
-        &:after {
-          @apply content-none;
-        }
-        a {
-          @apply font-bold;
-        }
-      }
     }
   }
 </style>

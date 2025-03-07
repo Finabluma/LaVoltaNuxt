@@ -71,7 +71,6 @@
     @apply w-full
       p-3
       border
-      md:p-5
       lg:w-11/12
       lg:mb-10
       lg:mx-auto;

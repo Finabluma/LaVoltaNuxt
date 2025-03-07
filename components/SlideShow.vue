@@ -10,7 +10,7 @@
 </script>
 <template>
   <div class="carrusel">
-    <h2>{{ title }}</h2>
+    <h2 class="title_tracked">{{ title }}</h2>
     <div class="carrusel-wrapper">
       <div class="wrapper">
         <Swiper
@@ -68,16 +68,8 @@
     bg-white
     dark:bg-[#4A647D];
 
-    h2 {
-      @apply font-coordinates
-      font-bold
-      text-2xl
-      mx-auto
-      w-8/12
-      z-30
-      mb-10
-      sm:w-6/12
-      md:text-center;
+    h2{
+      @apply text-base
     }
 
     .carrusel-wrapper {

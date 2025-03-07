@@ -15,16 +15,16 @@
     @apply w-full;
     .circle {
       @apply fill-current
-        stroke-1
-      stroke-primary
-      dark:stroke-[#2A3E57]
-      dark:fill-[#2A3E57]/75;
+        stroke-[4px]
+      stroke-primary/50
+      dark:stroke-[#A8B2BB]
+      dark:fill-[#A8B2BB]/75;
     }
     .object {
-      @apply fill-cyan100
-      stroke-current
+      @apply fill-white
+      stroke-primary/50
       stroke-[4px]
-     dark:fill-[#A8B2BB]/20
+     dark:fill-[#4A647D]
      dark:stroke-white/20;
     }
   }

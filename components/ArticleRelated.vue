@@ -42,7 +42,7 @@
 <style lang="postcss" scoped>
   .relatedContent {
     @apply mx-auto
-    py-10
+    pt-10
     md:w-10/12
     lg:w-9/12;
 

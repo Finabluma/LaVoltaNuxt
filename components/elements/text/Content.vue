@@ -56,29 +56,29 @@
     ul,
     ol,
     p {
-      @apply mb-3;
+      @apply mb-5;
 
       strong {
         @apply font-bold;
       }
     }
 
+    p{
+      @apply leading-normal
+    }
+
     ol,
     ul {
       @apply my-3;
       li {
-        @apply italic mb-1;
+        @apply mb-1;
       }
     }
     blockquote {
-      @apply ml-3
+      @apply ml-2
       my-3
-      pl-3
-      italic
-      border-l-4 
+      pl-2
+      font-coordinates;
     }
-    /* a {
-      @apply cursor-pointer underline text-pink-500 dark:text-yellow-300;
-    } */
   }
 </style>

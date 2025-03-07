@@ -14,16 +14,22 @@
 </template>
 <style lang="postcss" scoped>
   .excerpt {
-    @apply w-11/12 content-before;
+    @apply w-10/12
+    mx-auto;
 
     blockquote {
-      @apply ml-3
-      my-3
-      pl-3
-      font-mono
-      italic
-      border-l-4 
-      border-l-current;
+      @apply my-3
+      font-coordinates
+      text-base;
+
+      &:after {
+        @apply content-['']
+        block
+        h-0.5
+        w-10
+        mt-2
+        bg-primary;
+      }
     }
   }
 </style>

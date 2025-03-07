@@ -18,7 +18,8 @@
 </template>
 <style lang="postcss">
   #breadcrumb {
-    @apply py-6;
+    @apply pt-6
+    pb-3;
 
     ol {
       @apply flex items-center;
@@ -27,9 +28,12 @@
         @apply flex items-center text-sm leading-none;
 
         &:after {
-          @apply content-[''] w-1 h-1 
+          @apply content-[''] 
+          w-1 
+          h-1 
           bg-current 
-          rounded-full mx-2;
+          rounded-full 
+          mx-2;
         }
 
         &:last-child {

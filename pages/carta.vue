@@ -140,8 +140,7 @@
   }
   .carta_content {
     @apply mx-auto 
-    pb-10
-    md:pb-20;
+    pb-10;
 
     h2 {
       @apply font-cameo

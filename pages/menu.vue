@@ -182,7 +182,7 @@
           h-1
           mt-10
           bg-primary
-          bg-[#A8B2BB];
+          dark:bg-[#A8B2BB];
         }
         .inner_precio {
           @apply max-w-sm 

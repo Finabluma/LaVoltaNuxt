@@ -18,8 +18,7 @@
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      banner.value.banner(),
-      food.value.masterToFood()
+      banner.value.banner(), food.value.masterToFood()
       intro.value.intro()
     }, main.value)
   })
@@ -50,7 +49,7 @@
           <CartaMenu :items="home.cartamenu" ref="food" />
           <div v-if="isFeatured.length > 0" class="articleHome">
             <div class="artHomeContent">
-              <h1 class="text-center leading-1">
+              <h1 class="title_tracked">
                 {{ home.portada.portada.title }}
               </h1>
               <ArticleDestacado :item="isFeatured" class="homeDestacado" />
@@ -81,14 +80,8 @@
       items-center
       justify-evenly;
 
-      h1 {
-        @apply font-light
-        text-lg
-        lowercase
-        tracking-[1rem]
-        ml-[1rem]
-        mb-10
-        md:text-xl;
+      .title_tracked {
+        @apply text-lg;
       }
     }
   }

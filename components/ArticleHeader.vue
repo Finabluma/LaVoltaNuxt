@@ -1,6 +1,4 @@
 <script setup>
-  import { ref } from 'vue'
-
   const props = defineProps({
     data: {
       type: Object,
@@ -61,7 +59,7 @@
 
       .inner {
         @apply font-bold 
-        text-white
+        text-primary
         dark:text-[#A8B2BB]
         pb-3 
         w-11/12 

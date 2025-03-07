@@ -15,7 +15,7 @@
   <div
     :class="{ revistaPortada: revistaPortada, homeDestacado: homeDestacado }"
   >
-    <p v-if="title" class="title_destacado">{{ title }}</p>
+    <p v-if="title" class="title_tracked">{{ title }}</p>
     <ArticleTeaser :article="item[0].article" class="destacado">
       <template #default>
         <ElementsMediaImageItem
@@ -50,16 +50,5 @@
   .revistaPortada {
     @apply mb-5
     md:mb-10;
-    .title_destacado {
-      @apply lowercase
-      tracking-[1rem]
-      text-center
-      pt-8
-      mb-5
-      ml-[1rem]        
-      lg:pt-12
-      lg:mb-10
-      lg:text-xl;
-    }
   }
 </style>

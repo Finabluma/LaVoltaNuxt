@@ -12,6 +12,11 @@
     dark:fill-[#A8B2BB];
   }
 
+  html {
+    @apply bg-primary
+    dark:bg-[#2A3E57];
+  }
+
   body {
     @apply text-base/snug
     overflow-x-hidden
@@ -59,7 +64,9 @@
     aside {
       @apply relative 
       z-30
-      pb-10;
+      pt-2
+      pb-5
+      md:pb-3;
     }
 
     #footer {
@@ -68,6 +75,17 @@
   }
 }
 @layer components {
+  .title_tracked {
+    @apply text-sm
+      lowercase
+      tracking-[1rem]
+      text-center
+      pt-8
+      mb-5
+      ml-[1rem]        
+      lg:pt-12
+      lg:mb-10;
+  }
   .image:before {
     @apply content-['']
     absolute
@@ -203,8 +221,8 @@
           flex
           justify-center
           items-center
-          md:w-24
-          md:h-24
+          md:w-20
+          md:h-20
           rounded-full
           overflow-hidden
           bg-cyan100
@@ -217,7 +235,19 @@
   .single {
     @apply w-11/12
     mx-auto
-    py-20;
+    py-5;
+
+    &:before {
+      @apply content-['']
+      block
+      mx-auto
+      mb-10
+      w-1/12
+      lg:w-8/12
+      h-1
+      bg-current
+      dark:bg-[#A8B2BB];
+    }
 
     .content_wrapper {
       @apply flex
@@ -227,19 +257,32 @@
         .optional {
           @apply flex
           flex-col
-          items-center;
+          items-center
+          lg:flex-row
+          lg:items-start;
         }
 
         .content {
           @apply max-w-screen-sm
-          text-center;
+          text-center
+          lg:text-left
+          lg:pl-5;
 
           .inner-content {
             @apply text-balance
               font-bold
               mt-4
               mb-10
-              sm:mb-14;
+              sm:mb-14
+              lg:mb-5;
+          }
+
+          .enlace {
+            @apply lg:text-left;
+
+            a {
+              @apply lg:px-0;
+            }
           }
         }
       }
@@ -247,7 +290,7 @@
   }
 
   .compound {
-    @apply py-10;
+    @apply py-5;
     .content_wrapper {
       @apply md:flex;
 
