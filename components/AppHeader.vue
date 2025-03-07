@@ -90,9 +90,7 @@
   .globalHeader {
     @apply absolute
     w-screen 
-    z-40
-    bg-white/20
-    dark:bg-[#4A647D]/20;
+    z-40;
 
     .ab {
       @apply opacity-0;
