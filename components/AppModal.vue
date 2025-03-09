@@ -39,7 +39,7 @@
   .modal-overlay {
     @apply fixed
     top-14
-    md:top-16
+    md:top-8
     z-50
     w-full
     justify-center
@@ -53,12 +53,7 @@
       drop-shadow-lg
       bg-cyan300
       dark:bg-[#2A3E57]
-      /* bg-red-600
-      text-slate-300
-      dark:bg-yellow-600
-      dark:text-yellow-900 */
-      md:w-10/12
-      lg:w-11/12;
+      md:w-8/12;
 
       .close {
         @apply absolute

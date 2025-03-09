@@ -9,7 +9,7 @@
   <div class="hero">
     <div class="content">
       <div class="inner">
-        <div class="text-lg/snug">
+        <div class="title">
           {{ data.title }}
         </div>
         <small class="font-coordinates">{{ data.subtitle }}</small>
@@ -41,8 +41,8 @@
     w-screen
     h-[18vh]
     max-sm:landscape:h-[40vh]
-    sm:max-md:h-[40vh]
-    md:max-lg:landscape:h-[30vh]
+    sm:max-md:h-[60vh]
+    md:max-lg:landscape:h-[60vh]
     md:max-lg:portrait:h-[30vh]
     lg:max-xl:portrait:h-[40vh]
     lg:max-xl:landscape:h-[40vh]
@@ -58,16 +58,27 @@
       items-end;
 
       .inner {
-        @apply font-bold 
-        text-primary
-        dark:text-[#A8B2BB]
-        pb-3 
-        w-11/12 
-        mx-auto 
+        @apply flex-col
+        items-baseline
+        px-2
+        py-1
+        w-11/12
+        mx-auto
+        sm:mx-auto 
         sm:w-9/12 
-        md:w-9/12 
-        md:pb-10 
-        lg:w-8/12;
+        md:w-auto 
+        bg-white/60
+        dark:bg-cyan400/30;
+
+        .title {
+          @apply font-bold 
+        text-primary
+          dark:text-white/60;
+        }
+        small {
+          @apply text-primary
+          dark:text-white;
+        }
       }
     }
 

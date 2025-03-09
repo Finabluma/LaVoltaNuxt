@@ -5,6 +5,16 @@
       type: Object,
     },
   })
+
+  const route = useRoute()
+  const isWhite = computed(() => {
+    return (
+      route.name === 'index' ||
+      route.name === 'el-menu' ||
+      route.name === 'la-carta' ||
+      route.name === 'revista'
+    )
+  })
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
   let slug = ref()
@@ -44,7 +54,7 @@
   })
 </script>
 <template>
-  <div class="hero" ref="main" :class="{ slug: slug }">
+  <div class="hero" ref="main" :class="{ slug: slug, white: isWhite }">
     <div class="content">
       <div class="inner">
         <div class="title">
@@ -126,6 +136,10 @@
         bg-white
         dark:bg-[#4A647D];
       }
+    }
+
+    &.white .content .inner .title {
+      @apply dark:text-white/70;
     }
   }
 </style>

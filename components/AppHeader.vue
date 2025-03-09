@@ -14,9 +14,10 @@
   const route = useRoute()
   const isWhite = computed(() => {
     return (
-      route.name === 'reservas' ||
+      route.name === 'index' ||
       route.name === 'el-menu' ||
-      route.name === 'la-carta'
+      route.name === 'la-carta' ||
+      route.name === 'revista'
     )
   })
 
@@ -69,7 +70,7 @@
             link-type="internalLinkType"
             route="la-carta"
             :title="linkCarta?.title"
-            class="linkNav rounded p-1 bg-neutral"
+            class="linkNav rounded p-1"
           >
             <MaterialSymbolsRestaurantRounded class="w-7" />
             <span class="sr-only">{{
@@ -131,24 +132,23 @@
       backdrop-blur-sm
       bg-white/70
       dark:bg-[#4A647D]/70;
-
-      /* bg-slate-50/70
-      dark:bg-slate-600/70 */
-
-      /* .misc .linktocarta .linkNav svg {
-        @apply fill-slate-300;
-      } */
     }
 
-    &:not(.scrolled).white {
+    /* &:not(.scrolled).white {
       .globalLogo a #favicon,
       .misc .linkNav svg,
       .misc .btn-ghost svg {
-        /* @apply fill-slate-300; */
+        @apply fill-slate-300;
       }
       .misc .linktocarta .linkNav svg {
-        /* @apply fill-slate-300; */
+        @apply fill-slate-300;
       }
+    } */
+  }
+
+  .globalHeader.white {
+    svg {
+      @apply dark:fill-white/70;
     }
   }
 </style>

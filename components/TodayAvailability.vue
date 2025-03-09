@@ -65,13 +65,11 @@
     font-coordinates
     font-bold
     z-20
-    h-14    
-    p-1
+    p-1.5  
     flex
     flex-col
     justify-center
     items-center
-    sm:h-8
     sm:justify-start;
 
     .state {
