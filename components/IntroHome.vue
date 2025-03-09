@@ -105,7 +105,9 @@
       }
 
       .inner__items {
-        @apply py-3
+        @apply max-w-screen-md
+        mx-auto
+        py-3
         lg:px-10;
       }
     }

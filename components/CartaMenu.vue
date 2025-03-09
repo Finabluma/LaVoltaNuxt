@@ -207,6 +207,8 @@
             .inner_content {
               @apply font-semibold
               text-balance
+              max-w-prose
+              mx-auto
               mb-8
               px-6
               py-5
