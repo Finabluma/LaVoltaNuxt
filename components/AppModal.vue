@@ -39,7 +39,7 @@
   .modal-overlay {
     @apply fixed
     bottom-10
-    md:top-12
+    md:top-24
     md:bottom-0
     z-50
     w-full
