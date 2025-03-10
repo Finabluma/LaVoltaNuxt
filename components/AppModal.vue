@@ -40,7 +40,7 @@
     @apply fixed
     bottom-10
     md:top-24
-    md:bottom-0
+    md:bottom-auto
     z-50
     w-full
     justify-center
