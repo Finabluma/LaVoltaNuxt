@@ -38,8 +38,9 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    top-14
-    md:top-8
+    bottom-16
+    md:top-12
+    md:bottom-0
     z-50
     w-full
     justify-center
