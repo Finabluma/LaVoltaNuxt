@@ -38,7 +38,7 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    bottom-16
+    bottom-10
     md:top-12
     md:bottom-0
     z-50
