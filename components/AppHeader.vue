@@ -54,7 +54,7 @@
         </NuxtLink>
       </div>
       <div class="misc">
-        <div v-if="phone" class="ab">
+        <div v-if="phone" class="ab bg-">
           <ElementsTextLink
             :to="phone?.phone"
             class="linkNav"
@@ -109,6 +109,16 @@
 
       .misc {
         @apply flex items-center ml-auto;
+
+        .linktocarta .linkNav {
+          @apply bg-primary
+          dark:bg-white/70;
+
+          svg {
+            @apply fill-white
+            dark:fill-[#4A647D];
+          }
+        }
 
         /* .linktocarta .linkNav {
           @apply bg-pink-400;
