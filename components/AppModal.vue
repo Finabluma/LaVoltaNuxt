@@ -6,6 +6,9 @@
     },
   })
 
+  let main = ref(),
+    ctx = ref()
+
   function banner() {
     let q = gsap.utils.selector('.modal-overlay')
     gsap
@@ -15,12 +18,19 @@
       .set('.modal-overlay', { visibility: 'visible' })
       .from(q('.wrapper'), { autoAlpha: 0 })
   }
-  defineExpose({
-    banner,
+
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      banner()
+    }, main.value)
+  })
+
+  onUnmounted(() => {
+    ctx.revert()
   })
 </script>
 <template>
-  <div v-if="budskap.bannerUrgent !== null" class="modal-overlay">
+  <div v-if="budskap.bannerUrgent" class="modal-overlay">
     <div class="wrapper">
       <div class="close" @click="$emit('close-modal')">
         <MaterialSymbolsClose />

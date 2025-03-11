@@ -7,18 +7,17 @@
   })
 
   //GSAP
-  const { gsap, ScrollTrigger } = useGsap()
+  const { gsap } = useGsap()
 
   let main = ref(),
     ctx = ref(),
     intro = ref(),
     food = ref(),
-    showModal = ref(true),
-    banner = ref()
+    showModal = ref(true)
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      banner.value.banner(), food.value.masterToFood()
+      food.value.masterToFood()
       intro.value.intro()
     }, main.value)
   })
@@ -29,12 +28,11 @@
 </script>
 <template>
   <div class="page" ref="main">
-    <div v-if="home.bannerUrgent !== null">
+    <div v-if="home.bannerUrgent">
       <AppModal
         :budskap="home"
         v-show="showModal"
         @close-modal="showModal = false"
-        ref="banner"
       />
     </div>
     <HeroSection :items="home" />
