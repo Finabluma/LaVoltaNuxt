@@ -105,7 +105,8 @@
       }
 
       .inner__items {
-        @apply max-w-screen-md
+        @apply font-bold
+        max-w-screen-md
         mx-auto
         py-3
         lg:px-10;
