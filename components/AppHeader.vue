@@ -84,7 +84,6 @@
       </div>
     </div>
   </header>
-
   <AppDrawer ref="draw" />
 </template>
 <style lang="postcss" scoped>
@@ -119,21 +118,7 @@
             dark:fill-[#4A647D];
           }
         }
-
-        /* .linktocarta .linkNav {
-          @apply bg-pink-400;
-          svg {
-            @apply fill-white;
-          }
-        } */
       }
-
-      /* .globalLogo a #favicon,
-      .misc .linkNav svg,
-      .misc .btn-ghost svg {
-        @apply fill-pink-400
-        dark:fill-slate-300;
-      } */
     }
 
     &.scrolled {
@@ -143,17 +128,6 @@
       bg-white/70
       dark:bg-[#4A647D]/70;
     }
-
-    /* &:not(.scrolled).white {
-      .globalLogo a #favicon,
-      .misc .linkNav svg,
-      .misc .btn-ghost svg {
-        @apply fill-slate-300;
-      }
-      .misc .linktocarta .linkNav svg {
-        @apply fill-slate-300;
-      }
-    } */
   }
 
   .globalHeader.white {
