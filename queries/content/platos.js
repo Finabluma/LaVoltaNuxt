@@ -16,31 +16,47 @@ export const platosQuery = groq`{
         "tipo":mar{
             title,
             "producto":platoMar[]{
-                solidario,
-                ${plato}
-            }
+                "id":plato->_id,
+                "title":plato->title,
+                "precio":plato->precio,
+                "slug":plato->slug.current,
+                "solidario":solidario,
+            }| order(precio asc)
         },
     },
     "tierra":*[_type == "platoCartaType"][0]{
         "tipo":tierra{
             title,
             "producto":platoTierra[]{
-                solidario,
-                ${plato}
-            }
+                "id":plato->_id,
+                "title":plato->title,
+                "precio":plato->precio,
+                "slug":plato->slug.current,
+                "solidario":solidario,
+            }| order(precio asc)
         },
     },
     "carpaccio":*[_type == "platoCartaType"][0]{
         "tipo":carpaccios{
             title,
-            "producto":platoCarpaccio[]->{${platoItem}}
+            "producto":platoCarpaccio[]->{
+                "id":_id,
+                title,
+                "slug":slug.current,
+                precio
+            }| order(precio asc)
             
         },
     },
     "postre":*[_type == "platoCartaType"][0]{
         "tipo":postre{
             title,
-            "producto":platoPostre[]->{${platoItem}}
+            "producto":platoPostre[]->{
+                "id":_id,
+                title,
+                "slug":slug.current,
+                precio
+            }| order(precio asc)
         },
     },
     "obs":*[_type == "platoCartaType"][0]{
@@ -60,5 +76,17 @@ export const platosQuery = groq`{
             }[solidario!=false] 
         },
     }
-    
 }`
+
+// *[_type == "platoCartaType"][0]{
+//   tierra{
+//     _type,
+//     platoTierra[]{
+//       "solidario":solidario,
+//       "id":plato->_id,
+//       "slug":plato->slug.current,
+//       "precio":plato->precio,
+//       "plato":plato->title,
+//     }| order(precio asc)
+//   }
+// }

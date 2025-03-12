@@ -16,9 +16,10 @@
     <template #default>
       <div v-if="items.tipo.producto !== null" class="py-3">
         <div v-for="item in items.tipo.producto" :key="item.slug" class="items">
+          <!-- <pre>{{ item }}</pre> -->
           <div class="item-precio">
             <div v-if="item.title === undefined" class="item">
-              {{ item.item.title }}
+              {{ item.title }}
               <span v-if="item.solidario !== false" class="solidario">
                 <NuxtIcon name="MaterialSymbolsStars" size="32" />
               </span>
@@ -27,11 +28,9 @@
               {{ item.title }}
             </div>
             <div class="precio">
-              <div v-if="item.precio === undefined">
-                <span v-if="item.item.precio">
-                  {{ formatPrice(item.item.precio) }}€</span
-                >
-                <span v-else class="font-bold"><i>s/peso</i></span>
+              <div v-if="item.precio === null">
+                <span v-if="item.precio"> {{ formatPrice(item.precio) }}€</span>
+                <span v-else class="font-bold">s/peso</span>
               </div>
               <div v-else>
                 <span> {{ formatPrice(item.precio) }}€</span>

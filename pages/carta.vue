@@ -2,19 +2,17 @@
   import { ref, onMounted, onUnmounted } from 'vue'
   const { carta } = usePagesStore()
   const { tintos, blancos, rosados, cavas, title } = useBebidaStore()
-  const { mar, obs, postre, tierra, carpaccio } = usePlatoStore()
+  const { mar, postre, tierra, carpaccio } = usePlatoStore()
 
   // meta
   usePageHead({
     title: carta.title,
     seo: carta.seo,
   })
-
   // GSAP
   const { gsap, ScrollTrigger } = useGsap()
   let main = ref(),
     ctx = ref()
-
   function skewOnScroll() {
     let proxy = { skew: 0 },
       skewSetter = gsap.quickSetter('.skew', 'skewY', 'deg'), // fast
@@ -37,13 +35,11 @@
     })
     gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
   }
-
   onMounted(() => {
     ctx = gsap.context((self) => {
       skewOnScroll()
     }, main.value)
   })
-
   onUnmounted(() => {
     ctx.revert()
   })

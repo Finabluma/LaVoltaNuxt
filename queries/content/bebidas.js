@@ -21,7 +21,7 @@ export const bebidasQuery = groq`{
             title,
             "producto":vinoCava[]{
                 ${bebidaItem}
-            }
+            }| order(precio asc)
         },
     },
     "tintos":*[_type == "bebidasType"][0]{
@@ -29,7 +29,7 @@ export const bebidasQuery = groq`{
             title,
             "producto":vinoTinto[]{
                 ${bebidaItem}
-            }
+            }| order(precio asc)
         }
     },
     "rosados":*[_type == "bebidasType"][0]{
@@ -37,7 +37,7 @@ export const bebidasQuery = groq`{
             title,
             "producto":vinoRosado[]{
                 ${bebidaItem}
-            }
+            }| order(precio asc)
         }
     },
     "blancos":*[_type == "bebidasType"][0]{
@@ -45,7 +45,7 @@ export const bebidasQuery = groq`{
             title,
             "producto":vinoBlanco[]{
                 ${bebidaItem}
-            }
+            }| order(precio asc)
         }
     }
 }
