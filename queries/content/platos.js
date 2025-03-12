@@ -77,16 +77,3 @@ export const platosQuery = groq`{
         },
     }
 }`
-
-// *[_type == "platoCartaType"][0]{
-//   tierra{
-//     _type,
-//     platoTierra[]{
-//       "solidario":solidario,
-//       "id":plato->_id,
-//       "slug":plato->slug.current,
-//       "precio":plato->precio,
-//       "plato":plato->title,
-//     }| order(precio asc)
-//   }
-// }
