@@ -78,7 +78,8 @@
     mx-auto
     sm:w-10/12
     md:max-lg:portrait:w-11/12
-    lg:max-xl:landscape:w-10/12;
+    lg:max-xl:landscape:w-10/12
+    xl:w-8/12;
 
     .content {
       @apply absolute

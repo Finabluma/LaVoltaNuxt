@@ -76,7 +76,8 @@
       @apply mx-auto
       w-11/12
       sm:w-10/12
-      md:w-11/12;
+      md:w-11/12
+      xl:w-8/12;
       .image {
         @apply relative
         overflow-hidden;
