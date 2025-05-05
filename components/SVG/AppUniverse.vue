@@ -297,7 +297,8 @@
 
     #planetas circle,
     #planetas path {
-      @apply fill-cardinales/75;
+      @apply fill-cardinales/75
+      dark:fill-firstdark/50;
     }
 
     /*

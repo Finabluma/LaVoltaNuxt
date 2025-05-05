@@ -1,7 +1,4 @@
 <script setup>
-  import { ref } from 'vue'
-  const revistaPortada = ref(false)
-  const homeDestacado = ref(false)
   const props = defineProps({
     item: {
       type: Object,
@@ -12,11 +9,9 @@
   })
 </script>
 <template>
-  <div
-    :class="{ revistaPortada: revistaPortada, homeDestacado: homeDestacado }"
-  >
-    <p v-if="title" class="title_tracked">{{ title }}</p>
-    <ArticleTeaser :article="item[0].article" class="destacado">
+  <div class="l-box l-box--no-padding sm:l-box bg-white/50">
+    <p v-if="title" class="title-Xtra text-center">{{ title }}</p>
+    <ArticleTeaser :article="item[0].article" class="flex flex-col">
       <template #default>
         <ElementsMediaImageItem
           :src="item[0].article.mainImage.asset._ref"
@@ -30,6 +25,7 @@
           height="400"
           fit="cover"
           format="webp"
+          class="mb-clus2lev"
         />
       </template>
       <template #categories>
@@ -42,9 +38,3 @@
     </ArticleTeaser>
   </div>
 </template>
-<style lang="postcss" scoped>
-  .revistaPortada {
-    @apply mb-5
-    md:mb-10;
-  }
-</style>

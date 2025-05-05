@@ -25,25 +25,22 @@
         @close-modal="showModal = false"
       />
     </div>
-    <HeroSection :items="revista" />
     <main>
-      <div class="main_content">
-        <section>
-          <h1 class="sr-only">{{ revista.title }}</h1>
-          <div class="destacado-wrapper">
-            <div v-if="isFeatured.length > 0">
-              <ArticleDestacado
-                :item="isFeatured"
-                class="revistaPortada"
-                :title="revista.portada.title"
-              />
-            </div>
-            <div v-if="notFeatured.length > 0">
-              <ArticlesPortada :items="notFeatured" />
-            </div>
-          </div>
-        </section>
-      </div>
+      <HeroSection>
+        <h2 class="title-page">{{ revista.title }}</h2>
+      </HeroSection>
+      <section class="l-center">
+        <h1 class="sr-only">{{ revista.title }}</h1>
+        <div v-if="isFeatured.length > 0" class="lg:l-box lg:l-box--no-border">
+          <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
+        </div>
+        <div v-if="notFeatured.length > 0" class="lg:l-box lg:l-box--no-border">
+          <ArticlesPortada
+            :items="notFeatured"
+            class="lg:l-box lg:l-box--no-border"
+          />
+        </div>
+      </section>
     </main>
     <aside v-if="revista.optionalContent !== null">
       <OptionalContent :page="revista" />
@@ -51,24 +48,3 @@
     <AppFooter />
   </div>
 </template>
-<style lang="postcss" scoped>
-  .main_content {
-    section {
-      @apply mx-auto
-      w-full
-      lg:w-11/12
-      xl:w-10/12;
-
-      /* &:after {
-        @apply content-['']
-        block
-        w-11/12
-        mx-auto
-        h-1
-        mt-10
-        bg-primary
-        dark:bg-[#A8B2BB];
-      } */
-    }
-  }
-</style>

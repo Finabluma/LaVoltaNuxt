@@ -95,7 +95,7 @@
           :blocks="reservas.introTerms"
         />
       </HeroSection>
-      <section class="l-center mb-clus3lev">
+      <section class="l-center mb-20">
         <h1 class="sr-only">{{ reservas.title }}</h1>
         <ReservasConditions>
           <template #header>

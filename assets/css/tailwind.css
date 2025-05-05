@@ -249,6 +249,22 @@
     }
   }
 
+  .single {
+    @apply l-center;
+    .content_wrapper {
+      @apply flex
+      justify-center;
+    }
+  }
+
+  .compound {
+    @apply l-center;
+    .content_wrapper {
+      @apply lg:grid
+      lg:grid-cols-2;
+    }
+  }
+
   .first,
   .second {
     @apply l-box
@@ -316,22 +332,6 @@
       }
     }
   }
-
-  .single {
-    @apply l-center;
-    .content_wrapper {
-      @apply flex
-      justify-center;
-    }
-  }
-
-  .compound {
-    @apply l-center;
-    .content_wrapper {
-      @apply lg:grid
-      lg:grid-cols-2;
-    }
-  }
 }
 
 @layer utilities {
@@ -359,7 +359,9 @@
   }
 
   .title-block {
-    @apply text-lg;
+    @apply text-lg
+    font-bold
+    capitalize;
 
     &:after {
       @apply content-['']
@@ -371,7 +373,31 @@
   }
 
   .title-Xtra {
-    @apply text-9xl;
+    @apply text-9xl
+    capitalize;
+  }
+
+  .image-rounded {
+    @apply overflow-hidden
+    rounded-full
+    flex-shrink-0
+    w-16
+    h-16
+    lg:w-20
+    lg:h-20
+    mr-clus3lev
+    outline
+    -outline-offset-2
+    outline-4
+    outline-firstlight
+    dark:outline-firstdark;
+
+    img {
+      @apply overflow-hidden
+      rounded-full
+      w-full
+      h-full;
+    }
   }
 
   .cta {
