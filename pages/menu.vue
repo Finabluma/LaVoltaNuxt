@@ -54,16 +54,15 @@
     })
     gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
   }
-  // onMounted(() => {
-  //   ctx = gsap.context((self) => {
-  //     smPlatos()
-  //     skewOnScroll()
-  //     // menuSVG.value.tlDrawSVG()
-  //   }, main.value)
-  // })
-  // onUnmounted(() => {
-  //   ctx.revert()
-  // })
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      smPlatos()
+      skewOnScroll()
+    }, main.value)
+  })
+  onUnmounted(() => {
+    ctx.revert()
+  })
 </script>
 <template>
   <div class="page">
@@ -74,71 +73,51 @@
         @close-modal="showModal = false"
       />
     </div>
-    <HeroSection :items="menu" />
     <main>
-      <div class="main_content">
-        <div class="menu_content">
-          <section>
-            <h1 class="sr-only">{{ menuDia.title }}</h1>
-            <div class="obs">
-              <ElementsTextContent :blocks="menu.menuConditions" />
+      <HeroSection>
+        <h2 class="title-page">{{ menu.title }}</h2>
+        <ElementsTextContent :blocks="menu.menuConditions" />
+      </HeroSection>
+      <section class="l-center mb-clus3lev">
+        <h1 class="sr-only">{{ menuDia.title }}</h1>
+        <article class="skew l-box l-box--no-border">
+          <h2 class="title-block mb-clus3lev">
+            {{ menuDia.primeros.title }}
+          </h2>
+          <MenuItems :platos="menuDia.primeros.platos" />
+        </article>
+        <article class="skew l-box l-box--no-border">
+          <h2 class="title-block mb-clus3lev">
+            {{ menuDia.segundos.title }}
+          </h2>
+          <MenuItems :platos="menuDia.segundos.platos" />
+        </article>
+        <article class="skew l-box l-box--no-border">
+          <h2 class="title-block mb-clus3lev">
+            {{ menuDia.postres.title }}
+          </h2>
+          <MenuItems :platos="menuDia.postres.platos" />
+        </article>
+
+        <div class="relative l-cluster bg-white dark:bg-secondark">
+          <div class="col l-box l-box--no-border">
+            <span class="title-Xtra">{{ formatPrice(menu.price) }}€</span>
+            <p class="font-typewriter text-xs">
+              * El precio no incluye bebida.
+            </p>
+          </div>
+          <div class="l-box l-box--no-border">
+            <div class="font-semibold">
+              Medio menu
+              <span>{{ formatPrice(menu.pricehalf) }}€</span>
             </div>
-            <div class="card">
-              <div>
-                <article class="skew">
-                  <div class="content">
-                    <h2 class="content_title font-bold">
-                      {{ menuDia.primeros.title }}
-                    </h2>
-                    <MenuItems
-                      :platos="menuDia.primeros.platos"
-                      class="menu-items"
-                    />
-                  </div>
-                </article>
-                <article class="skew">
-                  <div class="content">
-                    <h2 class="content_title">{{ menuDia.segundos.title }}</h2>
-                    <MenuItems
-                      :platos="menuDia.segundos.platos"
-                      class="menu-items"
-                    />
-                  </div>
-                </article>
-                <article class="skew">
-                  <div class="content">
-                    <h2 class="content_title">{{ menuDia.postres.title }}</h2>
-                    <MenuItems
-                      :platos="menuDia.postres.platos"
-                      class="menu-items"
-                    />
-                  </div>
-                </article>
-              </div>
+            <div class="font-semibold">
+              Menú compartido
+              <span>{{ formatPrice(menu.priceshare) }}€</span>
             </div>
-            <div class="precio">
-              <div>
-                <div class="inner_precio">
-                  {{ formatPrice(menu.price) }}€
-                  <p class="font-typewriter text-xs">
-                    * El precio no incluye bebida.
-                  </p>
-                </div>
-                <div class="excepciones">
-                  <div>
-                    Medio menu
-                    <span>{{ formatPrice(menu.pricehalf) }}€</span>
-                  </div>
-                  <div>
-                    Menú compartido
-                    <span>{{ formatPrice(menu.priceshare) }}€</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
     <aside>
       <GalleryReference :page="menu" />
@@ -148,71 +127,7 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  .main_content {
-    @apply w-screen;
-  }
-  .menu_content {
-    @apply relative;
-    .obs {
-      @apply mb-4;
-    }
-
-    section {
-      @apply relative;
-      .card {
-        @apply relative;
-      }
-      .precio {
-        @apply relative
-        z-10
-        pt-10
-        pb-5
-        w-screen
-        flex
-        flex-col
-        justify-center
-        items-center
-        /* bg-white
-        dark:bg-[#4A647D] */
-        ;
-
-        &:after {
-          @apply content-['']
-          block
-          w-10/12
-          h-1
-          mt-10
-          /* bg-primary
-          dark:bg-[#A8B2BB]; */
-        }
-        .inner_precio {
-          @apply max-w-sm 
-          mx-auto 
-          text-8xl;
-
-          p {
-            @apply pb-5 
-            text-sm;
-
-            &:before {
-              @apply block 
-              w-1/12 
-              h-1 
-              mb-2 
-              bg-current;
-            }
-          }
-        }
-        .excepciones {
-          @apply max-w-sm
-          mx-auto
-          font-coordinates;
-
-          span {
-            @apply font-bold;
-          }
-        }
-      }
-    }
+  article {
+    @apply bg-white dark:bg-secondark;
   }
 </style>

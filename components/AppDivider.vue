@@ -26,13 +26,13 @@
 <style lang="postcss" scoped>
   .separator {
     @apply absolute
-      w-screen
+      w-full
       left-0
       z-20;
     .is-divider {
       @apply w-full
       fill-white
-      dark:fill-[#4A647D];
+      dark:fill-secondark;
     }
 
     &.down,

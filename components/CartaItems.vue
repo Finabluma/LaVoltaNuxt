@@ -63,13 +63,10 @@
     align-middle
     lowercase
     flex
-    items-center
-    lg:px-2;
+    items-center;
   }
   .items {
     @apply font-bold
-    /* text-primary
-    dark:text-[#A8B2BB] */
     mb-2 
     px-2 
     lg:px-3;
@@ -100,7 +97,7 @@
       flex-col;
       .do {
         @apply font-coordinates
-        font-normal;
+        font-semibold;
 
         abbr {
           @apply no-underline 
@@ -115,20 +112,18 @@
         div {
           @apply flex
           items-center
-          content-after
           font-coordinates
-          font-normal
+          font-semibold
           italic;
 
           &:after {
             @apply content-['']
             block
-            mx-2
+            mx-1.5
             h-1
             w-1
             rounded-full
-            /* bg-primary
-            dark:bg-[#A8B2BB]; */;
+            bg-current;
           }
 
           &:last-child:after {

@@ -21,7 +21,7 @@
     min-h-full
     grid-cols-1
     grid-rows-1
-    leading-normal
+    leading-snug
     overflow-x-hidden
     antialiased
     bg-white
@@ -75,7 +75,7 @@
       w-full;
     }
 
-    & a {
+    a {
       @apply transition-colors duration-500;
     }
 
@@ -83,42 +83,77 @@
       color: purple;
     }
 
-    /* ::selection {
-      @apply bg-primary text-white;
-    } */
+    ul:not([class]) > * + *,
+    ul:not([class]) li ul,
+    ul:not([class]) li ol,
+    ol:not([class]) > * + *,
+    ol:not([class]) li ul,
+    ol:not([class]) li ol {
+      @apply mt-1;
+    }
   }
 }
 @layer components {
-  .hero-inner .inner-content {
-    h2 {
-      @apply text-5xl/9
-      mt-0;
-    }
-
-    p {
-      @apply mt-3 
-       
-      font-semibold
-      sm:text-base/8;
-    }
+  .l-box {
+    @apply border
+    block
+    p-7;
   }
 
-  .cta {
-    @apply font-semibold
-    px-6
-    py-3
-    outline
-    outline-2
-    outline-firstlight
-    dark:outline-firstdark    outline-offset-1
-    bg-firstlight
-    text-white
-    dark:bg-firstdark    dark:text-secondark    hover:bg-white
-    hover:text-firstlight
-    dark:hover:bg-secondark    dark:hover:text-firstdark;
+  .l-box--no-padding {
+    @apply p-0;
   }
 
-  .carta_content {
+  .l-box--no-border {
+    @apply border-none
+    outline-1
+    outline-transparent
+    -outline-offset-1;
+  }
+
+  .l-center {
+    @apply box-content
+    mx-auto
+    max-w-7xl
+    px-[5vw];
+  }
+
+  .l-center--full {
+    @apply box-content
+    w-full
+    mx-auto;
+  }
+
+  .l-center--full > * {
+    @apply box-content
+    mx-auto
+    max-w-4xl
+    px-[5vw]
+    lg:px-[7vw];
+  }
+
+  .l-cluster {
+    @apply overflow-hidden;
+  }
+
+  .l-cluster > * {
+    @apply flex
+    flex-wrap
+    m-clus1lev;
+  }
+
+  .l-cluster > * > * {
+    @apply inline-block
+    m-clus2lev;
+  }
+
+  .l-cluster > .col {
+    @apply flex-col
+    py-10
+    last:pt-0;
+  }
+
+  /* .carta_content {
     @apply max-w-7xl
     mx-auto 
     pb-10;
@@ -149,7 +184,7 @@
     .bebida h2 {
       @apply mb-5;
     }
-  }
+  } */
 
   .carrusel .title {
     @apply text-3xl/8
@@ -350,5 +385,65 @@
         }
       }
     }
+  }
+}
+
+@layer utilities {
+  .title-page {
+    @apply text-3xl
+    mb-clus3lev;
+
+    &:after {
+      @apply content-['']
+      w-10
+      h-1
+      bg-current
+      block;
+    }
+  }
+
+  .title-page--cameo {
+    @apply text-5xl
+    font-cameo
+    text-center;
+  }
+
+  .subtitle {
+    @apply font-semibold;
+  }
+
+  .title-block {
+    @apply text-lg;
+
+    &:after {
+      @apply content-['']
+      w-2
+      h-1
+      bg-current
+      block;
+    }
+  }
+
+  .title-Xtra {
+    @apply text-9xl;
+  }
+
+  .cta {
+    @apply font-semibold
+    px-6
+    py-4
+    outline
+    outline-4
+    outline-firstlight
+    dark:outline-firstdark    
+    -outline-offset-1
+    bg-firstlight
+    text-white
+    dark:bg-firstdark    
+    dark:text-secondark    
+    hover:bg-white
+    hover:text-firstlight
+    dark:hover:bg-secondark    
+    dark:hover:text-firstdark;
   }
 }

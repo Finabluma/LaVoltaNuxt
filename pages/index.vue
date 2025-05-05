@@ -16,14 +16,12 @@
       />
     </div>
     <main>
-      <div class="content">
-        <HeroSection>
-          <h2>{{ home.title }}</h2>
-          <p>{{ home.subtitle }}</p>
-          <p>{{ home.content }}</p>
-        </HeroSection>
-        <CartaMenu :items="home.cartamenu" />
-      </div>
+      <HeroSection>
+        <h2 class="title-page">{{ home.title }}</h2>
+        <p class="subtitle">{{ home.subtitle }}</p>
+        <p>{{ home.content }}</p>
+      </HeroSection>
+      <CartaMenu :items="home.cartamenu" />
       <div class="related">
         <div v-if="isFeatured.length > 0" class="articleHome">
           <div class="head">

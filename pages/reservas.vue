@@ -11,7 +11,7 @@
     skew = ref(),
     ctx = ref()
   function intro() {
-    let tl = gsap.timeline().to('.intro-conditions h2', {
+    let tl = gsap.timeline().to('.intro-conditions p', {
       yPercent: 10,
       autoAlpha: 0,
     })
@@ -64,41 +64,32 @@
         @close-modal="showModal = false"
       />
     </div>
-    <HeroSection :items="reservas" />
     <main>
-      <div class="main_content">
-        <section>
-          <h1 class="sr-only">{{ reservas.title }}</h1>
-          <ReservasConditions>
-            <template #header>
-              <div v-if="reservas.introTerms" class="obs text-pretty">
-                <ElementsTextContent
-                  :blocks="reservas.introTerms"
-                  class="text-balance"
-                />
-              </div>
-              <ConditionsIntro :title="reservas.reservasIntro.title" />
-            </template>
-            <template #default>
-              <Conditions
-                :conditions="reservas.conditions.conditions"
-                ref="skew"
-              />
-            </template>
-          </ReservasConditions>
-        </section>
-      </div>
-      <LazyUniverseCallBadge />
+      <HeroSection>
+        <h2 class="title-page">{{ reservas.title }}</h2>
+        <ElementsTextContent
+          :v-if="reservas.introTerms"
+          :blocks="reservas.introTerms"
+        />
+      </HeroSection>
+      <section class="l-center mb-clus3lev">
+        <h1 class="sr-only">{{ reservas.title }}</h1>
+        <ReservasConditions>
+          <template #header>
+            <ConditionsIntro :title="reservas.reservasIntro.title" />
+          </template>
+          <template #default>
+            <Conditions
+              :conditions="reservas.conditions.conditions"
+              ref="skew"
+            />
+          </template>
+        </ReservasConditions>
+      </section>
     </main>
+    <aside class="relative">
+      <LazyUniverseCallBadge />
+    </aside>
     <AppFooter />
   </div>
 </template>
-<!-- <style lang="postcss" scoped>
-  .page .main_content {
-    @apply w-screen;
-
-    .obs {
-      @apply mb-5;
-    }
-  }
-</style> -->

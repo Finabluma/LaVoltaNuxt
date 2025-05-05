@@ -53,58 +53,55 @@
         @close-modal="showModal = false"
       />
     </div>
-    <!-- <HeroSection :items="carta" /> -->
     <main>
-      <div class="content">
-        <HeroSection>
-          <h2>{{ carta.title }}</h2>
-          <ElementsTextContent :blocks="carta.warning" />
-        </HeroSection>
-        <div class="carta_content" ref="main">
-          <article>
-            <h1 class="sr-only">{{ carta.title }}</h1>
-            <section class="platos">
-              <h2 class="skew">Platos</h2>
+      <HeroSection>
+        <h2 class="title-page">{{ carta.title }}</h2>
+        <ElementsTextContent :blocks="carta.warning" />
+      </HeroSection>
+      <article class="l-center l-cluster skew">
+        <h1 class="sr-only">{{ carta.title }}</h1>
+        <section class="col">
+          <h2 class="title-block m-clus3lev">Platos</h2>
 
-              <CartaItems :items="mar"
-                ><NuxtIcon name="DelMar" class="icon" />{{
-                  mar.tipo.title
-                }}</CartaItems
-              >
-              <CartaItems :items="tierra"
-                ><NuxtIcon name="DeLaTierra" class="icon" />{{
-                  tierra.tipo.title
-                }}</CartaItems
-              >
-              <CartaItems :items="carpaccio"
-                ><NuxtIcon name="Carpaccio" class="icon" />{{
-                  carpaccio.tipo.title
-                }}</CartaItems
-              >
-              <CartaItems :items="postre"
-                ><NuxtIcon name="Postre" class="icon" />{{
-                  postre.tipo.title
-                }}</CartaItems
-              >
-            </section>
-            <section class="bebida">
-              <h2 class="skew">{{ title.title }}</h2>
-              <CartaItems :items="tintos">
-                <NuxtIcon name="Tinto" class="icon" />{{ tintos.tipo.title }}
-              </CartaItems>
-              <CartaItems :items="rosados">
-                <NuxtIcon name="Rosado" class="icon" />{{ rosados.tipo.title }}
-              </CartaItems>
-              <CartaItems :items="blancos">
-                <NuxtIcon name="Blanco" class="icon" />{{ blancos.tipo.title }}
-              </CartaItems>
-              <CartaItems :items="cavas">
-                <NuxtIcon name="Cava" class="icon" />{{ cavas.tipo.title }}
-              </CartaItems>
-            </section>
-          </article>
-        </div>
-      </div>
+          <CartaItems :items="mar"
+            ><NuxtIcon name="DelMar" class="icon" />{{
+              mar.tipo.title
+            }}</CartaItems
+          >
+          <CartaItems :items="tierra"
+            ><NuxtIcon name="DeLaTierra" class="icon" />{{
+              tierra.tipo.title
+            }}</CartaItems
+          >
+          <CartaItems :items="carpaccio"
+            ><NuxtIcon name="Carpaccio" class="icon" />{{
+              carpaccio.tipo.title
+            }}</CartaItems
+          >
+          <CartaItems :items="postre"
+            ><NuxtIcon name="Postre" class="icon" />{{
+              postre.tipo.title
+            }}</CartaItems
+          >
+        </section>
+        <section class="col">
+          <h2 class="title-block m-clus3lev">
+            {{ title.title }}
+          </h2>
+          <CartaItems :items="tintos">
+            <NuxtIcon name="Tinto" class="icon" />{{ tintos.tipo.title }}
+          </CartaItems>
+          <CartaItems :items="rosados">
+            <NuxtIcon name="Rosado" class="icon" />{{ rosados.tipo.title }}
+          </CartaItems>
+          <CartaItems :items="blancos">
+            <NuxtIcon name="Blanco" class="icon" />{{ blancos.tipo.title }}
+          </CartaItems>
+          <CartaItems :items="cavas">
+            <NuxtIcon name="Cava" class="icon" />{{ cavas.tipo.title }}
+          </CartaItems>
+        </section>
+      </article>
     </main>
     <aside>
       <GalleryReference :page="carta" />
@@ -113,50 +110,3 @@
     <AppFooter />
   </div>
 </template>
-<!-- <style lang="postcss" scoped>
-  .main_content {
-    @apply w-screen
-    my-0
-    lg:mb-10;
-
-    .obs {
-      @apply max-w-screen-md;
-    }
-  }
-  #footer {
-    @apply w-screen;
-  }
-  .carta_content {
-    @apply max-w-screen-xl 
-    mx-auto 
-    pb-10;
-
-    h2 {
-      @apply font-cameo
-        px-[5%]
-        mb-5;
-
-      &:after {
-        @apply content-['']
-        block 
-        h-1 
-        w-10 
-        mt-2 
-        bg-primary
-        dark:bg-[#A8B2BB];
-      }
-    }
-
-    .icon {
-      @apply mr-2;
-    }
-
-    .platos {
-      @apply pb-10;
-    }
-
-    .bebida h2 {
-      @apply mb-5;
-    }
-  }
-</style> -->

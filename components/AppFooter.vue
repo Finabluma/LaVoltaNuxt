@@ -59,6 +59,8 @@
     z-30
     pt-10
     pb-5
+    bg-white
+    dark:bg-secondark
     md:pt-20;
     .innerfooter {
       @apply w-full 

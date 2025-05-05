@@ -10,7 +10,7 @@
   }
 </script>
 <template>
-  <div class="accordion-wrapper skew" :class="accordion">
+  <div class="accordion-wrapper" :class="accordion">
     <div class="panel-header cursor-pointer" @click="toggleAccordion">
       <slot name="header"></slot>
     </div>
@@ -23,11 +23,8 @@
 </template>
 <style lang="postcss" scoped>
   .accordion-wrapper {
-    @apply mx-auto 
-    px-[2%];
     .panel-header {
-      @apply w-full      
-      content-after
+      @apply w-full 
       transition-all
       duration-300
       p-1;
@@ -41,15 +38,6 @@
 
     &.is-open {
       @apply mb-3;
-      /* .panel-header {
-        @apply border-none text-primary/75
-        dark:text-[#A8B2BB];
-      } */
-
-      /* .panel-header:hover {
-        @apply text-primary/75
-        dark:text-[#A8B2BB];
-      } */
     }
 
     &.is-closed {

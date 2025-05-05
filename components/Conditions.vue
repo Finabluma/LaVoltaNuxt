@@ -33,27 +33,10 @@
   })
 </script>
 <template>
-  <div v-for="(condition, index) in conditions" :key="index" class="card skew">
-    <article>
-      <div class="content">
-        <h3 class="content_title">{{ condition.title }}</h3>
-        <div class="blockContent">
-          <SanityContent :blocks="condition.terms" />
-        </div>
-      </div>
+  <div v-for="(condition, index) in conditions" :key="index" class="skew card">
+    <article class="l-box l-box--no-border">
+      <h3 class="title-block mb-clus3lev capitalize">{{ condition.title }}</h3>
+      <ElementsTextContent :blocks="condition.terms" />
     </article>
   </div>
 </template>
-<style lang="postcss" scoped>
-  /* .card article {
-    @apply lg:w-8/12;
-
-    h3 {
-      @apply leading-tight;
-    }
-
-    .content .blockContent p {
-      @apply p-0;
-    }
-  } */
-</style>

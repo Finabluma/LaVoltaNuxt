@@ -35,10 +35,13 @@ export default {
         orbit: '#bdccd4',
         cardinales: '#fb5a6e',
       },
+      margin: {
+        clus1lev: 'calc(1rem / 2 * -1)',
+        clus2lev: 'calc(1rem / 2)',
+        clus3lev: 'calc(1rem)',
+      },
       backgroundImage: () => ({
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        azulejos: "url('~/assets/images/azulejos_lavolta.svg')",
-        azulejosw: "url('~/assets/images/azulejos_w.svg')",
       }),
       fill: (theme) => ({
         constlines: theme('colors.constlines'),

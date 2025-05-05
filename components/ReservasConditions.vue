@@ -1,14 +1,7 @@
 <template>
-  <section>
-    <div class="wrapper-conditions">
-      <slot name="header" />
+  <div class="mb-clus3lev">
+    <slot name="header" />
 
-      <slot />
-    </div>
-  </section>
+    <slot />
+  </div>
 </template>
-<!-- <style lang="postcss" scoped>
-  .wrapper-conditions {
-    @apply pb-20;
-  }
-</style> -->

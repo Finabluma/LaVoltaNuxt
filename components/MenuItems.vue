@@ -6,17 +6,9 @@
   })
 </script>
 <template>
-  <ul>
+  <ul class="l-box l-box--no-padding l-box--no-border">
     <li v-for="(plato, index) in platos" :key="index">
       {{ plato.title }}
     </li>
   </ul>
 </template>
-<style lang="postcss" scoped>
-  ul {
-    @apply pt-2;
-    li {
-      @apply font-semibold;
-    }
-  }
-</style>

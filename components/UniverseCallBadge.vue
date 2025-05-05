@@ -34,29 +34,28 @@
     <AppDivider class="down" />
   </div>
 </template>
-<!-- <style lang="postcss" scoped>
+<style lang="postcss" scoped>
   .universeCallBadge {
     @apply relative
-    w-screen
+    w-full
     z-30
     overflow-hidden
     bg-white
-    dark:bg-[#4A647D];
+    dark:bg-secondark;
 
     .wrapper {
-      @apply w-screen
-      h-full
-      content-before;
+      @apply w-full
+      h-full;
 
       &:before {
         @apply content-['']
         absolute
         top-0
         left-0
-        w-screen
+        w-full
         h-full
         bg-white
-        dark:bg-[#4A647D];
+        dark:bg-secondark;
       }
       .contacta {
         @apply relative
@@ -92,4 +91,4 @@
       }
     }
   }
-</style> -->
+</style>
