@@ -60,7 +60,6 @@
     text-6xl/tight
     md:text-7xl
     tracking-wider
-    align-middle
     lowercase
     flex
     items-center;
@@ -97,7 +96,7 @@
       flex-col;
       .do {
         @apply font-coordinates
-        font-semibold;
+        font-normal;
 
         abbr {
           @apply no-underline 
@@ -113,7 +112,7 @@
           @apply flex
           items-center
           font-coordinates
-          font-semibold
+          font-normal
           italic;
 
           &:after {

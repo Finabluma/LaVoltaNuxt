@@ -63,9 +63,14 @@
     @apply relative
     text-[16px]
     font-coordinates
-    font-bold
-    bg-firstlight    text-white
-    dark:bg-firstdark    dark:text-secondark    z-20
+    font-bold   
+    text-firstlight
+    dark:bg-firstdark/20  
+    dark:text-firstdark
+    border-b
+    border-b-firstlight/60 
+    dark:border-b-firstdark/60    
+    z-20
     p-1.5  
     flex
     flex-col

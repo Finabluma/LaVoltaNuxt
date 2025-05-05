@@ -153,39 +153,6 @@
     last:pt-0;
   }
 
-  /* .carta_content {
-    @apply max-w-7xl
-    mx-auto 
-    pb-10;
-
-    h2 {
-      @apply px-[5%]
-        mb-5
-        text-lg;
-
-      &:after {
-        @apply content-['']
-        block 
-        h-1 
-        w-10 
-        mt-2
-        bg-current;
-      }
-    }
-
-    .icon {
-      @apply mr-2;
-    }
-
-    .platos {
-      @apply pb-10;
-    }
-
-    .bebida h2 {
-      @apply mb-5;
-    }
-  } */
-
   .carrusel .title {
     @apply text-3xl/8
     mb-10
@@ -267,123 +234,102 @@
 
   .single,
   .compound {
-    @apply py-10;
-    .first,
-    .second {
-      .enlace {
-        a {
-          @apply cta;
-        }
-      }
-      .media {
-        @apply mb-10;
-        .image {
-          @apply relative
-          w-20
-          h-20
-          md:w-20
-          md:h-20
-          rounded-full
-          overflow-hidden;
-        }
+    @apply lg:l-box
+    lg:l-box--no-border;
 
+    &:before {
+      @apply content-['']
+      w-2
+      h-2
+      rounded-full
+      mx-auto
+      bg-current
+      flex
+      flex-col;
+    }
+  }
+
+  .first,
+  .second {
+    @apply l-box
+    l-box--no-border
+    
+    lg:flex
+    lg:justify-center;
+
+    .optional {
+      .media {
+        @apply flex
+        justify-center
+        l-box
+        l-box--no-border;
+
+        .image,
         .noImg {
           @apply w-20
           h-20
-          flex
+          rounded-full
+          overflow-hidden
+          outline
+          outline-4
+          outline-firstlight
+          dark:outline-firstdark
+          md:w-20
+          md:h-20;
+        }
+
+        .image {
+          @apply relative;
+        }
+
+        .noImg {
+          @apply flex
           justify-center
           items-center
-          md:w-20
-          md:h-20
-          rounded-full
-          overflow-hidden;
+          overflow-hidden
+          bg-white/30;
         }
+      }
+
+      .content {
+        @apply text-center
+        flex
+        flex-col
+        items-center
+        lg:min-h-52;
+
+        .inner-content {
+          @apply text-balance
+            text-center
+            mt-clus1lev
+            mb-clus3lev;
+        }
+      }
+    }
+    .enlace {
+      @apply l-box 
+      l-box--no-border
+      mt-auto;
+      a {
+        @apply cta
+        inline-flex;
       }
     }
   }
 
   .single {
+    @apply l-center;
     .content_wrapper {
       @apply flex
       justify-center;
-
-      .first {
-        .optional {
-          @apply flex
-          flex-col
-          items-center;
-        }
-
-        .content {
-          @apply px-10
-          text-center;
-
-          .inner-content {
-            @apply text-balance
-              font-bold
-              mt-4
-              mb-10;
-          }
-        }
-      }
     }
   }
 
   .compound {
-    @apply py-5;
+    @apply l-center;
     .content_wrapper {
-      @apply md:flex;
-
-      .first {
-        @apply md:border-b-0
-        md:border-r-4
-        dark:md:border-r-current;
-
-        &:after {
-          @apply content-['']
-          block
-          w-2
-          h-2
-          mx-auto
-          my-10
-          rounded-full
-          bg-current
-          md:content-none;
-        }
-      }
-
-      .first,
-      .second {
-        @apply p-2
-        md:w-6/12
-        md:flex
-        md:justify-center;
-
-        .optional {
-          @apply w-11/12
-          mx-auto;
-
-          .media {
-            @apply flex
-            justify-center;
-          }
-
-          .content {
-            @apply flex
-            flex-col
-            items-center;
-
-            .inner-content {
-              @apply text-balance
-              text-center
-              mt-2
-              mb-10
-              md:min-h-16
-              md:mb-8;
-            }
-          }
-        }
-      }
+      @apply lg:grid
+      lg:grid-cols-2;
     }
   }
 }

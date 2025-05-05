@@ -9,6 +9,6 @@
 </template>
 <style lang="postcss" scoped>
   svg path {
-    @apply fill-secondark;
+    @apply fill-white/50;
   }
 </style>

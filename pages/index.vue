@@ -22,15 +22,13 @@
         <p>{{ home.content }}</p>
       </HeroSection>
       <CartaMenu :items="home.cartamenu" />
-      <div class="related">
-        <div v-if="isFeatured.length > 0" class="articleHome">
-          <div class="head">
-            <h1>
-              {{ home.portada.portada.title }}
-            </h1>
-          </div>
-          <ArticleDestacado :item="isFeatured" />
+      <div v-if="isFeatured.length > 0" class="articleHome">
+        <div class="head">
+          <h1>
+            {{ home.portada.portada.title }}
+          </h1>
         </div>
+        <ArticleDestacado :item="isFeatured" />
       </div>
     </main>
     <aside class="crosslinks">

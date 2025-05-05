@@ -25,12 +25,12 @@
         />
       </div>
       <div v-else class="noImg">
-        <Corazon />
+        <Corazon class="w-20" />
       </div>
     </div>
     <div class="content">
-      <h2>{{ optional.title }}</h2>
-      <div v-if="optional.banner || optional.subtitle" class="inner-content">
+      <h2 class="mb-clus3lev">{{ optional.title }}</h2>
+      <div v-if="optional.banner || optional.subtitle" class="inner">
         {{ optional.banner || optional.subtitle }}
       </div>
       <div v-if="optional.enlace" class="enlace">

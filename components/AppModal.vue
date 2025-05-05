@@ -35,7 +35,7 @@
       <div class="close" @click="$emit('close-modal')">
         <Close />
       </div>
-      <div class="modal">
+      <div class="modal l-box l-box--no-border">
         <InfoModal />
         <div class="content">
           <!-- <h6>{{ budskap.bannerUrgent.urgentContent.title }}</h6> -->
@@ -48,53 +48,58 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    bottom-10
-    md:top-12
-    md:bottom-auto
+    top-12
     z-50
     w-full
-    justify-center
     invisible;
 
     .wrapper {
       @apply relative
-      w-11/12
+      w-10/12
       mx-auto
-      drop-shadow-lg
-      bg-cyan
+      bg-firstlight
       dark:bg-firstdark;
 
       .close {
         @apply absolute
-        top-1
+        top-2
         right-2
         opacity-50
-        cursor-pointer;
+        cursor-pointer
+        w-10
+        block;
 
         svg {
-          @apply p-1;
+          @apply p-1
+          fill-white;
         }
       }
 
       .modal {
         @apply flex
-        w-full
+        flex-col
+        justify-center
         items-center
-        p-3;
+        sm:flex-row
+        sm:justify-start;
 
         svg {
-          @apply w-14
-          mr-2;
+          @apply w-10
+          mb-clus2lev
+          sm:mr-clus3lev
+          sm:mb-0;
         }
 
         .content {
-          @apply max-w-7xl;
+          @apply sm:w-10/12;
 
           p {
             @apply font-coordinates
             font-semibold
-            text-firstdark            dark:text-secondark 
-            text-sm;
+            text-center
+            text-sm
+            text-white           dark:text-secondark
+            sm:text-left;
           }
         }
       }
