@@ -177,7 +177,7 @@
     </g>
   </svg>
 </template>
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
   #callNow {
     @apply mx-auto 
     lg:w-9/12 
@@ -206,4 +206,4 @@
       }
     }
   }
-</style>
+</style> -->

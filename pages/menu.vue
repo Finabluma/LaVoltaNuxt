@@ -54,16 +54,16 @@
     })
     gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
   }
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      smPlatos()
-      skewOnScroll()
-      // menuSVG.value.tlDrawSVG()
-    }, main.value)
-  })
-  onUnmounted(() => {
-    ctx.revert()
-  })
+  // onMounted(() => {
+  //   ctx = gsap.context((self) => {
+  //     smPlatos()
+  //     skewOnScroll()
+  //     // menuSVG.value.tlDrawSVG()
+  //   }, main.value)
+  // })
+  // onUnmounted(() => {
+  //   ctx.revert()
+  // })
 </script>
 <template>
   <div class="page">
@@ -172,8 +172,9 @@
         flex-col
         justify-center
         items-center
-        bg-white
-        dark:bg-[#4A647D];
+        /* bg-white
+        dark:bg-[#4A647D] */
+        ;
 
         &:after {
           @apply content-['']
@@ -181,8 +182,8 @@
           w-10/12
           h-1
           mt-10
-          bg-primary
-          dark:bg-[#A8B2BB];
+          /* bg-primary
+          dark:bg-[#A8B2BB]; */
         }
         .inner_precio {
           @apply max-w-sm 

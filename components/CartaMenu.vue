@@ -90,11 +90,11 @@
   })
 </script>
 <template>
-  <div class="wrapper">
+  <div class="carta-menu">
     <article
       v-for="(item, index) in items"
       :key="item._key"
-      class="foodCard"
+      class="carta-menu__inner"
       :class="index == 0 ? 'carta' : 'menudia'"
     >
       <div class="media">
@@ -104,125 +104,90 @@
         <div v-if="index == 1" class="svg item"><SVGMenuCircle /></div>
       </div>
       <div class="content">
-        <div class="inner">
-          <div class="inner-wrapper">
-            <div v-if="index == 0" class="heading">
-              <NuxtLink
-                to="la-carta"
-                :title="item.link.linkTarget.title"
-                class="enlace"
-              >
-                <h2 class="item">{{ item.heading }}</h2>
-                <p class="item">{{ item.tagline }}</p>
-              </NuxtLink>
-            </div>
-            <div v-if="index == 1" class="heading">
-              <NuxtLink
-                to="el-menu"
-                :title="item.link.linkTarget.title"
-                class="enlace"
-              >
-                <h2 class="item">{{ item.heading }}</h2>
-                <p class="item">{{ item.tagline }}</p>
-              </NuxtLink>
-            </div>
-            <div class="inner_content item">
-              <p>{{ item.excerpt }}</p>
-            </div>
-            <button class="cta item">
-              <div v-if="index == 0">
-                <NuxtLink to="la-carta" :title="item.link.linkTarget.title">
-                  {{ item.link.title || item.link.linkTarget.title }}
-                </NuxtLink>
-              </div>
-              <div v-if="index == 1">
-                <NuxtLink to="el-menu" :title="item.link.linkTarget.title">
-                  {{ item.link.title || item.link.linkTarget.title }}
-                </NuxtLink>
-              </div>
-            </button>
-          </div>
+        <hgroup>
+          <h2>{{ item.heading }}</h2>
+          <h3>{{ item.tagline }}</h3>
+        </hgroup>
+        <div class="inner_content">
+          <p>{{ item.excerpt }}</p>
+        </div>
+        <div v-if="index == 0">
+          <NuxtLink
+            to="la-carta"
+            :title="item.link.linkTarget.title"
+            class="cta"
+          >
+            {{ item.link.title || item.link.linkTarget.title }}
+          </NuxtLink>
+        </div>
+        <div v-if="index == 1">
+          <NuxtLink
+            to="el-menu"
+            :title="item.link.linkTarget.title"
+            class="cta"
+          >
+            {{ item.link.title || item.link.linkTarget.title }}
+          </NuxtLink>
         </div>
       </div>
     </article>
   </div>
 </template>
 <style lang="postcss" scoped>
-  .wrapper {
-    @apply relative
-    lg:py-10
-    bg-white
-    dark:bg-[#4A647D];
-    .foodCard {
-      @apply relative
-        mx-auto
-        py-5
-        lg:w-10/12
-        xl:w-9/12;
-      .media {
-        @apply relative
-          z-20
-          mx-auto
-          lg:w-6/12;
-        .svg {
-          @apply w-28
-            h-28
-            md:w-36
-            md:h-36
-            mx-auto
-            flex
-            items-center
-            justify-center;
-        }
+  .carta-menu {
+    @apply relative 
+    px-2    
+    mx-auto
+    md:bg-white
+    md:dark:bg-white/10;
+
+    .carta-menu__inner {
+      @apply mx-auto
+      max-w-6xl
+      text-center
+      md:text-left
+      px-6
+      py-5     
+      first:mb-5
+      
+      md:py-20
+      md:first:mb-0
+      md:grid
+      md:grid-cols-2
+      md:items-center;
+
+      p {
+        @apply font-semibold;
       }
+
+      .media {
+        @apply flex-shrink-0
+        w-24
+        mx-auto
+        mb-5
+        sm:w-20
+        md:w-4/12
+        lg:w-5/12;
+      }
+
       .content {
-        @apply invisible
-          relative
-          py-2
-          mx-auto
-          text-center
-          text-balance;
-        .inner {
-          @apply py-3
-          mb-6;
-          .inner-wrapper {
-            @apply p-3;
-            .item {
-              @apply opacity-0;
-            }
-            .enlace {
-              @apply block;
+        @apply lg:pr-10;
 
-              h2 {
-                @apply text-4xl/tight;
-              }
+        hgroup {
+          @apply mb-3;
 
-              p {
-                @apply font-semibold
-                  uppercase
-                  lg:px-0;
-              }
-            }
+          h2 {
+            @apply text-xl;
+          }
 
-            .inner_content {
-              @apply font-semibold
-              text-balance
-              max-w-prose
-              mx-auto
-              mb-8
-              px-6
-              py-5
-              lg:px-0;
-            }
+          h3 {
+            @apply uppercase;
           }
         }
-      }
-    }
 
-    .foodCard.carta .svg,
-    .foodCard.menudia .svg {
-      svg {
-        @apply invisible;
+        .inner_content {
+          @apply mb-10;
+        }
       }
     }
   }

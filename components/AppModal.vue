@@ -33,7 +33,7 @@
   <div v-if="budskap.bannerUrgent" class="modal-overlay">
     <div class="wrapper">
       <div class="close" @click="$emit('close-modal')">
-        <MaterialSymbolsClose />
+        <Close />
       </div>
       <div class="modal">
         <InfoModal />
@@ -49,7 +49,7 @@
   .modal-overlay {
     @apply fixed
     bottom-10
-    md:top-24
+    md:top-12
     md:bottom-auto
     z-50
     w-full
@@ -60,11 +60,9 @@
       @apply relative
       w-11/12
       mx-auto
-      rounded-lg
       drop-shadow-lg
-      bg-cyan300
-      dark:bg-[#2A3E57]
-      md:w-8/12;
+      bg-cyan
+      dark:bg-firstdark;
 
       .close {
         @apply absolute
@@ -90,12 +88,12 @@
         }
 
         .content {
-          @apply w-9/12
-          md:w-11/12;
+          @apply max-w-7xl;
 
           p {
             @apply font-coordinates
-            font-semibold 
+            font-semibold
+            text-firstdark            dark:text-secondark 
             text-sm;
           }
         }

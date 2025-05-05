@@ -34,7 +34,7 @@
     <AppDivider class="down" />
   </div>
 </template>
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
   .universeCallBadge {
     @apply relative
     w-screen
@@ -92,4 +92,4 @@
       }
     }
   }
-</style>
+</style> -->

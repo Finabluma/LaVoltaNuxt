@@ -103,7 +103,7 @@
         md:p-5
         lg:max-xl:landscape:w-auto
         lg:max-xl:landscape:mr-0
-        bg-cyan100/80
+        bg-cyan/80
         dark:bg-[#2A3E57]/80;
       }
     }

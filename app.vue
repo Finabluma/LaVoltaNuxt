@@ -112,15 +112,13 @@
 </script>
 <template>
   <div>
-    <h1 class="sr-only">{{ siteOptions?.name }}</h1>
-    <ul class="sr-only">
-      <li>
-        <a href="#main">Skip to main content</a>
-      </li>
-    </ul>
-
-    <TodayAvailability />
-    <AppHeader />
-    <NuxtPage />
+    <a class="sr-only" href="#main">Skip to content</a>
+    <div class="grid-wrap">
+      <div class="wrap">
+        <TodayAvailability />
+        <AppHeader />
+        <NuxtPage />
+      </div>
+    </div>
   </div>
 </template>

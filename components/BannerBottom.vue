@@ -25,7 +25,7 @@
         />
       </div>
       <div v-else class="noImg">
-        <MdiHeart />
+        <Corazon />
       </div>
     </div>
     <div class="content">

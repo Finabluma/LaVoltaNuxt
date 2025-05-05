@@ -56,7 +56,6 @@
     ul,
     ol,
     p {
-      @apply mb-5;
 
       strong {
         @apply font-bold;

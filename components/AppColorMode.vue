@@ -7,16 +7,16 @@
       v-if="colorMode.preference === 'system'"
       @click="colorMode.preference = 'dark'"
     >
-      <ComputerDuoTone />
+      <System />
     </li>
     <li
       v-else-if="colorMode.preference === 'dark'"
       @click="colorMode.preference = 'light'"
     >
-      <SunnyOutline />
+      <Sun />
     </li>
     <li v-else @click="colorMode.preference = 'system'" class="dark">
-      <MoonOutline />
+      <Moon />
     </li>
   </ul>
 </template>

@@ -44,16 +44,16 @@
     return tl
   }
 
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      tlReservasConditions()
-      skew.value.skewOnScroll()
-    }, main.value)
-  })
+  // onMounted(() => {
+  //   ctx = gsap.context((self) => {
+  //     tlReservasConditions()
+  //     skew.value.skewOnScroll()
+  //   }, main.value)
+  // })
 
-  onUnmounted(() => {
-    ctx.revert()
-  })
+  // onUnmounted(() => {
+  //   ctx.revert()
+  // })
 </script>
 <template>
   <div class="page">
@@ -93,7 +93,7 @@
     <AppFooter />
   </div>
 </template>
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
   .page .main_content {
     @apply w-screen;
 
@@ -101,4 +101,4 @@
       @apply mb-5;
     }
   }
-</style>
+</style> -->

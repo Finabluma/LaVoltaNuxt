@@ -264,7 +264,7 @@
   </svg>
 </template>
 
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
   #stelarium {
     @apply w-full;
     #cardinales {
@@ -303,4 +303,4 @@
       @apply fill-orange-400 dark:fill-slate-600/50;
     } */
   }
-</style>
+</style> -->

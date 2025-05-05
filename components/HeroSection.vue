@@ -1,145 +1,106 @@
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
   const props = defineProps({
     items: {
       type: Object,
     },
   })
-
-  const route = useRoute()
-  const isWhite = computed(() => {
-    return (
-      route.name === 'index' ||
-      route.name === 'el-menu' ||
-      route.name === 'la-carta' ||
-      route.name === 'revista'
-    )
-  })
-  //GSAP
-  const { gsap, ScrollTrigger } = useGsap()
-  let slug = ref()
-  let main = ref(),
-    ctx = ref(null)
-
-  function smTitle() {
-    let tl = gsap.timeline().to('.content .inner', {
-      yPercent: 25,
-      autoAlpha: 0,
-    })
-    ScrollTrigger.create({
-      trigger: '.inner_hero',
-      start: 'top top',
-      pin: true,
-      scrub: true,
-      pinSpacing: false,
-      animation: tl,
-    })
-    ScrollTrigger.create({
-      trigger: '.content',
-      start: 'top top',
-      pin: true,
-      pinSpacing: false,
-      scrub: true,
-      animation: tl,
-    })
-  }
-
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      smTitle()
-    }, main.value)
-  })
-  onUnmounted(() => {
-    ctx.revert()
-  })
 </script>
 <template>
-  <div class="hero" ref="main" :class="{ slug: slug, white: isWhite }">
-    <div class="content">
-      <div class="inner">
-        <div class="title">
-          {{ items.title }}
-        </div>
-      </div>
+  <div class="hero">
+    <!-- <div
+      v-if="items.mainImage"
+      class="img overflow-hidden absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
+    >
+      <ElementsMediaImageItem
+        :src="items.mainImage.asset._ref"
+        :alt="items.mainImage.alt"
+        height="700"
+        sizes="xs:100vw sm:100vw md:100vw lg:100vw"
+        :modifiers="{
+          crop: items.mainImage.crop,
+          hotspot: items.mainImage.hotspot,
+          q: 80,
+        }"
+        fit="cover"
+        format="webp"
+      />
+    </div> -->
+
+    <div
+      class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+      aria-hidden="true"
+    >
+      <div class="aspect-1097/845 w-[68.5625rem]"></div>
     </div>
-    <div class="inner_hero">
-      <div v-if="items.mainImage" class="image">
-        <ElementsMediaImageItem
-          :src="items.mainImage.asset._ref"
-          :alt="items.mainImage.alt"
-          height="700"
-          sizes="xs:100vw sm:100vw md:100vw lg:100vw"
-          :modifiers="{
-            crop: items.mainImage.crop,
-            hotspot: items.mainImage.hotspot,
-            q: 80,
-          }"
-          fit="cover"
-          format="webp"
-        />
+    <div
+      class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+      aria-hidden="true"
+    >
+      <div
+        class="aspect-1097/845 w-[68.5625rem]"
+        style="
+          clip-path: polygon(
+            74.1% 44.1%,
+            100% 61.6%,
+            97.5% 26.9%,
+            85.5% 0.1%,
+            80.7% 2%,
+            72.5% 32.5%,
+            60.2% 62.4%,
+            52.4% 68.1%,
+            47.5% 58.3%,
+            45.2% 34.5%,
+            27.5% 76.7%,
+            0.1% 64.9%,
+            17.9% 100%,
+            27.6% 76.8%,
+            76.1% 97.7%,
+            74.1% 44.1%
+          );
+        "
+      ></div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="inner-content">
+        <slot></slot>
       </div>
-      <div v-else class="noImg" />
     </div>
   </div>
 </template>
-<style lang="postcss">
+<style lang="postcss" scoped>
   .hero {
-    @apply relative
-    w-full
-    h-[18vh]
-    max-sm:landscape:h-[40vh]
-    sm:max-md:h-[40vh]
-    md:max-lg:landscape:h-[30vh]
-    md:max-lg:portrait:h-[30vh]
-    lg:max-xl:portrait:h-[40vh]
-    lg:max-xl:landscape:h-[40vh]
-    xl:landscape:h-[35vh]
-    overflow-hidden;
-
-    .content {
-      @apply absolute
-      z-10
-      w-full
-      h-full
-      flex
-      justify-center
-      items-end
-      p-5
-      md:p-10;
-
-      .inner {
-        @apply w-9/12
+    @apply relative 
+    mx-auto 
+    max-w-4xl
+    pb-7
+    px-2
+    lg:pb-20;
+    
+    &:after {
+      @apply content-['']
+        w-2
+        h-2
+        rounded-full
+        block
         mx-auto
-        flex
-        md:w-7/12;
-
-        .title {
-          @apply font-cameo
-          leading-snug;
-        }
-      }
+        mt-7
+        bg-current;
     }
 
-    .inner_hero {
+    .hero-inner {
       @apply relative
-      w-full
-      h-full;
-
-      .image {
-        @apply relative
-          w-full
-          h-full;
-      }
-      .noImg {
-        @apply w-full
-        h-full
-        bg-white
-        dark:bg-[#4A647D];
-      }
+      text-center
+      px-2
+      md:py-8
+      lg:py-20;
     }
 
-    &.white .content .inner .title {
-      @apply dark:text-white/70;
+    .inner-content {
+      @apply mx-auto
+      py-5 
+      sm:px-7
+      lg:mx-0;
     }
   }
 </style>

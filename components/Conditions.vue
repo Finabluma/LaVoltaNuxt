@@ -45,7 +45,7 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  .card article {
+  /* .card article {
     @apply lg:w-8/12;
 
     h3 {
@@ -55,5 +55,5 @@
     .content .blockContent p {
       @apply p-0;
     }
-  }
+  } */
 </style>

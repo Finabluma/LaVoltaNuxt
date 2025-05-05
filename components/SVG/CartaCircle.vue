@@ -13,19 +13,9 @@
 <style lang="postcss" scoped>
   svg {
     @apply w-full;
-    .circle {
-      @apply fill-current
-        stroke-[4px]
-      stroke-primary/50
-      dark:stroke-[#A8B2BB]
-      dark:fill-[#A8B2BB]/75;
-    }
     .object {
       @apply fill-white
-      stroke-primary/50
-      stroke-[4px]
-     dark:fill-[#4A647D]
-     dark:stroke-white/20;
+      dark:fill-secondark;
     }
   }
 </style>

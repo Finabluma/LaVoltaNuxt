@@ -50,67 +50,15 @@
 <style lang="postcss" scoped>
   .intro {
     @apply relative
-    py-8
-    px-6
     w-full
-    min-[414px]:px-9
-    sm:max-lg:px-16
-    sm:max-lg:py-12
-    lg:py-16
-    lg:px-12;
-
-    &::after {
-      @apply content-['']
-        block
-        mx-auto
-        w-1
-        h-20
-        mt-6
-        bg-current;
-    }
+    py-8
+    mx-auto;
 
     .intro_inner {
-      @apply text-center
-      mx-auto
+      @apply mx-auto
       w-full
       sm:max-lg:w-10/12
       lg:w-8/12;
-
-      h1 {
-        @apply font-light
-        leading-none
-        flex
-        justify-center
-        items-center
-        lg:text-6xl
-        lg:mb-5;
-
-        &:after {
-          @apply content-[''];
-        }
-
-        &::before {
-          @apply content-[''];
-        }
-
-        &:after,
-        &:before {
-          @apply block      
-          w-1/12
-          h-1
-          mt-0
-          mx-3
-          bg-current;
-        }
-      }
-
-      .inner__items {
-        @apply font-bold
-        max-w-screen-md
-        mx-auto
-        py-3
-        lg:px-10;
-      }
     }
   }
 </style>

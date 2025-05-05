@@ -43,24 +43,3 @@
     </div>
   </div>
 </template>
-<style lang="postcss" scoped>
-  .articlesportada {
-    @apply relative
-      z-50
-    /* bg-slate-50 
-    dark:bg-slate-600 */
-    ;
-    .titleblock {
-      @apply sr-only;
-    }
-
-    .portada_wrapper {
-      @apply pt-5
-      mb-10
-      mx-auto
-      md:w-11/12
-      lg:w-11/12
-      xl:w-10/12;
-    }
-  }
-</style>

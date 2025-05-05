@@ -15,14 +15,10 @@ export default {
   theme: {
     colors: {
       white: '#FFFFFF',
-      primary: '#ED80C0',
-      secondary: '#CA6DA4',
-      cyan100: '#cffafe',
-      cyan300: '#67e8f9',
-      cyan400: '#22d3ee',
-      green300: '#86efac',
-      yellow300: '#fde047',
-      orange400: '#fb923c',
+      firstlight: '#E66EB2',
+      cyan: '#67e8f9',
+      firstdark: '#1B365C',
+      secondark: '#7EA1C4',
       transparent: 'transparent',
       current: 'currentColor',
     },
@@ -41,7 +37,7 @@ export default {
       },
       backgroundImage: () => ({
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        azulejos: "url('~/assets/images/azulejos.svg')",
+        azulejos: "url('~/assets/images/azulejos_lavolta.svg')",
         azulejosw: "url('~/assets/images/azulejos_w.svg')",
       }),
       fill: (theme) => ({

@@ -10,7 +10,7 @@
 </script>
 <template>
   <div class="carrusel">
-    <h2 class="title_tracked">{{ title }}</h2>
+    <h2 class="title">{{ title }}</h2>
     <div class="carrusel-wrapper">
       <div class="wrapper">
         <Swiper
@@ -58,30 +58,3 @@
     </div>
   </div>
 </template>
-<style lang="postcss" scoped>
-  .carrusel {
-    @apply relative
-    z-20
-    w-screen
-    mx-auto
-    md:py-10
-    bg-white
-    dark:bg-[#4A647D];
-
-    h2{
-      @apply text-base
-    }
-
-    .carrusel-wrapper {
-      @apply mx-auto
-      w-11/12
-      sm:w-10/12
-      md:w-11/12
-      xl:w-8/12;
-      .image {
-        @apply relative
-        overflow-hidden;
-      }
-    }
-  }
-</style>

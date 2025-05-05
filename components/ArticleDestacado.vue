@@ -43,10 +43,6 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  .homeDestacado {
-    @apply w-screen;
-  }
-
   .revistaPortada {
     @apply mb-5
     md:mb-10;

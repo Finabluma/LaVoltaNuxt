@@ -11,16 +11,6 @@
     draw.value.drawerIn()
   }
 
-  const route = useRoute()
-  const isWhite = computed(() => {
-    return (
-      route.name === 'index' ||
-      route.name === 'el-menu' ||
-      route.name === 'la-carta' ||
-      route.name === 'revista'
-    )
-  })
-
   onMounted(() => {
     ctx = gsap.context(() => {
       gsap.to('.ab', { stagger: 0.25, autoAlpha: 1 })
@@ -28,7 +18,7 @@
         start: 'clamp(top+=5% top+=10%)',
         end: 10000,
         toggleClass: {
-          targets: '.globalHeader',
+          targets: '.global-header',
           className: 'scrolled',
         },
       })
@@ -39,10 +29,10 @@
   })
 </script>
 <template>
-  <header class="globalHeader" ref="header" :class="{ white: isWhite }">
+  <header class="global-header">
     <span role="status" aria-live="polite"></span>
-    <div class="globalNav" role="navigation">
-      <div class="globalLogo">
+    <div class="global-nav" role="navigation">
+      <div class="logo-link">
         <NuxtLink
           exact
           to="/"
@@ -54,15 +44,14 @@
         </NuxtLink>
       </div>
       <div class="misc">
-        <div v-if="phone" class="ab bg-">
+        <div v-if="phone" class="ab">
           <ElementsTextLink
             :to="phone?.phone"
             class="linkNav"
             :title="phone?.phone"
-            ><NuxtIcon name="MaterialSymbolsPhoneEnabled" size="36" /><span
-              class="sr-only"
-              >{{ phone.phone }}</span
-            ></ElementsTextLink
+            ><NuxtIcon name="Phone" size="36" /><span class="sr-only">{{
+              phone?.phone
+            }}</span></ElementsTextLink
           >
         </div>
         <div v-if="linkCarta" class="linktocarta ab">
@@ -72,14 +61,14 @@
             :title="linkCarta?.title"
             class="linkNav rounded p-1"
           >
-            <MaterialSymbolsRestaurantRounded class="w-7" />
+            <ForksRound class="w-7" />
             <span class="sr-only">{{
               linkCarta?.title
             }}</span></ElementsTextLink
           >
         </div>
-        <button @click="drawerOn()" class="btn btn-ghost btn-circle ab">
-          <NuxtIcon name="HeroiconsBars3BottomRight16Solid" size="36" />
+        <button @click="drawerOn()" class="btn btn-circle ab">
+          <NuxtIcon name="Burguer" size="36" />
         </button>
       </div>
     </div>
@@ -87,22 +76,24 @@
   <AppDrawer ref="draw" />
 </template>
 <style lang="postcss" scoped>
-  .globalHeader {
-    @apply absolute
+  .global-header {
+    @apply relative
     w-screen 
-    z-40;
+    z-40
+    mb-2
+    px-2;
 
     .ab {
       @apply opacity-0;
     }
-    .globalNav {
-      @apply max-w-screen-lg
+    .global-nav {
+      @apply max-w-5xl
       mx-auto
       flex
       items-center
-      py-2
+      py-5
       px-[5%];
-      .globalLogo {
+      .logo-link {
         @apply max-w-9 w-full;
       }
 
@@ -110,12 +101,11 @@
         @apply flex items-center ml-auto;
 
         .linktocarta .linkNav {
-          @apply bg-primary
-          dark:bg-white/70;
+          @apply bg-firstlight          dark:bg-firstdark;
 
           svg {
             @apply fill-white
-            dark:fill-[#4A647D];
+            dark:fill-secondark;
           }
         }
       }
@@ -124,15 +114,14 @@
     &.scrolled {
       @apply fixed
       top-0
-      backdrop-blur-sm
-      bg-white/70
-      dark:bg-[#4A647D]/70;
-    }
-  }
+      py-2
+      bg-white/80
+      dark:bg-secondark/80
+      backdrop-blur-sm;
 
-  .globalHeader.white {
-    svg {
-      @apply dark:fill-white/70;
+      .global-nav {
+        @apply py-3;
+      }
     }
   }
 </style>

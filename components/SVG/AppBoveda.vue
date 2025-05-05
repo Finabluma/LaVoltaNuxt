@@ -13,9 +13,6 @@
   #boveda {
     a {
       @apply block;
-      /* svg {
-        @apply w-full fill-slate-600 dark:fill-slate-300;
-      } */
     }
   }
 </style>

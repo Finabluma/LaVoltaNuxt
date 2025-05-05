@@ -53,38 +53,36 @@
         @close-modal="showModal = false"
       />
     </div>
-    <HeroSection :items="carta" />
+    <!-- <HeroSection :items="carta" /> -->
     <main>
-      <div class="main_content">
+      <div class="content">
+        <HeroSection>
+          <h2>{{ carta.title }}</h2>
+          <ElementsTextContent :blocks="carta.warning" />
+        </HeroSection>
         <div class="carta_content" ref="main">
           <article>
             <h1 class="sr-only">{{ carta.title }}</h1>
             <section class="platos">
-              <div class="obs text-pretty skew">
-                <ElementsTextContent
-                  :blocks="carta.warning"
-                  class="text-balance"
-                />
-              </div>
               <h2 class="skew">Platos</h2>
 
               <CartaItems :items="mar"
-                ><NuxtIcon name="PhFishSimpleFill" class="icon" />{{
+                ><NuxtIcon name="DelMar" class="icon" />{{
                   mar.tipo.title
                 }}</CartaItems
               >
               <CartaItems :items="tierra"
-                ><NuxtIcon name="PhCowBold" class="icon" />{{
+                ><NuxtIcon name="DeLaTierra" class="icon" />{{
                   tierra.tipo.title
                 }}</CartaItems
               >
               <CartaItems :items="carpaccio"
-                ><NuxtIcon name="IcOutlinePanoramaFishEye" class="icon" />{{
+                ><NuxtIcon name="Carpaccio" class="icon" />{{
                   carpaccio.tipo.title
                 }}</CartaItems
               >
               <CartaItems :items="postre"
-                ><NuxtIcon name="EpDessert" class="icon" />{{
+                ><NuxtIcon name="Postre" class="icon" />{{
                   postre.tipo.title
                 }}</CartaItems
               >
@@ -92,22 +90,16 @@
             <section class="bebida">
               <h2 class="skew">{{ title.title }}</h2>
               <CartaItems :items="tintos">
-                <NuxtIcon name="PhWineFill" class="icon" />{{
-                  tintos.tipo.title
-                }}
+                <NuxtIcon name="Tinto" class="icon" />{{ tintos.tipo.title }}
               </CartaItems>
               <CartaItems :items="rosados">
-                <NuxtIcon name="PhWineDuotone" class="icon" />{{
-                  rosados.tipo.title
-                }}
+                <NuxtIcon name="Rosado" class="icon" />{{ rosados.tipo.title }}
               </CartaItems>
               <CartaItems :items="blancos">
-                <NuxtIcon name="PhWine" class="icon" />{{ blancos.tipo.title }}
+                <NuxtIcon name="Blanco" class="icon" />{{ blancos.tipo.title }}
               </CartaItems>
               <CartaItems :items="cavas">
-                <NuxtIcon name="GameIconsChampagneCork" class="icon" />{{
-                  cavas.tipo.title
-                }}
+                <NuxtIcon name="Cava" class="icon" />{{ cavas.tipo.title }}
               </CartaItems>
             </section>
           </article>
@@ -121,7 +113,7 @@
     <AppFooter />
   </div>
 </template>
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
   .main_content {
     @apply w-screen
     my-0
@@ -167,4 +159,4 @@
       @apply mb-5;
     }
   }
-</style>
+</style> -->

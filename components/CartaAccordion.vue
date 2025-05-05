@@ -41,15 +41,15 @@
 
     &.is-open {
       @apply mb-3;
-      .panel-header {
+      /* .panel-header {
         @apply border-none text-primary/75
         dark:text-[#A8B2BB];
-      }
+      } */
 
-      .panel-header:hover {
+      /* .panel-header:hover {
         @apply text-primary/75
         dark:text-[#A8B2BB];
-      }
+      } */
     }
 
     &.is-closed {

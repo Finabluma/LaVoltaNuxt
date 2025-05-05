@@ -27,11 +27,11 @@
     <h2 class="sr-only">Horario del día</h2>
     <div class="flex justify-center items-center">
       <div v-if="dag.length === 0" class="state">
-        <div><IcTwotoneSchedule class="mr-1" /> <span> Hoy cerramos</span></div>
+        <div><Reloj class="mr-1" /> <span> Hoy cerramos</span></div>
       </div>
       <div v-if="dag.length === 1" class="state">
         <div>
-          <IcTwotoneSchedule class="mr-1" />
+          <Reloj class="mr-1" />
           <span class="sm:mr-2">Hoy abrimos</span>
         </div>
         <div v-for="hours in dag" :key="hours.key" class="franjas">
@@ -44,7 +44,7 @@
       </div>
       <div v-if="dag.length === 2" class="state">
         <div>
-          <IcTwotoneSchedule class="mr-1" />
+          <Reloj class="mr-1" />
           <span class="sm:mr-2">Hoy abrimos</span>
         </div>
         <div class="franjas">
@@ -64,7 +64,8 @@
     text-[16px]
     font-coordinates
     font-bold
-    z-20
+    bg-firstlight    text-white
+    dark:bg-firstdark    dark:text-secondark    z-20
     p-1.5  
     flex
     flex-col

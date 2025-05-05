@@ -17,7 +17,7 @@
   </div>
 </template>
 <style lang="postcss" scoped>
-  .intro-conditions {
+  /* .intro-conditions {
     @apply relative
     z-10 
     w-screen
@@ -58,5 +58,5 @@
         }
       }
     }
-  }
+  } */
 </style>

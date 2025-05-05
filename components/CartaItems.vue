@@ -16,12 +16,11 @@
     <template #default>
       <div v-if="items.tipo.producto !== null" class="py-3">
         <div v-for="item in items.tipo.producto" :key="item.slug" class="items">
-          <!-- <pre>{{ item }}</pre> -->
           <div class="item-precio">
             <div v-if="item.title === undefined" class="item">
               {{ item.title }}
               <span v-if="item.solidario !== false" class="solidario">
-                <NuxtIcon name="MaterialSymbolsStars" size="32" />
+                <NuxtIcon name="Star" size="32" />
               </span>
             </div>
             <div v-else class="item">
@@ -69,8 +68,8 @@
   }
   .items {
     @apply font-bold
-    text-primary
-    dark:text-[#A8B2BB]
+    /* text-primary
+    dark:text-[#A8B2BB] */
     mb-2 
     px-2 
     lg:px-3;
@@ -128,8 +127,8 @@
             h-1
             w-1
             rounded-full
-            bg-primary
-            dark:bg-[#A8B2BB];
+            /* bg-primary
+            dark:bg-[#A8B2BB]; */;
           }
 
           &:last-child:after {

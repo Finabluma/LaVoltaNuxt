@@ -14,7 +14,7 @@
 </script>
 <template>
   <nav
-    :aria-labelledby="props.nav"
+    :aria-label="props.nav"
     :class="{ main: navDrawer, pie: navFooter, credits: navCredits }"
   >
     <h2 class="sr-only">{{ props.nav }}</h2>
@@ -42,8 +42,7 @@
       justify-evenly;
 
       li {
-        @apply font-light
-        text-8xl/tight
+        @apply text-8xl/tight
         text-balance
         landscape:text-3xl/tight
         landscape:lg:text-7xl/tight
@@ -54,18 +53,12 @@
           py-3
           no-underline
           cursor-pointer
-          text-white
-          dark:text-white/70;
-
-          &:hover {
-            @apply text-white/50
-            dark:text-[#A8B2BB]/80;
-          }
+          text-firstdark          dark:text-secondark;
 
           &.router-link-active {
             @apply cursor-default 
-            text-white/70
-            dark:text-white/40;
+            text-firstdark/30
+            dark:text-secondark;
           }
         }
 
@@ -76,9 +69,8 @@
     }
   }
   .pie {
-    @apply mb-5 w-full 
-    xl:w-auto 
-    xl:mb-0;
+    @apply mb-5 
+    w-full;
 
     ul {
       @apply w-full 
@@ -87,36 +79,20 @@
       justify-center 
       items-center 
       flex-col 
-      px-10
-      xl:flex-row
-      xl:justify-end
-      xl:px-0;
+      px-10;
 
       li {
         @apply block
         w-full
         capitalize
         tracking-wider
-        font-coordinates
-        xl:text-sm
-        xl:w-auto
-        xl:tracking-normal;
+        font-coordinates;
 
         a {
           @apply w-full
           block
           text-center
-          mb-5
-          xl:flex
-          xl:items-center
-          xl:mb-0
-          xl:pr-3;
-
-          &.router-link-active {
-            @apply cursor-default 
-            text-cyan400
-            dark:text-white/80;
-          }
+          mb-5;
         }
 
         &:last-of-type a:after {
@@ -132,9 +108,7 @@
       mx-auto 
       flex 
       justify-center 
-      px-10
-      xl:ml-0
-      xl:px-0;
+      px-10;
 
       li {
         @apply capitalize
@@ -142,11 +116,7 @@
 
         a {
           @apply flex
-          items-center
-          text-primary
-          xl:flex
-          xl:items-center
-          xl:mb-0;
+          items-center;
 
           &:after {
             @apply block

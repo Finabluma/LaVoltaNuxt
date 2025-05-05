@@ -22,7 +22,7 @@
     <AppFooter />
   </div>
 </template>
-<style lang="postcss">
+<!-- <style lang="postcss">
   .pageTerms {
     @apply w-screen
     min-h-dvh
@@ -87,4 +87,4 @@
       @apply mt-auto;
     }
   }
-</style>
+</style> -->

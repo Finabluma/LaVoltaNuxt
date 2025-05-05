@@ -38,7 +38,7 @@
           </div>
           <div class="flex items-center">
             Web Desarrollada con
-            <NuxtIcon name="MdiHeart" class="mx-1" /> por
+            <NuxtIcon name="Corazon" class="mx-1" /> por
             <ElementsTextLink
               :to="datos?.developer"
               target="_blank"
@@ -59,9 +59,7 @@
     z-30
     pt-10
     pb-5
-    md:pt-20
-    bg-white
-    dark:bg-[#4A647D];
+    md:pt-20;
     .innerfooter {
       @apply w-full 
       flex
@@ -76,46 +74,32 @@
         flex
         flex-col
         items-center
-        justify-center
-        xl:w-11/12;
+        justify-center;
       }
       .top {
-        @apply mb-10
-        xl:mb-3
-        xl:flex-row
-        xl:px-8
-        xl:pt-0
-        xl:pb-5;
+        @apply mb-10;
 
         #boveda {
           @apply w-36
-          xl:w-32 
-          xl:ml-auto;
+          xl:w-40;
         }
       }
       .center {
         @apply pb-2
-        xl:flex-row
-        xl:justify-end
-        xl:px-7;
+        font-semibold;
       }
       .bottom {
         @apply relative
         text-xs/normal
+        font-semibold
         pt-5
-        pb-10
-        xl:text-sm/normal
-        xl:flex-row
-        xl:items-start
-        xl:justify-between
-        xl:px-4;
+        pb-10;
       }
 
       .info {
-        @apply w-full flex flex-col justify-center
-        items-center
-        xl:w-auto
-        xl:items-end;
+        @apply w-full flex 
+        flex-col justify-center
+        items-center;
       }
     }
   }

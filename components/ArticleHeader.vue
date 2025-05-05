@@ -35,7 +35,7 @@
     </div>
   </div>
 </template>
-<style lang="postcss" scoped>
+<!-- <style lang="postcss" scoped>
   .hero {
     @apply relative
     w-screen
@@ -68,7 +68,7 @@
         sm:w-9/12 
         md:w-auto 
         bg-white/60
-        dark:bg-cyan400/30;
+        dark:bg-cyan/30;
 
         .title {
           @apply font-bold 
@@ -88,4 +88,4 @@
       h-full;
     }
   }
-</style>
+</style> -->
