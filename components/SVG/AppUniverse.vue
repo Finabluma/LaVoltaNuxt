@@ -264,30 +264,35 @@
   </svg>
 </template>
 
-<!-- <style lang="postcss" scoped>
+<style lang="postcss" scoped>
   #stelarium {
     @apply w-full;
     #cardinales {
       @apply stroke-cardinales/40 fill-cardinales/90;
     }
     #constelaciones {
-      @apply stroke-secondary fill-primary
-      dark:stroke-green300/80 dark:fill-orbit;
+      @apply stroke-firstlight 
+      fill-firstlight
+      dark:stroke-secondark/80 
+      dark:fill-firstdark;
     }
 
     #estrellas circle {
-      @apply stroke-orbit fill-cyan400;
+      @apply fill-firstlight 
+      dark:fill-firstdark;
     }
     #orbitas path {
-      @apply stroke-orbit fill-transparent;
+      @apply stroke-firstlight/20
+      dark:stroke-firstdark/40
+      fill-transparent;
     }
 
     #sol path {
-      @apply fill-yellow300;
+      @apply fill-[#fde047];
     }
 
     #sol #iris {
-      @apply fill-orange400;
+      @apply fill-[#f59e0b];
     }
 
     #planetas circle,
@@ -303,4 +308,4 @@
       @apply fill-orange-400 dark:fill-slate-600/50;
     } */
   }
-</style> -->
+</style>

@@ -10,6 +10,29 @@
   let main = ref(),
     skew = ref(),
     ctx = ref()
+
+  function skewOnScroll() {
+    let proxy = { skew: 0 },
+      skewSetter = gsap.quickSetter('.skew', 'skewY', 'deg'), // fast
+      clamp = gsap.utils.clamp(-5, 5)
+
+    ScrollTrigger.create({
+      onUpdate: (self) => {
+        let skew = clamp(self.getVelocity() / -300)
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew
+          gsap.to(proxy, {
+            skew: 0,
+            duration: 0.8,
+            ease: 'power3',
+            overwrite: true,
+            onUpdate: () => skewSetter(proxy.skew),
+          })
+        }
+      },
+    })
+    gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
+  }
   function intro() {
     let tl = gsap.timeline().to('.intro-conditions p', {
       yPercent: 10,
@@ -17,7 +40,7 @@
     })
     ScrollTrigger.create({
       trigger: '.intro-conditions',
-      start: 'top top',
+      start: 'center top',
       pin: true,
       scrub: true,
       pinSpacing: false,
@@ -25,7 +48,7 @@
     })
   }
   function panels() {
-    const panels = gsap.utils.toArray('.card')
+    const panels = gsap.utils.toArray('article')
     gsap.set(panels[0], { autoAlpha: 1 })
     panels.forEach((panel) => {
       ScrollTrigger.create({
@@ -44,16 +67,16 @@
     return tl
   }
 
-  // onMounted(() => {
-  //   ctx = gsap.context((self) => {
-  //     tlReservasConditions()
-  //     skew.value.skewOnScroll()
-  //   }, main.value)
-  // })
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      panels()
+      skewOnScroll()
+    }, main.value)
+  })
 
-  // onUnmounted(() => {
-  //   ctx.revert()
-  // })
+  onUnmounted(() => {
+    ctx.revert()
+  })
 </script>
 <template>
   <div class="page">
@@ -76,13 +99,13 @@
         <h1 class="sr-only">{{ reservas.title }}</h1>
         <ReservasConditions>
           <template #header>
-            <ConditionsIntro :title="reservas.reservasIntro.title" />
+            <ConditionsIntro
+              :title="reservas.reservasIntro.title"
+              class="skew"
+            />
           </template>
           <template #default>
-            <Conditions
-              :conditions="reservas.conditions.conditions"
-              ref="skew"
-            />
+            <Conditions :conditions="reservas.conditions.conditions" />
           </template>
         </ReservasConditions>
       </section>

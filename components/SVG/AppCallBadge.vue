@@ -177,18 +177,19 @@
     </g>
   </svg>
 </template>
-<!-- <style lang="postcss" scoped>
+<style lang="postcss" scoped>
   #callNow {
     @apply mx-auto 
     lg:w-9/12 
     xl:w-auto;
 
     #rings path:first-of-type {
-      @apply fill-cyan400/30;
+      @apply fill-firstlight/30
+      dark:fill-secondark/30;
     }
     #rings path:nth-child(2) {
-      @apply fill-cyan300/75
-      dark:fill-[#A8B2BB]/80;
+      @apply fill-firstlight/75
+      dark:fill-firstdark/80;
     }
     #rings path:last-of-type {
       @apply fill-current;
@@ -198,7 +199,8 @@
       @apply fill-none;
 
       path {
-        @apply fill-cyan100;
+        @apply fill-white
+        dark:fill-secondark;
       }
 
       path:first-of-type {
@@ -206,4 +208,4 @@
       }
     }
   }
-</style> -->
+</style>
