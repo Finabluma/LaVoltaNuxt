@@ -48,12 +48,13 @@
 
       .statusCode {
         @apply mb-2
-        text-8xl;
+        text-8xl
+         dark:text-secondark;
       }
 
       .enlace {
         @apply font-coordinates
-        font-bold
+        dark:text-secondark
         text-center        
         px-2 
         flex-col
