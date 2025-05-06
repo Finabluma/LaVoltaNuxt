@@ -53,8 +53,8 @@
         @close-modal="showModal = false"
       />
     </div>
-    <main>
-      <HeroSection>
+    <main id="main">
+      <HeroSection class="hero--after">
         <h2 class="title-page">{{ carta.title }}</h2>
         <ElementsTextContent :blocks="carta.warning" />
       </HeroSection>
@@ -64,24 +64,16 @@
           <h2 class="title-block m-clus3lev">Platos</h2>
 
           <CartaItems :items="mar"
-            ><NuxtIcon name="DelMar" class="icon" />{{
-              mar.tipo.title
-            }}</CartaItems
+            ><NuxtIcon name="DelMar" />{{ mar.tipo.title }}</CartaItems
           >
           <CartaItems :items="tierra"
-            ><NuxtIcon name="DeLaTierra" class="icon" />{{
-              tierra.tipo.title
-            }}</CartaItems
+            ><NuxtIcon name="DeLaTierra" />{{ tierra.tipo.title }}</CartaItems
           >
           <CartaItems :items="carpaccio"
-            ><NuxtIcon name="Carpaccio" class="icon" />{{
-              carpaccio.tipo.title
-            }}</CartaItems
+            ><NuxtIcon name="Carpaccio" />{{ carpaccio.tipo.title }}</CartaItems
           >
           <CartaItems :items="postre"
-            ><NuxtIcon name="Postre" class="icon" />{{
-              postre.tipo.title
-            }}</CartaItems
+            ><NuxtIcon name="Postre" />{{ postre.tipo.title }}</CartaItems
           >
         </section>
         <section class="l-stack">
@@ -89,16 +81,16 @@
             {{ title.title }}
           </h2>
           <CartaItems :items="tintos">
-            <NuxtIcon name="Tinto" class="icon" />{{ tintos.tipo.title }}
+            <NuxtIcon name="Tinto" />{{ tintos.tipo.title }}
           </CartaItems>
           <CartaItems :items="rosados">
-            <NuxtIcon name="Rosado" class="icon" />{{ rosados.tipo.title }}
+            <NuxtIcon name="Rosado" />{{ rosados.tipo.title }}
           </CartaItems>
           <CartaItems :items="blancos">
-            <NuxtIcon name="Blanco" class="icon" />{{ blancos.tipo.title }}
+            <NuxtIcon name="Blanco" />{{ blancos.tipo.title }}
           </CartaItems>
           <CartaItems :items="cavas">
-            <NuxtIcon name="Cava" class="icon" />{{ cavas.tipo.title }}
+            <NuxtIcon name="Cava" />{{ cavas.tipo.title }}
           </CartaItems>
         </section>
       </article>

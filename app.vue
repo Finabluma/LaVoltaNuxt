@@ -114,11 +114,9 @@
   <div>
     <a class="sr-only" href="#main">Skip to content</a>
     <div class="grid-wrap">
-      <div class="wrap">
-        <TodayAvailability />
-        <AppHeader />
-        <NuxtPage />
-      </div>
+      <TodayAvailability />
+      <AppHeader />
+      <NuxtPage />
     </div>
   </div>
 </template>

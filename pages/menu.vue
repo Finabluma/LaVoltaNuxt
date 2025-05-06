@@ -74,9 +74,11 @@
       />
     </div>
     <main>
-      <HeroSection>
-        <h2 class="title-page">{{ menu.title }}</h2>
-        <ElementsTextContent :blocks="menu.menuConditions" />
+      <HeroSection class="hero--after">
+        <div class="components components--text">
+          <h2 class="title-page">{{ menu.title }}</h2>
+          <ElementsTextContent :blocks="menu.menuConditions" />
+        </div>
       </HeroSection>
       <section class="l-center mb-clus3lev">
         <h1 class="sr-only">{{ menuDia.title }}</h1>

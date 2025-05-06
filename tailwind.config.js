@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin')
 const settingsScreens = require('./tailwind.settings.screens')
 const settingsFontSizes = require('./tailwind.settings.fontSizes')
 
@@ -55,5 +56,10 @@ export default {
       }),
     },
   },
-  plugins: [require('tailwindcss-pseudo-elements')()],
+  plugins: [
+    require('tailwindcss-pseudo-elements')(),
+    plugin(({ addVariant }) => {
+      addVariant('card', '&[data-component="card"]')
+    }),
+  ],
 }

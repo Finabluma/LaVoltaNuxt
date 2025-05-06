@@ -1,8 +1,4 @@
 <script setup>
-  import { ref } from 'vue'
-  const catportada = ref(false)
-  const catslug = ref(false)
-  const catrelated = ref(false)
   const props = defineProps({
     title: {
       type: String,
@@ -13,21 +9,15 @@
   })
 </script>
 <template>
-  <div
-    class="categories"
-    :class="{
-      catrelated: catrelated,
-      catportada: catportada,
-      catslug: catslug,
-    }"
-  >
-    <div>
-      <LazyTags />
-      <span class="sr-only">{{ title }}</span>
-    </div>
-    <ul>
+  <div class="l-cluster my-clus2lev">
+    <ul class="clean-list">
       <li v-for="item in tags" :key="item.id">
-        {{ item.title }}
+        <span class="tag with-icon--before"
+          ><LazyTags class="icon" /><span class="grow">{{
+            item.title
+          }}</span></span
+        >
+
         <!-- <NuxtLink :to="`/revista/categoria/${item.slug}`">
           {{ item.title }}
         </NuxtLink> -->
@@ -35,48 +25,3 @@
     </ul>
   </div>
 </template>
-<style lang="postcss" scoped>
-  .categories {
-    @apply hidden 
-    sm:flex;
-
-    div {
-      @apply flex 
-      items-start
-      w-5;
-    }
-
-    ul {
-      @apply flex 
-      flex-wrap;
-
-      li {
-        @apply font-coordinates
-        text-sm
-        flex 
-        items-center
-        pl-2  
-        after:last-of-type:content-none;
-
-        &:first-of-type {
-          @apply pl-1;
-        }
-
-        &:after {
-          @apply content-['']
-          block
-          bg-current
-          h-1
-          w-1
-          ml-2;
-        }
-      }
-    }
-
-    &.catslug {
-      @apply w-11/12
-      mx-auto
-      flex;
-    }
-  }
-</style>

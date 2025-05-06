@@ -2,7 +2,7 @@
   const colorMode = useColorMode()
 </script>
 <template>
-  <ul :class="$attrs.class">
+  <ul :class="$attrs.class" class="clean-list">
     <li
       v-if="colorMode.preference === 'system'"
       @click="colorMode.preference = 'dark'"

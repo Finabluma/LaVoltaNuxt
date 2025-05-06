@@ -9,7 +9,7 @@
   })
 </script>
 <template>
-  <div class="l-box l-box--no-padding sm:l-box bg-white/50">
+  <div class="l-box l-box--no-padding sm:l-box sm:border-4 bg-white/50">
     <p v-if="title" class="title-Xtra text-center">{{ title }}</p>
     <ArticleTeaser :article="item[0].article" class="flex flex-col">
       <template #default>

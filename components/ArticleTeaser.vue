@@ -1,5 +1,4 @@
 <script setup>
-  import { ref } from 'vue'
   const props = defineProps({
     title: {
       type: String,
@@ -13,22 +12,23 @@
   })
 </script>
 <template>
-  <article class="flex">
-    <h2 class="sr-only">{{ article.title }}</h2>
+  <article class="card" data-component="card">
     <slot></slot>
-    <div class="px-2 sm:px-0">
-      <ElementsTextLink
-        link-type="internalLinkType"
-        route="revista-slug"
-        :slug="article.slug"
-        class="l-box l-box--no-padding l-box--no-border font-bold hover:opacity-80"
-        >{{ article.title }}
-      </ElementsTextLink>
+    <div class="card__text">
+      <h2 class="card__heading">
+        <ElementsTextLink
+          link-type="internalLinkType"
+          route="revista-slug"
+          :slug="article.slug"
+          class="l-box l-box--no-padding l-box--no-border hover:opacity-80"
+        >
+          {{ article.title }}
+        </ElementsTextLink>
+      </h2>
       <div v-if="article.subtitle">
-        {{ article.subtitle }}
+        <p class="lead">{{ article.subtitle }}</p>
       </div>
       <slot name="categories"></slot>
     </div>
   </article>
 </template>
-

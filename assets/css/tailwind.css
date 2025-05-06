@@ -7,7 +7,14 @@
     @apply bg-firstlight
     text-firstlight
     fill-firstlight
-    dark:bg-secondark    dark:text-firstdark    dark:fill-firstdark;
+    dark:bg-secondark    
+    dark:text-firstdark    
+    dark:fill-firstdark;
+  }
+
+  html {
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
   }
 
   html {
@@ -18,82 +25,190 @@
     @apply text-base/snug
     font-coordinates
     text-pretty
-    min-h-full
-    grid-cols-1
-    grid-rows-1
     leading-snug
     overflow-x-hidden
     antialiased
     bg-white
     dark:bg-secondark;
+  }
 
-    *,
-    *::before,
-    *::after {
-      @apply box-border
+  *,
+  *::before,
+  *::after {
+    @apply box-border
       m-0
       break-words
       p-0;
-    }
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply font-semibold
+  /* Styles needed for a sticky footer */
+
+  main,
+  #main {
+    @apply box-content
+      mx-auto
+      pt-6
+      pb-12;
+  }
+
+  #main .component + .component {
+    @apply mt-20 md:mt-28;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold
       tracking-tight
       m-0;
-    }
+  }
 
-    :focus {
-      @apply outline
+  :focus {
+    @apply outline
       outline-transparent
       -outline-offset-2;
-    }
+  }
 
-    main:focus,
-    #main:focus,
-    [tabindex='-1']:focus {
-      @apply outline-none;
-    }
+  main:focus,
+  #main:focus,
+  [tabindex='-1']:focus {
+    @apply outline-none;
+  }
 
-    br {
-      @apply mt-0;
-    }
+  br {
+    @apply mt-0;
+  }
 
-    b,
-    strong,
-    .bold {
-      @apply font-semibold;
-    }
+  b,
+  strong,
+  .bold {
+    @apply font-semibold;
+  }
 
-    svg:not([class]) {
-      @apply fill-current
+  /*------------------------------------*\
+    #Icons
+  \*------------------------------------*/
+
+  svg:not([class]) {
+    @apply fill-current
       h-auto
       w-full;
-    }
+  }
 
-    a {
-      @apply transition-colors duration-500;
-    }
+  /* SVG icons are sized relative to font size, thanks to the em unit. */
+  .icon {
+    @apply h-4
+    w-4
+    align-baseline;
+  }
 
-    a:not([class]):visited {
-      color: purple;
-    }
+  .icon--larger {
+    @apply w-10
+    h-10;
+  }
 
-    ul:not([class]) > * + *,
-    ul:not([class]) li ul,
-    ul:not([class]) li ol,
-    ol:not([class]) > * + *,
-    ol:not([class]) li ul,
-    ol:not([class]) li ol {
-      @apply mt-1;
-    }
+  /**
+  Use the `with-icon` class on the SVG's parent, if there
+  is a need to specify the spacing between text and icon.
+  Pay attention to whether the icon is before the text or after.
+
+  2. Logical property creates appropriate spacing irrespective of text direction
+ */
+
+  .with-icon--before,
+  .with-icon--after,
+  .with-icon--larger {
+    @apply align-baseline
+    inline-flex;
+  }
+  .with-icon--before .icon,
+  .with-icon--after .icon,
+  .with-icon--larger .icon {
+    @apply flex-initial;
+  }
+
+  .with-icon--larger {
+    @apply items-center;
+  }
+
+  .with-icon--before .icon {
+    @apply mr-1
+    supports-[margin-inline-end]:me-1;
+  }
+
+  .with-icon--after .icon {
+    @apply ml-1;
+  }
+
+  a {
+    @apply transition-colors duration-500;
+  }
+
+  a:not([class]):visited {
+    color: purple;
+  }
+
+  /*------------------------------------*\
+    #Lists
+  \*------------------------------------*/
+
+  ul,
+  ol {
+    @apply my-4
+    ps-10;
+  }
+
+  ul:not([class]) > * + *,
+  ul:not([class]) li ul,
+  ul:not([class]) li ol,
+  ol:not([class]) > * + *,
+  ol:not([class]) li ul,
+  ol:not([class]) li ol {
+    @apply mt-1;
+  }
+
+  nav ul,
+  nav ol,
+  .clean-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul,
+  nav ol,
+  .clean-list {
+    @apply list-none
+    m-0
+    p-0;
+  }
+  nav ul li,
+  nav ul ol,
+  nav ul ul,
+  nav ol li,
+  nav ol ol,
+  nav ol ul,
+  .clean-list li,
+  .clean-list ol,
+  .clean-list ul {
+    @apply m-0 p-0;
+  }
+
+  .clean-list li {
+    @apply block;
   }
 }
 @layer components {
+  .grid-wrap {
+    @apply grid
+      grid-cols-1
+      grid-rows-1
+      min-h-dvh;
+  }
+
   .l-box {
     @apply border
     block
@@ -118,18 +233,13 @@
     px-[5vw];
   }
 
-  .l-center--full {
-    @apply box-content
-    w-full
-    mx-auto;
-  }
-
-  .l-center--full > * {
-    @apply box-content
-    mx-auto
-    max-w-4xl
-    px-[5vw]
-    lg:px-[7vw];
+  .u-full-width {
+    @apply relative
+    w-screen
+    left-1/2
+    right-1/2
+    -ml-[50%]
+    -mr-[50%];
   }
 
   .l-cluster {
@@ -177,7 +287,8 @@
     basis-0
     flex-col
     flex-grow-[999]
-    min-w-[calc(55% - 1.7rem)];
+    min-w-['1/2']
+    /* min-w-calc(55% - 1.7rem); */;
   }
 
   .l-stack {
@@ -189,11 +300,218 @@
     @apply mt-2;
   }
 
-  .crosslinks-inner {
-    @apply max-w-5xl
+  /* MEDIA */
+
+  .l-frame {
+    @apply block
+    overflow-hidden
+    relative;
+  }
+
+  .l-frame > * {
+    @apply flex
+    items-center 
+    justify-center 
+    absolute
+    bottom-0
+    left-0  
+    right-0 
+    top-0;
+  }
+
+  .l-frame > iframe,
+  .l-frame > img,
+  .l-frame > video {
+    @apply w-full
+    h-full;
+  }
+
+  .l-frame > img,
+  .l-frame > video {
+    @apply object-cover;
+  }
+
+  /* Common aspect ratios */
+  .l-frame--16-9 {
+    @apply pb-[56.25%];
+  }
+
+  .l-frame--3-2 {
+    @apply pb-[66.67%];
+  }
+
+  .l-frame--4-3 {
+    @apply pb-[75%];
+  }
+
+  .l-frame--square {
+    @apply pb-[100%];
+  }
+
+  /*------------------------------------*\
+    #Text component
+\*------------------------------------*/
+  .component--text > * {
+    @apply max-w-2xl;
+  }
+  .component--text > * + h2,
+  .component--text > * + h3,
+  .component--text > * + h4,
+  .component--text > * + h5,
+  .component--text > * + h6 {
+    @apply mt-8;
+  }
+
+  /*------------------------------------*\
+    #Quotes
+\*------------------------------------*/
+  .component--quote {
+    @apply text-base
+    leading-normal
+    font-bold
+    me-0
+    ms-3
+    p-5
+    relative;
+  }
+  .component--quote::before {
+    @apply content-['']
+    -left-3
+    w-3;
+  }
+  .component--quote > * {
+    @apply max-w-2xl;
+  }
+
+  /*------------------------------------*\
+    #Hero component
+\*------------------------------------*/
+
+  .hero {
+    @apply lg:pt-11;
+  }
+
+  .hero--after {
+    &:after {
+      @apply content-['']
+        w-2
+        h-2
+        rounded-full
+        block
+        mx-auto
+        my-10
+        bg-current;
+    }
+  }
+
+  .hero .l-sidebar > *,
+  .hero .l-sidebar > * > * {
+    @apply m-0;
+  }
+
+  .hero .l-sidebar .sidebar {
+    @apply basis-96;
+  }
+
+  .hero .l-sidebar .not-sidebar {
+    @apply pb-8
     mx-auto
-    sm:py-10
-    sm:px-10;
+    lg:max-w-4xl;
+  }
+
+  .hero .lead {
+    @apply mb-6
+    mt-0
+    font-semibold;
+  }
+
+  .hero h1,
+  .hero h2 {
+    @apply mb-6;
+  }
+
+  .hero + * {
+    @apply mt-14;
+  }
+
+  .note {
+    @apply border-4
+    max-w-3xl;
+  }
+
+  .note--info {
+    border-color: #005a9c;
+  }
+
+  /*------------------------------------*\
+    #Cards
+\*------------------------------------*/
+
+  .card {
+    @apply flex
+    h-full
+    p-2
+    overflow-hidden;
+  }
+
+  .card__text {
+    @apply flex-grow
+    order-1;
+  }
+
+  .card__heading {
+    @apply text-base
+    leading-normal
+    font-bold;
+  }
+
+  /*------------------------------------*\
+    #Tag list
+\*------------------------------------*/
+
+  .tag {
+    @apply text-xs
+    leading-normal
+    py-2
+    px-2
+    font-bold;
+  }
+
+  /*------------------------------------*\
+    #Crosslinks (You may also like)
+  \*------------------------------------*/
+
+  .crosslinks {
+    @apply py-14;
+  }
+
+  .crosslinks .component--columns__intro h2 {
+    @apply text-lg
+    leading-snug;
+  }
+
+  .crosslinks .component--columns--images > ul {
+    @apply md:flex 
+    md:flex-wrap 
+    md:-m-clus1lev;
+  }
+
+  .crosslinks .component--columns--images > ul > li {
+    @apply md:flex-[1_0_50%]
+    md:w-6/12
+    md:p-[1.5%];
+  }
+
+  .crosslinks .component--columns--images > ul li + li {
+    @apply md:mt-0;
+  }
+
+  .crosslinks .card {
+    @apply overflow-hidden;
+  }
+
+  .crosslinks .card__text {
+    @apply p-5;
   }
 
   .single,
@@ -203,9 +521,8 @@
 
     &:before {
       @apply content-['']
-      w-2
-      h-2
-      rounded-full
+      w-6/12
+      h-1
       mx-auto
       bg-current
       flex
@@ -316,6 +633,9 @@
     @apply text-5xl
     font-cameo
     text-center;
+  }
+
+  .lead {
   }
 
   .subtitle {

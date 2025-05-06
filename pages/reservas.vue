@@ -70,7 +70,7 @@
       />
     </div>
     <main>
-      <HeroSection>
+      <HeroSection class="hero--after">
         <h2 class="title-page">{{ reservas.title }}</h2>
         <ElementsTextContent
           :v-if="reservas.introTerms"

@@ -40,48 +40,41 @@
       <h1 class="title-page">{{ data.title }}</h1>
       <p class="font-coordinates">{{ data.subtitle }}</p>
     </HeroSection>
-    <main class="l-center--full">
-      <h1 class="sr-only">{{ data.title }}</h1>
-      <ArticleBreadcrumb :data="data" class="mb-clus3lev">
-        <li>
-          <ElementsTextLink link-type="internalLinkType" route="revista"
-            >Revista</ElementsTextLink
-          >
-        </li>
-        <li>{{ data.title }}</li>
-      </ArticleBreadcrumb>
-      <ArticleSummary
-        v-if="data.summary"
-        :summary="data.summary"
-        class="mb-clus3lev"
-      />
-      <ElementsTextContent
-        :blocks="data?.maincontent"
-        v-if="data?.maincontent"
-        class="mb-clus3lev"
-      />
-      <ArticleCategories
-        v-if="data.categories"
-        class="mb-clus3lev"
-        title="Categorias"
-        :tags="data.categories"
-      />
-      <div v-if="data.mainImage" class="mb-clus3lev">
-        <ElementsMediaImageItem
-          :src="data.mainImage.asset._ref"
-          :alt="data.mainImage.alt"
-          height="800"
-          sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
-          :modifiers="{
-            crop: data.mainImage.crop,
-            hotspot: data.mainImage.hotspot,
-            q: 80,
-          }"
-          fit="cover"
-          format="webp"
+    <main class="l-center">
+      <div class="lg:l-box lg:l-box--no-border mb-clus3lev">
+        <ArticleBreadcrumb :data="data" class="mb-clus3lev">
+          <li>
+            <ElementsTextLink link-type="internalLinkType" route="revista"
+              >Revista</ElementsTextLink
+            >
+          </li>
+          <li>{{ data.title }}</li>
+        </ArticleBreadcrumb>
+        <ArticleSummary v-if="data.summary" :summary="data.summary" />
+        <ElementsTextContent
+          :blocks="data?.maincontent"
+          v-if="data?.maincontent"
+          class="mb-clus3lev"
         />
+
+        <div v-if="data.mainImage" class="mb-clus3lev">
+          <ElementsMediaImageItem
+            :src="data.mainImage.asset._ref"
+            :alt="data.mainImage.alt"
+            height="800"
+            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
+            :modifiers="{
+              crop: data.mainImage.crop,
+              hotspot: data.mainImage.hotspot,
+              q: 80,
+            }"
+            fit="cover"
+            format="webp"
+          />
+        </div>
+        <ArticleCategories v-if="data.categories" :tags="data.categories" />
       </div>
-      <div class="l-center">
+      <div class="l-center md:l-box md:l-box--no-border">
         <ArticleRelated :related="related.articleRelated" v-if="related" />
       </div>
     </main>

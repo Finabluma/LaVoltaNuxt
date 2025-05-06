@@ -26,7 +26,7 @@
       />
     </div>
     <main>
-      <HeroSection>
+      <HeroSection class="hero--after">
         <h2 class="title-page">{{ revista.title }}</h2>
       </HeroSection>
       <section class="l-center">
@@ -34,7 +34,7 @@
         <div v-if="isFeatured.length > 0" class="lg:l-box lg:l-box--no-border">
           <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
         </div>
-        <div v-if="notFeatured.length > 0" class="lg:l-box lg:l-box--no-border">
+        <div v-if="notFeatured.length > 0">
           <ArticlesPortada
             :items="notFeatured"
             class="lg:l-box lg:l-box--no-border"

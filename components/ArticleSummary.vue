@@ -6,9 +6,7 @@
   })
 </script>
 <template>
-  <div class="excerpt">
-    <blockquote>
-      {{ summary }}
-    </blockquote>
-  </div>
+  <blockquote class="component component--quote">
+    {{ summary }}
+  </blockquote>
 </template>

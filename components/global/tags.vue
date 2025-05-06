@@ -8,6 +8,6 @@
 </template>
 <style lang="postcss" scoped>
   svg {
-    @apply w-full;
+    @apply w-auto;
   }
 </style>

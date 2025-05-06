@@ -16,9 +16,9 @@
       />
     </div>
     <main>
-      <HeroSection>
+      <HeroSection class="hero--after">
         <h2 class="title-page">{{ home.title }}</h2>
-        <p class="subtitle">{{ home.subtitle }}</p>
+        <p class="lead">{{ home.subtitle }}</p>
         <p>{{ home.content }}</p>
       </HeroSection>
       <CartaMenu :items="home.cartamenu" />
