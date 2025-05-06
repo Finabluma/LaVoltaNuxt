@@ -6,7 +6,7 @@
   })
 </script>
 <template>
-  <ul class="l-box l-box--no-padding l-box--no-border">
+  <ul class="clean-list">
     <li v-for="(plato, index) in platos" :key="index">
       {{ plato.title }}
     </li>

@@ -21,7 +21,7 @@
         <p class="lead">{{ home.subtitle }}</p>
         <p>{{ home.content }}</p>
       </HeroSection>
-      <CartaMenu :items="home.cartamenu" />
+      <!-- <CartaMenu :items="home.cartamenu" />
       <div v-if="isFeatured.length > 0" class="articleHome">
         <div class="head">
           <h1>
@@ -29,7 +29,7 @@
           </h1>
         </div>
         <ArticleDestacado :item="isFeatured" />
-      </div>
+      </div> -->
     </main>
     <aside class="crosslinks">
       <div class="crosslinks-inner">

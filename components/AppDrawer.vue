@@ -72,7 +72,7 @@
   <div id="drawer" ref="drawer">
     <div class="drawerInner">
       <button id="close" aria-label="close drawer" @click="drawerOut()">
-        <NuxtIcon name="Close" />
+        <NuxtIcon name="Close" class="icon--larger" />
       </button>
       <div class="contentInner" @click="drawerOut()">
         <div class="mainNav">
@@ -89,8 +89,8 @@
     inset-0
     invisible
     backdrop-blur-lg
-    bg-cyan/80
-    dark:dark:bg-[#2A3E57];
+    bg-white
+    dark:bg-secondark;
 
     .drawerInner {
       @apply m-auto

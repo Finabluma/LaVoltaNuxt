@@ -55,12 +55,11 @@
     </div>
     <main id="main">
       <HeroSection class="hero--after">
-        <h2 class="title-page">{{ carta.title }}</h2>
+        <h1 class="title-page">{{ carta.title }}</h1>
         <ElementsTextContent :blocks="carta.warning" />
       </HeroSection>
-      <article class="l-center l-cluster skew">
-        <h1 class="sr-only">{{ carta.title }}</h1>
-        <section class="l-stack">
+      <article class="l-center skew">
+        <section>
           <h2 class="title-block m-clus3lev">Platos</h2>
 
           <CartaItems :items="mar"
@@ -76,7 +75,7 @@
             ><NuxtIcon name="Postre" />{{ postre.tipo.title }}</CartaItems
           >
         </section>
-        <section class="l-stack">
+        <section>
           <h2 class="title-block m-clus3lev">
             {{ title.title }}
           </h2>

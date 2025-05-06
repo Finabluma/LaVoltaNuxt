@@ -16,7 +16,6 @@ export default {
     colors: {
       white: '#FFFFFF',
       firstlight: '#E66EB2',
-      cyan: '#67e8f9',
       firstdark: '#1B365C',
       secondark: '#7EA1C4',
       transparent: 'transparent',

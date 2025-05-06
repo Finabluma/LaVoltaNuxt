@@ -35,17 +35,3 @@
     </div>
   </div>
 </template>
-<!-- <style lang="postcss" scoped>
-  .hero {
-    &:after {
-      @apply content-['']
-        w-2
-        h-2
-        rounded-full
-        block
-        mx-auto
-        my-10
-        bg-current;
-    }
-  }
-</style> -->

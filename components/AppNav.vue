@@ -42,10 +42,10 @@
       justify-evenly;
 
       li {
-        @apply text-8xl/tight
+        @apply font-mono
+        font-bold
+        text-5xl/tight
         text-balance
-        landscape:text-3xl/tight
-        landscape:lg:text-7xl/tight
         md:px-20;
 
         a {
@@ -53,12 +53,13 @@
           py-3
           no-underline
           cursor-pointer
-          text-firstdark          dark:text-secondark;
+          text-firstlight         
+          dark:text-firstdark;
 
           &.router-link-active {
             @apply cursor-default 
-            text-firstdark/30
-            dark:text-secondark;
+            text-firstlight/80
+            dark:text-firstdark/80;
           }
         }
 

@@ -5,8 +5,3 @@
     ></path>
   </svg>
 </template>
-<style lang="postcss" scoped>
-  svg path {
-    @apply fill-white;
-  }
-</style>

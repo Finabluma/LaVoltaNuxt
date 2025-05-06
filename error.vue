@@ -43,7 +43,8 @@
       flex-col
       items-center
       p-5
-      bg-cyan/80;
+      bg-white/80
+      dark:bg-firstdark;
 
       .statusCode {
         @apply mb-2

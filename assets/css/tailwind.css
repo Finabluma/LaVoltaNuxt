@@ -147,10 +147,6 @@
     @apply transition-colors duration-500;
   }
 
-  a:not([class]):visited {
-    color: purple;
-  }
-
   /*------------------------------------*\
     #Lists
   \*------------------------------------*/
@@ -173,14 +169,6 @@
   nav ul,
   nav ol,
   .clean-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul,
-  nav ol,
-  .clean-list {
     @apply list-none
     m-0
     p-0;
@@ -194,7 +182,8 @@
   .clean-list li,
   .clean-list ol,
   .clean-list ul {
-    @apply m-0 p-0;
+    @apply m-0 
+    p-0;
   }
 
   .clean-list li {
@@ -228,6 +217,7 @@
         @apply flex
         items-center
         font-bold;
+
         &:after {
           @apply content-['']
           w-1
@@ -250,7 +240,9 @@
   .l-box {
     @apply border
     block
-    p-7;
+    py-7
+    px-2
+    sm:px-7;
   }
 
   .l-box--no-padding {
@@ -329,6 +321,8 @@
     /* min-w-calc(55% - 1.7rem); */;
   }
 
+  /* FLEX-COL */
+
   .l-stack {
     @apply flex
     flex-col;
@@ -336,54 +330,6 @@
 
   .l-stack > * + * {
     @apply mt-2;
-  }
-
-  /* MEDIA */
-
-  .l-frame {
-    @apply block
-    overflow-hidden
-    relative;
-  }
-
-  .l-frame > * {
-    @apply flex
-    items-center 
-    justify-center 
-    absolute
-    bottom-0
-    left-0  
-    right-0 
-    top-0;
-  }
-
-  .l-frame > iframe,
-  .l-frame > img,
-  .l-frame > video {
-    @apply w-full
-    h-full;
-  }
-
-  .l-frame > img,
-  .l-frame > video {
-    @apply object-cover;
-  }
-
-  /* Common aspect ratios */
-  .l-frame--16-9 {
-    @apply pb-[56.25%];
-  }
-
-  .l-frame--3-2 {
-    @apply pb-[66.67%];
-  }
-
-  .l-frame--4-3 {
-    @apply pb-[75%];
-  }
-
-  .l-frame--square {
-    @apply pb-[100%];
   }
 
   /*------------------------------------*\
@@ -426,7 +372,7 @@
 \*------------------------------------*/
 
   .hero {
-    @apply lg:pt-11;
+    @apply lg:pt-10;
   }
 
   .hero--after {
@@ -437,7 +383,8 @@
         rounded-full
         block
         mx-auto
-        my-10
+        mt-6
+        md:my-10
         bg-current;
     }
   }
@@ -472,15 +419,6 @@
     @apply mt-14;
   }
 
-  .note {
-    @apply border-4
-    max-w-3xl;
-  }
-
-  .note--info {
-    border-color: #005a9c;
-  }
-
   /*------------------------------------*\
     #Cards
 \*------------------------------------*/
@@ -511,8 +449,7 @@
     @apply text-xs
     leading-normal
     py-2
-    px-2
-    font-bold;
+    px-1;
   }
 
   /*------------------------------------*\
@@ -559,8 +496,9 @@
 
     &:before {
       @apply content-['']
-      w-6/12
-      h-1
+      w-2
+      h-2
+      rounded-full
       mx-auto
       bg-current
       flex
@@ -683,7 +621,8 @@
   .title-block {
     @apply text-lg
     font-bold
-    capitalize;
+    capitalize
+    mb-clus3lev;
 
     &:after {
       @apply content-['']
@@ -695,7 +634,7 @@
   }
 
   .title-Xtra {
-    @apply text-9xl
+    @apply text-7xl
     capitalize;
   }
 
@@ -711,8 +650,8 @@
     outline
     -outline-offset-2
     outline-4
-    outline-firstlight
-    dark:outline-firstdark;
+    outline-firstlight/70
+    dark:outline-firstdark/70;
 
     img {
       @apply overflow-hidden

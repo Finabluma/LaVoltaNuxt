@@ -6,7 +6,7 @@
   })
 </script>
 <template>
-  <div >
+  <div>
     <p class="title-block l-box l-box--no-border">otras cosas ...</p>
 
     <div class="sm:l-box sm:l-box--no-border">
@@ -32,6 +32,12 @@
                 format="webp"
               />
             </div>
+          </template>
+          <template #categories>
+            <ArticleCategories
+              :tags="item.article.categories"
+              v-if="item.article.categories"
+            />
           </template>
         </ArticleTeaser>
       </div>

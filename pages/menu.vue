@@ -76,33 +76,32 @@
     <main>
       <HeroSection class="hero--after">
         <div class="components components--text">
-          <h2 class="title-page">{{ menu.title }}</h2>
+          <h1 class="title-page">{{ menuDia.title }}</h1>
           <ElementsTextContent :blocks="menu.menuConditions" />
         </div>
       </HeroSection>
-      <section class="l-center mb-clus3lev">
-        <h1 class="sr-only">{{ menuDia.title }}</h1>
+      <section class="l-center">
         <article class="skew l-box l-box--no-border">
-          <h2 class="title-block mb-clus3lev">
+          <h2 class="title-block sidebar">
             {{ menuDia.primeros.title }}
           </h2>
           <MenuItems :platos="menuDia.primeros.platos" />
         </article>
         <article class="skew l-box l-box--no-border">
-          <h2 class="title-block mb-clus3lev">
+          <h2 class="title-block">
             {{ menuDia.segundos.title }}
           </h2>
           <MenuItems :platos="menuDia.segundos.platos" />
         </article>
         <article class="skew l-box l-box--no-border">
-          <h2 class="title-block mb-clus3lev">
+          <h2 class="title-block">
             {{ menuDia.postres.title }}
           </h2>
           <MenuItems :platos="menuDia.postres.platos" />
         </article>
 
         <div class="relative l-cluster bg-white dark:bg-secondark">
-          <div class="l-stack l-box l-box--no-padding">
+          <div class="l-stack l-box l-box--no-border">
             <span class="title-Xtra">{{ formatPrice(menu.price) }}€</span>
             <p class="font-typewriter text-xs">
               * El precio no incluye bebida.

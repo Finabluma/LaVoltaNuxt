@@ -9,9 +9,11 @@
   })
 </script>
 <template>
-  <div class="l-box l-box--no-padding sm:l-box sm:border-4 bg-white/50">
+  <div
+    class="l-box l-box--no-padding sm:l-box sm:border-4 border-firstlight/80 dark:border-firstdark/80 bg-[#27272a] dark:bg-white/20"
+  >
     <p v-if="title" class="title-Xtra text-center">{{ title }}</p>
-    <ArticleTeaser :article="item[0].article" class="flex flex-col">
+    <ArticleTeaser :article="item[0].article" class="l-stack">
       <template #default>
         <ElementsMediaImageItem
           :src="item[0].article.mainImage.asset._ref"
@@ -25,7 +27,6 @@
           height="400"
           fit="cover"
           format="webp"
-          class="mb-clus2lev"
         />
       </template>
       <template #categories>

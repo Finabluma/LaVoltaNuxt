@@ -64,19 +64,14 @@
     md:pt-20;
     .innerfooter {
       @apply w-full 
-      flex
-      flex-col
-      justify-center
+      l-stack
       items-center;
 
       .top,
       .center,
       .bottom {
-        @apply w-10/12
-        flex
-        flex-col
-        items-center
-        justify-center;
+        @apply l-stack
+        items-center;
       }
       .top {
         @apply mb-10;
@@ -93,14 +88,12 @@
       .bottom {
         @apply relative
         text-xs/normal
-        font-semibold
         pt-5
         pb-10;
       }
 
       .info {
-        @apply w-full flex 
-        flex-col justify-center
+        @apply l-stack
         items-center;
       }
     }

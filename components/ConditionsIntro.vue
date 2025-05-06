@@ -7,7 +7,7 @@
   })
 </script>
 <template>
-  <div class="l-box l-box--no-border mb-clus3lev intro-conditions">
-    <p class="title-page--cameo">{{ title }}</p>
+  <div class="l-box l-box--no-border">
+    <h1 class="title-page--cameo">{{ title }}</h1>
   </div>
 </template>
