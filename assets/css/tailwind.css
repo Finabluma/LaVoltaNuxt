@@ -147,82 +147,46 @@
     m-clus2lev;
   }
 
-  .l-cluster > .col {
-    @apply flex-col
-    py-10
-    last:pt-0;
+  .l-sidebar {
+    @apply overflow-hidden;
   }
 
-  .carrusel .title {
-    @apply text-3xl/8
-    mb-10
-    flex
-    justify-center
-    items-center;
-
-    &:after,
-    &:before {
-      @apply content-['']
-        w-1/12
-        h-0.5
-        bg-current
-        block;
-    }
-
-    &:after {
-      @apply ml-3;
-    }
-
-    &:before {
-      @apply mr-3;
-    }
+  .l-sidebar > * {
+    @apply flex
+    flex-wrap
+    m-clus1sidebar;
   }
 
-  .articleHome {
-    @apply max-w-5xl
-    mx-auto
-    sm:py-20
-    sm:px-10;
+  .l-sidebar > * > * {
+    @apply m-clus2sidebar;
+  }
 
-    .head {
-      @apply py-10
-      px-5
-      flex
-      justify-center
-      items-center;
+  .l-sidebar .sidebar {
+    @apply flex
+    flex-col
+    basis-72
+    flex-grow;
+  }
 
-      &:after,
-      &:before {
-        @apply content-['']
-        w-10/12
-        h-0.5
-        bg-current
-        block;
-      }
+  .l-sidebar .sidebar > * + * {
+    @apply mt-6;
+  }
 
-      h1 {
-        @apply text-5xl/8
-        mx-2;
-      }
-    }
+  .l-sidebar .not-sidebar {
+    @apply flex
+    basis-0
+    flex-col
+    flex-grow-[999]
+    min-w-[calc(55% - 1.7rem)];
+  }
 
-    div > article.destacado {
-      @apply w-full;
+  .l-stack {
+    @apply flex
+    flex-col;
+  }
 
-      .content {
-        @apply lg:bottom-0;
-        .content-wrapper {
-          @apply font-semibold
-          font-coordinates
-          dark:bg-secondark/90
-          lg:mx-auto;
-
-          .enlace .subtitle {
-            @apply font-semibold;
-          }
-        }
-      }
-    }
+  .l-stack > * + * {
+    @apply mt-2;
   }
 
   .crosslinks-inner {

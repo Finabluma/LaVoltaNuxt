@@ -100,7 +100,7 @@
         </article>
 
         <div class="relative l-cluster bg-white dark:bg-secondark">
-          <div class="col l-box l-box--no-border">
+          <div class="l-stack l-box l-box--no-padding">
             <span class="title-Xtra">{{ formatPrice(menu.price) }}€</span>
             <p class="font-typewriter text-xs">
               * El precio no incluye bebida.

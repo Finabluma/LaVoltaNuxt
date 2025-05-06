@@ -16,44 +16,6 @@
     params: params,
   })
 
-  //GSAP
-  const { gsap, ScrollTrigger } = useGsap()
-
-  function smTitle() {
-    let tl = gsap.timeline().to('.content .inner', {
-      yPercent: 25,
-      autoAlpha: 0,
-    })
-    ScrollTrigger.create({
-      trigger: '.inner_hero',
-      start: 'top top',
-      pin: true,
-      scrub: true,
-      pinSpacing: false,
-      animation: tl,
-    })
-    ScrollTrigger.create({
-      trigger: '.content',
-      start: 'top top',
-      pin: true,
-      pinSpacing: false,
-      scrub: true,
-      animation: tl,
-    })
-  }
-
-  let ctx = ref(),
-    main = ref()
-
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      smTitle()
-    }, main.value)
-  })
-  onUnmounted(() => {
-    ctx.revert()
-  })
-
   // meta
   usePageHead({
     title: data.title,
@@ -73,34 +35,53 @@
   })
 </script>
 <template>
-  <div v-if="data" class="pageArticle">
-    <ArticleHeader :data="data" />
-    <main class="relative z-20">
+  <div v-if="data">
+    <HeroSection>
+      <h1 class="title-page">{{ data.title }}</h1>
+      <p class="font-coordinates">{{ data.subtitle }}</p>
+    </HeroSection>
+    <main class="l-center--full">
       <h1 class="sr-only">{{ data.title }}</h1>
-      <div class="inner_main">
-        <ArticleBreadcrumb :data="data" class="lg:mt-5 sm:w-11/12 mx-auto">
-          <li>
-            <ElementsTextLink link-type="internalLinkType" route="revista"
-              >Revista</ElementsTextLink
-            >
-          </li>
-          <li>{{ data.title }}</li>
-        </ArticleBreadcrumb>
-        <div v-if="data.summary" class="mb-5">
-          <ArticleSummary :summary="data.summary" />
-        </div>
-        <div v-if="data.maincontent" class="mb-10">
-          <ElementsTextContent :blocks="data?.maincontent" />
-        </div>
-        <div v-if="data.categories" class="mb-5">
-          <ArticleCategories
-            title="Categorias"
-            :tags="data.categories"
-            class="catslug"
-          />
-        </div>
+      <ArticleBreadcrumb :data="data" class="mb-clus3lev">
+        <li>
+          <ElementsTextLink link-type="internalLinkType" route="revista"
+            >Revista</ElementsTextLink
+          >
+        </li>
+        <li>{{ data.title }}</li>
+      </ArticleBreadcrumb>
+      <ArticleSummary
+        v-if="data.summary"
+        :summary="data.summary"
+        class="mb-clus3lev"
+      />
+      <ElementsTextContent
+        :blocks="data?.maincontent"
+        v-if="data?.maincontent"
+        class="mb-clus3lev"
+      />
+      <ArticleCategories
+        v-if="data.categories"
+        class="mb-clus3lev"
+        title="Categorias"
+        :tags="data.categories"
+      />
+      <div v-if="data.mainImage" class="mb-clus3lev">
+        <ElementsMediaImageItem
+          :src="data.mainImage.asset._ref"
+          :alt="data.mainImage.alt"
+          height="800"
+          sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
+          :modifiers="{
+            crop: data.mainImage.crop,
+            hotspot: data.mainImage.hotspot,
+            q: 80,
+          }"
+          fit="cover"
+          format="webp"
+        />
       </div>
-      <div class="inner_bottom">
+      <div class="l-center">
         <ArticleRelated :related="related.articleRelated" v-if="related" />
       </div>
     </main>
@@ -117,41 +98,5 @@
     </aside>
     <AppFooter />
   </div>
-  <div v-else>hola</div>
+  <div v-else>NO HAY ARTICULO</div>
 </template>
-<style lang="postcss" scoped>
-  .pageArticle {
-    @apply w-screen
-    min-h-dvh
-    flex
-    flex-col
-    bg-white
-    dark:bg-[#4A647D];
-
-    main {
-      @apply relative
-      z-30
-      bg-white
-      dark:bg-[#4A647D];
-
-      .inner_bottom {
-        @apply w-11/12
-        my-10
-        mx-auto;
-      }
-    }
-
-    #footer {
-      @apply mt-auto
-      bg-white
-      dark:bg-[#4A647D];
-    }
-  }
-  .inner_main {
-    @apply max-w-prose
-    mx-auto
-    px-2
-    sm:w-11/12
-    md:w-10/12;
-  }
-</style>

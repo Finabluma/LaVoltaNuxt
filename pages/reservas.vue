@@ -33,20 +33,7 @@
     })
     gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
   }
-  function intro() {
-    let tl = gsap.timeline().to('.intro-conditions p', {
-      yPercent: 10,
-      autoAlpha: 0,
-    })
-    ScrollTrigger.create({
-      trigger: '.intro-conditions',
-      start: 'center top',
-      pin: true,
-      scrub: true,
-      pinSpacing: false,
-      animation: tl,
-    })
-  }
+
   function panels() {
     const panels = gsap.utils.toArray('article')
     gsap.set(panels[0], { autoAlpha: 1 })
@@ -60,11 +47,6 @@
           panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom',
       })
     })
-  }
-
-  function tlReservasConditions() {
-    let tl = gsap.timeline().add(intro()).add(panels())
-    return tl
   }
 
   onMounted(() => {

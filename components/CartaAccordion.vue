@@ -36,10 +36,6 @@
       px-1;
     }
 
-    &.is-open {
-      @apply mb-3;
-    }
-
     &.is-closed {
       .panel-body {
         @apply px-10 max-h-0;

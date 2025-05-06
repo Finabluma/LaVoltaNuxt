@@ -60,7 +60,7 @@
       </HeroSection>
       <article class="l-center l-cluster skew">
         <h1 class="sr-only">{{ carta.title }}</h1>
-        <section class="col">
+        <section class="l-stack">
           <h2 class="title-block m-clus3lev">Platos</h2>
 
           <CartaItems :items="mar"
@@ -84,7 +84,7 @@
             }}</CartaItems
           >
         </section>
-        <section class="col">
+        <section class="l-stack">
           <h2 class="title-block m-clus3lev">
             {{ title.title }}
           </h2>

@@ -27,7 +27,7 @@
     </div> -->
 
     <div class="l-cluster">
-      <div class="col">
+      <div class="l-stack">
         <slot></slot>
       </div>
     </div>

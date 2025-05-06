@@ -38,6 +38,8 @@ export default {
         clus1lev: 'calc(1rem / 2 * -1)',
         clus2lev: 'calc(1rem / 2)',
         clus3lev: 'calc(1rem)',
+        clus1sidebar: 'calc(1.7rem / 2 * -1)',
+        clus2sidebar: 'calc(1.7rem / 2)',
       },
       backgroundImage: () => ({
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
