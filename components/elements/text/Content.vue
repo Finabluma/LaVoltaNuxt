@@ -31,7 +31,14 @@
   }
 </script>
 <template>
-  <div>
+  <div class="blockContent">
     <SanityContent :blocks="props.blocks" :serializers="serializers" />
   </div>
 </template>
+<style lang="postcss">
+  .blockContent {
+    > * {
+      @apply mb-5;
+    }
+  }
+</style>

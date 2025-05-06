@@ -72,10 +72,7 @@
     <main>
       <HeroSection class="hero--after">
         <h2 class="title-page">{{ reservas.title }}</h2>
-        <ElementsTextContent
-          :v-if="reservas.introTerms"
-          :blocks="reservas.introTerms"
-        />
+        <SanityContent :blocks="reservas.introTerms" />
       </HeroSection>
       <section class="l-center mb-20">
         <h1 class="sr-only">{{ reservas.title }}</h1>

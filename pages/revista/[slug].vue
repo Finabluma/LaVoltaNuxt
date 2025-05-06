@@ -1,7 +1,5 @@
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'
   import { articleQuery } from '~/queries'
-  const { siteNav } = useMainStore()
 
   const props = defineProps({
     error: Object,
@@ -57,7 +55,7 @@
           class="mb-clus3lev"
         />
 
-        <div v-if="data.mainImage" class="mb-clus3lev l-box">
+        <div v-if="data.mainImage" class="mb-clus3lev l-box l-box--no-border">
           <ElementsMediaImageItem
             :src="data.mainImage.asset._ref"
             :alt="data.mainImage.alt"
@@ -72,7 +70,11 @@
             format="webp"
           />
         </div>
-        <ArticleCategories v-if="data.categories" :tags="data.categories" />
+        <ArticleCategories
+          v-if="data.categories"
+          :tags="data.categories"
+          class="l-box l-box--no-border flex justify-center"
+        />
       </div>
       <!-- <div class="l-center md:l-box md:l-box--no-border max-w-4xl mx-auto">
         <ArticleRelated :related="related.articleRelated" v-if="related" />

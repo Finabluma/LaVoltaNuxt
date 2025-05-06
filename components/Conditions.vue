@@ -12,7 +12,7 @@
         <h3 class="title-block">
           {{ condition.title }}
         </h3>
-        <ElementsTextContent :blocks="condition.terms" />
+        <SanityContent :blocks="condition.terms" />
       </div>
     </article>
   </div>

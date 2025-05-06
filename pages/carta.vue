@@ -56,7 +56,7 @@
     <main id="main">
       <HeroSection class="hero--after">
         <h1 class="title-page">{{ carta.title }}</h1>
-        <ElementsTextContent :blocks="carta.warning" />
+        <SanityContent :blocks="carta.warning" />
       </HeroSection>
       <article class="l-center skew">
         <section>

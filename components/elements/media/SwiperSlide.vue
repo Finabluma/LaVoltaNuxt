@@ -69,8 +69,7 @@
 <style lang="postcss" scoped>
   .carrusel-wrapper {
     @apply w-full
-      p-3
-      border
+      p-1
       lg:w-11/12
       lg:mb-10
       lg:mx-auto;

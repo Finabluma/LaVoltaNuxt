@@ -77,7 +77,7 @@
       <HeroSection class="hero--after">
         <div class="components components--text">
           <h1 class="title-page">{{ menuDia.title }}</h1>
-          <ElementsTextContent :blocks="menu.menuConditions" />
+          <SanityContent :blocks="menu.menuConditions" />
         </div>
       </HeroSection>
       <section class="l-center">

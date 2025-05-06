@@ -343,9 +343,8 @@
     #Quotes
 \*------------------------------------*/
   .component--quote {
-    @apply text-base
-    leading-normal
-    font-bold
+    @apply leading-normal
+    text-lg
     me-0
     ms-3
     p-5
