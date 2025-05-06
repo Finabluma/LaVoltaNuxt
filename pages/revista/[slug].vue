@@ -41,7 +41,7 @@
       <p class="font-coordinates">{{ data.subtitle }}</p>
     </HeroSection>
     <main class="l-center">
-      <div class="lg:l-box lg:l-box--no-border mb-clus3lev">
+      <div class="mb-clus3lev max-w-4xl mx-auto">
         <ArticleBreadcrumb :data="data" class="mb-clus3lev">
           <li>
             <ElementsTextLink link-type="internalLinkType" route="revista"
@@ -57,7 +57,7 @@
           class="mb-clus3lev"
         />
 
-        <div v-if="data.mainImage" class="mb-clus3lev">
+        <div v-if="data.mainImage" class="mb-clus3lev l-box">
           <ElementsMediaImageItem
             :src="data.mainImage.asset._ref"
             :alt="data.mainImage.alt"
@@ -74,9 +74,9 @@
         </div>
         <ArticleCategories v-if="data.categories" :tags="data.categories" />
       </div>
-      <div class="l-center md:l-box md:l-box--no-border">
+      <!-- <div class="l-center md:l-box md:l-box--no-border max-w-4xl mx-auto">
         <ArticleRelated :related="related.articleRelated" v-if="related" />
-      </div>
+      </div> -->
     </main>
     <aside v-if="banner !== null" :class="estilos">
       <div class="content_wrapper">
