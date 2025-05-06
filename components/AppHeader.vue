@@ -59,7 +59,7 @@
             link-type="internalLinkType"
             route="la-carta"
             :title="linkCarta?.title"
-            class="linkNav rounded p-1"
+            class="linkNav p-1"
           >
             <ForksRound class="w-7" />
             <span class="sr-only">{{
@@ -101,7 +101,8 @@
         @apply flex items-center ml-auto;
 
         .linktocarta .linkNav {
-          @apply bg-firstlight          dark:bg-firstdark;
+          @apply bg-firstlight          
+          dark:bg-firstdark;
 
           svg {
             @apply fill-white

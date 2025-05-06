@@ -189,13 +189,6 @@
   .clean-list li {
     @apply block;
   }
-
-  figure {
-    img {
-      @apply l-box
-      mb-clus3lev;
-    }
-  }
 }
 @layer components {
   .grid-wrap {
@@ -544,7 +537,8 @@
           rounded-full
           overflow-hidden
           outline
-          outline-4
+          outline-2
+          -outline-offset-2
           outline-firstlight
           dark:outline-firstdark
           md:w-20
