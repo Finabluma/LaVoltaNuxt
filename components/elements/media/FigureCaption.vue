@@ -56,15 +56,12 @@
 </template>
 <style scoped lang="postcss">
   figure {
-    @apply mb-4 
-    mt-6
-    mx-auto
-    sm:mb-8
-    sm:mt-10;
+    @apply my-clus3lev;
 
     picture {
-      @apply l-box
-      l-box--no-border;
+      @apply p-1
+      border
+      mb-clus2lev;
     }
 
     figcaption {

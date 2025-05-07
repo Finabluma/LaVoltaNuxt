@@ -39,8 +39,8 @@
       <p class="font-coordinates">{{ data.subtitle }}</p>
     </HeroSection>
     <main class="l-center">
-      <div class="mb-clus3lev max-w-4xl mx-auto">
-        <ArticleBreadcrumb :data="data" class="mb-clus3lev">
+      <div class="mb-clus3lev max-w-5xl mx-auto post">
+        <ArticleBreadcrumb :data="data">
           <li>
             <ElementsTextLink link-type="internalLinkType" route="revista"
               >Revista</ElementsTextLink
@@ -49,13 +49,7 @@
           <li>{{ data.title }}</li>
         </ArticleBreadcrumb>
         <ArticleSummary v-if="data.summary" :summary="data.summary" />
-        <ElementsTextContent
-          :blocks="data?.maincontent"
-          v-if="data?.maincontent"
-          class="mb-clus3lev"
-        />
-
-        <div v-if="data.mainImage" class="mb-clus3lev l-box l-box--no-border">
+        <div v-if="data.mainImage" class="img">
           <ElementsMediaImageItem
             :src="data.mainImage.asset._ref"
             :alt="data.mainImage.alt"
@@ -70,15 +64,20 @@
             format="webp"
           />
         </div>
+        <ElementsTextContent
+          :blocks="data?.maincontent"
+          v-if="data?.maincontent"
+          class="mb-clus3lev"
+        />
         <ArticleCategories
           v-if="data.categories"
           :tags="data.categories"
-          class="l-box l-box--no-border flex justify-center"
+          class="l-box l-box--no-border"
         />
       </div>
-      <!-- <div class="l-center md:l-box md:l-box--no-border max-w-4xl mx-auto">
+      <div class="l-center md:l-box md:l-box--no-border max-w-5xl mx-auto">
         <ArticleRelated :related="related.articleRelated" v-if="related" />
-      </div> -->
+      </div>
     </main>
     <aside v-if="banner !== null" :class="estilos">
       <div class="content_wrapper">

@@ -37,8 +37,10 @@
 </template>
 <style lang="postcss">
   .blockContent {
+    @apply lg:px-[5vw];
     > * {
-      @apply mb-5;
+      @apply mb-5
+      leading-relaxed;
     }
   }
 </style>

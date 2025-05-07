@@ -29,8 +29,7 @@
       <HeroSection>
         <h1 class="title-page">{{ revista.title }}</h1>
       </HeroSection>
-      <section class="l-center">
-        <h1 class="sr-only">{{ revista.portada.title }}</h1>
+      <section class="l-center lg:px-[5vw]">
         <div v-if="isFeatured.length > 0" class="lg:l-box lg:l-box--no-border">
           <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
         </div>

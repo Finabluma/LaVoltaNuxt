@@ -68,14 +68,10 @@
 </template>
 <style lang="postcss" scoped>
   .carrusel-wrapper {
-    @apply w-full
-      p-1
-      lg:w-11/12
-      lg:mb-10
-      lg:mx-auto;
-
     .wrapper {
-      @apply p-2;
+      @apply p-1
+      border
+      mb-clus2lev;
     }
   }
   .gallery {

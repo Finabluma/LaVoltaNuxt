@@ -92,7 +92,8 @@
       flex
       items-center
       py-5
-      px-[5%];
+      px-[5%]
+      lg:px-0;
       .logo-link {
         @apply max-w-9 w-full;
       }

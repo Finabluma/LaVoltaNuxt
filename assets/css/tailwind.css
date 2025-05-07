@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* bg-[#27272a] */
+
 @layer base {
   :root {
     @apply bg-firstlight
@@ -199,6 +201,7 @@
   }
 
   .breadcrumb {
+    @apply lg:px-[5vw];
     ol {
       @apply flex flex-wrap;
 
@@ -339,15 +342,21 @@
     @apply mt-8;
   }
 
+  .component--text > p {
+    @apply mt-2;
+  }
+
   /*------------------------------------*\
     #Quotes
 \*------------------------------------*/
   .component--quote {
     @apply leading-normal
-    text-lg
+    
     me-0
     ms-3
-    p-5
+    px-3
+    py-5
+    sm:p-10
     relative;
   }
   .component--quote::before {
@@ -393,7 +402,7 @@
   .hero .l-sidebar .not-sidebar {
     @apply pb-8
     mx-auto
-    lg:max-w-4xl;
+    lg:max-w-5xl;
   }
 
   .hero .lead {
@@ -440,8 +449,41 @@
   .tag {
     @apply text-xs
     leading-normal
-    py-2
-    px-1;
+    p-1;
+
+    svg {
+      @apply icon;
+    }
+  }
+
+  .post {
+    .img {
+      @apply sm:px-10
+      mb-clus3lev;
+      img {
+        @apply p-1
+        border;
+      }
+    }
+    .categories {
+      .tag {
+        @apply text-base
+        items-center;
+
+        svg {
+          @apply icon--larger;
+        }
+      }
+
+      &::before {
+        @apply content-['']
+        w-1/12
+        h-1
+        bg-current
+        block
+        mb-clus3lev;
+      }
+    }
   }
 
   /*------------------------------------*\

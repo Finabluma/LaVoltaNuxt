@@ -10,9 +10,9 @@
 </script>
 <template>
   <div
-    class="l-box l-box--no-padding sm:l-box sm:border-4 border-firstlight/80 dark:border-firstdark/80 bg-[#27272a] dark:bg-white/20"
+    class="l-box l-box--no-padding sm:l-box sm:border-2 border-firstlight/80 dark:border-firstdark/80 dark:bg-white/20"
   >
-    <p v-if="title" class="title-Xtra text-center">{{ title }}</p>
+    <h1 v-if="title" class="title-Xtra text-center">{{ title }}</h1>
     <ArticleTeaser :article="item[0].article" class="l-stack">
       <template #default>
         <ElementsMediaImageItem

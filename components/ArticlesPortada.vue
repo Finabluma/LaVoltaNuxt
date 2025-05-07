@@ -7,7 +7,7 @@
 </script>
 <template>
   <div>
-    <p class="title-block l-box l-box--no-border">otras cosas ...</p>
+    <p class="title-block l-box l-box--no-border py-0">otras cosas ...</p>
 
     <div class="sm:l-box sm:l-box--no-border">
       <div v-for="item in items" :key="item.id">

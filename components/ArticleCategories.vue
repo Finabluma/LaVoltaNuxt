@@ -9,11 +9,11 @@
   })
 </script>
 <template>
-  <div class="l-cluster my-clus2lev">
+  <div class="l-cluster my-clus2lev categories">
     <ul class="clean-list">
       <li v-for="item in tags" :key="item.id">
         <span class="tag with-icon--before"
-          ><LazyTags class="icon" /><span class="grow">{{
+          ><LazyTags  /><span class="grow">{{
             item.title
           }}</span></span
         >
