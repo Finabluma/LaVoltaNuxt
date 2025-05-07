@@ -16,13 +16,13 @@
       />
     </div>
     <main>
-      <HeroSection class="hero--after">
+      <HeroSection>
         <h2 class="title-page">{{ home.title }}</h2>
         <p class="lead">{{ home.subtitle }}</p>
         <p>{{ home.content }}</p>
       </HeroSection>
-      <!-- <CartaMenu :items="home.cartamenu" />
-      <div v-if="isFeatured.length > 0" class="articleHome">
+      <CartaMenu :items="home.cartamenu" />
+      <!--  <div v-if="isFeatured.length > 0" class="articleHome">
         <div class="head">
           <h1>
             {{ home.portada.portada.title }}
@@ -31,7 +31,7 @@
         <ArticleDestacado :item="isFeatured" />
       </div> -->
     </main>
-    <aside class="crosslinks">
+    <aside class="crosslinks relative z-20">
       <div class="crosslinks-inner">
         <LazyGalleryReference :page="home" />
         <LazyOptionalContent :page="home" />

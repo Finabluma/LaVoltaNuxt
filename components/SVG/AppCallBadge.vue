@@ -52,6 +52,8 @@
       animation: tl,
       start: 'center-=10% center-=20%',
       scrub: 1,
+      preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+      fastScrollEnd: true,
     })
   }
 

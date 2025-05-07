@@ -12,7 +12,6 @@
 </template>
 <style lang="postcss" scoped>
   svg {
-    @apply w-full;
     .object {
       @apply fill-white
       dark:fill-secondark;

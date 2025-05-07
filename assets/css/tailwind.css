@@ -417,7 +417,8 @@
   }
 
   .hero + * {
-    @apply mt-14;
+    @apply mt-8
+    lg:mt-14;
   }
 
   /*------------------------------------*\
@@ -525,7 +526,9 @@
 
   .single,
   .compound {
-    @apply lg:l-box
+    @apply bg-white
+    dark:bg-secondark
+    lg:l-box
     lg:l-box--no-border;
 
     &:before {

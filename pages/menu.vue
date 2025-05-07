@@ -29,6 +29,9 @@
           panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom',
         pin: true,
         pinSpacing: false,
+        preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+        fastScrollEnd: true,
+        invalidateOnRefresh: true,
       })
     })
   }

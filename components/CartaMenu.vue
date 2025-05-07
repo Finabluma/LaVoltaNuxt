@@ -1,192 +1,233 @@
 <script setup>
+  import { onMounted, nextTick } from 'vue'
   const props = defineProps({
     items: {
       type: Array,
     },
   })
-
+  let main = ref(),
+    ctx = ref()
   //GSAP
   const { gsap, ScrollTrigger, DrawSVGPlugin } = useGsap()
 
-  function entryToFood() {
-    const panels = gsap.utils.toArray('.foodCard')
+  function tlCartaMenu() {
+    const panels = document.querySelectorAll('#container .panel')
 
-    panels.forEach((panel) => {
-      let q = gsap.utils.selector(panel)
-      const tl = gsap
-        .timeline()
-        .set(q('.content'), { visibility: 'visible' })
-        .set(q('.item'), { y: '+=100' })
-        .set(q('svg'), { visibility: 'visible', rotation: 180 })
-        .set(q('.circle'), { strokeOpacity: 0, fillOpacity: 0, strokeWidth: 4 })
-        .set(q('.object'), {
-          fillOpacity: 0,
-          strokeWidth: 5,
-        })
-        .add('svg')
-        .to(
-          q('svg'),
-          {
-            rotate: 0,
-          },
-          'svg'
-        )
-        .from(
-          q('.circle'),
-          {
-            strokeOpacity: 0,
-            drawSVG: 0,
-          },
-          'svg'
-        )
-        .to(
-          q('.circle'),
-          {
-            fillOpacity: '100%',
-          },
-          'svg+=0.5'
-        )
-        .to(
-          q('.object'),
-          {
-            strokeOpacity: 0,
-            drawSVG: 0,
-          },
-          'svg+=0.8'
-        )
-        .to(
-          q('.object'),
-          {
-            fillOpacity: 1,
-          },
-          'svg'
-        )
-        .to(
-          q('.item'),
-          {
-            autoAlpha: 1,
-            stagger: {
-              y: 0,
-              each: 0.1,
-            },
-          },
-          'svg'
-        )
-
-      ScrollTrigger.create({
-        trigger: panel,
-        start: 'clamp(top center+=20%)',
-        end: 'clamp(bottom bottom-=30%)',
-        scrub: true,
-        animation: tl,
+    panels.forEach((panel, i) => {
+      const pinTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: panel,
+          start: 'top top',
+          end: '+=100%',
+          pin: true,
+          scrub: true,
+          pinSpacing: false, // Sin espacio adicional al fijar el panel
+          preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+          fastScrollEnd: true,
+          invalidateOnRefresh: true,
+        },
       })
+
+      // Animación de "pin" suave
+      pinTimeline.to(panel, {
+        y: 0, // Sin desplazamiento adicional, pero con animación suave
+        ease: 'power2.out',
+        duration: 1, // Duración de la animación de "pin"
+      })
+
+      const isMedia = panel.classList.contains('media')
+      const isContent = panel.classList.contains('content')
+      const inner = panel.querySelector('.inner')
+
+      if (inner) {
+        if (isMedia) {
+          gsap.fromTo(
+            inner.querySelector('svg path'),
+            { drawSVG: '0%' },
+            {
+              drawSVG: '100%',
+              duration: 3,
+              ease: 'power1.out',
+
+              scrollTrigger: {
+                trigger: panel,
+                start: 'top center',
+                end: 'bottom center',
+                scrub: true,
+                preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+                fastScrollEnd: true,
+                markers: true,
+              },
+            }
+          )
+        }
+
+        if (isContent) {
+          gsap.fromTo(
+            inner,
+            { y: 100, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              ease: 'power2.out',
+              delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
+              stagger: 0.1, // Stagger para suavizar la animación
+              scrollTrigger: {
+                trigger: panel,
+                start: 'top center',
+                end: 'bottom center',
+                scrub: true,
+                preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+                fastScrollEnd: true,
+              },
+            }
+          )
+        }
+      }
     })
   }
-  function masterToFood() {
-    entryToFood()
-  }
-  defineExpose({
-    masterToFood,
+
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      tlCartaMenu()
+    }, main.value)
+  })
+
+  onUnmounted(() => {
+    ctx.revert()
   })
 </script>
 <template>
-  <div class="carta-menu">
+  <div id="container">
     <article
       v-for="(item, index) in items"
       :key="item._key"
-      class="carta-menu__inner"
       :class="index == 0 ? 'carta' : 'menudia'"
     >
-      <div class="media">
-        <div v-if="index == 0" class="svg">
-          <SVGCartaCircle />
+      <div class="panel media">
+        <div class="bg"></div>
+        <div class="inner">
+          <div v-if="index == 0" class="svg">
+            <SVGCartaCircle />
+          </div>
+          <div v-if="index == 1" class="svg"><SVGMenuCircle /></div>
         </div>
-        <div v-if="index == 1" class="svg item"><SVGMenuCircle /></div>
       </div>
-      <div class="content">
-        <hgroup>
-          <h2>{{ item.heading }}</h2>
-          <h3>{{ item.tagline }}</h3>
-        </hgroup>
-        <div class="inner_content">
-          <p>{{ item.excerpt }}</p>
-        </div>
-        <div v-if="index == 0">
-          <NuxtLink
-            to="la-carta"
-            :title="item.link.linkTarget.title"
-            class="cta"
-          >
-            {{ item.link.title || item.link.linkTarget.title }}
-          </NuxtLink>
-        </div>
-        <div v-if="index == 1">
-          <NuxtLink
-            to="el-menu"
-            :title="item.link.linkTarget.title"
-            class="cta"
-          >
-            {{ item.link.title || item.link.linkTarget.title }}
-          </NuxtLink>
+      <div class="panel content">
+        <div class="inner">
+          <div class="component component--text">
+            <h2 class="title-block">{{ item.heading }}</h2>
+            <div class="mb-clus3lev">
+              <p class="lead">{{ item.tagline }}</p>
+              <p>{{ item.excerpt }}</p>
+            </div>
+            <div v-if="index == 0" class="mt-10">
+              <NuxtLink
+                to="la-carta"
+                :title="item.link.linkTarget.title"
+                class="cta"
+              >
+                {{ item.link.title || item.link.linkTarget.title }}
+              </NuxtLink>
+            </div>
+            <div v-if="index == 1" class="mt-10">
+              <NuxtLink
+                to="el-menu"
+                :title="item.link.linkTarget.title"
+                class="cta"
+              >
+                {{ item.link.title || item.link.linkTarget.title }}
+              </NuxtLink>
+            </div>
+          </div>
         </div>
       </div>
     </article>
   </div>
 </template>
 <style lang="postcss" scoped>
-  .carta-menu {
-    @apply relative 
-    px-2    
-    mx-auto
-    md:bg-white
-    md:dark:bg-white/10;
+  #container {
+    @apply relative;
 
-    .carta-menu__inner {
-      @apply mx-auto
-      max-w-6xl
-      text-center
-      md:text-left
-      px-6
-      py-5     
-      first:mb-5
-      
-      md:py-20
-      md:first:mb-0
-      md:grid
-      md:grid-cols-2
-      md:items-center;
+    .panel {
+      @apply w-full
+        h-dvh
+        flex
+        justify-center
+        items-center
+        will-change-transform;
 
-      p {
-        @apply font-semibold;
+      .inner {
+        @apply w-full
+        h-full      
+        flex
+        justify-center
+        items-center;
       }
 
-      .media {
-        @apply flex-shrink-0
-        w-24
-        mx-auto
-        mb-5
-        sm:w-20
-        md:w-4/12
-        lg:w-5/12;
+      &.media {
+        @apply relative
+        z-10;
       }
 
-      .content {
-        @apply lg:pr-10;
+      &.content {
+        @apply relative
+        z-10;
+      }
+    }
 
-        hgroup {
-          @apply mb-3;
+    .panel.media {
+      @apply relative;
+      .bg {
+        @apply absolute
+        w-full
+        h-full
+        z-20
+        bg-azulejos
+        bg-cover
+        bg-center
+        dark:mix-blend-darken;
 
-          h2 {
-            @apply text-xl;
-          }
-
-          h3 {
-            @apply uppercase;
-          }
+        &:before {
+          @apply content-['']
+          w-full
+          h-full
+          z-30
+          absolute
+          bg-[#27272a]/50
+          mix-blend-saturation
+          dark:bg-secondark
+          dark:mix-blend-darken;
         }
+      }
+      .svg {
+        @apply relative
+        z-20
+        w-5/12
+        landscape:max-lg:w-3/12
+        md:w-5/12
+        lg:w-4/12
+        xl:w-4/12
+        m-auto;
+      }
+    }
 
-        .inner_content {
-          @apply mb-10;
+    .panel.content {
+      @apply bg-white
+      dark:bg-secondark;
+
+      .inner {
+        .component {
+          @apply l-box mx-clus3lev
+          border-4
+          bg-firstlight
+          text-white
+          dark:bg-firstdark
+          dark:text-secondark;
+
+          > * {
+            @apply mb-clus3lev;
+          }
         }
       }
     }

@@ -43,6 +43,7 @@ export default {
       },
       backgroundImage: () => ({
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        azulejos: "url('~/assets/images/azulejos.svg')",
       }),
       fill: (theme) => ({
         constlines: theme('colors.constlines'),

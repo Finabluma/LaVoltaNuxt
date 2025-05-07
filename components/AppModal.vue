@@ -51,7 +51,9 @@
     bottom-14
     z-50
     w-full
-    invisible;
+    invisible
+    md:bottom-auto
+    md:top-24;
 
     .wrapper {
       @apply relative

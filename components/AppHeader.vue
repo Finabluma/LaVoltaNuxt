@@ -93,7 +93,7 @@
       items-center
       py-5
       px-[5%]
-      lg:px-0;
+      lg:px-[2%];
       .logo-link {
         @apply max-w-9 w-full;
       }
