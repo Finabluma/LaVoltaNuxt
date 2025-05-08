@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted, nextTick } from 'vue'
+  import { onMounted, onUnmounted } from 'vue'
   const props = defineProps({
     items: {
       type: Array,
@@ -50,7 +50,7 @@
               start: 'center center',
               scrub: true,
               fastScrollEnd: true,
-               preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
             },
           })
           .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
