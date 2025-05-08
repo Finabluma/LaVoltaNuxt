@@ -24,7 +24,7 @@
         pinSpacing: false, // Sin espacio adicional al fijar el panel
         preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
         fastScrollEnd: true,
-        snap: 1 / 2,
+        // snap: 1 / 2,
       })
 
       // // Animación de "pin" suave
@@ -46,7 +46,7 @@
         let tl = gsap
           .timeline({
             scrollTrigger: {
-              trigger: svg,
+              trigger: panel,
               start: 'center center',
               scrub: true,
               fastScrollEnd: true,
@@ -152,7 +152,9 @@
 </template>
 <style lang="postcss" scoped>
   #container {
-    @apply relative;
+    @apply relative
+    w-full
+    min-h-dvh;
 
     .panel {
       @apply w-full
@@ -164,7 +166,7 @@
 
       .inner {
         @apply w-full
-        h-full      
+        h-dvh      
         flex
         justify-center
         items-center;
