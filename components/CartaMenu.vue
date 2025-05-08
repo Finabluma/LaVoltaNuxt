@@ -200,7 +200,7 @@
           z-30
           absolute
           bg-[#27272a]/50
-          mix-blend-saturation
+          mix-blend-difference
           dark:bg-secondark
           dark:mix-blend-darken;
         }
