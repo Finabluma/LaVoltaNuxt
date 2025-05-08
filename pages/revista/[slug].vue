@@ -39,7 +39,7 @@
       <p class="font-coordinates">{{ data.subtitle }}</p>
     </HeroSection>
     <main class="l-center">
-      <div class="mb-clus3lev max-w-5xl mx-auto post">
+      <div class="mb-clus3lev mx-auto post">
         <ArticleBreadcrumb :data="data">
           <li>
             <ElementsTextLink link-type="internalLinkType" route="revista"

@@ -78,7 +78,8 @@
       }
 
       .modal {
-        @apply flex
+        @apply l-center
+        flex
         flex-col
         justify-center
         items-center
