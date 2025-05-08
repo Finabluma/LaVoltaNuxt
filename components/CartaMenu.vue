@@ -8,31 +8,30 @@
   let main = ref(),
     ctx = ref()
   //GSAP
-  const { gsap } = useGsap()
+  const { gsap, ScrollTrigger } = useGsap()
 
   function tlCartaMenu() {
     const panels = document.querySelectorAll('#container .panel')
 
     panels.forEach((panel, i) => {
-      const pinTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: panel,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          scrub: true,
-          pinSpacing: false, // Sin espacio adicional al fijar el panel
-          preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-          fastScrollEnd: true,
-        },
+      ScrollTrigger.create({
+        trigger: panel,
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        scrub: true,
+        pinSpacing: false, // Sin espacio adicional al fijar el panel
+        preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+        fastScrollEnd: true,
+        snap: 1 / 2,
       })
 
-      // Animación de "pin" suave
-      pinTimeline.to(panel, {
-        y: 0, // Sin desplazamiento adicional, pero con animación suave
-        ease: 'power2.out',
-        duration: 1, // Duración de la animación de "pin"
-      })
+      // // Animación de "pin" suave
+      // pinTimeline.to(panel, {
+      //   y: 0, // Sin desplazamiento adicional, pero con animación suave
+      //   ease: 'power2.out',
+      //   duration: 1, // Duración de la animación de "pin"
+      // })
 
       const isMedia = panel.classList.contains('media')
       const isContent = panel.classList.contains('content')
@@ -63,6 +62,7 @@
           .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
           .to(object, { fillOpacity: '50%' }, '-=0.4')
           .to(object, { strokeOpacity: '0' })
+          .to(svg, { yPercent: -10 }, '-=0.2')
 
         return tl
       }
@@ -222,7 +222,9 @@
 
       .inner {
         .component {
-          @apply l-box mx-clus3lev
+          @apply l-box 
+          px-4
+          mx-clus3lev
           border-4
           bg-firstlight
           text-white
