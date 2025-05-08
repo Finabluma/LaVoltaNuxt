@@ -24,7 +24,6 @@
           pinSpacing: false, // Sin espacio adicional al fijar el panel
           preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
           fastScrollEnd: true,
-          invalidateOnRefresh: true,
         },
       })
 
@@ -51,6 +50,8 @@
               start: 'center center',
               end: 'bottom center',
               scrub: true,
+              // Sin espacio adicional al fijar el panel
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
               fastScrollEnd: true,
             },
           })
@@ -61,9 +62,6 @@
               map: 'position',
             },
           })
-          .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
-          .to(object, { fillOpacity: '50%' }, '-=0.4')
-          .to(object, { strokeOpacity: '0' })
 
         return tl
       }
