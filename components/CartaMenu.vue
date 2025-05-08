@@ -16,15 +16,15 @@
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
         trigger: panel,
-        start: 'top top',
-        end: '+=100%',
+        start: () =>
+          panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom',
+        anticipatePin: 1,
         pin: true,
         scrub: true,
         pinSpacing: false, // Sin espacio adicional al fijar el panel
         preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
         fastScrollEnd: true,
         snap: 1 / 2,
-        anticipatePin: 1,
       })
 
       // // Animación de "pin" suave
@@ -62,7 +62,7 @@
           })
           .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
           .to(object, { fillOpacity: '50%' }, '-=0.4')
-          .to(object, { strokeOpacity: '0' })
+          .to(object, { strokeOpacity: '0' }, '-=0.4')
           .to(svg, { yPercent: -10 }, '-=0.2')
 
         return tl

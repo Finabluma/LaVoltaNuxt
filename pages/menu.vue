@@ -32,6 +32,7 @@
         preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
         fastScrollEnd: true,
         invalidateOnRefresh: true,
+        anticipatePin: 1,
       })
     })
   }
