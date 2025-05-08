@@ -24,6 +24,7 @@
         preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
         fastScrollEnd: true,
         snap: 1 / 2,
+        anticipatePin: 1,
       })
 
       // // Animación de "pin" suave
@@ -49,7 +50,7 @@
               start: 'center center',
               scrub: true,
               fastScrollEnd: true,
-              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+              preventOverlaps: true,
             },
           })
           .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
