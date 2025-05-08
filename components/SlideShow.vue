@@ -9,16 +9,18 @@
   })
 </script>
 <template>
-  <div class="carrusel">
-    <h2 class="title">{{ title }}</h2>
-    <div class="carrusel-wrapper">
+  <div class="bg-white dark:bg-secondark mb-10 l-center">
+    <h2 class="title-block l-box px-7 l-box--no-border mb-0">
+      {{ title }}
+    </h2>
+    <div>
       <div class="wrapper">
         <Swiper
           :height="300"
           :auto-height="false"
           :modules="[SwiperAutoplay, SwiperFreeMode, SwiperPagination]"
-          :slides-per-view="1"
-          :space-between="10"
+          :slides-per-view="2"
+          :space-between="5"
           :speed="1000"
           :free-mode="false"
           :pagination="{ clickable: true }"
@@ -30,15 +32,15 @@
             },
             768: {
               slidesPerView: 2,
-              spaceBetween: 0,
+              spaceBetween: 10,
             },
             1024: {
-              slidesPerView: 2,
-              spaceBetween: 0,
+              slidesPerView: 3,
+              spaceBetween: 10,
             },
           }"
         >
-          <SwiperSlide v-for="image in images" :key="image.id" class="image">
+          <SwiperSlide v-for="image in images" :key="image.id" class="border">
             <ElementsMediaImageItem
               :src="image.asset._ref"
               :alt="image.alt"

@@ -492,10 +492,10 @@
   \*------------------------------------*/
 
   .crosslinks {
-    @apply py-14;
+    @apply py-5;
   }
 
-  .crosslinks .component--columns__intro h2 {
+  /* .crosslinks .component--columns__intro h2 {
     @apply text-lg
     leading-snug;
   }
@@ -522,7 +522,7 @@
 
   .crosslinks .card__text {
     @apply p-5;
-  }
+  } */
 
   .single,
   .compound {
