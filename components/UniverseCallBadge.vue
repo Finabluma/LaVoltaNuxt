@@ -87,7 +87,8 @@
         h-full
         flex
         justify-center
-        items-center;
+        items-center
+        xl:w-full;
       }
     }
   }
