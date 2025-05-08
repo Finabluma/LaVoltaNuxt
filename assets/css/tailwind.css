@@ -705,6 +705,7 @@
     py-4
     outline
     outline-4
+    rounded-full
     outline-firstlight
     dark:outline-firstdark    
     -outline-offset-1
@@ -716,5 +717,25 @@
     hover:text-firstlight
     dark:hover:bg-secondark    
     dark:hover:text-firstdark;
+  }
+
+  .cta-invert {
+    @apply font-semibold
+    px-6
+    py-4
+    outline
+    outline-4
+    rounded-full
+    outline-white
+    dark:outline-secondark    
+    -outline-offset-1
+    bg-white
+    text-firstlight
+    dark:bg-secondark  
+    dark:text-firstdark   
+    hover:bg-firstlight
+    hover:text-white
+    dark:hover:bg-firstdark   
+    dark:hover:text-secondark;
   }
 }

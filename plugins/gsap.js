@@ -5,6 +5,7 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { SplitText } from 'gsap/SplitText'
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin'
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
 
 export default defineNuxtPlugin(() => {
   /*------------------------------
@@ -13,6 +14,7 @@ export default defineNuxtPlugin(() => {
   gsap.registerPlugin(
     ScrollSmoother,
     ScrollTrigger,
+    MorphSVGPlugin,
     DrawSVGPlugin,
     CSSRulePlugin,
     ScrollToPlugin,

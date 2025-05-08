@@ -7,5 +7,6 @@ export default () => {
     DrawSVGPlugin: nuxtApp.$DrawSVGPlugin,
     ScrollToPlugin: nuxtApp.$ScrollToPlugin,
     CSSRulePlugin: nuxtApp.$CSSRulePlugin,
+    MorphSVGPlugin: nuxtApp.$MorphSVGPlugin,
   }
 }

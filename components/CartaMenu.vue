@@ -8,7 +8,7 @@
   let main = ref(),
     ctx = ref()
   //GSAP
-  const { gsap, ScrollTrigger, DrawSVGPlugin } = useGsap()
+  const { gsap } = useGsap()
 
   function tlCartaMenu() {
     const panels = document.querySelectorAll('#container .panel')
@@ -39,50 +39,55 @@
       const isContent = panel.classList.contains('content')
       const inner = panel.querySelector('.inner')
 
-      if (inner) {
-        if (isMedia) {
-          gsap.fromTo(
-            inner.querySelector('svg path'),
-            { drawSVG: '0%' },
-            {
-              drawSVG: '100%',
-              duration: 3,
-              ease: 'power1.out',
+      if (isMedia) {
+        const svg = inner.querySelector('svg')
+        const rect = svg.querySelector('.rect')
+        const circle = svg.querySelector('.circle')
+        const object = svg.querySelector('.object')
+        let tl = gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: svg,
+              start: 'center center',
+              end: 'bottom center',
+              scrub: true,
+              fastScrollEnd: true,
+            },
+          })
+          .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
+          .to(rect, {
+            morphSVG: {
+              shape: circle,
+              map: 'position',
+            },
+          })
+          .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
+          .to(object, { fillOpacity: '50%' }, '-=0.4')
+          .to(object, { strokeOpacity: '0' })
 
-              scrollTrigger: {
-                trigger: panel,
-                start: 'top center',
-                end: 'bottom center',
-                scrub: true,
-                preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-                fastScrollEnd: true,
-                markers: true,
-              },
-            }
-          )
-        }
+        return tl
+      }
 
-        if (isContent) {
-          gsap.fromTo(
-            inner,
-            { y: 100, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              ease: 'power2.out',
-              delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
-              stagger: 0.1, // Stagger para suavizar la animación
-              scrollTrigger: {
-                trigger: panel,
-                start: 'top center',
-                end: 'bottom center',
-                scrub: true,
-                preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-                fastScrollEnd: true,
-              },
-            }
-          )
-        }
+      if (isContent) {
+        gsap.fromTo(
+          inner,
+          { y: 100, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: 'power2.out',
+            delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
+            stagger: 0.1, // Stagger para suavizar la animación
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top center',
+              end: 'bottom center',
+              scrub: true,
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+              fastScrollEnd: true,
+            },
+          }
+        )
       }
     })
   }
@@ -125,7 +130,7 @@
               <NuxtLink
                 to="la-carta"
                 :title="item.link.linkTarget.title"
-                class="cta"
+                class="cta-invert"
               >
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
@@ -134,7 +139,7 @@
               <NuxtLink
                 to="el-menu"
                 :title="item.link.linkTarget.title"
-                class="cta"
+                class="cta-invert"
               >
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
@@ -203,7 +208,7 @@
       .svg {
         @apply relative
         z-20
-        w-5/12
+        w-9/12
         landscape:max-lg:w-3/12
         md:w-5/12
         lg:w-4/12
