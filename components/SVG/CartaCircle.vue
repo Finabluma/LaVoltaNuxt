@@ -21,9 +21,9 @@
     .object {
       @apply stroke-2
       fill-white
-      stroke-white/50
+      stroke-white/80
       dark:fill-secondark
-      dark:stroke-secondark/50;
+      dark:stroke-secondark/80;
     }
 
     .rect {

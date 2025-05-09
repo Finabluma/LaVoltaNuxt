@@ -20,10 +20,10 @@
     }
     .object {
       @apply fill-white
-      stroke-white
+      stroke-white/80
       stroke-2
       dark:fill-secondark
-      dark:stroke-secondark;
+      dark:stroke-secondark/80;
     }
 
     .rect {

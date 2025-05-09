@@ -46,26 +46,55 @@
               fastScrollEnd: true,
             },
           })
+          .set(svg, { fillOpacity: 1, strokeOpacity: 1 })
+          .add('svg')
           .to(rect, {
             morphSVG: {
               shape: circle,
               map: 'position',
             },
           })
-          .to(svg, {
-            rotation: 360 * 5,
-            transformOrigin: 'center',
-            duration: 1,
-          })
+          .to(
+            svg,
+            {
+              rotation: 360 * 2,
+              transformOrigin: 'center',
+              yPercent: -50,
+            },
+            'svg'
+          )
+          .fromTo(
+            object,
+            { drawSVG: '50% 50%' },
+            { drawSVG: '100%' },
+            'svg-=0.2'
+          )
+          .to(object, { fillOpacity: 0.8 }, 'svg-=0.2')
+          .to(object, { strokeOpacity: 0 }, 'svg-=0.2')
 
         return tlMedia
       }
 
-      // if (isMedia) {
-      //   const svg = gsap.utils.selector('.svg')
-
-      //   return tlMedia
-      // }
+      if (isContent) {
+        gsap.fromTo(
+          inner,
+          { y: 100, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: 'power2.out',
+            delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
+            stagger: 0.1, // Stagger para suavizar la animación
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top center',
+              scrub: true,
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+              fastScrollEnd: true,
+            },
+          }
+        )
+      }
     })
   }
 
