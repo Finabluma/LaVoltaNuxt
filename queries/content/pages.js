@@ -43,8 +43,7 @@ export const pagesQuery = groq`{
         }        
     },
     "revista":*[_type == 'revistaType'][0]{
-        title,
-        mainImage,
+        ${headItems},        
         seo{
             ${seoQuery}
         },
