@@ -50,6 +50,7 @@
               start: 'center center',
               scrub: true,
               fastScrollEnd: true,
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
             },
           })
           .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
@@ -81,6 +82,7 @@
               trigger: panel,
               start: 'top center',
               scrub: true,
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
               fastScrollEnd: true,
             },
           }
