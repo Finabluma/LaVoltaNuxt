@@ -46,7 +46,7 @@
         let tl = gsap
           .timeline({
             scrollTrigger: {
-              trigger: panel,
+              trigger: svg,
               start: 'center center',
               scrub: true,
               fastScrollEnd: true,
@@ -61,7 +61,7 @@
             },
           })
           .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
-          .to(object, { fillOpacity: '50%' }, '-=0.4')
+          .to(object, { fillOpacity: '80%' }, '-=0.4')
           .to(object, { strokeOpacity: '0' }, '-=0.4')
           .to(svg, { yPercent: -10 }, '-=0.2')
 
