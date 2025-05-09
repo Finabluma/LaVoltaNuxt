@@ -38,56 +38,56 @@
       const isContent = panel.classList.contains('content')
       const inner = panel.querySelector('.inner')
 
-      if (isMedia) {
-        const svg = inner.querySelector('svg')
-        const rect = svg.querySelector('.rect')
-        const circle = svg.querySelector('.circle')
-        const object = svg.querySelector('.object')
-        let tl = gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: svg,
-              start: 'center center',
-              scrub: true,
-              fastScrollEnd: true,
-              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-            },
-          })
-          .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
-          .to(rect, {
-            morphSVG: {
-              shape: circle,
-              map: 'position',
-            },
-          })
-          .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
-          .to(object, { fillOpacity: '80%' }, '-=0.4')
-          .to(object, { strokeOpacity: '0' }, '-=0.4')
-          .to(svg, { yPercent: -10 }, '-=0.2')
+      // if (isMedia) {
+      //   const svg = inner.querySelector('svg')
+      //   const rect = svg.querySelector('.rect')
+      //   const circle = svg.querySelector('.circle')
+      //   const object = svg.querySelector('.object')
+      //   let tl = gsap
+      //     .timeline({
+      //       scrollTrigger: {
+      //         trigger: svg,
+      //         start: 'center center',
+      //         scrub: true,
+      //         fastScrollEnd: true,
+      //         preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+      //       },
+      //     })
+      //     .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
+      //     .to(rect, {
+      //       morphSVG: {
+      //         shape: circle,
+      //         map: 'position',
+      //       },
+      //     })
+      //     .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
+      //     .to(object, { fillOpacity: '80%' }, '-=0.4')
+      //     .to(object, { strokeOpacity: '0' }, '-=0.4')
+      //     .to(svg, { yPercent: -10 }, '-=0.2')
 
-        return tl
-      }
+      //   return tl
+      // }
 
-      if (isContent) {
-        gsap.fromTo(
-          inner,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            ease: 'power2.out',
-            delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
-            stagger: 0.1, // Stagger para suavizar la animación
-            scrollTrigger: {
-              trigger: panel,
-              start: 'top center',
-              scrub: true,
-              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-              fastScrollEnd: true,
-            },
-          }
-        )
-      }
+      // if (isContent) {
+      //   gsap.fromTo(
+      //     inner,
+      //     { y: 100, opacity: 0 },
+      //     {
+      //       y: 0,
+      //       opacity: 1,
+      //       ease: 'power2.out',
+      //       delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
+      //       stagger: 0.1, // Stagger para suavizar la animación
+      //       scrollTrigger: {
+      //         trigger: panel,
+      //         start: 'top center',
+      //         scrub: true,
+      //         preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+      //         fastScrollEnd: true,
+      //       },
+      //     }
+      //   )
+      // }
     })
   }
 
