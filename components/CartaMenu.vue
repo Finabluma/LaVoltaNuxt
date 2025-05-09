@@ -174,6 +174,7 @@
 
       &.media {
         @apply relative
+        h-dvh
         z-10;
       }
 
@@ -188,7 +189,7 @@
       .bg {
         @apply absolute
         w-full
-        h-full
+        h-dvh
         z-20
         bg-azulejos
         bg-cover
@@ -221,7 +222,9 @@
 
     .panel.content {
       @apply bg-white
-      dark:bg-secondark;
+      dark:bg-secondark
+      w-full
+      h-dvh;
 
       .inner {
         .component {
