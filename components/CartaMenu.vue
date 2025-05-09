@@ -90,15 +90,15 @@
     })
   }
 
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      tlCartaMenu()
-    }, main.value)
-  })
+  // onMounted(() => {
+  //   ctx = gsap.context((self) => {
+  //     tlCartaMenu()
+  //   }, main.value)
+  // })
 
-  onUnmounted(() => {
-    ctx.revert()
-  })
+  // onUnmounted(() => {
+  //   ctx.revert()
+  // })
 </script>
 <template>
   <div id="container">
