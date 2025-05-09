@@ -90,15 +90,15 @@
     })
   }
 
-  // onMounted(() => {
-  //   ctx = gsap.context((self) => {
-  //     tlCartaMenu()
-  //   }, main.value)
-  // })
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      tlCartaMenu()
+    }, main.value)
+  })
 
-  // onUnmounted(() => {
-  //   ctx.revert()
-  // })
+  onUnmounted(() => {
+    ctx.revert()
+  })
 </script>
 <template>
   <div id="container">
@@ -153,6 +153,10 @@
     @apply relative
     w-full
     min-h-dvh;
+
+    article {
+      @apply h-[200%];
+    }
 
     .panel {
       @apply w-full
@@ -219,6 +223,8 @@
     }
 
     .panel.content {
+      @apply bg-white
+      dark:bg-secondark;
       .inner {
         @apply bg-white
       dark:bg-secondark
