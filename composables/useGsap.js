@@ -3,6 +3,7 @@ export default () => {
 
   return {
     gsap: nuxtApp.$gsap,
+    ScrollSmoother: nuxtApp.$ScrollSmoother,
     ScrollTrigger: nuxtApp.$ScrollTrigger,
     DrawSVGPlugin: nuxtApp.$DrawSVGPlugin,
     ScrollToPlugin: nuxtApp.$ScrollToPlugin,

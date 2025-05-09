@@ -1,4 +1,5 @@
 <script setup>
+  import { onMounted, onUnmounted } from 'vue'
   // Meta
   const { siteFavicon, siteOptions } = useMainStore()
   const route = useRoute()
@@ -109,14 +110,41 @@
       },
     ],
   })
+
+  let ctx = null
+  let smoother = null
+
+  const { gsap, ScrollSmoother, ScrollTrigger } = useGsap()
+
+  onMounted(() => {
+    ctx = gsap.context(() => {
+      smoother = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 2,
+        effects: true,
+        smoothTouch: 0.1,
+
+        overshoot: 0.1,
+        speed: 2.0,
+      })
+      ScrollTrigger.refresh()
+    })
+  })
+  onUnmounted(() => {
+    smoother.kill()
+    ctx.revert()
+  })
 </script>
 <template>
-  <div>
+  <div id="smooth-wrapper">
     <a class="sr-only" href="#main">Skip to content</a>
     <div class="grid-wrap">
       <TodayAvailability />
       <AppHeader />
-      <NuxtPage />
+      <div id="smooth-content">
+        <NuxtPage />
+      </div>
     </div>
   </div>
 </template>

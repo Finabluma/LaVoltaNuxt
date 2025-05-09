@@ -13,7 +13,6 @@
 
   onMounted(() => {
     ctx = gsap.context(() => {
-      gsap.to('.ab', { stagger: 0.25, autoAlpha: 1 })
       ScrollTrigger.create({
         start: 'clamp(top+=5% top+=10%)',
         end: 10000,
@@ -82,10 +81,6 @@
     z-40
     mb-2
     px-2;
-
-    .ab {
-      @apply opacity-0;
-    }
     .global-nav {
       @apply max-w-5xl
       mx-auto
