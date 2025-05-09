@@ -41,7 +41,7 @@
           .timeline({
             scrollTrigger: {
               trigger: svg,
-              start: 'center center',
+              start: 'top center',
               scrub: true,
               fastScrollEnd: true,
             },
@@ -54,15 +54,6 @@
               map: 'position',
             },
           })
-          .to(
-            svg,
-            {
-              rotation: 360 * 2,
-              transformOrigin: 'center',
-              yPercent: -50,
-            },
-            'svg'
-          )
           .fromTo(
             object,
             { drawSVG: '50% 50%' },
