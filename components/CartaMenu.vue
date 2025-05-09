@@ -153,7 +153,7 @@
         h-full
         z-10
         bg-azulejos
-        bg-[20vw]
+        bg-cover
         dark:mix-blend-darken;
 
         &:before {
