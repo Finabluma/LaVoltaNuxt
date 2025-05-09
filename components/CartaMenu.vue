@@ -156,7 +156,6 @@
 
     .panel {
       @apply w-full
-        h-dvh
         flex
         justify-center
         items-center
@@ -220,13 +219,12 @@
     }
 
     .panel.content {
-      @apply bg-white
-      dark:bg-secondark
-      w-full
-      h-dvh
-      relative;
-
       .inner {
+        @apply bg-white
+      dark:bg-secondark
+        w-full
+        h-dvh
+        relative;
         .component {
           @apply l-box 
           px-4
