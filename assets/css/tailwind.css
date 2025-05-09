@@ -457,6 +457,108 @@
     }
   }
 
+  .revista {
+    @apply l-box
+    l-box--no-border;
+
+    .isDestacado {
+      &:after {
+        @apply content-['']
+        w-2
+        h-2
+        bg-current
+        mx-auto
+        rounded-full
+        block;
+      }
+      .destacado {
+        .card {
+          @apply l-stack
+          md:l-box md:l-box--no-border;
+
+          .card__text {
+            @apply p-2
+            text-center
+            l-center
+            lg:p-8;
+
+            .card__heading {
+              @apply uppercase
+              text-lg/snug
+              mb-clus3lev
+              lg:text-2xl;
+            }
+
+            .lead {
+              @apply mb-clus3lev;
+            }
+          }
+
+          .categories {
+            ul {
+              @apply flex justify-center
+              flex-wrap;
+            }
+          }
+        }
+      }
+    }
+
+    .isPortada {
+      @apply max-w-5xl
+      mx-auto
+      l-box
+      l-box--no-border
+      lg:px-[10vw];
+
+      .portada {
+        @apply mt-clus3lev;
+
+        .title-block {
+          @apply mb-10
+          px-2
+          text-lg;
+        }
+
+        .articles {
+          .card {
+            @apply p-0.5
+            py-2
+            sm:py-4
+            lg:items-center;
+
+            .image-rounded {
+              @apply lg:w-28
+              lg:h-28;
+            }
+
+            .card__text {
+              @apply px-4;
+
+              .card__heading {
+                @apply border-b-2;
+              }
+
+              .card__heading,
+              .lead {
+                @apply mb-1
+                leading-snug;
+              }
+
+              .lead {
+                @apply text-sm;
+              }
+
+              .categories {
+                @apply sr-only;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .post {
     @apply l-center;
     .img {
@@ -666,7 +768,6 @@
     h-16
     lg:w-20
     lg:h-20
-    mr-clus3lev
     outline
     -outline-offset-2
     outline-4

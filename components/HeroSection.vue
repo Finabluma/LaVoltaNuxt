@@ -15,21 +15,6 @@
               <slot></slot>
             </div>
           </div>
-          <!-- <div v-if="items.mainImage" class="sidebar">
-              <ElementsMediaImageItem
-                :src="items.mainImage.asset._ref"
-                :alt="items.mainImage.alt"
-                height="700"
-                sizes="xs:100vw sm:100vw md:100vw lg:100vw"
-                :modifiers="{
-                  crop: items.mainImage.crop,
-                  hotspot: items.mainImage.hotspot,
-                  q: 80,
-                }"
-                fit="cover"
-                format="webp"
-              />
-          </div> -->
         </div>
       </div>
     </div>

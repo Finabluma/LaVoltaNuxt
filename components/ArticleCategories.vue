@@ -9,13 +9,11 @@
   })
 </script>
 <template>
-  <div class="l-cluster my-clus2lev categories">
+  <div class="categories">
     <ul class="clean-list">
       <li v-for="item in tags" :key="item.id">
         <span class="tag with-icon--before"
-          ><LazyTags  /><span class="grow">{{
-            item.title
-          }}</span></span
+          ><LazyTags /><span class="grow">{{ item.title }}</span></span
         >
 
         <!-- <NuxtLink :to="`/revista/categoria/${item.slug}`">

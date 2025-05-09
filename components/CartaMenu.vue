@@ -24,7 +24,6 @@
         fastScrollEnd: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        // snap: 1 / 2,
       })
 
       const isMedia = panel.classList.contains('media')

@@ -29,15 +29,12 @@
       <HeroSection>
         <h1 class="title-page">{{ revista.title }}</h1>
       </HeroSection>
-      <section class="l-center lg:px-[5vw]">
-        <div v-if="isFeatured.length > 0" class="lg:l-box lg:l-box--no-border">
+      <section class="revista">
+        <div v-if="isFeatured.length > 0" class="isDestacado">
           <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
         </div>
-        <div v-if="notFeatured.length > 0">
-          <ArticlesPortada
-            :items="notFeatured"
-            class="lg:l-box lg:l-box--no-border"
-          />
+        <div v-if="notFeatured.length > 0" class="isPortada">
+          <ArticlesPortada :items="notFeatured" />
         </div>
       </section>
     </main>

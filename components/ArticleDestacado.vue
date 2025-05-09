@@ -9,11 +9,9 @@
   })
 </script>
 <template>
-  <div
-    class="l-box l-box--no-padding sm:l-box sm:border-2 border-firstlight/80 dark:border-firstdark/80 dark:bg-white/20"
-  >
+  <div class="destacado">
     <h1 v-if="title" class="title-Xtra text-center">{{ title }}</h1>
-    <ArticleTeaser :article="item[0].article" class="l-stack">
+    <ArticleTeaser :article="item[0].article">
       <template #default>
         <ElementsMediaImageItem
           :src="item[0].article.mainImage.asset._ref"

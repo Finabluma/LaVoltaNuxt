@@ -6,16 +6,12 @@
   })
 </script>
 <template>
-  <div>
-    <p class="title-block l-box l-box--no-border">otras cosas ...</p>
+  <div class="portada">
+    <h1 class="title-block">Otras Lecturas</h1>
 
-    <div class="sm:l-box sm:l-box--no-border">
+    <div class="articles">
       <div v-for="item in items" :key="item.id">
-        <ArticleTeaser
-          :article="item.article"
-          :heading="item.article.title"
-          class="mb-clus3lev"
-        >
+        <ArticleTeaser :article="item.article" :heading="item.article.title">
           <template #default>
             <div class="image-rounded">
               <ElementsMediaImageItem
