@@ -180,6 +180,7 @@
 
       &.content {
         @apply relative
+        h-dvh
         z-10;
       }
     }
@@ -224,7 +225,8 @@
       @apply bg-white
       dark:bg-secondark
       w-full
-      h-dvh;
+      h-dvh
+      relative;
 
       .inner {
         .component {

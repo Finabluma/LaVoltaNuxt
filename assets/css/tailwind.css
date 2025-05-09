@@ -417,7 +417,7 @@
   }
 
   .hero + * {
-    @apply mt-8
+    @apply mt-0
     lg:mt-14;
   }
 
