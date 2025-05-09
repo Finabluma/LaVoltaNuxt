@@ -71,7 +71,7 @@
 
       if (isContent) {
         gsap.fromTo(
-          inner,
+          '.component',
           { y: 100, opacity: 0 },
           {
             y: 0,
@@ -80,7 +80,7 @@
             delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
             stagger: 0.1, // Stagger para suavizar la animación
             scrollTrigger: {
-              trigger: panel,
+              trigger: '.component',
               start: 'top center',
               scrub: true,
               preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
