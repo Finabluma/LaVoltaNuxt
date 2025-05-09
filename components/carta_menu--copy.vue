@@ -81,6 +81,7 @@
               trigger: panel,
               start: 'top center',
               scrub: true,
+              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
               fastScrollEnd: true,
             },
           }
@@ -153,10 +154,6 @@
     w-full
     min-h-dvh;
 
-    article {
-      @apply h-[200%];
-    }
-
     .panel {
       @apply w-full
         flex
@@ -222,8 +219,6 @@
     }
 
     .panel.content {
-      @apply bg-white
-      dark:bg-secondark;
       .inner {
         @apply bg-white
       dark:bg-secondark
