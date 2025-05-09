@@ -102,7 +102,7 @@
     .panel {
       @apply relative
       w-full
-      h-dvh
+      h-[100vh]
       flex
       justify-center
       items-center
@@ -112,7 +112,7 @@
     .panel.media {
       @apply relative
       w-full
-      h-dvh;
+      h-[100vh];
 
       .bg {
         @apply absolute
