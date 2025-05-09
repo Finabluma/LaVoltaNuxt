@@ -11,8 +11,7 @@
   const { gsap, ScrollTrigger } = useGsap()
 
   function tlCartaMenu() {
-    const panels = document.querySelectorAll('#container .panel')
-
+    let panels = gsap.utils.toArray('.panel')
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
         trigger: panel,
@@ -20,20 +19,53 @@
           panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom',
         pin: true,
         scrub: true,
-        pinSpacing: false, // Sin espacio adicional al fijar el panel
-        preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
+        pinSpacing: false,
+        preventOverlaps: true,
         fastScrollEnd: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
         // snap: 1 / 2,
       })
 
-      // // Animación de "pin" suave
-      // pinTimeline.to(panel, {
-      //   y: 0, // Sin desplazamiento adicional, pero con animación suave
-      //   ease: 'power2.out',
-      //   duration: 1, // Duración de la animación de "pin"
-      // })
+      const isMedia = panel.classList.contains('media')
+      const isContent = panel.classList.contains('content')
+      const inner = panel.querySelector('.inner')
+
+      if (isMedia) {
+        const svg = inner.querySelector('svg')
+        const rect = svg.querySelector('.rect')
+        const circle = svg.querySelector('.circle')
+        const object = svg.querySelector('.object')
+
+        const tlMedia = gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: svg,
+              start: 'center center',
+              scrub: true,
+              fastScrollEnd: true,
+            },
+          })
+          .to(rect, {
+            morphSVG: {
+              shape: circle,
+              map: 'position',
+            },
+          })
+          .to(svg, {
+            rotation: 360 * 5,
+            transformOrigin: 'center',
+            duration: 1,
+          })
+
+        return tlMedia
+      }
+
+      // if (isMedia) {
+      //   const svg = gsap.utils.selector('.svg')
+
+      //   return tlMedia
+      // }
     })
   }
 
@@ -121,7 +153,7 @@
         h-full
         z-10
         bg-azulejos
-        bg-contain
+        bg-[20vw]
         dark:mix-blend-darken;
 
         &:before {
@@ -141,6 +173,7 @@
         w-10/12
         sm:w-4/12
         lg:w-6/12
+        xl:w-4/12
         bg-transparent;
 
         .svg {
