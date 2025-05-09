@@ -34,61 +34,6 @@
       //   ease: 'power2.out',
       //   duration: 1, // Duración de la animación de "pin"
       // })
-
-      const isMedia = panel.classList.contains('media')
-      const isContent = panel.classList.contains('content')
-      const inner = panel.querySelector('.inner')
-
-      if (isMedia) {
-        const svg = inner.querySelector('svg')
-        const rect = svg.querySelector('.rect')
-        const circle = svg.querySelector('.circle')
-        const object = svg.querySelector('.object')
-        let tl = gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: svg,
-              start: 'center center',
-              scrub: true,
-              fastScrollEnd: true,
-              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-            },
-          })
-          .set(object, { fillOpacity: '100%', strokeOpacity: '100%' })
-          .to(rect, {
-            morphSVG: {
-              shape: circle,
-              map: 'position',
-            },
-          })
-          .fromTo(object, { drawSVG: '50% 50%' }, { drawSVG: '100%' }, '-=0.2')
-          .to(object, { fillOpacity: '80%' }, '-=0.4')
-          .to(object, { strokeOpacity: '0' }, '-=0.4')
-          .to(svg, { yPercent: -10 }, '-=0.2')
-
-        return tl
-      }
-
-      if (isContent) {
-        gsap.fromTo(
-          '.component',
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            ease: 'power2.out',
-            delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
-            stagger: 0.1, // Stagger para suavizar la animación
-            scrollTrigger: {
-              trigger: '.component',
-              start: 'top center',
-              scrub: true,
-              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-              fastScrollEnd: true,
-            },
-          }
-        )
-      }
     })
   }
 
@@ -106,13 +51,13 @@
   <div id="container">
     <article v-for="(item, index) in items" :key="item._key">
       <div class="panel media">
-        <div class="bg"></div>
         <div class="inner">
           <div v-if="index == 0" class="svg">
             <SVGCartaCircle />
           </div>
           <div v-if="index == 1" class="svg"><SVGMenuCircle /></div>
         </div>
+        <div class="bg"></div>
       </div>
       <div class="panel content">
         <div class="inner">
@@ -150,13 +95,90 @@
   #container {
     @apply relative
     w-full
-    min-h-dvh;
-
-    article {
-      @apply h-[200%];
-    }
+    h-full
+    bg-transparent
+    overflow-y-hidden;
 
     .panel {
+      @apply relative
+      w-full
+      h-dvh
+      flex
+      justify-center
+      items-center
+      will-change-transform;
+    }
+
+    .panel.media {
+      @apply relative
+      w-full
+      h-dvh;
+
+      .bg {
+        @apply absolute
+        top-0
+        w-full
+        h-full
+        z-10
+        bg-azulejos
+        bg-contain
+        dark:mix-blend-darken;
+
+        &:before {
+          @apply content-['']
+          w-full
+          h-full
+          absolute
+          bg-[#27272a]/50
+          mix-blend-difference
+          dark:bg-secondark
+          dark:mix-blend-darken;
+        }
+      }
+
+      .inner {
+        @apply relative
+        w-10/12
+        sm:w-4/12
+        lg:w-6/12
+        bg-transparent;
+
+        .svg {
+          @apply relative
+          z-20
+          w-full
+          m-auto;
+        }
+      }
+    }
+
+    .panel.content {
+      @apply relative
+        bg-white
+        dark:bg-secondark;
+
+      .inner {
+        @apply bg-white
+        dark:bg-secondark
+        w-auto;
+        .component {
+          @apply l-box 
+          px-4
+          mx-clus3lev
+          border-4
+          bg-firstlight
+          text-white
+          dark:bg-firstdark
+          dark:text-secondark;
+
+          > * {
+            @apply mb-clus3lev;
+          }
+        }
+      }
+    }
+
+    /* .panel {
       @apply w-full
         flex
         justify-center
@@ -165,7 +187,7 @@
 
       .inner {
         @apply w-full
-        h-dvh      
+        h-dvh
         flex
         justify-center
         items-center;
@@ -182,31 +204,11 @@
         h-dvh
         z-10;
       }
-    }
+    } */
 
     .panel.media {
       @apply relative;
-      .bg {
-        @apply absolute
-        w-full
-        h-dvh
-        z-20
-        bg-azulejos
-        bg-cover
-        dark:mix-blend-darken;
 
-        &:before {
-          @apply content-['']
-          w-full
-          h-full
-          z-30
-          absolute
-          bg-[#27272a]/50
-          mix-blend-difference
-          dark:bg-secondark
-          dark:mix-blend-darken;
-        }
-      }
       .svg {
         @apply relative
         z-20
@@ -216,32 +218,6 @@
         lg:w-4/12
         xl:w-4/12
         m-auto;
-      }
-    }
-
-    .panel.content {
-      @apply bg-white
-      dark:bg-secondark;
-      .inner {
-        @apply bg-white
-      dark:bg-secondark
-        w-full
-        h-dvh
-        relative;
-        .component {
-          @apply l-box 
-          px-4
-          mx-clus3lev
-          border-4
-          bg-firstlight
-          text-white
-          dark:bg-firstdark
-          dark:text-secondark;
-
-          > * {
-            @apply mb-clus3lev;
-          }
-        }
       }
     }
   }
