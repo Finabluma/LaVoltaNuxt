@@ -7,8 +7,7 @@ export const seoQuery = groq`
     ${seoItems}
 `
 export const headItems = groq`
-    title,
-    mainImage
+    title
 `
 export const portadaItems = groq`
   title, 

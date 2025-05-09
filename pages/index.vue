@@ -5,6 +5,8 @@
     return home.portada.portada.cover.filter((item) => item.featured !== false)
   })
   let showModal = ref(true)
+
+  console.log(home.optionalContent)
 </script>
 <template>
   <div class="page">

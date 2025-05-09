@@ -33,18 +33,17 @@
       <div v-if="optional.banner || optional.subtitle" class="inner">
         {{ optional.banner || optional.subtitle }}
       </div>
-      <div class="enlace">
-        <div v-if="optional.enlace" >
-          <OptionalLink :link="optional.enlace" />
+      <div v-if="optional.enlace" class="enlace">
+        <div v-if="optional.enlace.slug !== null">
+          <NuxtLink
+            :to="`/revista/${optional.enlace.slug}`"
+            :title="optional.enlace.title"
+          >
+            {{ optional.enlace.title }}
+          </NuxtLink>
         </div>
         <div v-else>
-          <ElementsTextLink
-            link-type="internalLinkType"
-            route="revista-slug"
-            :slug="optional.slug"
-          >
-            Feliz Lectura
-          </ElementsTextLink>
+          <OptionalLink :link="optional.enlace" />
         </div>
       </div>
     </div>

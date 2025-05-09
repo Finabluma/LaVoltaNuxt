@@ -6,19 +6,17 @@
     },
   })
   const estilos = computed(() => {
-    return props.page.optionalContent.bannerBody.length == 1
+    return props.page.optionalContent.optionalContent.length == 1
       ? 'single'
       : 'compound'
   })
 
   const optional = computed(() => {
-    const banner = props.page.optionalContent.bannerBody
-    const article = props.page.optionalContent.article
-    return banner.concat(article)
+    return props.page.optionalContent.optionalContent
   })
 </script>
 <template>
-  <div v-if="page.optionalContent !== null" :class="estilos">
+  <div v-if="page.optionalContent" :class="estilos">
     <div class="content_wrapper">
       <div
         v-for="(item, index) in optional"

@@ -20,7 +20,7 @@ export const siteContact = groq`
 
 export const optional = groq`
     optionalContent{
-        'bannerBody': optionalContent[@->._type == 'bannerBodyType']->{
+        optionalContent[]->{
             "id":_id,
             title,
             image{
@@ -35,16 +35,7 @@ export const optional = groq`
                 "slug":slug.current
               }
             }
-        },
-        'article': optionalContent[@->._type == 'articleType']->{
-            "id":_id,
-            title,
-            "slug":slug.current,
-            "image":mainImage{
-                asset,
-            },
-            subtitle
-        },
+        }
     } 
 `
 export const mensaje = groq`
