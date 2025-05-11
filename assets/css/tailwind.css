@@ -14,6 +14,12 @@
     dark:fill-firstdark;
   }
 
+  ::selection {
+    @apply bg-secondark
+    text-white
+    dark:bg-firstlight;
+  }
+
   html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
