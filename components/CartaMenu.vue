@@ -173,6 +173,7 @@
         z-10
         bg-azulejos
         bg-cover
+        bg-center
         dark:mix-blend-darken;
 
         &:before {
@@ -189,10 +190,12 @@
 
       .inner {
         @apply relative
-        w-10/12
-        sm:w-4/12
-        lg:w-6/12
-        xl:w-4/12
+        w-8/12
+        sm:w-3/12
+        md:w-6/12
+        lg:w-4/12
+        xl:w-3/12
+        2xl:w-3/12
         bg-transparent;
 
         .svg {

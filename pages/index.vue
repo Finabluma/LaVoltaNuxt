@@ -6,7 +6,6 @@
   })
   let showModal = ref(true)
 
-  console.log(home.optionalContent)
 </script>
 <template>
   <div class="page">
