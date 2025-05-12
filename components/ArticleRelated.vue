@@ -44,13 +44,13 @@
   .related {
     @apply grid
     md:grid-cols-2
-    md:gap-4;
+    md:gap-4
+    md:p-2;
 
     .card {
       @apply outline
         outline-firstlight
         dark:outline-firstdark
-        /* bg-firstlight */
         outline-2
         dark:bg-white/20;
 
