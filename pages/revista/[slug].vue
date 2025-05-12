@@ -100,7 +100,7 @@
     @apply l-center
     lg:px-[12vw];
     .img {
-      @apply mb-clus3lev;
+      @apply mb-clus2lev;
       img {
         @apply p-1
         border;

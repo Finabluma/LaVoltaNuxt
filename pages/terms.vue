@@ -16,8 +16,8 @@
         </div>
       </HeroSection>
       <section class="l-center">
-        <div v-if="terms.richtext" class="lg:l-box">
-          <ElementsTextContent :blocks="terms.richtext" class="lg:l-box"/>
+        <div v-if="terms.richtext" class="lg:l-box lg:l-box l-box--no-border">
+          <ElementsTextContent :blocks="terms.richtext" class="lg:l-box lg:l-box l-box--no-border" />
         </div>
       </section>
     </main>

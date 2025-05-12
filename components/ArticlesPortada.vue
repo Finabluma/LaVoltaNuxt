@@ -22,7 +22,6 @@
         @apply outline
         outline-firstlight
         dark:outline-firstdark
-        /* bg-firstlight */
         outline-2
         dark:bg-white/20;
 
