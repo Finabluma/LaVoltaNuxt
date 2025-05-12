@@ -12,7 +12,7 @@
   })
 </script>
 <template>
-  <article class="card" data-component="card">
+  <article class="card">
     <slot></slot>
     <div class="card__text">
       <h2 class="card__heading">

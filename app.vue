@@ -111,30 +111,30 @@
     ],
   })
 
-  let ctx = null
-  let smoother = null
+  // let ctx = null
+  // let smoother = null
 
-  const { gsap, ScrollSmoother, ScrollTrigger } = useGsap()
+  // const { gsap, ScrollSmoother, ScrollTrigger } = useGsap()
 
-  onMounted(() => {
-    ctx = gsap.context(() => {
-      smoother = ScrollSmoother.create({
-        wrapper: '#smooth-wrapper',
-        content: '#smooth-content',
-        smooth: 2,
-        effects: true,
-        smoothTouch: 0.1,
+  // onMounted(() => {
+  //   ctx = gsap.context(() => {
+  //     smoother = ScrollSmoother.create({
+  //       wrapper: '#smooth-wrapper',
+  //       content: '#smooth-content',
+  //       smooth: 2,
+  //       effects: true,
+  //       smoothTouch: 0.1,
 
-        overshoot: 0.1,
-        speed: 2.0,
-      })
-      ScrollTrigger.refresh()
-    })
-  })
-  onUnmounted(() => {
-    smoother.kill()
-    ctx.revert()
-  })
+  //       overshoot: 0.1,
+  //       speed: 2.0,
+  //     })
+  //     ScrollTrigger.refresh()
+  //   })
+  // })
+  // onUnmounted(() => {
+  //   smoother.kill()
+  //   ctx.revert()
+  // })
 </script>
 <template>
   <div id="smooth-wrapper">

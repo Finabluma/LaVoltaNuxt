@@ -17,12 +17,12 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.4",
     "@sanity/image-url": "^1.0.2",
+    "@yeger/vue-masonry-wall": "^5.0.18",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
     "nuxt": "^3.13.0",
     "nuxt-swiper": "^1.2.2",
     "pinia": "^2.2.2",
-    "vue": "latest",
-    "vue-masonry-wall": "^0.3.2"
+    "vue": "latest"
   },
   "overrides": {
     "vue": "latest"

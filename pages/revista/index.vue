@@ -34,7 +34,47 @@
           <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
         </div>
         <div v-if="notFeatured.length > 0" class="isPortada">
-          <ArticlesPortada :items="notFeatured" />
+          <ArticlesPortada>
+            <MasonryWall
+              :items="notFeatured"
+              :ssr-columns="1"
+              :column-width="200"
+              :gap="15"
+              :min-columns="1"
+              :maxColumns="4"
+            >
+              <template #default="{ item }">
+                <ArticleTeaser
+                  :article="item.article"
+                  :heading="item.article.title"
+                >
+                  <template #default>
+                    <div class="image">
+                      <ElementsMediaImageItem
+                        :src="item.article.mainImage.asset._ref"
+                        :alt="item.article.mainImage.alt"
+                        :modifiers="{
+                          crop: item.article.mainImage.crop,
+                          hotspot: item.article.mainImage.hotspot,
+                          q: 80,
+                        }"
+                        sizes="xs:100vw"
+                        height="200"
+                        fit="cover"
+                        format="webp"
+                      />
+                    </div>
+                  </template>
+                  <template #categories>
+                    <ArticleCategories
+                      :tags="item.article.categories"
+                      v-if="item.article.categories"
+                    />
+                  </template>
+                </ArticleTeaser>
+              </template>
+            </MasonryWall>
+          </ArticlesPortada>
         </div>
       </section>
     </main>
@@ -44,3 +84,11 @@
     <AppFooter />
   </div>
 </template>
+<style lang="postcss" scoped>
+  .revista {
+    @apply l-center
+    l-box
+    l-box--no-border
+    lg:px-[10vw];
+  }
+</style>

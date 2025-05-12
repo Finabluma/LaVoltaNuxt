@@ -38,8 +38,8 @@
       <h1 class="title-page">{{ data.title }}</h1>
       <p class="font-coordinates">{{ data.subtitle }}</p>
     </HeroSection>
-    <main class="l-center">
-      <div class="mb-clus3lev mx-auto post">
+    <main>
+      <div class="mb-clus3lev post">
         <ArticleBreadcrumb :data="data">
           <li>
             <ElementsTextLink link-type="internalLinkType" route="revista"
@@ -69,13 +69,9 @@
           v-if="data?.maincontent"
           class="mb-clus3lev"
         />
-        <ArticleCategories
-          v-if="data.categories"
-          :tags="data.categories"
-          class="l-box l-box--no-border"
-        />
+        <ArticleCategories v-if="data.categories" :tags="data.categories" />
       </div>
-      <div class="l-center md:l-box md:l-box--no-border max-w-5xl mx-auto">
+      <div class="list-related">
         <ArticleRelated :related="related.articleRelated" v-if="related" />
       </div>
     </main>
@@ -94,3 +90,48 @@
   </div>
   <div v-else>NO HAY ARTICULO</div>
 </template>
+
+<style lang="postcss">
+  .hero .l-center {
+    @apply lg:px-[10vw];
+  }
+
+  .post {
+    @apply l-center
+    lg:px-[12vw];
+    .img {
+      @apply mb-clus3lev;
+      img {
+        @apply p-1
+        border;
+      }
+    }
+    .categories {
+      @apply md:p-[5vw];
+      .tag {
+        @apply text-base
+        items-center;
+
+        svg {
+          @apply icon--larger;
+        }
+      }
+
+      &::before {
+        @apply content-['']
+        w-1/12
+        h-1
+        bg-current
+        block
+        mb-clus3lev;
+      }
+    }
+  }
+  .list-related {
+    @apply l-center
+    l-box
+    l-box--no-border
+    max-w-4xl
+    lg:px-[10vw];
+  }
+</style>

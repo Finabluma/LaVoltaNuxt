@@ -25,6 +25,7 @@
           height="400"
           fit="cover"
           format="webp"
+          class="image"
         />
       </template>
       <template #categories>
@@ -37,3 +38,43 @@
     </ArticleTeaser>
   </div>
 </template>
+<style lang="postcss">
+  .destacado {
+    @apply mb-clus3lev;
+    .card {
+      @apply l-stack
+          md:l-box
+          md:l-box--no-border;
+
+      .image {
+        @apply border
+        block;
+      }
+
+      .card__text {
+        @apply p-2
+            text-center
+            l-center
+            lg:p-4;
+
+        .card__heading {
+          @apply uppercase
+              text-lg/snug
+              mb-clus3lev
+              lg:text-2xl;
+        }
+
+        .lead {
+          @apply mb-clus3lev;
+        }
+      }
+
+      .categories {
+        ul {
+          @apply flex justify-center
+              flex-wrap;
+        }
+      }
+    }
+  }
+</style>

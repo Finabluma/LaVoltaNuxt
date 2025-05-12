@@ -18,6 +18,7 @@ export default {
       firstlight: '#E66EB2',
       firstdark: '#1B365C',
       secondark: '#7EA1C4',
+      black: '#27272a',
       transparent: 'transparent',
       current: 'currentColor',
     },
