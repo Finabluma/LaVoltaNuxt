@@ -24,7 +24,6 @@
         fastScrollEnd: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        markers: true,
       })
 
       const isMedia = panel.classList.contains('media')
@@ -44,9 +43,6 @@
               pin: true,
               scrub: true,
               fastScrollEnd: true,
-              markers: {
-                startColor: 'purple',
-              },
             },
           })
           .set(svg, { fillOpacity: 1, strokeOpacity: 1 })
