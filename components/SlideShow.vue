@@ -9,7 +9,7 @@
   })
 </script>
 <template>
-  <div class="bg-white dark:bg-secondark mb-10 l-center">
+  <div class="bg-white dark:bg-secondark mb-10 l-center xl:px-[20vw]">
     <h2 class="title-block l-box px-7 l-box--no-border mb-0">
       {{ title }}
     </h2>

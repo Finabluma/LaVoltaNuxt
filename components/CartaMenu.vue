@@ -153,7 +153,7 @@
     article {
       @apply sm:py-8
       lg:flex
-      lg:max-w-4xl
+      lg:max-w-5xl
       lg:mx-auto
       lg:py-10;
     }
@@ -168,8 +168,7 @@
     }
 
     .panel.media {
-      @apply relative
-      w-full;
+      @apply relative;
 
       .inner {
         @apply relative
@@ -209,17 +208,24 @@
           @apply px-4
           mx-clus3lev
           text-center
-          lg:px-0;
+          lg:px-0
+          lg:text-left;
 
           > * {
             @apply mb-clus2lev
             mx-auto;
           }
 
-          h2:after {
-            @apply mx-auto;
-          }
+          .title-block {
+            @apply mb-5
+            text-xl
+            uppercase;
 
+            &:after {
+              @apply mx-auto
+              lg:ml-0;
+            }
+          }
           .cta {
             @apply mt-5;
           }
