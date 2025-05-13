@@ -26,11 +26,10 @@
         fastScrollEnd: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
-        markers: true,
       })
 
       const isMedia = panel.classList.contains('media')
-      const isContent = panel.classList.contains('content')
+      // const isContent = panel.classList.contains('content')
       const inner = panel.querySelector('.inner')
 
       if (isMedia) {
