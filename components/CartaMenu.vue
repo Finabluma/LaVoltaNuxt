@@ -155,7 +155,8 @@
       lg:flex
       lg:max-w-5xl
       lg:mx-auto
-      lg:py-10;
+      lg:py-10
+      first:pb-20;
     }
 
     .panel {
