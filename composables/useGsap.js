@@ -9,5 +9,6 @@ export default () => {
     ScrollToPlugin: nuxtApp.$ScrollToPlugin,
     CSSRulePlugin: nuxtApp.$CSSRulePlugin,
     MorphSVGPlugin: nuxtApp.$MorphSVGPlugin,
+    SplitText: nuxtApp.$SplitText,
   }
 }

@@ -9,9 +9,9 @@
     ctx = ref()
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
-
   function tlCartaMenu() {
-    let panels = gsap.utils.toArray('.panel')
+    let panels = gsap.utils.toArray('article')
+
     panels.forEach((panel, i) => {
       ScrollTrigger.create({
         trigger: panel,
@@ -24,11 +24,10 @@
         fastScrollEnd: true,
         invalidateOnRefresh: true,
         anticipatePin: 1,
+        markers: true,
       })
 
       const isMedia = panel.classList.contains('media')
-      const isContent = panel.classList.contains('content')
-      const inner = panel.querySelector('.inner')
 
       if (isMedia) {
         const svg = inner.querySelector('svg')
@@ -39,10 +38,15 @@
         const tlMedia = gsap
           .timeline({
             scrollTrigger: {
-              trigger: svg,
-              start: 'top center',
+              trigger: panel,
+              start: 'center center',
+              end: 'bottom bottom',
+              pin: true,
               scrub: true,
               fastScrollEnd: true,
+              markers: {
+                startColor: 'purple',
+              },
             },
           })
           .set(svg, { fillOpacity: 1, strokeOpacity: 1 })
@@ -64,27 +68,6 @@
 
         return tlMedia
       }
-
-      if (isContent) {
-        gsap.fromTo(
-          inner,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            ease: 'power2.out',
-            delay: 0.2, // Retraso para evitar que todas las animaciones se inicien a la vez
-            stagger: 0.1, // Stagger para suavizar la animación
-            scrollTrigger: {
-              trigger: panel,
-              start: 'top center',
-              scrub: true,
-              preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
-              fastScrollEnd: true,
-            },
-          }
-        )
-      }
     })
   }
 
@@ -101,17 +84,14 @@
 <template>
   <div id="container">
     <article v-for="(item, index) in items" :key="item._key">
-      <div class="panel media">
-        <div class="inner">
+      <div class="inner">
+        <div class="media">
           <div v-if="index == 0" class="svg">
             <SVGCartaCircle />
           </div>
           <div v-if="index == 1" class="svg"><SVGMenuCircle /></div>
         </div>
-        <div class="bg"></div>
-      </div>
-      <div class="panel content">
-        <div class="inner">
+        <div class="content">
           <div class="component component--text">
             <h2 class="title-block">{{ item.heading }}</h2>
             <div class="mb-clus3lev">
@@ -122,7 +102,7 @@
               <NuxtLink
                 to="la-carta"
                 :title="item.link.linkTarget.title"
-                class="cta-invert"
+                class="cta"
               >
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
@@ -131,7 +111,7 @@
               <NuxtLink
                 to="el-menu"
                 :title="item.link.linkTarget.title"
-                class="cta-invert"
+                class="cta"
               >
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
@@ -140,139 +120,71 @@
         </div>
       </div>
     </article>
+    <!-- <div class="bg"></div> -->
   </div>
 </template>
 <style lang="postcss" scoped>
   #container {
     @apply relative
-    w-full
-    h-full
-    bg-transparent
-    overflow-y-hidden;
+    l-box
+    py-0
+    l-box--no-border;
+  }
 
-    .panel {
+  article {
+    @apply relative
+    z-20
+    mx-auto
+    max-w-4xl
+    mb-clus3lev;
+
+    .inner {
       @apply relative
-      w-full
-      h-[100vh]
-      flex
-      justify-center
-      items-center
-      will-change-transform;
-    }
+      
+      l-box
+      p-5
+      sm:flex;
 
-    .panel.media {
-      @apply relative
-      w-full
-      h-[100vh];
-
-      .bg {
+      &:before {
         @apply absolute
         top-0
         w-full
         h-full
-        z-10
         bg-azulejos
-        bg-cover
-        bg-center
-        dark:mix-blend-darken;
-
-        &:before {
-          @apply content-['']
-          w-full
-          h-full
-          absolute
-          bg-[#27272a]/50
-          mix-blend-difference
-          dark:bg-secondark
-          dark:mix-blend-darken;
-        }
-      }
-
-      .inner {
-        @apply relative
-        w-8/12
-        sm:w-3/12
-        md:w-6/12
-        lg:w-4/12
-        xl:w-3/12
-        2xl:w-3/12
-        bg-transparent;
-
-        .svg {
-          @apply relative
-          z-20
-          w-full
-          m-auto;
-        }
+        mix-blend-screen;
       }
     }
 
-    .panel.content {
+    .media {
       @apply relative
-        bg-white
-        dark:bg-secondark;
+      z-30
+      w-full
+      mb-clus3lev
+      sm:mb-0;
 
-      .inner {
-        @apply bg-white
-        dark:bg-secondark
-        w-auto;
-        .component {
-          @apply l-box 
-          px-4
-          mx-clus3lev
-          border-4
-          bg-firstlight
-          text-white
-          dark:bg-firstdark
-          dark:text-secondark;
-
-          > * {
-            @apply mb-clus3lev;
-          }
-        }
+      .title-block {
+        @apply text-2xl;
       }
-    }
-
-    /* .panel {
-      @apply w-full
-        flex
-        justify-center
-        items-center
-        will-change-transform;
-
-      .inner {
-        @apply w-full
-        h-dvh
-        flex
-        justify-center
-        items-center;
-      }
-
-      &.media {
-        @apply relative
-        h-dvh
-        z-10;
-      }
-
-      &.content {
-        @apply relative
-        h-dvh
-        z-10;
-      }
-    } */
-
-    .panel.media {
-      @apply relative;
 
       .svg {
-        @apply relative
-        z-20
-        w-9/12
-        landscape:max-lg:w-3/12
-        md:w-5/12
-        lg:w-4/12
-        xl:w-4/12
-        m-auto;
+        @apply w-4/12
+        md:w-6/12;
+      }
+    }
+
+    .content {
+      @apply relative
+      z-20
+      w-full
+      mx-auto
+      /* text-white
+      dark:text-secondark */
+      /* bg-black
+      dark:bg-firstdark */
+      lg:px-2;
+
+      .lead {
+        @apply mb-clus3lev;
       }
     }
   }
