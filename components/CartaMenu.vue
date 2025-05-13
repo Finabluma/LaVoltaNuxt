@@ -128,6 +128,7 @@
     l-box
     l-box--no-border
     py-0
+    l-center
     lg:grid
     lg:grid-cols-2
     lg:gap-5;
@@ -143,7 +144,7 @@
       @apply relative
       l-box
       bg-black
-      dark:bg-firstdark;
+      dark:bg-secondark;
 
       &:before {
         @apply content-['']
@@ -155,7 +156,7 @@
         bg-azulejos
         bg-cover
         mix-blend-overlay
-        dark:mix-blend-color-dodge;
+        dark:mix-blend-darken;
       }
     }
 
@@ -167,6 +168,7 @@
 
       .svg {
         @apply w-4/12
+        p-2
         md:w-2/12;
       }
     }
@@ -183,7 +185,6 @@
         @apply p-2
         text-white
       dark:text-secondark
-      bg-black
       dark:bg-firstdark;
       }
 

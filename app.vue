@@ -125,7 +125,6 @@
         effects: true,
         smoothTouch: 0.1,
         speed: 2.0,
-        normalizeScroll: true,
       })
       ScrollTrigger.refresh()
     })
