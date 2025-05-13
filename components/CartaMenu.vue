@@ -89,11 +89,14 @@
         </div>
         <div class="content">
           <div class="component component--text">
-            <h2 class="title-block">{{ item.heading }}</h2>
-            <div class="mb-clus3lev">
-              <p class="lead">{{ item.tagline }}</p>
-              <p>{{ item.excerpt }}</p>
+            <div class="inner-component mb-clus3lev">
+              <h2 class="title-block">{{ item.heading }}</h2>
+              <div>
+                <p class="lead">{{ item.tagline }}</p>
+                <p>{{ item.excerpt }}</p>
+              </div>
             </div>
+
             <div v-if="index == 0" class="mt-10">
               <NuxtLink
                 to="la-carta"
@@ -123,31 +126,36 @@
   #container {
     @apply relative
     l-box
+    l-box--no-border
     py-0
-    l-box--no-border;
+    lg:grid
+    lg:grid-cols-2
+    lg:gap-5;
   }
 
   article {
     @apply relative
     z-20
     mx-auto
-    max-w-4xl
     mb-clus3lev;
 
     .inner {
       @apply relative
-      
       l-box
-      p-5
-      sm:flex;
+      bg-black
+      dark:bg-firstdark;
 
       &:before {
-        @apply absolute
+        @apply content-['']
+        absolute
         top-0
+        left-0
         w-full
         h-full
         bg-azulejos
-        mix-blend-screen;
+        bg-cover
+        mix-blend-overlay
+        dark:mix-blend-color-dodge;
       }
     }
 
@@ -155,16 +163,11 @@
       @apply relative
       z-30
       w-full
-      mb-clus3lev
-      sm:mb-0;
-
-      .title-block {
-        @apply text-2xl;
-      }
+      mb-clus3lev;
 
       .svg {
         @apply w-4/12
-        md:w-6/12;
+        md:w-2/12;
       }
     }
 
@@ -173,11 +176,20 @@
       z-20
       w-full
       mx-auto
-      /* text-white
-      dark:text-secondark */
-      /* bg-black
-      dark:bg-firstdark */
+       
       lg:px-2;
+
+      .inner-component {
+        @apply p-2
+        text-white
+      dark:text-secondark
+      bg-black
+      dark:bg-firstdark;
+      }
+
+      .title-block {
+        @apply text-2xl;
+      }
 
       .lead {
         @apply mb-clus3lev;
