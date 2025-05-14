@@ -43,16 +43,18 @@
 <style lang="postcss">
   .related {
     @apply grid
+    px-10
     md:grid-cols-2
     md:gap-4
     md:p-2;
 
     .card {
-      @apply outline
+      @apply dark:bg-white/20
+        mb-10
+        md:outline
         outline-firstlight
         dark:outline-firstdark
-        outline-2
-        dark:bg-white/20;
+        outline-4;
 
       .image {
         @apply border

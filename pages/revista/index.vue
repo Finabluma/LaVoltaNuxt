@@ -45,7 +45,7 @@
                 :column-width="200"
                 :gap="15"
                 :min-columns="1"
-                :maxColumns="4"
+                :maxColumns="2"
               >
                 <template #default="{ item }">
                   <ArticleTeaser
