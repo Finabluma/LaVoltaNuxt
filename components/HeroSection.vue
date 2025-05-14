@@ -49,10 +49,10 @@
       h-full
       backdrop-contrast-75
       bg-gradient-to-b
-      from-white/40
+      from-firstdark/80
       from-40%
-      to-secondark
-      mix-blend-color-dodge
+      to-black
+      mix-blend-multiply
       dark:from-firstdark/60
       dark:via-firstdark/90
       dark:to-firstdark

@@ -196,9 +196,7 @@
         sm:py-10
         lg:py-20;
         .component.component--text {
-          @apply px-4
-          mx-clus3lev
-          text-center
+          @apply text-center
           lg:px-0
           lg:text-left
           lg:mx-0;
