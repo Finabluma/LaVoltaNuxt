@@ -75,10 +75,9 @@
         h-full
         backdrop-contrast-75
         bg-gradient-to-b
-        from-firstdark/90
-        from-40%
-        to-firstdark
-        mix-blend-darken
+        from-white/90
+        to-white
+        mix-blend-hard-light
         dark:from-firstdark/60
         dark:via-firstdark/90
         dark:to-firstdark
