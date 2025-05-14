@@ -32,7 +32,9 @@
     .is-divider {
       @apply w-full
       fill-white
-      dark:fill-secondark;
+      dark:fill-secondark
+      drop-shadow-[0_25px_35px_rgba(0,0,0,0.75)]
+      dark:drop-shadow-[0_20px_35px_rgba(255,255,255,0.9)];
     }
 
     &.down,

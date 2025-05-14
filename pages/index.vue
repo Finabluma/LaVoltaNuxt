@@ -21,7 +21,11 @@
         <p class="lead">{{ home.subtitle }}</p>
         <p>{{ home.content }}</p>
       </HeroSection>
-      <CartaMenu :items="home.cartamenu" />
+      <div class="main-content">
+        
+        <CartaMenu :items="home.cartamenu" />
+      </div>
+
       <!--  <div v-if="isFeatured.length > 0" class="articleHome">
         <div class="head">
           <h1>

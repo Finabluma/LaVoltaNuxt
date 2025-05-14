@@ -34,45 +34,47 @@
 </script>
 <template>
   <div v-if="data">
-    <HeroSection>
-      <h1 class="title-page">{{ data.title }}</h1>
-      <p class="font-coordinates">{{ data.subtitle }}</p>
-    </HeroSection>
     <main>
-      <div class="mb-clus3lev post">
-        <ArticleBreadcrumb :data="data">
-          <li>
-            <ElementsTextLink link-type="internalLinkType" route="revista"
-              >Revista</ElementsTextLink
-            >
-          </li>
-          <li>{{ data.title }}</li>
-        </ArticleBreadcrumb>
-        <ArticleSummary v-if="data.summary" :summary="data.summary" />
-        <div v-if="data.mainImage" class="img">
-          <ElementsMediaImageItem
-            :src="data.mainImage.asset._ref"
-            :alt="data.mainImage.alt"
-            height="800"
-            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
-            :modifiers="{
-              crop: data.mainImage.crop,
-              hotspot: data.mainImage.hotspot,
-              q: 80,
-            }"
-            fit="cover"
-            format="webp"
+      <HeroSection>
+        <h1 class="title-page">{{ data.title }}</h1>
+        <p class="font-coordinates">{{ data.subtitle }}</p>
+      </HeroSection>
+      <div class="main-content">
+        <div class="mb-clus3lev post">
+          <ArticleBreadcrumb :data="data">
+            <li>
+              <ElementsTextLink link-type="internalLinkType" route="revista"
+                >Revista</ElementsTextLink
+              >
+            </li>
+            <li>{{ data.title }}</li>
+          </ArticleBreadcrumb>
+          <ArticleSummary v-if="data.summary" :summary="data.summary" />
+          <div v-if="data.mainImage" class="img">
+            <ElementsMediaImageItem
+              :src="data.mainImage.asset._ref"
+              :alt="data.mainImage.alt"
+              height="800"
+              sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
+              :modifiers="{
+                crop: data.mainImage.crop,
+                hotspot: data.mainImage.hotspot,
+                q: 80,
+              }"
+              fit="cover"
+              format="webp"
+            />
+          </div>
+          <ElementsTextContent
+            :blocks="data?.maincontent"
+            v-if="data?.maincontent"
+            class="mb-clus3lev"
           />
+          <ArticleCategories v-if="data.categories" :tags="data.categories" />
         </div>
-        <ElementsTextContent
-          :blocks="data?.maincontent"
-          v-if="data?.maincontent"
-          class="mb-clus3lev"
-        />
-        <ArticleCategories v-if="data.categories" :tags="data.categories" />
-      </div>
-      <div class="list-related">
-        <ArticleRelated :related="related.articleRelated" v-if="related" />
+        <div class="list-related">
+          <ArticleRelated :related="related.articleRelated" v-if="related" />
+        </div>
       </div>
     </main>
     <aside v-if="banner !== null" :class="estilos">

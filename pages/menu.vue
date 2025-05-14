@@ -78,51 +78,53 @@
       />
     </div>
     <main>
-      <HeroSection class="hero--after">
+      <HeroSection >
         <div class="components components--text">
           <h1 class="title-page">{{ menuDia.title }}</h1>
           <SanityContent :blocks="menu.menuConditions" />
         </div>
       </HeroSection>
-      <section class="l-center">
-        <article class="skew l-box l-box--no-border">
-          <h2 class="title-block sidebar">
-            {{ menuDia.primeros.title }}
-          </h2>
-          <MenuItems :platos="menuDia.primeros.platos" />
-        </article>
-        <article class="skew l-box l-box--no-border">
-          <h2 class="title-block">
-            {{ menuDia.segundos.title }}
-          </h2>
-          <MenuItems :platos="menuDia.segundos.platos" />
-        </article>
-        <article class="skew l-box l-box--no-border">
-          <h2 class="title-block">
-            {{ menuDia.postres.title }}
-          </h2>
-          <MenuItems :platos="menuDia.postres.platos" />
-        </article>
+      <div class="main-content">
+        <section class="l-center">
+          <article class="skew l-box l-box--no-border">
+            <h2 class="title-block sidebar">
+              {{ menuDia.primeros.title }}
+            </h2>
+            <MenuItems :platos="menuDia.primeros.platos" />
+          </article>
+          <article class="skew l-box l-box--no-border">
+            <h2 class="title-block">
+              {{ menuDia.segundos.title }}
+            </h2>
+            <MenuItems :platos="menuDia.segundos.platos" />
+          </article>
+          <article class="skew l-box l-box--no-border">
+            <h2 class="title-block">
+              {{ menuDia.postres.title }}
+            </h2>
+            <MenuItems :platos="menuDia.postres.platos" />
+          </article>
 
-        <div class="relative l-cluster bg-white dark:bg-secondark">
-          <div class="l-stack l-box l-box--no-border">
-            <span class="title-Xtra">{{ formatPrice(menu.price) }}€</span>
-            <p class="font-typewriter text-xs">
-              * El precio no incluye bebida.
-            </p>
-          </div>
-          <div class="l-box l-box--no-border">
-            <div class="font-semibold">
-              Medio menu
-              <span>{{ formatPrice(menu.pricehalf) }}€</span>
+          <div class="relative l-cluster bg-white dark:bg-secondark">
+            <div class="l-stack l-box l-box--no-border">
+              <span class="title-Xtra">{{ formatPrice(menu.price) }}€</span>
+              <p class="font-typewriter text-xs">
+                * El precio no incluye bebida.
+              </p>
             </div>
-            <div class="font-semibold">
-              Menú compartido
-              <span>{{ formatPrice(menu.priceshare) }}€</span>
+            <div class="l-box l-box--no-border">
+              <div class="font-semibold">
+                Medio menu
+                <span>{{ formatPrice(menu.pricehalf) }}€</span>
+              </div>
+              <div class="font-semibold">
+                Menú compartido
+                <span>{{ formatPrice(menu.priceshare) }}€</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
     <aside>
       <GalleryReference :page="menu" />

@@ -15,11 +15,16 @@
           <h1 class="title-page">{{ terms.title }}</h1>
         </div>
       </HeroSection>
-      <section class="l-center">
-        <div v-if="terms.richtext" class="lg:l-box lg:l-box l-box--no-border">
-          <ElementsTextContent :blocks="terms.richtext" class="lg:l-box lg:l-box l-box--no-border" />
-        </div>
-      </section>
+      <div class="main-content">
+        <section class="l-center">
+          <div v-if="terms.richtext" class="lg:l-box lg:l-box l-box--no-border">
+            <ElementsTextContent
+              :blocks="terms.richtext"
+              class="lg:l-box lg:l-box l-box--no-border"
+            />
+          </div>
+        </section>
+      </div>
     </main>
     <AppFooter />
   </div>

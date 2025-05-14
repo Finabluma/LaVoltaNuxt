@@ -1,6 +1,6 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-    <path d="M0,0H256V256H0Z" rx="35" ry="35" class="rect" />
+    <path d="M0,0H256V256H0Z" class="rect" />
     <path
       class="circle"
       d="M256,128c0,70.69-57.31,128-128,128S0,198.69,0,128,57.31,0,128,0s128,57.31,128,128Z"
@@ -15,20 +15,26 @@
 <style lang="postcss" scoped>
   svg {
     .circle {
-      @apply fill-firstlight
-      dark:fill-firstdark;
+      @apply fill-white
+      stroke-firstlight
+      stroke-[6px]
+      dark:fill-secondark
+      dark:stroke-firstdark;
     }
     .object {
-      @apply stroke-2
-      fill-white
-      stroke-white/80
-      dark:fill-secondark
+      @apply fill-white
+      stroke-[4px]
+      stroke-firstlight
+      dark:fill-firstdark
       dark:stroke-secondark/80;
     }
 
-    .rect {
-      @apply fill-firstlight
-      dark:fill-firstdark;
-    }
+    /* .rect {
+      @apply fill-white/0
+      
+      dark:fill-white/20;
+    } */
   }
 </style>
+
+<!-- fill-[#F0E3DA] -->

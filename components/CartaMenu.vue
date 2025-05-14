@@ -29,7 +29,7 @@
       })
 
       const isMedia = panel.classList.contains('media')
-      // const isContent = panel.classList.contains('content')
+      const isContent = panel.classList.contains('content')
       const inner = panel.querySelector('.inner')
 
       if (isMedia) {
@@ -41,28 +41,28 @@
         const tlMedia = gsap
           .timeline({
             scrollTrigger: {
-              trigger: svg,
+              trigger: panel,
               start: 'top center',
               scrub: true,
               fastScrollEnd: true,
             },
           })
-          .set(svg, { fillOpacity: 1, strokeOpacity: 1 })
+          // .set(svg, { fillOpacity: 1, strokeOpacity: 1 })
           .add('svg')
-          .to(rect, {
+          .to(circle, {
             morphSVG: {
-              shape: circle,
+              shape: rect,
               map: 'position',
             },
           })
-          .fromTo(
-            object,
-            { drawSVG: '50% 50%' },
-            { drawSVG: '100%' },
-            'svg-=0.2'
-          )
-          .to(object, { fillOpacity: 0.8 }, 'svg-=0.2')
-          .to(object, { strokeOpacity: 0 }, 'svg-=0.2')
+        // .fromTo(
+        //   object,
+        //   { drawSVG: '50% 50%' },
+        //   { drawSVG: '100%' },
+        //   'svg-=0.2'
+        // )
+        // .to(object, { fillOpacity: 0.8 }, 'svg-=0.2')
+        // .to(object, { strokeOpacity: 0 }, 'svg-=0.2')
 
         return tlMedia
       }
@@ -110,7 +110,6 @@
           </div>
           <div v-if="index == 1" class="svg"><SVGMenuCircle /></div>
         </div>
-        <div class="bg"></div>
       </div>
       <div class="panel content">
         <div class="inner">
@@ -147,52 +146,44 @@
   #container {
     @apply relative
     w-full
-    h-full
     overflow-y-hidden;
 
     article {
-      @apply sm:py-8
+      @apply l-center
       lg:flex
-      lg:max-w-5xl
-      lg:mx-auto
-      lg:py-10
-      first:pb-20;
+      lg:items-center;
     }
 
     .panel {
       @apply relative
       w-full
-      flex
-      justify-center
-      items-center
+    bg-white
+    dark:bg-secondark
       will-change-transform;
-    }
-
-    .panel.media {
-      @apply relative;
 
       .inner {
-        @apply relative
-        w-full
-        bg-white
-        dark:bg-secondark
-        pb-4
-        md:mb-0;
+        @apply flex
+        justify-center;
+      }
+    }
 
+    .media {
+      .inner {
         .svg {
           @apply relative
           z-20
-          w-4/12
-          sm:w-3/12
-          md:w-2/12
-          lg:w-5/12
-          xl:w-5/12
-          m-auto;
+          w-5/12
+          py-10
+          sm:w-5/12
+          md:w-4/12
+          md:py-2
+          lg:w-8/12
+          lg:py-0;
         }
       }
     }
 
-    .panel.content {
+    .content {
       @apply relative
         bg-white
         dark:bg-secondark;
@@ -201,16 +192,16 @@
         @apply bg-white
         dark:bg-secondark
         w-auto
-        py-6
-        pb-12
+        py-5
         sm:py-10
-        md:py-6;
+        lg:py-20;
         .component.component--text {
           @apply px-4
           mx-clus3lev
           text-center
           lg:px-0
-          lg:text-left;
+          lg:text-left
+          lg:mx-0;
 
           > * {
             @apply mb-clus2lev

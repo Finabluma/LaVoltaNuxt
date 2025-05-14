@@ -74,24 +74,26 @@
       />
     </div>
     <main>
-      <HeroSection class="hero--after">
+      <HeroSection >
         <h2 class="title-page">{{ reservas.title }}</h2>
         <SanityContent :blocks="reservas.introTerms" />
       </HeroSection>
-      <section class="l-center mb-20">
-        <h1 class="sr-only">{{ reservas.title }}</h1>
-        <ReservasConditions>
-          <template #header>
-            <ConditionsIntro
-              :title="reservas.reservasIntro.title"
-              class="skew"
-            />
-          </template>
-          <template #default>
-            <Conditions :conditions="reservas.conditions.conditions" />
-          </template>
-        </ReservasConditions>
-      </section>
+      <div class="main-content">
+        <section class="l-center mb-20">
+          <h1 class="sr-only">{{ reservas.title }}</h1>
+          <ReservasConditions>
+            <template #header>
+              <ConditionsIntro
+                :title="reservas.reservasIntro.title"
+                class="skew"
+              />
+            </template>
+            <template #default>
+              <Conditions :conditions="reservas.conditions.conditions" />
+            </template>
+          </ReservasConditions>
+        </section>
+      </div>
     </main>
     <aside class="relative">
       <LazyUniverseCallBadge />

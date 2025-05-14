@@ -76,10 +76,10 @@
 </template>
 <style lang="postcss" scoped>
   .global-header {
-    @apply relative
+    @apply absolute
+    pt-8
     w-screen 
     z-40
-    mb-2
     px-2;
     .global-nav {
       @apply max-w-5xl
@@ -118,6 +118,10 @@
 
       .global-nav {
         @apply py-3;
+
+        svg {
+          @apply dark:fill-firstdark;
+        }
       }
     }
   }

@@ -54,45 +54,49 @@
       />
     </div>
     <main id="main">
-      <HeroSection class="hero--after">
+      <HeroSection >
         <h1 class="title-page">{{ carta.title }}</h1>
         <SanityContent :blocks="carta.warning" />
       </HeroSection>
-      <article class="l-center skew">
-        <section>
-          <h2 class="title-block m-clus3lev">Platos</h2>
+      <div class="main-content">
+        <article class="l-center skew">
+          <section>
+            <h2 class="title-block m-clus3lev">Platos</h2>
 
-          <CartaItems :items="mar"
-            ><NuxtIcon name="DelMar" />{{ mar.tipo.title }}</CartaItems
-          >
-          <CartaItems :items="tierra"
-            ><NuxtIcon name="DeLaTierra" />{{ tierra.tipo.title }}</CartaItems
-          >
-          <CartaItems :items="carpaccio"
-            ><NuxtIcon name="Carpaccio" />{{ carpaccio.tipo.title }}</CartaItems
-          >
-          <CartaItems :items="postre"
-            ><NuxtIcon name="Postre" />{{ postre.tipo.title }}</CartaItems
-          >
-        </section>
-        <section>
-          <h2 class="title-block m-clus3lev">
-            {{ title.title }}
-          </h2>
-          <CartaItems :items="tintos">
-            <NuxtIcon name="Tinto" />{{ tintos.tipo.title }}
-          </CartaItems>
-          <CartaItems :items="rosados">
-            <NuxtIcon name="Rosado" />{{ rosados.tipo.title }}
-          </CartaItems>
-          <CartaItems :items="blancos">
-            <NuxtIcon name="Blanco" />{{ blancos.tipo.title }}
-          </CartaItems>
-          <CartaItems :items="cavas">
-            <NuxtIcon name="Cava" />{{ cavas.tipo.title }}
-          </CartaItems>
-        </section>
-      </article>
+            <CartaItems :items="mar"
+              ><NuxtIcon name="DelMar" />{{ mar.tipo.title }}</CartaItems
+            >
+            <CartaItems :items="tierra"
+              ><NuxtIcon name="DeLaTierra" />{{ tierra.tipo.title }}</CartaItems
+            >
+            <CartaItems :items="carpaccio"
+              ><NuxtIcon name="Carpaccio" />{{
+                carpaccio.tipo.title
+              }}</CartaItems
+            >
+            <CartaItems :items="postre"
+              ><NuxtIcon name="Postre" />{{ postre.tipo.title }}</CartaItems
+            >
+          </section>
+          <section>
+            <h2 class="title-block m-clus3lev">
+              {{ title.title }}
+            </h2>
+            <CartaItems :items="tintos">
+              <NuxtIcon name="Tinto" />{{ tintos.tipo.title }}
+            </CartaItems>
+            <CartaItems :items="rosados">
+              <NuxtIcon name="Rosado" />{{ rosados.tipo.title }}
+            </CartaItems>
+            <CartaItems :items="blancos">
+              <NuxtIcon name="Blanco" />{{ blancos.tipo.title }}
+            </CartaItems>
+            <CartaItems :items="cavas">
+              <NuxtIcon name="Cava" />{{ cavas.tipo.title }}
+            </CartaItems>
+          </section>
+        </article>
+      </div>
     </main>
     <aside>
       <GalleryReference :page="carta" />

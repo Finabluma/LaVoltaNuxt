@@ -18,25 +18,38 @@
         </div>
       </div>
     </div>
+    <AppDivider class="down" />
   </div>
 </template>
 <style lang="postcss">
   .hero {
-    @apply lg:pt-10;
+    @apply relative
+    bg-azulejos
+    bg-cover
+    lg:py-10;
+
+    &:before {
+      @apply content-['']
+      absolute
+      top-0
+      w-full
+      h-full
+      backdrop-contrast-75
+      bg-gradient-to-b
+      from-white/40
+      from-40%
+      to-secondark
+      mix-blend-color-dodge
+      dark:from-firstdark/60
+      dark:via-firstdark/90
+      dark:to-firstdark
+      dark:mix-blend-darken;
+    }
   }
 
-  .hero--after {
-    &:after {
-      @apply content-['']
-        w-2
-        h-2
-        rounded-full
-        block
-        mx-auto
-        mt-6
-        md:my-10
-        bg-current;
-    }
+  .hero .l-center {
+    @apply relative
+    z-20;
   }
 
   .hero .l-sidebar > *,
@@ -49,7 +62,9 @@
   }
 
   .hero .l-sidebar .not-sidebar {
-    @apply pb-8
+    @apply dark:text-secondark
+    pt-20
+    pb-16
     mx-auto
     lg:max-w-5xl
     lg:px-10;
@@ -63,11 +78,11 @@
 
   .hero h1,
   .hero h2 {
-    @apply mb-6;
+    @apply mb-clus3lev;
   }
 
   .hero + * {
-    @apply mt-8
-    lg:mt-14;
+    @apply pt-8
+    lg:pt-14;
   }
 </style>
