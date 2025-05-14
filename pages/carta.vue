@@ -54,12 +54,12 @@
       />
     </div>
     <main id="main">
-      <HeroSection >
+      <HeroSection>
         <h1 class="title-page">{{ carta.title }}</h1>
         <SanityContent :blocks="carta.warning" />
       </HeroSection>
       <div class="main-content">
-        <article class="l-center skew">
+        <article class="l-center px-2 sm:px-[5vw] skew">
           <section>
             <h2 class="title-block m-clus3lev">Platos</h2>
 
