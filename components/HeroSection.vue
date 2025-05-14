@@ -76,6 +76,8 @@
         backdrop-contrast-75
         bg-gradient-to-b
         from-white/90
+        from-20%
+        via-white/90
         to-white
         mix-blend-hard-light
         dark:from-firstdark/60
