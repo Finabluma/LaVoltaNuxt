@@ -1,8 +1,21 @@
 <script setup>
+  import { ref, onMounted, onUnmounted } from 'vue'
   const props = defineProps({
     items: {
       type: Object,
     },
+  })
+  let main = ref(),
+    ctx = ref()
+  //GSAP
+  const { gsap, ScrollTrigger } = useGsap()
+
+  onMounted(() => {
+    ctx = gsap.context((self) => {}, main.value)
+  })
+
+  onUnmounted(() => {
+    ctx.revert()
   })
 </script>
 <template>
