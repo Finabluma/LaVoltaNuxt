@@ -74,12 +74,12 @@
       />
     </div>
     <main>
-      <HeroSection >
+      <HeroSection>
         <h2 class="title-page">{{ reservas.title }}</h2>
         <SanityContent :blocks="reservas.introTerms" />
       </HeroSection>
       <div class="main-content">
-        <section class="l-center mb-20">
+        <section class="l-center mb-5 sm:mb-10 lg:mb-20">
           <h1 class="sr-only">{{ reservas.title }}</h1>
           <ReservasConditions>
             <template #header>
