@@ -77,7 +77,8 @@
 <style lang="postcss" scoped>
   .global-header {
     @apply absolute
-    pt-8
+    pt-12
+    sm:pt-8
     w-screen 
     z-40
     px-2;
