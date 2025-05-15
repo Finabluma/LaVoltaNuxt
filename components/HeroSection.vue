@@ -79,8 +79,9 @@
         to-white/50
         /* mix-blend-hard-light */
         mix-blend-color-dodge
-        dark:bg-secondark
-        dark:mix-blend-difference;
+        dark:from-secondark
+        dark:to-black
+        dark:mix-blend-multiply;
       }
     }
   }
