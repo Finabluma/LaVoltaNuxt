@@ -78,8 +78,8 @@
         /* mix-blend-hard-light */
         mix-blend-color-dodge
         dark:bg-gradient-to-b
-        dark:from-firstdark
-        dark:to-secondark
+        dark:from-firstdark/70
+        dark:to-black/50
         dark:mix-blend-darken;
       }
     }
