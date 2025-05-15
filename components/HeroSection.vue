@@ -74,7 +74,9 @@
         w-full
         h-full
         backdrop-contrast-75
-        bg-secondark
+        bg-gradient-to-b
+        from-secondark
+        to-white/50
         /* mix-blend-hard-light */
         mix-blend-color-dodge
         dark:bg-secondark
