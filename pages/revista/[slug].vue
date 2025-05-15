@@ -99,17 +99,25 @@
   }
 
   .post {
-    @apply l-center
-    lg:px-[12vw];
+    @apply l-center;
+    .breadcrumb {
+      @apply max-w-4xl
+      mx-auto
+      px-[2vw];
+    }
     .img {
-      @apply mb-clus2lev;
+      @apply mb-10
+      max-w-4xl
+      mx-auto;
       img {
         @apply p-1
         border;
       }
     }
     .categories {
-      @apply md:p-[5vw];
+      @apply md:p-[5vw]
+      max-w-4xl
+      mx-auto;
       .tag {
         @apply text-base
         items-center;

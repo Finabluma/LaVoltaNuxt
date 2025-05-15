@@ -9,8 +9,8 @@
   })
 </script>
 <template>
-  <div class="my-5 lg:my-10">
-    <p class="text-center text-sm">{{ title }}</p>
+  <div class="slide">
+    <p class="text-center text-sm mb-0">{{ title }}</p>
     <div class="carrusel-wrapper">
       <div class="wrapper">
         <Swiper
@@ -66,8 +66,15 @@
     </div>
   </div>
 </template>
-<style lang="postcss" scoped>
+<style lang="postcss">
+  .slide {
+    @apply my-5;
+    p {
+      @apply mb-2;
+    }
+  }
   .carrusel-wrapper {
+    @apply mb-10;
     .wrapper {
       @apply p-1
       border

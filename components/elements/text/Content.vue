@@ -37,10 +37,21 @@
 </template>
 <style lang="postcss">
   .blockContent {
-    @apply lg:px-[5vw];
-    > * {
-      @apply mb-5
-      leading-relaxed;
+    > h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    ul,
+    ol {
+      @apply mb-4
+      md:mb-8
+      leading-relaxed
+      max-w-prose
+      mx-auto;
     }
   }
 </style>

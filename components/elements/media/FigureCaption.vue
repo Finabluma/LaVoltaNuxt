@@ -56,7 +56,10 @@
 </template>
 <style scoped lang="postcss">
   figure {
-    @apply my-clus3lev;
+    @apply my-6
+    max-w-4xl
+    mx-auto
+    px-[1vw];
 
     picture {
       @apply p-1
@@ -67,7 +70,7 @@
     figcaption {
       @apply text-sm
       italic
-      sm:text-center;
+      text-center;
     }
   }
   picture,
