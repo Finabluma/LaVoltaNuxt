@@ -74,8 +74,9 @@
         w-full
         h-full
         backdrop-contrast-75
-        bg-white/90
-        mix-blend-hard-light
+        bg-[#C5A58F]/90
+        /* mix-blend-hard-light */
+        mix-blend-color-dodge
         dark:bg-gradient-to-b
         dark:from-firstdark/60
         dark:via-firstdark/90
