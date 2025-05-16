@@ -76,7 +76,7 @@
         w-full
         h-full
         bg-gradient-to-b
-        from-white/60
+        from-white/80
         via-white/90
         to-white
         mix-blend-color-dodge
