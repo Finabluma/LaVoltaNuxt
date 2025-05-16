@@ -1,6 +1,20 @@
 const seoItems = groq`
     metaDescription,
-    ogImage,
+    ogImage{
+        alt,
+        asset->{
+            _id,
+            url,
+            mimeType,
+            metadata{
+                dimensions{
+                    width, 
+                    height,
+                    aspectRatio
+                }
+            }
+        }
+    },
     metaKeywords
 `
 export const seoQuery = groq`

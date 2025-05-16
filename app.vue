@@ -1,22 +1,20 @@
 <script setup>
-  import { onMounted, onUnmounted } from 'vue'
+  import { computed, onMounted, onUnmounted } from 'vue'
   // Meta
-  const { siteFavicon, siteOptions } = useMainStore()
+  const { siteOptions } = useMainStore()
   const route = useRoute()
   const config = useRuntimeConfig()
   const { $urlFor } = useNuxtApp()
-  const ogImageUrl = siteOptions?.pageShareImage
-    ? $urlFor(siteOptions?.pageShareImage).with(1200)
-    : ''
-  const appleTouchIcon = $urlFor(siteFavicon?.appleTouchIcon).width(180).url()
 
-  const favicon32 = $urlFor(siteFavicon?.favicon).width(32).url()
+  const ogImg = computed(() => {
+    return $urlFor(siteOptions?.seo?.ogImage.asset).size(1200).url()
+  })
 
-  const favicon16 = $urlFor(siteFavicon?.favicon).width(16).url()
+  const ogImageUrl = ogImg ? ogImg : ''
 
   useHead({
     titleTemplate: (title) =>
-      title ? `${siteOptions?.name} | ${title}` : siteOptions?.name,
+      title ? `${title} | ${siteOptions?.name}` : siteOptions?.name,
     htmlAttrs: {
       lang: siteOptions?.hrefLang,
     },
@@ -34,12 +32,12 @@
         content: siteOptions?.name,
       },
       {
-        property: 'og:url',
-        content: [`${config.public.baseURL}${route.fullPath}`].join(),
-      },
-      {
         name: 'description',
         content: siteOptions?.seo?.metaDescription,
+      },
+      {
+        property: 'og:url',
+        content: [`${config.public.baseURL}${route.fullPath}`].join(),
       },
       {
         property: 'og:description',
@@ -56,58 +54,62 @@
         content: ogImageUrl,
       },
       {
+        property: 'og:image:type',
+        content: ogImageUrl ? `${siteOptions.seo.ogImage.asset.mimeType}` : '',
+      },
+      {
         property: 'og:image:width',
-        content: ogImageUrl ? '1200' : '',
+        content: ogImageUrl
+          ? `${siteOptions.seo.ogImage.asset.metadata.dimensions.width}`
+          : '',
       },
       {
         property: 'og:image:height',
         content: ogImageUrl
-          ? Math.floor(
-              1200 /
-                (siteOptions?.seo?.ogImage?.metadata?.dimensions?.aspectRatio ??
-                  1.5)
-            )
+          ? `${siteOptions.seo.ogImage.asset.metadata.dimensions.height}`
           : '',
-      },
-      {
-        property: 'og:image:type',
-        content: siteOptions?.seo?.ogImage?.asset?.mimeType ?? '',
-      },
-      {
-        name: 'twitter:card',
-        content: 'summary_large_image',
-      },
-      {
-        name: 'twitter:title',
-        content: siteOptions?.name,
-      },
-      {
-        name: 'twitter:description',
-        content: siteOptions?.seo?.metaDescription,
-      },
-      {
-        name: 'twitter:image',
-        content: ogImageUrl,
       },
     ],
     link: [
       {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon-96x96.png',
+        sizes: '96x96',
+        media: '(prefers-color-scheme:light)',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon-dark-96x96.png',
+        sizes: '96x96',
+        media: '(prefers-color-scheme:dark)',
+      },
+      {
+        rel: 'shortcut icon',
+        href: '/favicon.ico',
+        media: '(prefers-color-scheme:light)',
+      },
+      {
+        rel: 'shortcut icon',
+        href: '/favicon-dark.ico',
+        media: '(prefers-color-scheme:dark)',
+      },
+      {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: appleTouchIcon,
+        href: '/apple-touch-icon.png',
+        media: '(prefers-color-scheme:light)',
       },
       {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: favicon32,
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon-dark.png',
+        media: '(prefers-color-scheme:dark)',
       },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '16x16',
-        href: favicon16,
-      },
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      { rel: 'manifest', href: '/site.webmanifest' },
+      { rel: 'stylesheet', href: 'https://use.typekit.net/hnq7yja.css' },
     ],
   })
 

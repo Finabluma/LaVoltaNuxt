@@ -1,6 +1,5 @@
 import {
   seoQuery,
-  headItems,
   contactItems,
   portadaItems,
   gallery,
@@ -29,7 +28,7 @@ const cartaMenuItems = groq`
 
 export const pagesQuery = groq`{
     "home":*[_type == "homeType"][0]{
-        ${headItems},
+        title,
         subtitle,
         content,
         ${cartaMenuItems},
@@ -43,7 +42,7 @@ export const pagesQuery = groq`{
         }        
     },
     "revista":*[_type == 'revistaType'][0]{
-        ${headItems},        
+        title,        
         seo{
             ${seoQuery}
         },
@@ -54,7 +53,7 @@ export const pagesQuery = groq`{
         }
     },
     "menu":*[_type=='menuPageType'][0]{
-        ${headItems},
+        title,
         menuConditions,
         price,
         pricehalf,
@@ -68,7 +67,7 @@ export const pagesQuery = groq`{
         
     },
     "carta":*[_type=='cartaPageType'][0]{
-        ${headItems},
+        title,
         warning,
         seo{
             ${seoQuery}
@@ -78,7 +77,7 @@ export const pagesQuery = groq`{
         ${mensaje},
     },
     "reservas":*[_type=='reservasType'][0]{
-        ${headItems},
+        title,
         ${mensaje},
         seo{
             ${seoQuery}
@@ -95,7 +94,7 @@ export const pagesQuery = groq`{
         },
     },
     "contacta":*[_type=='contactaType'][0]{
-        ${headItems},
+        title,
         seo{
             ${seoQuery}
         },
