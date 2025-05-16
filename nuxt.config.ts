@@ -22,10 +22,14 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     head:{
       link:[
-        { rel:"icon", type:"image/png", href:"/favicon-96x96.png", sizes:"96x96" },
+        { rel:"icon", type:"image/png", href:"/favicon-96x96.png", sizes:"96x96", media:"(prefers-color-scheme:light)" },
+        { rel:"icon", type:"image/png", href:"/favicon-dark-96x96.png", sizes:"96x96", media:"(prefers-color-scheme:dark)" },
+        { rel:"shortcut icon", href:"/favicon.ico", media:"(prefers-color-scheme:light)"},
+        { rel:"shortcut icon", href:"/favicon-dark.ico", media:"(prefers-color-scheme:dark)"},
+        { rel:"apple-touch-icon", sizes:"180x180", href:"/apple-touch-icon.png", media:"(prefers-color-scheme:light)"},
+        { rel:"apple-touch-icon", sizes:"180x180", href:"/apple-touch-icon-dark.png", media:"(prefers-color-scheme:dark)"},
         { rel:"icon", type:"image/svg+xml", href:"/favicon.svg"},
-        { rel:"shortcut icon", href:"/favicon.ico"},
-        { rel:"apple-touch-icon", sizes:"180x180", href:"/apple-touch-icon.png"},
+        { rel:"manifest", href:"/site.webmanifest"},        
         { rel: 'stylesheet', href: 'https://use.typekit.net/hnq7yja.css' },
       ]
     }    
