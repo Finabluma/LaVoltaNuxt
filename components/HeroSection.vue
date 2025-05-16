@@ -65,6 +65,7 @@
       h-full
       z-10
       bg-azulejos2
+      
       dark:bg-azulejos
       bg-cover;
 
@@ -74,12 +75,11 @@
         top-0
         w-full
         h-full
-        backdrop-hue-rotate-30
         bg-gradient-to-b
-        from-white/50
+        from-white/20
         via-white/90
         to-white
-        mix-blend-screen
+        mix-blend-color-dodge
         dark:from-secondark
         dark:to-black
         dark:backdrop-brightness-90
