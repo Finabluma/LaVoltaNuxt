@@ -60,7 +60,7 @@
       </HeroSection>
       <div class="main-content">
         <article class="l-center px-2 sm:px-[5vw] skew">
-          <section>
+          <section class="mb-10 sm:mb-10">
             <h2 class="title-block m-clus3lev">Platos</h2>
 
             <CartaItems :items="mar"

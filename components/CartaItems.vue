@@ -48,8 +48,8 @@
           </div>
         </div>
       </div>
-      <div v-else class="py-3 text-primary font-coordinates font-bold">
-        <i>Por el momento no disponemos este producto.</i>
+      <div v-else class="p-3 font-coordinates">
+        <p>Por el momento no disponemos este producto.</p>
       </div>
     </template>
   </CartaAccordion>
