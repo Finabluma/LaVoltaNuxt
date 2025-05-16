@@ -79,6 +79,7 @@
         from-white/50
         via-white/90
         to-white
+        mix-blend-screen
         dark:from-secondark
         dark:to-black
         dark:backdrop-brightness-90
