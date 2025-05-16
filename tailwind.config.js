@@ -52,6 +52,8 @@ export default {
       backgroundImage: () => ({
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         azulejos: "url('~/assets/images/azulejos.svg')",
+        azulejosLight: "url('~/assets/images/azulejos-light.svg')",
+        azulejos2: "url('~/assets/images/azulejos2.svg')",
       }),
       fill: (theme) => ({
         constlines: theme('colors.constlines'),

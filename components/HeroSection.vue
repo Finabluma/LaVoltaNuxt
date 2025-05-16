@@ -64,7 +64,8 @@
       w-full
       h-full
       z-10
-      bg-azulejos
+      bg-azulejos2
+      dark:bg-azulejos
       bg-cover;
 
       &:before {
@@ -73,14 +74,14 @@
         top-0
         w-full
         h-full
-        backdrop-contrast-75
+        backdrop-hue-rotate-30
         bg-gradient-to-b
-        from-secondark
-        to-white/60
-        /* mix-blend-hard-light */
-        mix-blend-color-dodge
+        from-white/50
+        via-white/90
+        to-white
         dark:from-secondark
         dark:to-black
+        dark:backdrop-brightness-90
         dark:mix-blend-multiply;
       }
     }
