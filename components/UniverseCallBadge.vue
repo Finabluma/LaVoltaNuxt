@@ -37,7 +37,7 @@
 <style lang="postcss" scoped>
   .universeCallBadge {
     @apply relative
-    w-full
+    w-auto
     z-30
     overflow-hidden
     bg-white

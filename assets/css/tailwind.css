@@ -259,6 +259,7 @@
     @apply box-content
     mx-auto
     max-w-7xl
+    w-auto
     px-[5vw];
   }
 
@@ -335,7 +336,8 @@
     #Text component
 \*------------------------------------*/
   .component--text > * {
-    @apply max-w-2xl;
+    @apply max-w-2xl
+    w-auto;
   }
   .component--text > * + h2,
   .component--text > * + h3,
