@@ -48,11 +48,10 @@
 <style lang="postcss" scoped>
   .modal-overlay {
     @apply fixed
-    bottom-14
+    top-24
     z-50
     w-full
     invisible
-    md:bottom-auto
     md:top-24;
 
     .wrapper {
