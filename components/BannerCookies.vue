@@ -20,22 +20,21 @@
     consentGiven.value = true
   }
   function loadAnalytics() {
-    // Aquí puedes insertar el código de tu sistema de analytics
-    // Por ejemplo, Google Analytics:
     const script = document.createElement('script')
-    script.setAttribute(
-      'src',
-      `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-    )
-    script.setAttribute('async', '')
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+    script.async = true
     document.head.appendChild(script)
 
     window.dataLayer = window.dataLayer || []
     function gtag() {
-      window.dataLayer.push(arguments)
+      dataLayer.push(arguments)
     }
     gtag('js', new Date())
-    gtag('config', GA_ID)
+
+    gtag('config', GA_ID, {
+      cookie_flags: 'SameSite=Lax;Secure',
+      allow_ad_personalization_signals: false,
+    })
   }
 
   onMounted(() => {
