@@ -145,7 +145,7 @@
       <div id="smooth-content">
         <NuxtPage />
       </div>
-      <BannerCookies />
+      <CookieConsent />
     </div>
   </div>
 </template>

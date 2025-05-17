@@ -75,10 +75,7 @@
         top-0
         w-full
         h-full
-        bg-gradient-to-b
-        from-white/80
-        via-white/90
-        to-white
+        bg-white/90
         mix-blend-color-dodge
         dark:from-secondark
         dark:to-black
