@@ -77,6 +77,7 @@
         h-full
         bg-white/90
         mix-blend-color-dodge
+        dark:bg-gradient-to-b
         dark:from-secondark
         dark:to-black
         dark:backdrop-brightness-90
