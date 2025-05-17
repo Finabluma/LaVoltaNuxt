@@ -1,8 +1,9 @@
 <script setup>
   import { ref, onMounted } from 'vue'
+  import { useCookie } from '#app'
   const consent = useCookie('banner-dismissed', {
     default: () => false,
-    maxAge: 60 * 60 * 24 * 30, // ← Caducidad de 30 días
+    maxAge: 60 * 60 * 24 * 30, // 30 días
   })
 
   const consentGiven = ref(consent.value === true)
@@ -19,7 +20,14 @@
     consent.value = false
     consentGiven.value = true
   }
+
   function loadAnalytics() {
+    if (!GA_ID) {
+      console.warn('GA_ID no definido en variables de entorno')
+      return
+    }
+    if (window.gtag) return // ya cargado
+
     const script = document.createElement('script')
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
     script.async = true
@@ -27,8 +35,10 @@
 
     window.dataLayer = window.dataLayer || []
     function gtag() {
-      dataLayer.push(arguments)
+      window.dataLayer.push(arguments)
     }
+    window.gtag = gtag
+
     gtag('js', new Date())
 
     gtag('config', GA_ID, {
@@ -38,7 +48,6 @@
   }
 
   onMounted(() => {
-    // Si ya aceptó antes, cargar analytics automáticamente
     if (consent.value === true) {
       loadAnalytics()
     }
@@ -46,7 +55,7 @@
 </script>
 
 <template>
-  <div v-if="!consentGiven" class="cookies">
+  <div v-if="!consentGiven" class="cookies-banner">
     <div class="inner">
       <p>
         Usamos <b>Google Analytics</b> para analizar el uso de nuestro sitio.
@@ -61,7 +70,7 @@
 </template>
 
 <style lang="postcss" scoped>
-  .cookies {
+  .cookies-banner{
     @apply w-full
     fixed
     bottom-0
