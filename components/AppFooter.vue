@@ -58,10 +58,11 @@
     @apply relative
     z-30
     pt-10
-    pb-5
+    pb-10
     bg-white
     dark:bg-secondark
-    md:pt-20;
+    md:pt-20
+    md:pb-14;
     .innerfooter {
       @apply w-full 
       l-stack

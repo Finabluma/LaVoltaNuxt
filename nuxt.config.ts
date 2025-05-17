@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxtjs/i18n',
     'nuxt-swiper',
-    'dayjs-nuxt'
+    'dayjs-nuxt',
   ],
   css: ['~/assets/css/main.css'],
   app:{
@@ -94,7 +94,8 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseURL: process.env.BASE_URL
+      baseURL: process.env.BASE_URL,
+      GA_ID: process.env.NUXT_PUBLIC_GA_ID || '', // fallback por si no está definida
     }
   },
   tailwindcss: {
