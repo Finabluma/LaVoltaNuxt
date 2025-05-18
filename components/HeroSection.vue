@@ -66,13 +66,11 @@
       <div class="bg" role="presentation"></div>
       <div class="l-center">
         <div class="l-sidebar">
-          <div>
             <div class="not-sidebar">
               <div class="component--text">
                 <slot></slot>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
