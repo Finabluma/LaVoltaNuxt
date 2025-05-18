@@ -13,21 +13,20 @@
   onMounted(() => {
     ctx = gsap.context((self) => {
       let tl = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            pin: '.hero-content',
-            scrub: true,
-            pinSpacing: false,
-            invalidateOnRefresh: true,
-          },
-        })
+        .timeline()
         .to('.not-sidebar > *', {
           yPercent: 10,
           autoAlpha: 0,
         })
-      return tl
+
+      ScrollTrigger.create({
+        start: 'top top',
+        pin: '.hero-content',
+        scrub: true,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+        animation:tl
+      })
     }, main.value)
   })
 
