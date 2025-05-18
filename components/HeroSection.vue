@@ -56,7 +56,8 @@
 <style lang="postcss">
   .hero {
     .hero-content {
-      @apply relative;
+      @apply relative
+      w-auto;
     }
 
     .bg {
