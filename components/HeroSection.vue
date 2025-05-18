@@ -109,6 +109,7 @@
     pt-20
     pb-16
     mx-auto
+    w-auto
     lg:max-w-5xl
     lg:px-10;
   }
