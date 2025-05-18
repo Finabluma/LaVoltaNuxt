@@ -128,7 +128,6 @@
         smoothTouch: 0.1,
         speed: 1.5,
       })
-      ScrollTrigger.refresh()
     })
   })
   onUnmounted(() => {
