@@ -12,48 +12,24 @@
 
   let tl
 
-  function initScrollAnimation() {
-    // Limpia animaciones previas si existen
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    if (tl) tl.kill()
-
-    // Crea nueva timeline
-    tl = gsap.timeline().to('.not-sidebar > *', {
-      yPercent: 10,
-      autoAlpha: 0,
-    })
-
-    // Crea nuevo ScrollTrigger
-    ScrollTrigger.create({
-      start: 'top top',
-      pin: '.hero-content',
-      scrub: true,
-      pinSpacing: false,
-      invalidateOnRefresh: true,
-      animation: tl,
-    })
-  }
-
-  function handleResize() {
-    setTimeout(() => {
-      initScrollAnimation()
-      ScrollTrigger.refresh()
-    }, 300)
-  }
-
   onMounted(() => {
     ctx = gsap.context((self) => {
-      // initScrollAnimation()
-      // window.addEventListener('resize', handleResize)
-      // window.addEventListener('orientationchange', handleResize)
-    }, main.value)
-  })
+      // Crea nueva timeline
+      tl = gsap.timeline().to('.not-sidebar > *', {
+        yPercent: 10,
+        autoAlpha: 0,
+      })
 
-  onBeforeUnmount(() => {
-    window.removeEventListener('resize', handleResize)
-    window.removeEventListener('orientationchange', handleResize)
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    if (tl) tl.kill()
+      // Crea nuevo ScrollTrigger
+      ScrollTrigger.create({
+        start: 'top top',
+        pin: '.hero-content',
+        scrub: true,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+        animation: tl,
+      })
+    }, main.value)
   })
 
   onUnmounted(() => {
@@ -132,7 +108,7 @@
     pt-20
     pb-16
     mx-auto
-    lg:max-w-5xl
+   
     lg:px-10;
   }
 
