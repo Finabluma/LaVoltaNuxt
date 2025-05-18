@@ -82,8 +82,7 @@
 <style lang="postcss">
   .hero {
     .hero-content {
-      @apply relative
-      w-full;
+      @apply relative;
     }
 
     .bg {
@@ -92,7 +91,6 @@
       h-full
       z-10
       bg-azulejos2
-      
       dark:bg-azulejos
       bg-cover;
 
