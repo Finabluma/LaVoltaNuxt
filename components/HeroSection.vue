@@ -42,7 +42,7 @@
         <div class="l-sidebar">
           <div>
             <div class="not-sidebar">
-              <div class="component component--text">
+              <div class="component--text">
                 <slot></slot>
               </div>
             </div>
@@ -57,7 +57,7 @@
   .hero {
     .hero-content {
       @apply relative
-      w-auto;
+      w-screen;
     }
 
     .bg {
