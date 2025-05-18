@@ -15,6 +15,7 @@
   onMounted(() => {
     ctx = gsap.context((self) => {
       // Crea nueva timeline
+      let mm = gsap.matchMedia()
       tl = gsap.timeline().to('.not-sidebar > *', {
         yPercent: 10,
         autoAlpha: 0,
@@ -108,7 +109,7 @@
     pt-20
     pb-16
     mx-auto
-   
+    lg:max-w-5xl
     lg:px-10;
   }
 
