@@ -24,6 +24,7 @@
         pin: '.hero-content',
         scrub: true,
         pinSpacing: false,
+        invalidateOnRefresh: true,
         animation:tl
       })
     }, main.value)
