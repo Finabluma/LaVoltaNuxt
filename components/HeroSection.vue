@@ -43,9 +43,9 @@
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      initScrollAnimation()
-      window.addEventListener('resize', handleResize)
-      window.addEventListener('orientationchange', handleResize)
+      // initScrollAnimation()
+      // window.addEventListener('resize', handleResize)
+      // window.addEventListener('orientationchange', handleResize)
     }, main.value)
   })
 
