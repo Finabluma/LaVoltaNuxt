@@ -20,6 +20,7 @@
             pin: '.hero-content',
             scrub: true,
             pinSpacing: false,
+            invalidateOnRefresh: true,
           },
         })
         .to('.not-sidebar > *', {
