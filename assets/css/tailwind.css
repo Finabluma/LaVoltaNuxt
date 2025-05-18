@@ -316,9 +316,7 @@
     @apply flex
     basis-0
     flex-col
-    flex-grow-[999]
-    min-w-['1/2']
-    /* min-w-calc(55% - 1.7rem); */;
+    flex-grow-[999];
   }
 
   /* FLEX-COL */
@@ -336,7 +334,7 @@
     #Text component
 \*------------------------------------*/
   .component--text > * {
-    @apply max-w-2xl
+    @apply lg:max-w-2xl
     w-auto;
   }
   .component--text > * + h2,
