@@ -47,8 +47,6 @@
       p-0;
   }
 
-  /* Styles needed for a sticky footer */
-
   main,
   #main {
     @apply box-content
@@ -93,17 +91,12 @@
     @apply font-semibold;
   }
 
-  /*------------------------------------*\
-    #Icons
-  \*------------------------------------*/
-
   svg:not([class]) {
     @apply fill-current
       h-auto
       w-full;
   }
 
-  /* SVG icons are sized relative to font size, thanks to the em unit. */
   .icon {
     @apply h-4
     w-4
@@ -114,14 +107,6 @@
     @apply w-10
     h-10;
   }
-
-  /**
-  Use the `with-icon` class on the SVG's parent, if there
-  is a need to specify the spacing between text and icon.
-  Pay attention to whether the icon is before the text or after.
-
-  2. Logical property creates appropriate spacing irrespective of text direction
- */
 
   .with-icon--before,
   .with-icon--after,
@@ -151,10 +136,6 @@
   a {
     @apply transition-colors duration-500;
   }
-
-  /*------------------------------------*\
-    #Lists
-  \*------------------------------------*/
 
   ul,
   ol {
@@ -319,8 +300,6 @@
     flex-grow-[999];
   }
 
-  /* FLEX-COL */
-
   .l-stack {
     @apply flex
     flex-col;
@@ -330,12 +309,8 @@
     @apply mt-2;
   }
 
-  /*------------------------------------*\
-    #Text component
-\*------------------------------------*/
   .component--text > * {
-    @apply lg:max-w-2xl
-    w-auto;
+    @apply lg:max-w-2xl;
   }
   .component--text > * + h2,
   .component--text > * + h3,
@@ -349,9 +324,6 @@
     @apply mt-2;
   }
 
-  /*------------------------------------*\
-    #Quotes
-\*------------------------------------*/
   .component--quote {
     @apply leading-normal
     
@@ -370,11 +342,6 @@
   .component--quote > * {
     @apply max-w-2xl;
   }
-
-  /*------------------------------------*\
-    #Cards
-\*------------------------------------*/
-
   .card {
     @apply h-full
     p-2
@@ -392,10 +359,6 @@
     font-bold;
   }
 
-  /*------------------------------------*\
-    #Tag list
-\*------------------------------------*/
-
   .tag {
     @apply text-xs
     leading-normal
@@ -405,10 +368,6 @@
       @apply icon;
     }
   }
-
-  /*------------------------------------*\
-    #Crosslinks (You may also like)
-  \*------------------------------------*/
 
   .crosslinks {
     @apply py-5;
