@@ -10,30 +10,30 @@
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
 
-  // onMounted(() => {
-  //   ctx = gsap.context((self) => {
-  //     let tl = gsap
-  //       .timeline({
-  //         scrollTrigger: {
-  //           trigger: '.hero',
-  //           start: 'top top',
-  //           pin: '.hero-content',
-  //           scrub: true,
-  //           pinSpacing: false,
-  //           invalidateOnRefresh: true,
-  //         },
-  //       })
-  //       .to('.not-sidebar > *', {
-  //         yPercent: 10,
-  //         autoAlpha: 0,
-  //       })
-  //     return tl
-  //   }, main.value)
-  // })
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      let tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            pin: '.hero-content',
+            scrub: true,
+            pinSpacing: false,
+            invalidateOnRefresh: true,
+          },
+        })
+        .to('.not-sidebar > *', {
+          yPercent: 10,
+          autoAlpha: 0,
+        })
+      return tl
+    }, main.value)
+  })
 
-  // onUnmounted(() => {
-  //   ctx.revert()
-  // })
+  onUnmounted(() => {
+    ctx.revert()
+  })
 </script>
 <template>
   <div class="u-full-width hero">
