@@ -1,75 +1,41 @@
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-const props = defineProps({
-  items: Object,
-})
-let main = ref()
-let ctx = ref()
+  import { ref, onMounted, onUnmounted } from 'vue'
+  const props = defineProps({
+    items: {
+      type: Object,
+    },
+  })
+  let main = ref(),
+    ctx = ref()
+  //GSAP
+  const { gsap, ScrollTrigger } = useGsap()
 
-// GSAP y ScrollTrigger desde Composables
-const { gsap, ScrollTrigger } = useGsap()
+  let tl
 
-let tl = null
+  onMounted(() => {
+    ctx = gsap.context((self) => {
+      // Crea nueva timeline
+      let mm = gsap.matchMedia()
+      tl = gsap.timeline().to('.not-sidebar > *', {
+        yPercent: 10,
+        autoAlpha: 0,
+      })
 
-function initScrollAnimation() {
-  // Limpia animaciones previas si existen
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-  if (tl) tl.kill()
-
-  const targets = document.querySelectorAll('.not-sidebar > *')
-  const pinTarget = document.querySelector('.hero-content')
-
-  if (!targets.length || !pinTarget) {
-    console.warn('⚠️ Elementos no encontrados. Cancelando animación.')
-    return
-  }
-
-  // Crea nueva timeline
-  tl = gsap.timeline().to(targets, {
-    yPercent: 10,
-    autoAlpha: 0,
+      // Crea nuevo ScrollTrigger
+      ScrollTrigger.create({
+        start: 'top top',
+        pin: '.hero-content',
+        scrub: true,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+        animation: tl,
+      })
+    }, main.value)
   })
 
-  // Crea nuevo ScrollTrigger
-  ScrollTrigger.create({
-    trigger: pinTarget,
-    start: 'top top',
-    pin: pinTarget,
-    scrub: true,
-    pinSpacing: false,
-    invalidateOnRefresh: true,
-    animation: tl,
+  onUnmounted(() => {
+    ctx.revert()
   })
-}
-
-function handleResize() {
-  // Espera a que el DOM se estabilice antes de reiniciar
-  setTimeout(async () => {
-    await nextTick()
-    initScrollAnimation()
-    ScrollTrigger.refresh()
-  }, 400)
-}
-
-onMounted(async () => {
-  await nextTick() // Asegura que todo esté montado
-  ctx = gsap.context(() => {
-    initScrollAnimation()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
-  }, main.value)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
-  window.removeEventListener('orientationchange', handleResize)
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-  if (tl) tl.kill()
-})
-
-onUnmounted(() => {
-  if (ctx && ctx.revert) ctx.revert()
-})
 </script>
 <template>
   <div class="u-full-width hero">
