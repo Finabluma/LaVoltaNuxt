@@ -1,4 +1,8 @@
 {
     "editor.fontSize": 18,
-    "diffEditor.codeLens": false
+    "diffEditor.codeLens": false,
+    "workbench.settings.editor": "ui",
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
 }
