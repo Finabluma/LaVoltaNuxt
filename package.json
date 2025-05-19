@@ -32,5 +32,8 @@
     "@nuxtjs/color-mode": "^3.4.4",
     "dayjs-nuxt": "^2.1.11",
     "tailwindcss-pseudo-elements": "^2.0.0"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
