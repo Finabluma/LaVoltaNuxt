@@ -1,64 +1,75 @@
 <script setup>
-  import { articleQuery } from '~/queries'
+  import {computed} from 'vue'
 
   const props = defineProps({
     error: Object,
   })
   // get project
   const route = useRoute()
-  const params = {
-    slug: route.params.slug,
-  }
-  const data = await useSanityData({
-    query: articleQuery,
-    params: params,
-  })
+  const postStore = usePostStore()
+
+
+  // Cargar al montar
+  await postStore.fetchPostBySlug(route.params.slug)
+
+  const post = computed(() => postStore.post)
 
   // meta
   usePageHead({
-    title: data.title,
-    seo: data.seoPage,
+    title: post.title,
+    seo: post.seoPage,
   })
 
   const related = computed(() => {
-    return data.value.relatedContent
+    return post.value.relatedContent
   })
 
   const banner = computed(() => {
-    return data.value.optionalContent
+    return post.value.optionalContent
   })
 
   const estilos = computed(() => {
-    return data.value.optionalContent.length == 1 ? 'single' : 'compound'
+    return post.value.optionalContent.length == 1 ? 'single' : 'compound'
   })
+
+
+  // Reaccionar si cambia el slug (por ejemplo, navegación interna)
+  watch(
+    () => route.params.slug,
+    async (newSlug) => {
+      if (newSlug) {
+        await postStore.fetchPostBySlug(newSlug)
+      }
+    }
+  )
 </script>
 <template>
-  <div v-if="data">
+  <div v-if="post">
     <main>
       <HeroSection>
-        <h1 class="title-page">{{ data.title }}</h1>
-        <p class="font-coordinates">{{ data.subtitle }}</p>
+        <h1 class="title-page">{{ post.title }}</h1>
+        <p class="font-coordinates">{{ post.subtitle }}</p>
       </HeroSection>
       <div class="main-content">
         <div class="mb-clus3lev post">
-          <ArticleBreadcrumb :data="data">
+          <ArticleBreadcrumb :post="post">
             <li>
               <ElementsTextLink link-type="internalLinkType" route="revista"
                 >Revista</ElementsTextLink
               >
             </li>
-            <li>{{ data.title }}</li>
+            <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
-          <ArticleSummary v-if="data.summary" :summary="data.summary" />
-          <div v-if="data.mainImage" class="img">
+          <ArticleSummary v-if="post.summary" :summary="post.summary" />
+          <div v-if="post.mainImage" class="img">
             <ElementsMediaImageItem
-              :src="data.mainImage.asset._ref"
-              :alt="data.mainImage.alt"
+              :src="post.mainImage.asset._ref"
+              :alt="post.mainImage.alt"
               height="800"
               sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
               :modifiers="{
-                crop: data.mainImage.crop,
-                hotspot: data.mainImage.hotspot,
+                crop: post.mainImage.crop,
+                hotspot: post.mainImage.hotspot,
                 q: 80,
               }"
               fit="cover"
@@ -66,11 +77,11 @@
             />
           </div>
           <ElementsTextContent
-            :blocks="data?.maincontent"
-            v-if="data?.maincontent"
+            :blocks="post?.maincontent"
+            v-if="post?.maincontent"
             class="mb-clus3lev"
           />
-          <ArticleCategories v-if="data.categories" :tags="data.categories" />
+          <ArticleCategories v-if="post.categories" :tags="post.categories" />
         </div>
         <div class="list-related">
           <ArticleRelated :related="related.articleRelated" v-if="related" />
@@ -90,7 +101,7 @@
     </aside>
     <AppFooter />
   </div>
-  <div v-else>NO HAY ARTICULO</div>
+  <div v-else>Cargando ...</div>
 </template>
 
 <style lang="postcss">
