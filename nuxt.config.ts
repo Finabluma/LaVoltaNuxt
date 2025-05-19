@@ -148,13 +148,24 @@ export default defineNuxtConfig({
   },
   vite: {
     build: {
-      minify: 'esbuild', // default is 'esbuild' - very fast minifier
-      // Or use 'terser' for more advanced minification (slower but better)
-      // minify: 'terser',
+      minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: true, // optionally remove console.* calls
-          drop_debugger: true
+          drop_console: true,
+          drop_debugger: true,
+          pure_funcs: ['console.info', 'console.debug', 'console.warn']
+        },
+        format: {
+          comments: false
+        }
+      },
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              return 'vendor'
+            }
+          }
         }
       }
     }
