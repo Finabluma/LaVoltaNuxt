@@ -137,4 +137,17 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
     vueI18n: "./i18n.config.ts",
   },
+  vite: {
+    build: {
+      minify: 'esbuild', // default is 'esbuild' - very fast minifier
+      // Or use 'terser' for more advanced minification (slower but better)
+      // minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true, // optionally remove console.* calls
+          drop_debugger: true
+        }
+      }
+    }
+  }
 })

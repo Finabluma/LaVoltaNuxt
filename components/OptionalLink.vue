@@ -10,7 +10,7 @@
     :link-type="link.linkType"
     :href="link.href"
     :route="link.route"
-    a
+    aria-label="Enlace"
   >
     {{ link.title }}
   </ElementsTextLink>
