@@ -119,14 +119,13 @@ let smoother = null
 const { gsap, ScrollSmoother, ScrollTrigger } = useGsap()
 
 onMounted(() => {
-  if (smoother) return
   ctx = gsap.context(() => {
     smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
       smooth: 1.5,
       effects: true,
-      smoothTouch: 0.5,
+      smoothTouch: 0.1,
       speed: 2,
     })
     ScrollTrigger.refresh()
