@@ -16,7 +16,7 @@ function initScrollAnimation() {
   if (existing) existing.kill()
   if (tl) tl.kill()
 
-  const targets = document.querySelectorAll('.not-sidebar > *')
+  const targets = document.querySelectorAll('.hero .not-sidebar > *')
   const pinTarget = document.querySelector('.hero-content')
 
   if (!targets.length || !pinTarget) {
