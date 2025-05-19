@@ -1,47 +1,45 @@
 <script setup>
-  import {computed} from 'vue'
+import { computed } from "vue";
 
-  const props = defineProps({
-    error: Object,
-  })
-  // get project
-  const route = useRoute()
-  const postStore = usePostStore()
+const props = defineProps({
+  error: Object,
+});
+// get project
+const route = useRoute();
+const postStore = usePostStore();
 
+// Cargar al montar
+await postStore.fetchPostBySlug(route.params.slug);
 
-  // Cargar al montar
-  await postStore.fetchPostBySlug(route.params.slug)
+const post = computed(() => postStore.post);
 
-  const post = computed(() => postStore.post)
+// meta
+usePageHead({
+  title: post.title,
+  seo: post.seoPage,
+});
 
-  // meta
-  usePageHead({
-    title: post.title,
-    seo: post.seoPage,
-  })
+const related = computed(() => {
+  return post.value.relatedContent;
+});
 
-  const related = computed(() => {
-    return post.value.relatedContent
-  })
+const banner = computed(() => {
+  return post.value.optionalContent;
+});
 
-  const banner = computed(() => {
-    return post.value.optionalContent
-  })
+const estilos = computed(() => {
+  return post.value.optionalContent.length == 1 ? "single" : "compound";
+});
 
-  const estilos = computed(() => {
-    return post.value.optionalContent.length == 1 ? 'single' : 'compound'
-  })
-
-
-  // Reaccionar si cambia el slug (por ejemplo, navegación interna)
-  watch(
-    () => route.params.slug,
-    async (newSlug) => {
-      if (newSlug) {
-        await postStore.fetchPostBySlug(newSlug)
-      }
+// Reaccionar si cambia el slug (por ejemplo, navegación interna)
+watch(
+  () => route.params.slug,
+  async (newSlug) => {
+    if (newSlug) {
+      await postStore.fetchPostBySlug(newSlug);
     }
-  )
+  }
+);
 </script>
 <template>
   <div v-if="post">
@@ -54,33 +52,20 @@
         <div class="mb-clus3lev post">
           <ArticleBreadcrumb :post="post">
             <li>
-              <ElementsTextLink link-type="internalLinkType" route="revista"
-                >Revista</ElementsTextLink
-              >
+              <ElementsTextLink link-type="internalLinkType" route="revista">Revista</ElementsTextLink>
             </li>
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
           <div v-if="post.mainImage" class="img">
-            <ElementsMediaImageItem
-              :src="post.mainImage.asset._ref"
-              :alt="post.mainImage.alt"
-              height="800"
-              sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw"
-              :modifiers="{
+            <ElementsMediaImageItem :src="post.mainImage.asset._ref" :alt="post.mainImage.alt" height="800"
+              sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw" :modifiers="{
                 crop: post.mainImage.crop,
                 hotspot: post.mainImage.hotspot,
                 q: 80,
-              }"
-              fit="cover"
-              format="webp"
-            />
+              }" fit="cover" format="webp" />
           </div>
-          <ElementsTextContent
-            :blocks="post?.maincontent"
-            v-if="post?.maincontent"
-            class="mb-clus3lev"
-          />
+          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent" class="mb-clus3lev" />
           <ArticleCategories v-if="post.categories" :tags="post.categories" />
         </div>
         <div class="list-related">
@@ -90,69 +75,54 @@
     </main>
     <aside v-if="banner !== null" :class="estilos">
       <div class="content_wrapper">
-        <div
-          v-for="(item, index) in banner"
-          :key="item._id"
-          :class="index == 0 ? 'first' : 'second'"
-        >
+        <div v-for="(item, index) in banner" :key="item._id" :class="index == 0 ? 'first' : 'second'">
           <LazyBannerBottom :optional="item" />
         </div>
       </div>
     </aside>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
   <div v-else>Cargando ...</div>
 </template>
 
 <style lang="postcss">
-  .hero .l-center {
-    @apply lg:px-[10vw];
+.hero .l-center {
+  @apply lg:px-[10vw];
+}
+
+.post {
+  @apply l-center;
+
+  .breadcrumb {
+    @apply max-w-4xl mx-auto px-[2vw];
   }
 
-  .post {
-    @apply l-center;
-    .breadcrumb {
-      @apply max-w-4xl
-      mx-auto
-      px-[2vw];
-    }
-    .img {
-      @apply mb-10
-      max-w-4xl
-      mx-auto;
-      img {
-        @apply p-1
-        border;
-      }
-    }
-    .categories {
-      @apply md:p-[5vw]
-      max-w-4xl
-      mx-auto;
-      .tag {
-        @apply text-base
-        items-center;
+  .img {
+    @apply mb-10 max-w-4xl mx-auto;
 
-        svg {
-          @apply icon--larger;
-        }
-      }
-
-      &::before {
-        @apply content-['']
-        w-1/12
-        h-1
-        bg-current
-        block
-        mb-clus3lev;
-      }
+    img {
+      @apply p-1 border;
     }
   }
-  .list-related {
-    @apply l-center
-    l-box
-    l-box--no-border
-    max-w-4xl
-    lg:px-[10vw];
+
+  .categories {
+    @apply md:p-[5vw] max-w-4xl mx-auto;
+
+    .tag {
+      @apply text-base items-center;
+
+      svg {
+        @apply icon--larger;
+      }
+    }
+
+    &::before {
+      @apply content-[''] w-1/12 h-1 bg-current block mb-clus3lev;
+    }
   }
+}
+
+.list-related {
+  @apply l-center l-box l-box--no-border max-w-4xl lg:px-[10vw];
+}
 </style>

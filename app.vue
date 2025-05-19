@@ -118,23 +118,23 @@
 
   const { gsap, ScrollSmoother, ScrollTrigger } = useGsap()
 
-  // onMounted(() => {
-  //   ctx = gsap.context(() => {
-  //     smoother = ScrollSmoother.create({
-  //       wrapper: '#smooth-wrapper',
-  //       content: '#smooth-content',
-  //       smooth: 1.5,
-  //       effects: true,
-  //       smoothTouch: 0.1,
-  //       speed: 1.5,
-  //     })
-  //     ScrollTrigger.refresh()
-  //   })
-  // })
-  // onUnmounted(() => {
-  //   smoother.kill()
-  //   ctx.revert()
-  // })
+  onMounted(() => {
+    ctx = gsap.context(() => {
+      smoother = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 1.5,
+        effects: true,
+        smoothTouch: 0.1,
+        speed: 1.5,
+      })
+      ScrollTrigger.refresh()
+    })
+  })
+  onUnmounted(() => {
+    smoother.kill()
+    ctx.revert()
+  })
 </script>
 <template>
   <div id="smooth-wrapper">
@@ -144,6 +144,7 @@
       <AppHeader />
       <div id="smooth-content">
         <NuxtPage />
+        <AppFooter />
       </div>
       <CookieConsent />
     </div>

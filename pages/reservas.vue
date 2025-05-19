@@ -98,6 +98,6 @@
     <aside class="relative">
       <LazyUniverseCallBadge />
     </aside>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>

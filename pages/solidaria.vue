@@ -15,7 +15,7 @@
       <h1 class="sr-only">{{ solidaria[0].title }}</h1>
       {{ solidaria }}
     </main>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>
 <style></style>

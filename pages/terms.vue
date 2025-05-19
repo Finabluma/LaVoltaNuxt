@@ -26,6 +26,6 @@
         </section>
       </div>
     </main>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>

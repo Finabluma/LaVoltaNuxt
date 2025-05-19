@@ -42,7 +42,7 @@
         <LazyOptionalContent :page="home" />
       </div>
     </aside>
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </div>
 </template>
 
