@@ -138,14 +138,16 @@ onUnmounted(() => {
 </script>
 <template>
   <div id="smooth-wrapper">
-    <a class="sr-only" href="#main">Skip to content</a>
-    <div class="grid-wrap">
-      <AppHeaderCombo />
-      <div id="smooth-content">
-        <NuxtPage />
-        <AppFooter />
-      </div>
-      <CookieConsent />
+    <div id="skip" class="sr-only">
+        <a href="#main" >Skip to main content</a>
     </div>
-  </div>
+      <div class="grid-wrap">
+        <AppHeaderCombo />
+        <div id="smooth-content">
+          <NuxtPage />
+          <AppFooter />
+        </div>
+        <CookieConsent />
+      </div>
+    </div>
 </template>
