@@ -149,6 +149,7 @@ export default defineNuxtConfig({
   vite: {
     build: {
       minify: 'terser',
+      cssCodeSplit: true,
       terserOptions: {
         compress: {
           drop_console: true,
