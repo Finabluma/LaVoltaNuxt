@@ -48,7 +48,7 @@
     <AppDivider class="down" />
   </div>
 </template>
-<style lang="postcss">
+<!-- <style lang="postcss">
   .hero {
     .hero-content {
       @apply relative;
@@ -122,4 +122,4 @@
     @apply pt-8
     lg:pt-14;
   }
-</style>
+</style> -->
