@@ -59,7 +59,7 @@
       w-full
       h-full
       z-10
-      bg-azulejos2
+      bg-azulejos
       dark:bg-azulejos
       bg-cover;
 
