@@ -36,7 +36,7 @@
         <ArticleDestacado :item="isFeatured" />
       </div> -->
     </main>
-    <aside class="crosslinks relative z-20 bg-white dark:bg-secondark">
+    <aside class="crosslinks relative z-40 bg-white dark:bg-secondark">
       <div class="crosslinks-inner">
         <LazyGalleryReference :page="home" />
         <LazyOptionalContent :page="home" />
