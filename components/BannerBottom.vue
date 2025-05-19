@@ -19,7 +19,8 @@
             'max-w': '350',
             'max-h': '350',
           }"
-          sizes="xs:100vw"
+          sizes="xs:150px"
+          height="150"
           fit="cover"
           format="webp"
         />
