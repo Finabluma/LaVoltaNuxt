@@ -21,6 +21,7 @@
           route="revista-slug"
           :slug="article.slug"
           class="l-box l-box--no-padding l-box--no-border hover:opacity-80"
+          aria-label="Enlace"
         >
           {{ article.title }}
         </ElementsTextLink>

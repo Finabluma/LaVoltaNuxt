@@ -20,7 +20,7 @@
         <b>¿Aceptas el uso de cookies para estos fines?</b>
       </p>
       <div class="buttons">
-        <button @click="onAccept">Aceptar</button>
+        <button @click="onAccept" ar>Aceptar</button>
         <button @click="onReject">Rechazar</button>
       </div>
     </div>

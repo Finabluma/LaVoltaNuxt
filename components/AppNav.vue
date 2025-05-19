@@ -25,6 +25,7 @@
           :href="link.href"
           :blank="link.blank"
           :route="link.route"
+          aria-label="Navegación"
         >
           {{ link.title }}
         </ElementsTextLink>
