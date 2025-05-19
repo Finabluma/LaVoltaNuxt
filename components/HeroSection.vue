@@ -16,8 +16,9 @@ function initScrollAnimation() {
   if (existing) existing.kill()
   if (tl) tl.kill()
 
-  const targets = document.querySelectorAll('.hero .not-sidebar > *')
-  const pinTarget = document.querySelector('.hero-content')
+  // 🛡️ Limitar la selección al componente actual
+  const targets = main.value?.querySelectorAll('.not-sidebar > *')
+  const pinTarget = main.value?.querySelector('.hero-content')
 
   if (!targets.length || !pinTarget) {
     console.warn('⚠️ Elementos no encontrados. Cancelando animación.')
@@ -71,7 +72,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="u-full-width hero">
+  <div ref="main" class="u-full-width hero">
     <div class="hero-content">
       <div class="bg" role="presentation"></div>
       <div class="l-center">
