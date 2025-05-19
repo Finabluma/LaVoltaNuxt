@@ -25,6 +25,8 @@ export default defineNuxtConfig({
         // Preconnect to Typekit domain to speed up connection
         { rel: 'preconnect', href: 'https://use.typekit.net', crossorigin: 'anonymous' },
         { rel: 'dns-prefetch', href: 'https://use.typekit.net' },
+        // The actual stylesheet link for Adobe Fonts
+        { rel: 'stylesheet', href: 'https://use.typekit.net/hnq7yja.css' }
       ]
     } 
   },
