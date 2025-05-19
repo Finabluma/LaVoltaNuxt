@@ -21,18 +21,19 @@ function drawerOn() {
       </div>
       <div class="misc">
         <div v-if="phone" class="ab">
-          <ElementsTextLink :to="phone?.phone" class="linkNav" :title="phone?.phone">
+          <ElementsTextLink :to="phone?.phone" class="linkNav" :title="phone?.phone" aria-label="Teléfono">
             <NuxtIcon name="Phone" size="36" /><span class="sr-only">{{
               phone?.phone
-            }}</span>
+              }}</span>
           </ElementsTextLink>
         </div>
         <div v-if="linkCarta" class="linktocarta ab">
-          <ElementsTextLink link-type="internalLinkType" route="la-carta" :title="linkCarta?.title" class="linkNav p-1">
+          <ElementsTextLink link-type="internalLinkType" route="la-carta" :title="linkCarta?.title" class="linkNav p-1"
+            aria-label="Carta">
             <ForksRound class="w-7" />
             <span class="sr-only">{{
               linkCarta?.title
-            }}</span>
+              }}</span>
           </ElementsTextLink>
         </div>
         <button @click="drawerOn()" class="btn btn-circle ab" title="Menu" aria-label="Menu">
