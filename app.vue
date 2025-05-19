@@ -129,9 +129,7 @@ onMounted(() => {
       smoothTouch: 0.1,
       speed: 1.5,
     })
-    setTimeout(() => {
-      ScrollTrigger.refresh()
-    }, 100)
+    ScrollTrigger.refresh()
   })
 })
 onUnmounted(() => {

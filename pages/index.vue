@@ -18,7 +18,7 @@ let showModal = ref(true)
         <p class="lead">{{ home.subtitle }}</p>
         <p>{{ home.content }}</p>
       </HeroSection>
-      <div class="main-content" >
+      <div class="main-content">
         <CartaMenu :items="home.cartamenu" />
       </div>
     </main>
@@ -28,6 +28,5 @@ let showModal = ref(true)
         <LazyOptionalContent :page="home" />
       </div>
     </aside>
-    <!-- <AppFooter /> -->
   </div>
 </template>
