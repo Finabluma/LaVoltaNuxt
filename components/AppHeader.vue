@@ -24,7 +24,7 @@ function drawerOn() {
           <ElementsTextLink :to="phone?.phone" class="linkNav" :title="phone?.phone">
             <NuxtIcon name="Phone" size="36" /><span class="sr-only">{{
               phone?.phone
-              }}</span>
+            }}</span>
           </ElementsTextLink>
         </div>
         <div v-if="linkCarta" class="linktocarta ab">
@@ -32,10 +32,10 @@ function drawerOn() {
             <ForksRound class="w-7" />
             <span class="sr-only">{{
               linkCarta?.title
-              }}</span>
+            }}</span>
           </ElementsTextLink>
         </div>
-        <button @click="drawerOn()" class="btn btn-circle ab">
+        <button @click="drawerOn()" class="btn btn-circle ab" title="Menu" aria-label="Menu">
           <NuxtIcon name="Burguer" size="36" />
         </button>
       </div>
