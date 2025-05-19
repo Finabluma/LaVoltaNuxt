@@ -85,7 +85,7 @@
 <style lang="postcss" scoped>
   #drawer {
     @apply fixed
-    z-[100]
+    z-50
     inset-0
     invisible
     backdrop-blur-lg

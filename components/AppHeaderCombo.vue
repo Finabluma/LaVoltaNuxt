@@ -17,12 +17,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="fixed top-0 left-0 right-0 z-50 pointer-events-auto">
+    <div class="fixed top-0 left-0 right-0 z-40 pointer-events-auto">
         <!-- Today bar -->
         <div class="transition-all duration-100 ease-out bg-white dark:bg-secondark" :class="{
             'opacity-0 -translate-y-full pointer-events-none': isScrolled,
             'opacity-100 translate-y-0': !isScrolled,
-            'sticky top-0 z-50': true,
+            'sticky top-0 z-30': true,
         }">
             <TodayAvailability />
         </div>
