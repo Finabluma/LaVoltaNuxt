@@ -41,14 +41,8 @@
   <div class="u-full-width hero">
     <div class="hero-content">
       <div class="bg" role="presentation"></div>
-      <div class="l-center">
-        <div class="l-sidebar">
-            <div class="not-sidebar">
-              <div class="component--text">
-                <slot></slot>
-              </div>
-            </div>
-        </div>
+      <div class="relative z-10 py-42">
+        <slot></slot>
       </div>
     </div>
     <AppDivider class="down" />
