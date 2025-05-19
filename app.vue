@@ -141,8 +141,7 @@ onUnmounted(() => {
   <div id="smooth-wrapper">
     <a class="sr-only" href="#main">Skip to content</a>
     <div class="grid-wrap">
-      <TodayAvailability />
-      <AppHeader />
+      <AppHeaderCombo />
       <div id="smooth-content">
         <NuxtPage />
         <AppFooter />

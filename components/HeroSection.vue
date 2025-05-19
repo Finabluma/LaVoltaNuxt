@@ -141,7 +141,7 @@ onUnmounted(() => {
 
   .hero .l-sidebar .not-sidebar {
     @apply dark:text-secondark
-    pt-20
+    pt-24
     pb-16
     mx-auto
     lg:max-w-5xl
