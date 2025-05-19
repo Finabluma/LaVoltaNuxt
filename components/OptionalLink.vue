@@ -10,6 +10,7 @@
     :link-type="link.linkType"
     :href="link.href"
     :route="link.route"
+    a
   >
     {{ link.title }}
   </ElementsTextLink>

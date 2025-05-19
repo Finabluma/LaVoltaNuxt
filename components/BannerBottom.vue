@@ -39,6 +39,8 @@
           <NuxtLink
             :to="`/revista/${optional.enlace.slug}`"
             :title="optional.enlace.title"
+            aria-label="Enlace"
+            class="cta"
           >
             {{ optional.enlace.title }}
           </NuxtLink>

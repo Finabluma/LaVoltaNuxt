@@ -89,12 +89,12 @@ onUnmounted(() => {
             <p>{{ item.excerpt }}</p>
 
             <div v-if="index == 0">
-              <NuxtLink to="la-carta" :title="item.link.linkTarget.title" class="cta">
+              <NuxtLink to="la-carta" :title="item.link.linkTarget.title" class="cta" aria-label="Carta">
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
             </div>
             <div v-if="index == 1">
-              <NuxtLink to="el-menu" :title="item.link.linkTarget.title" class="cta">
+              <NuxtLink to="el-menu" :title="item.link.linkTarget.title" class="cta" aria-label="Menu">
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
             </div>
