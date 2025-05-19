@@ -41,7 +41,7 @@
   <div class="u-full-width hero">
     <div class="hero-content">
       <div class="bg" role="presentation"></div>
-      <div class="relative z-10 py-42">
+      <div class="relative z-10 py-24">
         <slot></slot>
       </div>
     </div>
