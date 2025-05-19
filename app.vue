@@ -109,7 +109,6 @@ useHead({
     },
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     { rel: 'manifest', href: '/site.webmanifest' },
-    { rel: 'stylesheet', href: 'https://use.typekit.net/hnq7yja.css' },
   ],
 })
 

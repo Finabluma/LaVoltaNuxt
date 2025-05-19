@@ -19,7 +19,14 @@ export default defineNuxtConfig({
   ],
   css: ['~/assets/css/main.css'],
   app:{
-    pageTransition: { name: 'page', mode: 'out-in' },   
+    pageTransition: { name: 'page', mode: 'out-in' }, 
+    head:{
+      link: [
+        // Preconnect to Typekit domain to speed up connection
+        { rel: 'preconnect', href: 'https://use.typekit.net', crossorigin: 'anonymous' },
+        { rel: 'dns-prefetch', href: 'https://use.typekit.net' },
+      ]
+    } 
   },
   icon: {
     componentName: 'NuxtIcon'
