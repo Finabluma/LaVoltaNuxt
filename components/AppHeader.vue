@@ -87,7 +87,7 @@
       mx-auto
       flex
       items-center
-      py-1
+      py-2
       px-[5%]
       lg:px-[2%];
       .logo-link {
