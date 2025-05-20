@@ -34,7 +34,6 @@ onMounted(() => {
             pin: true,
             pinSpacing: false,  // Para móviles activamos pinSpacing para evitar solapamientos
             scrub: true,
-            preventOverlaps: true,
             fastScrollEnd: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
