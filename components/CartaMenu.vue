@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 const props = defineProps({
   items: {
     type: Array,
@@ -7,9 +7,9 @@ const props = defineProps({
 })
 //GSAP
 const { gsap, ScrollTrigger } = useGsap()
-let mm // matchMedia instance
-let cartamenu = ref(null)
-let ctx = null
+
+const cartamenu = ref(null)
+let ctx, mm
 
 onMounted(() => {
   ctx = gsap.context(() => {
@@ -17,15 +17,12 @@ onMounted(() => {
 
     mm.add(
       {
-        // breakpoint para desktop
         isDesktop: '(min-width: 768px)',
-        // para mobile
         isMobile: '(max-width: 767px)',
       },
       (context) => {
-        let { isDesktop, isMobile } = context.conditions
-
-        let panels = gsap.utils.toArray('.panel')
+        const { isDesktop, isMobile } = context.conditions
+        const panels = gsap.utils.toArray('.panel')
 
         panels.forEach((panel) => {
           ScrollTrigger.create({
@@ -34,13 +31,13 @@ onMounted(() => {
               panel.offsetHeight < window.innerHeight
                 ? 'top top+=10'
                 : 'bottom bottom',
-            pin: isDesktop,
+            pin: true,
+            pinSpacing: false,  // Para móviles activamos pinSpacing para evitar solapamientos
             scrub: true,
-            pinSpacing: false,
             preventOverlaps: true,
             fastScrollEnd: true,
-            invalidateOnRefresh: true,
             anticipatePin: 1,
+            invalidateOnRefresh: true,
           })
 
           const isMedia = panel.classList.contains('media')
@@ -51,8 +48,7 @@ onMounted(() => {
             const rect = svg.querySelector('.rect')
             const circle = svg.querySelector('.circle')
 
-            gsap
-              .timeline({
+            gsap.timeline({
                 scrollTrigger: {
                   trigger: panel,
                   start: 'top center',
@@ -69,7 +65,6 @@ onMounted(() => {
               })
           }
 
-          // Aquí agregamos la animación solo para móviles y para .panel.content
           if (isMobile && panel.classList.contains('content')) {
             gsap.fromTo(
               panel,
@@ -83,7 +78,7 @@ onMounted(() => {
                   trigger: panel,
                   start: 'top 90%',
                   toggleActions: 'play reverse play reverse',
-                },
+                  },
               }
             )
           }
@@ -94,8 +89,8 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  mm?.revert()
-  ctx?.revert()
+  if (mm) mm.revert()
+  if (ctx) ctx.revert()
 })
 </script>
 <template>
@@ -153,7 +148,7 @@ onUnmounted(() => {
   .media {
     .inner {
       .svg {
-        @apply relative z-20 w-5/12 py-10 sm:w-5/12 md:w-4/12 md:py-2 lg:w-8/12 lg:py-8;
+        @apply relative z-20 w-9/12 py-10 sm:w-5/12 md:w-4/12 md:py-2 lg:w-8/12 lg:py-8;
       }
     }
   }
