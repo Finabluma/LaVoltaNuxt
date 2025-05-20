@@ -88,34 +88,34 @@ function handleResize() {
   }, 300)
 }
 
-onMounted(async () => {
-  await nextTick()
-  ctx = gsap.context(() => {
-    initScrollAnimation()
-    initBgPin()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
-  }, main.value)
-})
+// onMounted(async () => {
+//   await nextTick()
+//   ctx = gsap.context(() => {
+//     initScrollAnimation()
+//     initBgPin()
+//     window.addEventListener('resize', handleResize)
+//     window.addEventListener('orientationchange', handleResize)
+//   }, main.value)
+// })
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
-  window.removeEventListener('orientationchange', handleResize)
-  ScrollTrigger.getById(triggerId)?.kill()
-  if (tl) tl.kill()
-  if (bgPinTrigger) bgPinTrigger.kill()
-})
+// onBeforeUnmount(() => {
+//   window.removeEventListener('resize', handleResize)
+//   window.removeEventListener('orientationchange', handleResize)
+//   ScrollTrigger.getById(triggerId)?.kill()
+//   if (tl) tl.kill()
+//   if (bgPinTrigger) bgPinTrigger.kill()
+// })
 
-onUnmounted(() => {
-  if (ctx && ctx.revert) ctx.revert()
-})
+// onUnmounted(() => {
+//   if (ctx && ctx.revert) ctx.revert()
+// })
 </script>
 
 
 <template>
   <div ref="main" class="u-full-width hero">
     <div class="hero-content">
-      <!-- <div class="bg" role="presentation"></div> -->
+      <div class="bg" role="presentation"></div>
       <div class="l-center">
         <div class="l-sidebar">
           <div class="not-sidebar">
