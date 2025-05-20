@@ -7,7 +7,6 @@
   })
   //GSAP
   const { gsap, ScrollTrigger } = useGsap()
-  const triggerId = 'conditons-scroll-trigger'
   let main = ref(),
     skew = ref(),
     ctx = ref()
@@ -40,7 +39,6 @@
     gsap.set(panels[0], { autoAlpha: 1 })
     panels.forEach((panel) => {
       ScrollTrigger.create({
-        id: triggerId,
         trigger: panel,
         start: 'top top',
         pin: true,
@@ -55,21 +53,19 @@
     })
   }
 
-function handleResize() {
-  setTimeout(async () => {
-    await nextTick()
-    panels()
-    ScrollTrigger.getById(triggerId)?.refresh()
-  }, 300)
-}
+// function handleResize() {
+//   setTimeout(async () => {
+//     await nextTick()
+//     panels()
+//     ScrollTrigger.getById(triggerId)?.refresh()
+//   }, 300)
+// }
 
   onMounted(() => {
-      ctx = gsap.context(() => {
-        panels()
-        skewOnScroll()
-        window.addEventListener('resize', handleResize)
-        window.addEventListener('orientationchange', handleResize)
-      }, main.value)
+    ctx = gsap.context((self) => {
+      panels()
+      skewOnScroll()
+    }, main.value)
   })
 
   onUnmounted(() => {
