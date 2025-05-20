@@ -31,39 +31,40 @@ onMounted(() => {
               panel.offsetHeight < window.innerHeight
                 ? 'top top+=10'
                 : 'bottom bottom',
-            pin: true,
-            pinSpacing: false,  // Para móviles activamos pinSpacing para evitar solapamientos
+            pin: isDesktop, // aquí controlamos el pin según el dispositivo
+            pinSpacing: false,
             scrub: true,
             fastScrollEnd: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
           })
 
-          const isMedia = panel.classList.contains('media')
-          const inner = panel.querySelector('.inner')
+          // Animación SVG si .media
+          if (panel.classList.contains('media')) {
+            const inner = panel.querySelector('.inner')
+            if (!inner) return
 
-          if (isMedia) {
             const svg = inner.querySelector('svg')
+            if (!svg) return
+
             const rect = svg.querySelector('.rect')
             const circle = svg.querySelector('.circle')
+            if (!rect || !circle) return
 
             gsap.timeline({
-                scrollTrigger: {
-                  trigger: panel,
-                  start: 'top center',
-                  scrub: true,
-                  fastScrollEnd: true,
-                },
-              })
-              .add('svg')
+              scrollTrigger: {
+                trigger: panel,
+                start: 'top center',
+                scrub: true,
+                fastScrollEnd: true,
+              },
+            })
               .to(circle, {
-                morphSVG: {
-                  shape: rect,
-                  map: 'position',
-                },
+                morphSVG: { shape: rect, map: 'position' },
               })
           }
 
+          // Animación de entrada suave solo en móvil para panel.content
           if (isMobile && panel.classList.contains('content')) {
             gsap.fromTo(
               panel,
@@ -77,7 +78,7 @@ onMounted(() => {
                   trigger: panel,
                   start: 'top 90%',
                   toggleActions: 'play reverse play reverse',
-                  },
+                },
               }
             )
           }
@@ -85,6 +86,7 @@ onMounted(() => {
       }
     )
   }, cartamenu.value)
+
 })
 
 onUnmounted(() => {
