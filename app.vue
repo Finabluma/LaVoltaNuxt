@@ -150,3 +150,14 @@ onUnmounted(() => {
       </div>
     </div>
 </template>
+<style lang="postcss" scoped>
+#smooth-wrapper,
+#smooth-content {
+  @apply h-full
+  m-0
+  p-0
+}
+#smooth-wrapper {
+  @apply overflow-hidden;
+}
+</style>
