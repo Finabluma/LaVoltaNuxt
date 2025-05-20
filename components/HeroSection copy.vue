@@ -132,7 +132,6 @@ onUnmounted(() => {
 <style lang="postcss">
 .hero {
   @apply relative;
-
   .hero-content {
     @apply relative;
   }

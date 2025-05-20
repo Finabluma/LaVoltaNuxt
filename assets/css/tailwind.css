@@ -175,6 +175,7 @@
   .clean-list li {
     @apply block;
   }
+
 }
 @layer components {
   .grid-wrap {
