@@ -11,19 +11,15 @@ let tl = null
 const triggerId = 'hero-scroll-trigger'
 
 function initScrollAnimation() {
-  // Mata solo el trigger con ese ID
+  // Kill triggers y timeline previos
   const existing = ScrollTrigger.getById(triggerId)
   if (existing) existing.kill()
   if (tl) tl.kill()
 
-  // 🛡️ Limitar la selección al componente actual
   const targets = main.value?.querySelectorAll('.not-sidebar > *')
   const pinTarget = main.value?.querySelector('.hero-content')
 
-  if (!targets.length || !pinTarget) {
-    console.warn('⚠️ Elementos no encontrados. Cancelando animación.')
-    return
-  }
+  if (!targets.length || !pinTarget) return
 
   tl = gsap.timeline().to(targets, {
     yPercent: 10,
@@ -31,7 +27,7 @@ function initScrollAnimation() {
   })
 
   ScrollTrigger.create({
-    id: triggerId, // ID único
+    id: triggerId,
     trigger: pinTarget,
     start: 'top top',
     pin: pinTarget,
@@ -42,11 +38,33 @@ function initScrollAnimation() {
   })
 }
 
+function pinBackground() {
+  const bg = main.value?.querySelector('.bg')
+  const heroContent = main.value?.querySelector('.hero-content')
+  if (!bg || !heroContent) return
+
+  const existingBgTrigger = ScrollTrigger.getById('bg-pin-trigger')
+  if (existingBgTrigger) existingBgTrigger.kill()
+
+  ScrollTrigger.create({
+    id: 'bg-pin-trigger',
+    trigger: heroContent,
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: bg,
+    pinSpacing: false,
+    scrub: true,
+    invalidateOnRefresh: true,
+  })
+}
+
 function handleResize() {
   setTimeout(async () => {
     await nextTick()
     initScrollAnimation()
+    pinBackground()
     ScrollTrigger.getById(triggerId)?.refresh()
+    ScrollTrigger.getById('bg-pin-trigger')?.refresh()
   }, 400)
 }
 
@@ -54,6 +72,7 @@ onMounted(async () => {
   await nextTick()
   ctx = gsap.context(() => {
     initScrollAnimation()
+    pinBackground()
     window.addEventListener('resize', handleResize)
     window.addEventListener('orientationchange', handleResize)
   }, main.value)
@@ -91,6 +110,8 @@ onUnmounted(() => {
 </template>
 <style lang="postcss">
 .hero {
+  @apply max-h-96
+  overflow-hidden;
   .hero-content {
     @apply relative;
   }
