@@ -106,7 +106,7 @@ onUnmounted(() => {
 </template>
 <style lang="postcss" scoped>
 #container {
-  @apply relative w-full overflow-y-hidden;
+  @apply relative w-full;
 
   article {
     @apply l-center lg:flex lg:items-center;
