@@ -115,7 +115,7 @@ onUnmounted(() => {
 <template>
   <div ref="main" class="u-full-width hero">
     <div class="hero-content">
-      <div class="bg" role="presentation"></div>
+      <!-- <div class="bg" role="presentation"></div> -->
       <div class="l-center">
         <div class="l-sidebar">
           <div class="not-sidebar">
