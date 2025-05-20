@@ -5,71 +5,101 @@ const props = defineProps({
     type: Array,
   },
 })
-let cartamenu = ref(),
-  ctx = ref()
 //GSAP
 const { gsap, ScrollTrigger } = useGsap()
-
-function tlCartaMenu() {
-  let panels = gsap.utils.toArray('.panel')
-  panels.forEach((panel, i) => {
-    ScrollTrigger.create({
-      trigger: panel,
-      start: () =>
-        panel.offsetHeight < window.innerHeight
-          ? 'top top+=10'
-          : 'bottom bottom',
-      pin: true,
-      scrub: true,
-      pinSpacing: false,
-      preventOverlaps: true,
-      fastScrollEnd: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    })
-
-    const isMedia = panel.classList.contains('media')
-    const inner = panel.querySelector('.inner')
-
-    if (isMedia) {
-      const svg = inner.querySelector('svg')
-      const rect = svg.querySelector('.rect')
-      const circle = svg.querySelector('.circle')
-
-      const tlMedia = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: panel,
-            start: 'top center',
-            scrub: true,
-            fastScrollEnd: true,
-          },
-        })
-        .add('svg')
-        .to(circle, {
-          morphSVG: {
-            shape: rect,
-            map: 'position',
-          },
-        })
-
-      return tlMedia
-    }
-  })
-}
+let mm // matchMedia instance
+let cartamenu = ref(null)
+let ctx = null
 
 onMounted(() => {
-  ctx = gsap.context((self) => {
-    tlCartaMenu()
+  ctx = gsap.context(() => {
+    mm = gsap.matchMedia()
+
+    mm.add(
+      {
+        // breakpoint para desktop
+        isDesktop: '(min-width: 768px)',
+        // para mobile
+        isMobile: '(max-width: 767px)',
+      },
+      (context) => {
+        let { isDesktop, isMobile } = context.conditions
+
+        let panels = gsap.utils.toArray('.panel')
+
+        panels.forEach((panel) => {
+          ScrollTrigger.create({
+            trigger: panel,
+            start:
+              panel.offsetHeight < window.innerHeight
+                ? 'top top+=10'
+                : 'bottom bottom',
+            pin: isDesktop,
+            scrub: true,
+            pinSpacing: false,
+            preventOverlaps: true,
+            fastScrollEnd: true,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+          })
+
+          const isMedia = panel.classList.contains('media')
+          const inner = panel.querySelector('.inner')
+
+          if (isMedia) {
+            const svg = inner.querySelector('svg')
+            const rect = svg.querySelector('.rect')
+            const circle = svg.querySelector('.circle')
+
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: panel,
+                  start: 'top center',
+                  scrub: true,
+                  fastScrollEnd: true,
+                },
+              })
+              .add('svg')
+              .to(circle, {
+                morphSVG: {
+                  shape: rect,
+                  map: 'position',
+                },
+              })
+          }
+
+          // Aquí agregamos la animación solo para móviles y para .panel.content
+          if (isMobile && panel.classList.contains('content')) {
+            gsap.fromTo(
+              panel,
+              { opacity: 0, y: 30 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: panel,
+                  start: 'top 90%',
+                  toggleActions: 'play reverse play reverse',
+                },
+              }
+            )
+          }
+        })
+      }
+    )
   }, cartamenu.value)
 })
 
 onUnmounted(() => {
-  ctx.revert()
+  mm?.revert()
+  ctx?.revert()
 })
 </script>
 <template>
-  <div id="container">
+  <div id="container" ref="cartamenu">
     <article v-for="(item, index) in items" :key="item._key">
       <div class="panel media">
         <div class="inner">
