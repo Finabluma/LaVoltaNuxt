@@ -63,7 +63,7 @@
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      panels()
+      // panels()
       skewOnScroll()
     }, main.value)
   })

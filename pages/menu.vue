@@ -60,7 +60,7 @@
   }
   onMounted(() => {
     ctx = gsap.context((self) => {
-      smPlatos()
+      // smPlatos()
       skewOnScroll()
     }, main.value)
   })
