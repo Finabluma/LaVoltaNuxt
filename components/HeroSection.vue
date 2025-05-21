@@ -3,115 +3,42 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 const props = defineProps({
   items: Object,
 })
-let main = ref()
-let ctx = null
 
 const { gsap, ScrollTrigger } = useGsap()
+let main = ref()
+let ctx = null
 let tl = null
-let bgPinTrigger = null
-const triggerId = 'hero-scroll-trigger'
-const bgTriggerId = 'bg-pin-trigger'
+let mm
 
-function initScrollAnimation() {
-  // Mata trigger de animación de texto
-  const existing = ScrollTrigger.getById(triggerId)
-  if (existing) existing.kill()
-  if (tl) tl.kill()
-
-  const targets = main.value?.querySelectorAll('.not-sidebar > *')
-  const pinTarget = main.value?.querySelector('.hero-content')
-
-  if (!targets.length || !pinTarget) return
-
-  tl = gsap.timeline().to(targets, {
-    yPercent: 10,
-    autoAlpha: 0,
+function pinHero(){
+  tl = gsap.timeline().to('.not-sidebar > *',{
+    yPercent:10,
+    autoAlpha:0
   })
-
   ScrollTrigger.create({
-    id: triggerId,
-    trigger: pinTarget,
-    start: 'top top',
-    pin: pinTarget,
-    scrub: true,
-    pinSpacing: false,
-    invalidateOnRefresh: true,
-    animation: tl,
+    id:'pin-hero-st',
+    trigger:'.hero-content',
+    start:'top top',
+    pin:'.hero-content',
+    pinSpacing:false,
+    scrub:true,
+    animation:tl
   })
 }
 
-function initBgPin() {
-  const bg = main.value?.querySelector('.bg')
-  if (!bg) return
-
-  // Mata trigger anterior de fondo
-  if (bgPinTrigger) {
-    bgPinTrigger.kill()
-    bgPinTrigger = null
-  }
-
-  // Sólo pin en desktop (1024px o más)
-  if (window.innerWidth >= 1024) {
-    bgPinTrigger = ScrollTrigger.create({
-      id: bgTriggerId,
-      trigger: main.value,
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: bg,
-      pinSpacing: false,
-      invalidateOnRefresh: true,
-      onEnter: () => {
-        bg.style.position = 'fixed'
-        bg.style.top = '0'
-        bg.style.left = '0'
-        bg.style.width = '100%'
-        bg.style.height = window.innerHeight + 'px'
-      },
-      onLeaveBack: () => {
-        bg.style.position = 'absolute'
-        bg.style.height = '100%'
-      }
+onMounted(() => {
+  ctx = gsap.context(() => {    
+    mm = gsap.matchMedia()
+    mm.add("(min-width: 1024px)", () => {
+      pinHero()
     })
-  } else {
-    // En móvil no pin, dejamos el bg con position absolute
-    bg.style.position = 'absolute'
-  }
-}
+  }, main.value)
+})
 
-function handleResize() {
-  setTimeout(async () => {
-    await nextTick()
-    initScrollAnimation()
-    initBgPin()
-    ScrollTrigger.getById(triggerId)?.refresh()
-    ScrollTrigger.getById(bgTriggerId)?.refresh()
-  }, 300)
-}
-
-// onMounted(async () => {
-//   await nextTick()
-//   ctx = gsap.context(() => {
-//     initScrollAnimation()
-//     initBgPin()
-//     window.addEventListener('resize', handleResize)
-//     window.addEventListener('orientationchange', handleResize)
-//   }, main.value)
-// })
-
-// onBeforeUnmount(() => {
-//   window.removeEventListener('resize', handleResize)
-//   window.removeEventListener('orientationchange', handleResize)
-//   ScrollTrigger.getById(triggerId)?.kill()
-//   if (tl) tl.kill()
-//   if (bgPinTrigger) bgPinTrigger.kill()
-// })
-
-// onUnmounted(() => {
-//   if (ctx && ctx.revert) ctx.revert()
-// })
+onUnmounted(() => {
+  ctx.revert()
+})
 </script>
-
-
 <template>
   <div ref="main" class="u-full-width hero">
     <div class="hero-content">
