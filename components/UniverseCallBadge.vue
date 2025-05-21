@@ -5,34 +5,28 @@
     bruja = ref()
 
   let ctx = null,
-  universeCall
+  main = ref(null)
 
- function universeCallSt(){
-   cosmos.value.smUniverse()
-   bruja.value.tlCallBadge()
- } 
-
-
-
-function handleResize() {
-  setTimeout(()=> {
-    ScrollTrigger?.refresh()
-  }, 300)
-}
+  function handleResize() {
+    setTimeout(()=> {
+      ScrollTrigger?.refresh()
+    }, 300)
+  }
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      universeCallSt()
+      cosmos.value.smUniverse()
+      bruja.value.tlCallBadge()
       window.addEventListener('resize', handleResize)
       window.addEventListener('orientationchange', handleResize)
-    }, universeCall.value)
+    }, main.value)
   })
   onUnmounted(() => {
     ctx.revert()
   })
 </script>
 <template>
-  <div class="universeCallBadge" ref="universeCall">
+  <div class="universeCallBadge" ref="main">
     <div class="wrapper">
       <div class="contacta">
         <div class="inner">
