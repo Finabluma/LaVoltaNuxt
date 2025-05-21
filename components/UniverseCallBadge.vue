@@ -20,8 +20,8 @@ function handleResize() {
     ctx = gsap.context((self) => {
       cosmos.value.smUniverse()
       bruja.value.tlCallBadge()
-      window.addEventListener('resize', handleResize)
-      window.addEventListener('orientationchange', handleResize)
+      // window.addEventListener('resize', handleResize)
+      // window.addEventListener('orientationchange', handleResize)
     }, universeCall.value)
   })
   onUnmounted(() => {
