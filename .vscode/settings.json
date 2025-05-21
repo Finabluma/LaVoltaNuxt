@@ -5,4 +5,8 @@
     "files.autoSave": "afterDelay",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
+    "accessibility.verbosity.inlineChat": true,
+    "chat.implicitContext.enabled": {
+        "panel": "never"
+    },
 }

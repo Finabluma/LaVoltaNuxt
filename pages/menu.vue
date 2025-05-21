@@ -17,7 +17,8 @@
   const { gsap, ScrollTrigger } = useGsap()
   let main = ref(),
     menuSVG = ref(),
-    ctx = ref()
+    ctx = ref(),
+    mm
 
   function smPlatos() {
     let panels = gsap.utils.toArray('article')
@@ -60,12 +61,16 @@
   }
   onMounted(() => {
     ctx = gsap.context((self) => {
-      // smPlatos()
       skewOnScroll()
+      mm = gsap.matchMedia()
+      mm.add("(min-width: 1024px)", () => {
+        smPlatos()
+      })
     }, main.value)
   })
   onUnmounted(() => {
     ctx.revert()
+    mm.revert() 
   })
 </script>
 <template>

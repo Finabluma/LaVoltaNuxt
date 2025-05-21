@@ -9,7 +9,8 @@
   const { gsap, ScrollTrigger } = useGsap()
   let main = ref(),
     skew = ref(),
-    ctx = ref()
+    ctx = ref(),
+    mm
 
   function skewOnScroll() {
     let proxy = { skew: 0 },
@@ -63,36 +64,19 @@
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      // panels()
+      mm = gsap.matchMedia()
+      mm.add("(min-width: 1024px)", ()=>{
+        panels()
+      })    
+
       skewOnScroll()
     }, main.value)
   })
 
   onUnmounted(() => {
     ctx.revert()
+    mm.revert()    
   })
-
-// onMounted(async () => {
-//   await nextTick()
-//   ctx = gsap.context(() => {
-//     panels()
-//     skewOnScroll()
-//     window.addEventListener('resize', handleResize)
-//     window.addEventListener('orientationchange', handleResize)
-//   }, main.value)
-// })
-
-// onBeforeUnmount(() => {
-//   window.removeEventListener('resize', handleResize)
-//   window.removeEventListener('orientationchange', handleResize)
-//   ScrollTrigger.getById(triggerId)?.kill()
-//   if (tl) tl.kill()
-//   if (bgPinTrigger) bgPinTrigger.kill()
-// })
-
-// onUnmounted(() => {
-//   if (ctx && ctx.revert) ctx.revert()
-// })
 </script>
 <template>
   <div class="page">
