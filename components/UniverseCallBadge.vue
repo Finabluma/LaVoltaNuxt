@@ -7,21 +7,24 @@
   let ctx = null,
   universeCall
 
+ function universeCallSt(){
+   cosmos.value.smUniverse()
+   bruja.value.tlCallBadge()
+ } 
 
-// function handleResize() {
-//   setTimeout(async () => {
-//     await nextTick()
-//     ScrollTrigger.getById(stUniverse)?.refresh()
-//     ScrollTrigger.getById(stBadge)?.refresh()
-//   }, 300)
-// }
+
+
+function handleResize() {
+  setTimeout(()=> {
+    ScrollTrigger?.refresh()
+  }, 300)
+}
 
   onMounted(() => {
     ctx = gsap.context((self) => {
-      cosmos.value.smUniverse()
-      bruja.value.tlCallBadge()
-      // window.addEventListener('resize', handleResize)
-      // window.addEventListener('orientationchange', handleResize)
+      universeCallSt()
+      window.addEventListener('resize', handleResize)
+      window.addEventListener('orientationchange', handleResize)
     }, universeCall.value)
   })
   onUnmounted(() => {
