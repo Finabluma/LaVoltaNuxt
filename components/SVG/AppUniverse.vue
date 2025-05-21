@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-let ctx = ref(null), universe
   const { gsap, ScrollTrigger } = useGsap()
 
   function smUniverse() {
@@ -48,34 +46,15 @@ let ctx = ref(null), universe
     })
   }
 
-function handleResize() {
-  setTimeout(async () => {
-    await nextTick()
-    ScrollTrigger.getById('stUniverse')?.refresh()
-  }, 300)
-}
-
-onMounted(() => {
-  ctx = gsap.context((self) => {
-    smUniverse()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
-  }, universe.value)
-})
-onUnmounted(() => {
-  ctx.revert()
-})
-
-  // defineExpose({
-  //   smUniverse,
-  // })
+  defineExpose({
+    smUniverse,
+  })
 </script>
 <template>
   <svg
     id="stelarium"
     viewBox="0 0 1366 768"
     preserveAspectRatio="xMidYMid meet"
-    ref="universe"
   >
     <g id="constelaciones">
       <path
