@@ -80,7 +80,9 @@ watch(
         </div>
       </div>
     </aside>
-    <!-- <AppFooter /> -->
+    <ClientOnly>
+      <AppFooter />
+    </ClientOnly>
   </div>
   <div v-else>Cargando ...</div>
 </template>

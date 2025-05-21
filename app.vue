@@ -144,7 +144,6 @@ onUnmounted(() => {
         <AppHeaderCombo />
         <div id="smooth-content">
           <NuxtPage />
-          <AppFooter />
         </div>
         <CookieConsent />
       </div>

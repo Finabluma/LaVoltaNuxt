@@ -102,6 +102,6 @@
       <GalleryReference :page="carta" />
       <OptionalContent :page="carta" />
     </aside>
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>

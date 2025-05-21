@@ -135,7 +135,7 @@
       <GalleryReference :page="menu" />
       <OptionalContent :page="menu" />
     </aside>
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>
 <style lang="postcss" scoped>

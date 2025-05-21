@@ -28,5 +28,6 @@ let showModal = ref(true)
         <LazyOptionalContent :page="home" />
       </div>
     </aside>
+    <AppFooter />
   </div>
 </template>

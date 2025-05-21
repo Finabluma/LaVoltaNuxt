@@ -54,14 +54,6 @@
     })
   }
 
-// function handleResize() {
-//   setTimeout(async () => {
-//     await nextTick()
-//     panels()
-//     ScrollTrigger.getById(triggerId)?.refresh()
-//   }, 300)
-// }
-
   onMounted(() => {
     ctx = gsap.context((self) => {
       mm = gsap.matchMedia()
@@ -112,6 +104,6 @@
     <aside class="relative">
       <LazyUniverseCallBadge />
     </aside>
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>

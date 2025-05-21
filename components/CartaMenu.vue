@@ -142,14 +142,14 @@ onUnmounted(() => {
     @apply relative w-full bg-white dark:bg-secondark will-change-transform;
 
     .inner {
-      @apply flex justify-center;
+      @apply flex lg:justify-center 
     }
   }
 
   .media {
     .inner {
       .svg {
-        @apply relative z-20 w-7/12 py-10 sm:w-5/12 md:w-4/12 md:py-2 lg:w-8/12 lg:py-8;
+        @apply relative z-20 mx-auto w-7/12 py-10 sm:w-5/12 md:w-3/12 md:py-2 lg:w-8/12 lg:py-8;
       }
     }
   }
@@ -160,8 +160,12 @@ onUnmounted(() => {
     .inner {
       @apply bg-white dark:bg-secondark w-auto py-5 sm:py-10 lg:py-20;
 
+      .lead{
+        @apply uppercase font-cameo
+      }
+
       .component.component--text {
-        @apply text-center lg:px-0 lg:text-left lg:mx-0;
+        @apply px-5 md:px-[10vw] md:text-center lg:mx-0 lg:px-0 lg:text-left;
 
         >* {
           @apply mb-clus2lev mx-auto;
@@ -170,13 +174,13 @@ onUnmounted(() => {
         .title-block {
           @apply mb-5 text-xl uppercase;
 
-          &:after {
-            @apply mx-auto lg:ml-0;
+          &:after{
+            @apply md:mx-auto lg:ml-0
           }
         }
 
         .cta {
-          @apply mt-5;
+          @apply mt-10 lg:mt-5;
         }
       }
     }

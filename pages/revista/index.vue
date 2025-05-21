@@ -86,7 +86,7 @@
     <aside v-if="revista.optionalContent !== null">
       <OptionalContent :page="revista" />
     </aside>
-    <!-- <AppFooter /> -->
+    <AppFooter />
   </div>
 </template>
 <style lang="postcss" scoped>
