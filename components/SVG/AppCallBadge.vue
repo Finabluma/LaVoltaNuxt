@@ -1,4 +1,6 @@
 <script setup>
+  import {ref, onMounted, onUnmounted} from 'vue'
+  let ctx = ref(null), callBadge
   const { gsap, ScrollTrigger } = useGsap()
   function rotateBadge() {
     let tl = gsap
@@ -62,12 +64,26 @@
     return tl
   }
 
-  defineExpose({
-    tlCallBadge,
-  })
+function handleResize() {
+  setTimeout(async () => {
+    await nextTick()
+    ScrollTrigger.getById('stBadge')?.refresh()
+  }, 300)
+}
+
+onMounted(() => {
+  ctx = gsap.context((self) => {
+    tlCallBadge()
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('orientationchange', handleResize)
+  }, callBadge.value)
+})
+onUnmounted(() => {
+  ctx.revert()
+})
 </script>
 <template>
-  <svg id="callNow" viewBox="0 0 512 512">
+  <svg id="callNow" viewBox="0 0 512 512" ref="callBadge">
     <g id="rings">
       <path
         id="ring1"
