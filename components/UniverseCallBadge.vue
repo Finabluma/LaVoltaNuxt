@@ -1,24 +1,35 @@
 <script setup>
   //GSAP
-  const { gsap } = useGsap()
+  const { gsap, ScrollTrigger } = useGsap()
   let cosmos = ref(),
-    main = ref(),
     bruja = ref()
 
-  let ctx = null
+  let ctx = null,
+  universeCall
+
+
+function handleResize() {
+  setTimeout(async () => {
+    await nextTick()
+    ScrollTrigger.getById(stUniverse)?.refresh()
+    ScrollTrigger.getById(stBadge)?.refresh()
+  }, 300)
+}
 
   onMounted(() => {
     ctx = gsap.context((self) => {
       cosmos.value.smUniverse()
       bruja.value.tlCallBadge()
-    }, main.value)
+      window.addEventListener('resize', handleResize)
+      window.addEventListener('orientationchange', handleResize)
+    }, universeCall.value)
   })
   onUnmounted(() => {
     ctx.revert()
   })
 </script>
 <template>
-  <div class="universeCallBadge">
+  <div class="universeCallBadge" ref="universeCall">
     <div class="wrapper">
       <div class="contacta">
         <div class="inner">

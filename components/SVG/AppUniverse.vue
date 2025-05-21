@@ -39,7 +39,6 @@
       trigger: '.wrapper',
       pin: true,
       pinSpacing: false,
-      snap: 1 / 2,
       scrub: 1,
       preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
       fastScrollEnd: true,
