@@ -17,8 +17,8 @@ onMounted(() => {
 
     mm.add(
       {
-        isDesktop: '(min-width: 768px)',
-        isMobile: '(max-width: 767px)',
+        isDesktop: '(min-width: 1024px)',
+        isMobile: '(max-width: 1023px)',
       },
       (context) => {
         const { isDesktop, isMobile } = context.conditions
@@ -149,7 +149,7 @@ onUnmounted(() => {
   .media {
     .inner {
       .svg {
-        @apply relative z-20 w-9/12 py-10 sm:w-5/12 md:w-4/12 md:py-2 lg:w-8/12 lg:py-8;
+        @apply relative z-20 w-7/12 py-10 sm:w-5/12 md:w-4/12 md:py-2 lg:w-8/12 lg:py-8;
       }
     }
   }
