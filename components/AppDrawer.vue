@@ -71,7 +71,8 @@ defineExpose({
 <template>
   <div id="drawer" ref="drawer" class="fixed z-50
     inset-0 invisible backdrop-blur-lg bg-whitedark:bg-secondark">
-    <div class="m-auto w-screen max-h-dvh flex flex-col items-end py-5 px-5 landscape:pt-1 landscape:lg:pt-5">
+    <div
+      class="drawerInner m-auto w-screen max-h-dvh flex flex-col items-end py-5 px-5 landscape:pt-1 landscape:lg:pt-5">
       <button id="close" aria-label="close drawer" @click="drawerOut()">
         <NuxtIcon name="Close" class="w-8 lg:w-6" />
       </button>
