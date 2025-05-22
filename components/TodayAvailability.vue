@@ -1,33 +1,35 @@
 <script setup>
-  const { horarios } = useHorarioStore()
-  const date = new Date()
-  const day = date.getDay(date)
-  const dayNames = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ]
-  const currentDay = dayNames[day]
-  const dia = computed(() => {
-    return horarios.availability.filter((day) => day.day === currentDay)
-  })
-  const dag = computed(() => {
-    return dia.value[0].availableTimes
-  })
-  function formatHour(item) {
-    return item.slice(0, -2)
-  }
+const { horarios } = useHorarioStore()
+const date = new Date()
+const day = date.getDay(date)
+const dayNames = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+]
+const currentDay = dayNames[day]
+const dia = computed(() => {
+  return horarios.availability.filter((day) => day.day === currentDay)
+})
+const dag = computed(() => {
+  return dia.value[0].availableTimes
+})
+function formatHour(item) {
+  return item.slice(0, -2)
+}
 </script>
 <template>
   <section class="today">
     <h2 class="sr-only">Horario del día</h2>
-    <div class="flex justify-center items-center">
+    <div class="container mx-auto">
       <div v-if="dag.length === 0" class="state">
-        <div><Reloj class="mr-1" /> <span> Hoy cerramos</span></div>
+        <div>
+          <Reloj class="mr-1" /> <span> Hoy cerramos</span>
+        </div>
       </div>
       <div v-if="dag.length === 1" class="state">
         <div>
@@ -37,8 +39,7 @@
         <div v-for="hours in dag" :key="hours.key" class="franjas">
           <div class="franjas">
             <span>{{ formatHour(hours.from) }}</span>
-            <span> -{{ formatHour(hours.to) }}</span
-            >pm
+            <span> -{{ formatHour(hours.to) }}</span>pm
           </div>
         </div>
       </div>
@@ -50,60 +51,10 @@
         <div class="franjas">
           <div v-for="hours in dag" :key="hours.key" class="franja">
             <span>{{ formatHour(hours.from) }}</span>
-            <span> -{{ formatHour(hours.to) }}</span
-            >pm
+            <span> -{{ formatHour(hours.to) }}</span>pm
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-<style lang="postcss" scoped>
-  .today {
-    @apply relative
-    text-[16px]
-    font-coordinates
-    font-bold   
-    text-firstlight
-    dark:bg-firstdark/20  
-    dark:text-firstdark
-    border-b
-    border-b-firstlight/60 
-    dark:border-b-firstdark/60    
-    z-20
-    p-1.5  
-    flex
-    flex-col
-    justify-center
-    items-center
-    sm:justify-start;
-
-    .state {
-      @apply flex
-        flex-wrap
-        items-center
-        justify-center
-        sm:flex-row
-        sm:justify-center
-        overflow-y-hidden;
-
-      div:first-of-type {
-        @apply flex items-center;
-      }
-
-      .franjas {
-        @apply flex px-1;
-      }
-
-      .franja:last-child {
-        @apply flex justify-center items-center;
-
-        &:before {
-          @apply content-['&']
-          block
-          mx-1;
-        }
-      }
-    }
-  }
-</style>
