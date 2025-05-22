@@ -70,7 +70,7 @@ defineExpose({
 </script>
 <template>
   <div id="drawer" ref="drawer" class="fixed z-50
-    inset-0 invisible backdrop-blur-lg bg-whitedark:bg-secondark">
+    inset-0 invisible  bg-white dark:bg-secondark">
     <div
       class="drawerInner m-auto w-screen max-h-dvh flex flex-col items-end py-5 px-5 landscape:pt-1 landscape:lg:pt-5">
       <button id="close" aria-label="close drawer" @click="drawerOut()">

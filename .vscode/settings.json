@@ -1,12 +1,22 @@
 {
-    "editor.fontSize": 18,
-    "diffEditor.codeLens": false,
-    "workbench.settings.editor": "ui",
-    "files.autoSave": "afterDelay",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true,
-    "accessibility.verbosity.inlineChat": true,
-    "chat.implicitContext.enabled": {
-        "panel": "never"
-    },
+  "editor.fontSize": 18,
+  "diffEditor.codeLens": false,
+  "workbench.settings.editor": "ui",
+  "files.autoSave": "afterDelay",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "accessibility.verbosity.inlineChat": true,
+  "chat.implicitContext.enabled": {
+    "panel": "never"
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnType": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }

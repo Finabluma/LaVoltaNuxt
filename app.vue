@@ -136,6 +136,21 @@ onUnmounted(() => {
 })
 </script>
 <template>
+  <!-- <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">
+        Tailwind CSS v4 + Nuxt 3
+      </h1>
+      <p class="text-gray-600 text-center">
+        Your Tailwind CSS v4 is successfully installed in your Nuxt 3 project!
+      </p>
+      <div class="mt-6">
+        <button class="btn-primary w-full">
+          Custom Component with Tailwind
+        </button>
+      </div>
+    </div>
+  </div> -->
   <div id="smooth-wrapper">
     <div id="skip" class="sr-only">
         <a href="#main" >Skip to main content</a>
@@ -152,10 +167,9 @@ onUnmounted(() => {
 <style lang="postcss" scoped>
 #smooth-wrapper,
 #smooth-content {
-  @apply h-full
-  m-0
-  p-0
+  @apply h-full m-0 p-0
 }
+
 #smooth-wrapper {
   @apply overflow-hidden;
 }

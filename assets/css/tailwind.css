@@ -1,16 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
-  :root {
+  /* :root {
     @apply bg-firstlight
     text-firstlight
     fill-firstlight
     dark:bg-secondark    
     dark:text-firstdark    
     dark:fill-secondark;
-  }
+  } */
 
   ::selection {
     @apply bg-secondark
@@ -77,7 +73,7 @@
 
   main:focus,
   #main:focus,
-  [tabindex='-1']:focus {
+  [tabindex="-1"]:focus {
     @apply outline-none;
   }
 
@@ -175,16 +171,8 @@
   .clean-list li {
     @apply block;
   }
-
 }
 @layer components {
-  .grid-wrap {
-    @apply grid
-      grid-cols-1
-      grid-rows-1
-      min-h-dvh;
-  }
-
   .breadcrumb {
     @apply lg:px-[5vw];
     ol {
@@ -245,14 +233,6 @@
     px-[5vw];
   }
 
-  .u-full-width {
-    @apply relative
-    w-screen
-    left-1/2
-    right-1/2
-    -ml-[50%]
-    -mr-[50%];
-  }
 
   .l-cluster {
     @apply overflow-hidden;
@@ -301,48 +281,6 @@
     flex-grow-[999];
   }
 
-  .l-stack {
-    @apply flex
-    flex-col;
-  }
-
-  .l-stack > * + * {
-    @apply mt-2;
-  }
-
-  .component--text > * {
-    @apply lg:max-w-2xl;
-  }
-  .component--text > * + h2,
-  .component--text > * + h3,
-  .component--text > * + h4,
-  .component--text > * + h5,
-  .component--text > * + h6 {
-    @apply mt-8;
-  }
-
-  .component--text > p {
-    @apply mt-2;
-  }
-
-  .component--quote {
-    @apply leading-normal
-    
-    me-0
-    ms-3
-    px-3
-    py-5
-    sm:p-10
-    relative;
-  }
-  .component--quote::before {
-    @apply content-['']
-    -left-3
-    w-3;
-  }
-  .component--quote > * {
-    @apply max-w-2xl;
-  }
   .card {
     @apply h-full
     p-2
@@ -373,149 +311,13 @@
   .crosslinks {
     @apply py-5;
   }
-
-  .single,
-  .compound {
-    @apply bg-white
-    dark:bg-secondark
-    lg:l-box
-    lg:l-box--no-border;
-
-    &:before {
-      @apply content-['']
-      w-2
-      h-2
-      rounded-full
-      mx-auto
-      bg-current
-      flex
-      flex-col;
-    }
-  }
-
-  .single {
-    @apply l-center;
-    .content_wrapper {
-      @apply flex
-      justify-center;
-    }
-  }
-
-  .single {
-    @apply l-center;
-    .content_wrapper:has(.second) {
-      @apply lg:grid
-      lg:grid-cols-2
-      lg:px-12;
-    }
-  }
-
-  .compound {
-    @apply l-center;
-    .content_wrapper {
-      @apply lg:grid
-      lg:grid-cols-2;
-    }
-  }
-
-  .first,
-  .second {
-    @apply l-box
-    l-box--no-border
-    
-    lg:flex
-    lg:justify-center;
-
-    .optional {
-      .media {
-        @apply flex
-        justify-center
-        l-box
-        l-box--no-border;
-
-        .image,
-        .noImg {
-          @apply w-20
-          h-20
-          rounded-full
-          overflow-hidden
-          outline
-          outline-2
-          -outline-offset-2
-          outline-firstlight
-          dark:outline-firstdark
-          md:w-20
-          md:h-20
-          lg:w-24
-          lg:h-24;
-        }
-
-        .image {
-          @apply relative;
-        }
-
-        .noImg {
-          @apply flex
-          justify-center
-          items-center
-          overflow-hidden
-          bg-white/30;
-        }
-      }
-
-      .content {
-        @apply text-center
-        flex
-        flex-col
-        items-center
-        lg:min-h-64
-        lg:px-8;
-
-        .inner-content {
-          @apply text-balance
-            text-center
-            mt-clus1lev
-            mb-clus3lev;
-        }
-      }
-    }
-    .enlace {
-      @apply l-box 
-      l-box--no-border
-      mt-auto;
-      a {
-        @apply cta
-        inline-flex;
-      }
-    }
-  }
 }
 
 @layer utilities {
-  .title-page {
-    @apply text-3xl
-    mb-clus3lev;
-
-    &:after {
-      @apply content-['']
-      w-10
-      h-1
-      bg-current
-      block;
-    }
-  }
-
   .title-page--cameo {
     @apply text-5xl
     font-cameo
     text-center;
-  }
-
-  .main-content {
-    @apply relative 
-    z-30
-    bg-white
-    dark:bg-secondark;
   }
 
   .subtitle {
@@ -537,10 +339,6 @@
     }
   }
 
-  .title-Xtra {
-    @apply text-7xl
-    capitalize;
-  }
 
   .image-rounded {
     @apply overflow-hidden
@@ -564,26 +362,7 @@
     }
   }
 
-  .cta {
-    @apply inline-flex
-    font-semibold
-    px-6
-    py-4
-    outline
-    outline-4
-    rounded-full
-    outline-firstlight
-    dark:outline-firstdark    
-    -outline-offset-1
-    bg-firstlight
-    text-white
-    dark:bg-firstdark    
-    dark:text-secondark    
-    hover:bg-white
-    hover:text-firstlight
-    dark:hover:bg-secondark    
-    dark:hover:text-firstdark;
-  }
+  
 
   .cta-invert {
     @apply inline-flex
@@ -604,5 +383,5 @@
     hover:text-white
     dark:hover:bg-firstdark   
     dark:hover:text-secondark;
-  }  
+  }
 }

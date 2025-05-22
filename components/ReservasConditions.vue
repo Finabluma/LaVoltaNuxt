@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-clus3lev">
+  <div class="mb-10">
     <slot name="header" />
 
     <slot />

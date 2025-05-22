@@ -1,3 +1,580 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-firstlight: oklch(69.99% 0.167 347.15);
+  --color-firstdark: oklch(33.25% 0.075 257.24);
+  --color-secondark: oklch(69.58% 0.065 248.78);
+  --color-constlines: oklch(82.8% 0.09 248.96);
+  --color-orbit: oklch(83.62% 0.02 230.75);
+  --color-cardinales: oklch(68.59% 0.196 16.71);
+
+  --font-coordinates: "coordinates-variable", "sans-serif";
+  --font-houscha: "houschka-rounded", "sans-serif";
+  --font-cameo: "nitti-typewriter-cameo", "sans-serif";
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    @apply bg-(--color-white)
+    dark:bg-(--color-secondark)
+    text-firstlight
+    dark:text-firstdark
+    fill-firstlight
+    dark:fill-secondark;
+  }
+
+  body {
+    @apply text-base/snug
+    font-houscha
+    text-pretty
+    leading-snug
+    overflow-x-hidden
+    antialiased
+    bg-white
+    dark:bg-secondark;
+  }
+
+  /* top level app */
+  .grid-wrap {
+    @apply grid
+    grid-cols-1
+    grid-rows-1
+    min-h-dvh;
+  }
+
+  main,
+  #main {
+    @apply box-content
+      mx-auto
+      pb-12;
+  }
+
+  /* main content */
+  .main-content {
+    @apply relative 
+    z-30
+    bg-white
+    dark:bg-secondark
+    pt-2.5;
+  }
+
+  /* text component */
+  .component--text > * {
+    @apply lg:max-w-2xl;
+  }
+  .component--text > * + h2,
+  .component--text > * + h3,
+  .component--text > * + h4,
+  .component--text > * + h5,
+  .component--text > * + h6 {
+    @apply mt-8;
+  }
+
+  .component--text > p {
+    @apply mt-2;
+  }
+
+  /* component-quote */
+  .component--quote {
+    @apply leading-normal
+    me-0
+    ms-3
+    px-3
+    py-5
+    sm:p-10
+    relative
+    before:-left-3
+    before:w-3;
+  }
+
+  .component--quote > * {
+    @apply max-w-2xl;
+  }
+}
+
+@layer components {
+  .l-box {
+    @apply border
+    block
+    p-4
+    md:p-8;
+  }
+
+  .l-box--no-border {
+    @apply border-none
+    outline-1
+    outline-transparent
+    -outline-offset-1;
+  }
+
+  .l-stack {
+    @apply flex
+    flex-col;
+
+    > * + * {
+      @apply mt-5;
+    }
+  }
+
+  /* page titles */
+  .page-title {
+    @apply text-4xl
+    text-shadow-2xs
+    mb-2
+    lg:text-6xl;
+  }
+
+  /* block-titles */
+  .block-title {
+    @apply text-3xl
+    lg:text-4xl;
+  }
+
+  .block-title--after {
+    @apply text-2xl
+    capitalize
+    font-semibold
+    mb-4
+    after:w-5
+    after:h-0.5
+    after:bg-current
+    after:block;
+  }
+
+  /* titlepage hero dark */
+  .hero-content {
+    .page-title {
+      @apply dark:after:bg-secondark;
+    }
+  }
+
+  /* breadcrumbs */
+  .breadcrumb {
+    @apply lg:px-[5vw];
+    ol {
+      @apply flex flex-wrap;
+
+      > * {
+        @apply mr-2;
+      }
+
+      li {
+        @apply flex
+        items-center
+        font-bold
+        after:w-1
+        after:h-1
+        after:bg-current
+        after:ml-2
+        after:block;
+
+        &:last-child {
+          @apply font-normal
+          after:content-none;
+        }
+      }
+    }
+  }
+
+  /* single && compound */
+  .single,
+  .compound {
+    @apply bg-white
+    dark:bg-secondark
+    before:w-2
+    before:h-2
+    before:rounded-full
+    before:mx-auto
+    before:bg-current
+    before:block;
+  }
+
+  .compound {
+    > * {
+      @apply lg:grid
+      lg:grid-cols-2;
+    }
+  }
+
+  .first,
+  .second {
+    @apply lg:flex
+    lg:justify-center;
+
+    .optional {
+      .image,
+      .noImg {
+        @apply w-20
+          h-20
+          rounded-full
+          overflow-hidden
+          outline-2
+          -outline-offset-2
+          outline-firstlight
+          dark:outline-firstdark
+          md:w-20
+          md:h-20
+          lg:w-24
+          lg:h-24;
+      }
+
+      .image {
+        @apply relative;
+      }
+
+      .noImg {
+        @apply flex
+          justify-center
+          items-center
+          overflow-hidden
+          bg-white/30;
+      }
+
+      .content {
+        @apply text-center
+        flex
+        flex-col
+        items-center
+        lg:min-h-64
+        lg:px-8;
+
+        .inner-content {
+          @apply text-balance
+            text-center;
+        }
+      }
+    }
+  }
+
+  /* Buttons */
+  .custom-btn {
+    @apply mt-5
+    lg:mt-10
+    inline-flex
+    font-semibold
+    outline-2
+    -outline-offset-1
+    bg-firstlight
+    dark:bg-firstdark
+    text-white
+    dark:text-secondark
+    transition-all
+    rounded-sm
+    px-4
+    py-2
+    hover:bg-white
+    hover:text-firstlight
+    dark:hover:bg-secondark
+    dark:hover:text-firstdark
+    lg:rounded-full
+    lg:px-6
+    lg:py-4;
+  }
+
+  /* bghero */
+  .bg-hero {
+    @apply absolute
+    bg-cover
+    w-full
+    h-full
+    bg-[url(/assets/images/azulejos2.svg)]
+    dark:bg-[url(/assets/images/azulejos.svg)]
+    before:absolute
+    before:top-0
+    before:w-full
+    before:h-full
+    before:bg-linear-to-b
+    before:from-white
+    before:via-white
+    before:to-white
+    before:backdrop-opacity-20
+    before:mix-blend-soft-light
+    dark:before:from-firstdark/70
+    dark:before:via-firstdark/80
+    dark:before:to-firstdark/90
+    dark:before:backdrop-contrast-125    dark:before:backdrop-opacity-80
+    dark:before:mix-blend-multiply;
+  }
+
+  .panel {
+    @apply relative 
+    w-full 
+    bg-white
+    dark:bg-secondark 
+    will-change-transform;
+  }
+
+  /* accordion carta */
+  .accordion-wrapper {
+    .panel-header {
+      @apply w-full 
+      transition-all
+      duration-300
+      px-0
+      py-1
+      md:py-3;
+    }
+
+    .panel-body {
+      @apply overflow-hidden
+      h-auto
+      px-0
+      lg:px-5;
+    }
+
+    &.is-closed {
+      .panel-body {
+        @apply px-0 max-h-0;
+      }
+    }
+
+    &:last-child .panel-header {
+      @apply border-none;
+    }
+  }
+
+  /* carta items */
+  .carta-items {
+    @apply font-bold
+    md:text-lg
+    mb-2 
+    px-2 
+    lg:px-3;
+    .item-precio {
+      @apply flex px-0;
+      .item {
+        @apply leading-normal
+        w-full
+        flex
+        items-start
+        justify-start
+        pr-5;
+        .solidario {
+          @apply ml-5 
+          flex 
+          items-center 
+          dark:bg-transparent;
+        }
+      }
+
+      .precio {
+        @apply ml-auto font-bold;
+      }
+    }
+    .misc {
+      @apply w-full 
+      flex 
+      flex-col;
+      .do {
+        @apply font-coordinates
+        font-normal;
+
+        abbr {
+          @apply no-underline 
+          mr-1;
+        }
+      }
+      .variedad {
+        @apply w-9/12
+        flex 
+        flex-wrap;
+
+        div {
+          @apply flex
+          items-center
+          font-coordinates
+          font-normal
+          italic;
+
+          &:after {
+            @apply content-['']
+            block
+            mx-1.5
+            h-1
+            w-1
+            rounded-full
+            bg-current;
+          }
+
+          &:last-child:after {
+            @apply hidden;
+          }
+        }
+      }
+    }
+  }
+
+  /* main navigation */
+  .mainNav {
+    @apply w-full;
+
+    ul {
+      @apply flex 
+      flex-col 
+      justify-evenly;
+
+      li {
+        @apply font-mono
+        font-bold
+        text-5xl/tight
+        text-balance
+        md:px-20;
+
+        a {
+          @apply block
+          py-3
+          no-underline
+          cursor-pointer
+          text-firstlight         
+          dark:text-firstdark;
+
+          &.router-link-active {
+            @apply cursor-default 
+            text-firstlight/80
+            dark:text-firstdark/80;
+          }
+        }
+
+        &:first-of-type a {
+          @apply pt-0;
+        }
+      }
+    }
+  }
+
+  /* footer navigation */
+  .footerNav {
+    @apply mb-5;
+
+    ul {
+      @apply mx-auto 
+      flex 
+      justify-center 
+      items-center 
+      flex-col 
+      px-10;
+
+      li {
+        @apply block
+        w-full
+        capitalize
+        tracking-wider
+        font-coordinates;
+
+        a {
+          @apply w-full
+          block
+          text-center
+          mb-5;
+        }
+
+        &:last-of-type a:after {
+          @apply content-none;
+        }
+      }
+    }
+  }
+
+  /* footer credits */
+  .credits {
+    ul {
+      @apply w-full 
+      mx-auto 
+      flex 
+      justify-center 
+      px-10;
+
+      li {
+        @apply capitalize
+        xl:text-sm;
+
+        a {
+          @apply flex
+          items-center;
+
+          &:after {
+            @apply block
+            w-1
+            h-1
+            rounded-full
+            mx-1;
+          }
+        }
+
+        &:last-of-type a:after {
+          @apply content-none;
+        }
+      }
+    }
+  }
+
+  /* svg's carta menu */
+  .objectSVG {
+    @apply fill-white
+      stroke-[4px]
+      stroke-firstlight
+      dark:fill-firstdark
+      dark:stroke-secondark/80;
+  }
+
+  .circleSVG {
+    @apply fill-white
+      stroke-firstlight
+      stroke-[6px]
+      dark:fill-secondark
+      dark:stroke-firstdark;
+  }
+
+  .rectSVG {
+    @apply fill-firstlight
+      dark:fill-firstdark;
+  }
+
+  /* baner horarios */
+  .today {
+    @apply w-full
+    text-sm
+    py-2
+    border-b
+    dark:bg-firstdark/20;
+  }
+  .state {
+    @apply flex
+    flex-wrap
+    items-center
+    justify-center
+    sm:flex-row
+    sm:justify-center;
+
+    > div:first-of-type {
+      @apply flex items-center;
+    }
+
+    .franjas {
+      @apply flex px-1;
+    }
+
+    .franja:last-child {
+      @apply flex justify-center items-center;
+
+      &:before {
+        @apply content-['&']
+        block
+        mx-1;
+      }
+    }
+  }
+}
+
+@utility container {
+  @apply mx-auto
+  px-[2vw];
+}
+
 .page-enter-active,
 .page-leave-active {
   transition: all 0.5s;
@@ -8,15 +585,5 @@
 }
 span.swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: rgba(116, 203, 224, 0.8);
-  opacity: 1;
-}
-
-/* target all bullets */
-span.swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: solid thin rgba(255, 255, 255, 0.8);
   opacity: 1;
 }

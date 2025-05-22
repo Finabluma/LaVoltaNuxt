@@ -5,8 +5,3 @@
     />
   </svg>
 </template>
-<style lang="postcss">
-  #favicon {
-    @apply w-full;
-  }
-</style>

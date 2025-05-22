@@ -1,21 +1,23 @@
 <script setup>
-  const props = defineProps({
-    items: {
-      type: Object,
-    },
-  })
-  function formatPrice(num) {
-    return parseFloat(num).toFixed(2)
-  }
+const props = defineProps({
+  items: {
+    type: Object,
+  },
+})
+function formatPrice(num) {
+  return parseFloat(num).toFixed(2)
+}
 </script>
 <template>
   <CartaAccordion>
-    <template #header
-      ><h3><slot></slot></h3
-    ></template>
+    <template #header>
+      <h3 class="font-coordinates font-semibold text-5xl/tight capitalize flex items-center md:text-6xl lg:text-7xl">
+        <slot></slot>
+      </h3>
+    </template>
     <template #default>
       <div v-if="items.tipo.producto !== null" class="py-3">
-        <div v-for="item in items.tipo.producto" :key="item.slug" class="items">
+        <div v-for="item in items.tipo.producto" :key="item.slug" class="carta-items">
           <div class="item-precio">
             <div v-if="item.title === undefined" class="item">
               {{ item.title }}
@@ -55,81 +57,55 @@
   </CartaAccordion>
 </template>
 <style lang="postcss" scoped>
-  h3 {
-    @apply font-coordinates
-    text-6xl/tight
-    md:text-7xl
-    tracking-wider
-    lowercase
-    flex
-    items-center;
-  }
-  .items {
-    @apply font-bold
-    mb-2 
-    px-2 
-    lg:px-3;
-    .item-precio {
-      @apply flex px-0;
-      .item {
-        @apply leading-normal
-        w-full
-        flex
-        items-start
-        justify-start
-        pr-5;
-        .solidario {
-          @apply ml-5 
-          flex 
-          items-center 
-          dark:bg-transparent;
-        }
-      }
+h3 {
+  @apply font-coordinates text-6xl/tight md:text-7xl tracking-wider lowercase flex items-center;
+}
 
-      .precio {
-        @apply ml-auto font-bold;
+.items {
+  @apply font-bold mb-2 px-2 lg:px-3;
+
+  .item-precio {
+    @apply flex px-0;
+
+    .item {
+      @apply leading-normal w-full flex items-start justify-start pr-5;
+
+      .solidario {
+        @apply ml-5 flex items-center dark:bg-transparent;
       }
     }
-    .misc {
-      @apply w-full 
-      flex 
-      flex-col;
-      .do {
-        @apply font-coordinates
-        font-normal;
 
-        abbr {
-          @apply no-underline 
-          mr-1;
-        }
+    .precio {
+      @apply ml-auto font-bold;
+    }
+  }
+
+  .misc {
+    @apply w-full flex flex-col;
+
+    .do {
+      @apply font-coordinates font-normal;
+
+      abbr {
+        @apply no-underline mr-1;
       }
-      .variedad {
-        @apply w-9/12
-        flex 
-        flex-wrap;
+    }
 
-        div {
-          @apply flex
-          items-center
-          font-coordinates
-          font-normal
-          italic;
+    .variedad {
+      @apply w-9/12 flex flex-wrap;
 
-          &:after {
-            @apply content-['']
-            block
-            mx-1.5
-            h-1
-            w-1
-            rounded-full
-            bg-current;
-          }
+      div {
+        @apply flex items-center font-coordinates font-normal italic;
 
-          &:last-child:after {
-            @apply hidden;
-          }
+        &:after {
+          @apply content-[''] block mx-1.5 h-1 w-1 rounded-full bg-current;
+        }
+
+        &:last-child:after {
+          @apply hidden;
         }
       }
     }
   }
+}
 </style>

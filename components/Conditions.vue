@@ -1,15 +1,15 @@
 <script setup>
-  const props = defineProps({
-    conditions: {
-      type: Object,
-    },
-  })
+const props = defineProps({
+  conditions: {
+    type: Object,
+  },
+})
 </script>
 <template>
-  <div v-for="(condition, index) in conditions" :key="index" class="conditions">
-    <article class=" bg-white dark:bg-secondark skew">
-      <div class="component component--text">
-        <h3 class="title-block">
+  <div v-for="(condition, index) in conditions" :key="index" class="conditions ">
+    <article class="skew bg-white dark:bg-secondark after:w-1/12 after:h-0.5 after:block after:ml-0 after:bg-current ">
+      <div class="component component--text l-box l-box--no-border ">
+        <h3 class="block-title--after">
           {{ condition.title }}
         </h3>
         <SanityContent :blocks="condition.terms" />
@@ -17,10 +17,3 @@
     </article>
   </div>
 </template>
-<style lang="postcss" scoped>
-  .conditions article{
-    @apply px-2
-    py-3
-    md:py-5;
-  }
-</style>

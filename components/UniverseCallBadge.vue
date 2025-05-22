@@ -1,103 +1,66 @@
 <script setup>
-  //GSAP
-  const { gsap, ScrollTrigger } = useGsap()
-  let cosmos = ref(),
-    bruja = ref()
+//GSAP
+const { gsap, ScrollTrigger } = useGsap()
+let cosmos = ref(),
+  bruja = ref()
 
-  let ctx = null,
+let ctx = null,
   main = ref(null)
 
-  function handleResize() {
-    setTimeout(()=> {
-      ScrollTrigger?.refresh()
-    }, 300)
-  }
+function rotateBadge() {
+  let tl = gsap
+    .timeline({
+      paused: true,
+      defaults: {
+        rotation: '360',
+        repeat: -1,
+        transformOrigin: 'center',
+        ease: 'none',
+      },
+    })
+    .to('#brujaPath', { duration: 60 })
+    .to('#letters', { duration: 40 }, '0')
+    .timeScale(0.5)
+    .play()
 
-  onMounted(() => {
-    ctx = gsap.context((self) => {
-      cosmos.value.smUniverse()
-      bruja.value.tlCallBadge()
-      window.addEventListener('resize', handleResize)
-      window.addEventListener('orientationchange', handleResize)
-    }, main.value)
-  })
-  onUnmounted(() => {
-    ctx.revert()
-  })
+  return tl
+}
+
+
+function handleResize() {
+  setTimeout(() => {
+    ScrollTrigger?.refresh()
+  }, 300)
+}
+
+onMounted(() => {
+  ctx = gsap.context((self) => {
+    cosmos.value.smUniverse()
+    bruja.value.tlCallBadge()
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('orientationchange', handleResize)
+  }, main.value)
+})
+onUnmounted(() => {
+  ctx.revert()
+})
 </script>
 <template>
-  <div class="universeCallBadge" ref="main">
-    <div class="wrapper">
-      <div class="contacta">
-        <div class="inner">
-          <NuxtLink to="tel:+34977651416" aria-label="teléfono reservas">
+  <div class="universeCallBadge relative z-30">
+    <div class="wrapper relative w-full h-full">
+      <div class="contacta relative
+      z-20 w-full">
+        <div class="inner max-w-2xl mx-auto">
+          <NuxtLink to="tel:+34977651416" aria-label="teléfono reservas" class="w-full">
             <SVGAppCallBadge ref="bruja" />
           </NuxtLink>
         </div>
+
       </div>
-      <div class="stellarium">
+      <div class="stellarium absolute top-0 left-0 w-full h-full flex justify-center items-center">
         <SVGAppUniverse ref="cosmos" />
       </div>
     </div>
-    <AppDivider class="down" />
+    <AppDivider />
   </div>
 </template>
-<style lang="postcss" scoped>
-  .universeCallBadge {
-    @apply relative
-    w-auto
-    z-30
-    overflow-hidden
-    bg-white
-    dark:bg-secondark;
-
-    .wrapper {
-      @apply w-full
-      h-full;
-
-      &:before {
-        @apply content-['']
-        absolute
-        top-0
-        left-0
-        w-full
-        h-full
-        bg-white
-        dark:bg-secondark;
-      }
-      .contacta {
-        @apply relative
-        z-20
-        max-h-dvh
-        mx-auto
-        flex
-        justify-center
-        items-center;
-
-        .inner {
-          @apply w-10/12
-          sm:w-7/12
-          md:w-8/12
-          lg:w-9/12
-          xl:max-w-3xl;
-
-          a {
-            @apply w-full;
-          }
-        }
-      }
-      .stellarium {
-        @apply absolute 
-        top-0
-        left-0
-        z-10
-        w-full
-        h-full
-        flex
-        justify-center
-        items-center
-        xl:w-full;
-      }
-    }
-  }
-</style>

@@ -82,7 +82,7 @@
     }
   }
   .gallery {
-    @apply relative content-before mx-auto;
+    @apply relative mx-auto;
 
     &:before {
       @apply w-full

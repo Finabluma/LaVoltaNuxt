@@ -45,12 +45,3 @@
     <slot></slot
   ></NuxtLink>
 </template>
-<style lang="postcss" scoped>
-  .linkNav {
-    @apply flex items-center mx-3;
-
-    &.router-link-exact-active {
-      @apply opacity-100;
-    }
-  }
-</style>

@@ -47,8 +47,8 @@ onMounted(() => {
             const svg = inner.querySelector('svg')
             if (!svg) return
 
-            const rect = svg.querySelector('.rect')
-            const circle = svg.querySelector('.circle')
+            const rect = svg.querySelector('.rectSVG')
+            const circle = svg.querySelector('.circleSVG')
             if (!rect || !circle) return
 
             gsap.timeline({
@@ -95,32 +95,33 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <div id="container" ref="cartamenu">
-    <article v-for="(item, index) in items" :key="item._key">
-      <div class="panel media">
+  <div class="relative w-full py-10" ref="cartamenu">
+    <article v-for="(item, index) in items" :key="item._key" class="container lg:flex lg:items-center">
+      <div class="panel">
         <div class="inner">
-          <div v-if="index == 0" class="svg">
+          <div v-if="index == 0" class="relative z-20 mx-auto w-7/12 sm:w-4/12 lg:w-8/12">
             <SVGCartaCircle />
           </div>
-          <div v-if="index == 1" class="svg">
+          <div v-if="index == 1" class="relative z-20 mx-auto w-7/12 py-10 sm:w-4/12 md:py-2 lg:w-8/12 lg:py-8">
             <SVGMenuCircle />
           </div>
         </div>
       </div>
-      <div class="panel content">
-        <div class="inner">
-          <div class="component component--text">
-            <h2 class="title-block">{{ item.heading }}</h2>
-            <p class="lead">{{ item.tagline }}</p>
-            <p>{{ item.excerpt }}</p>
-
+      <div class="panel">
+        <div class="bg-white dark:bg-secondark w-auto l-box l-box--no-border">
+          <div class="component--text ">
+            <div class="mb-5 mx-2">
+              <h2 class="block-title">{{ item.heading }}</h2>
+              <p class="lead">{{ item.tagline }}</p>
+            </div>
+            <p class="mx-2">{{ item.excerpt }}</p>
             <div v-if="index == 0">
-              <NuxtLink to="la-carta" :title="item.link.linkTarget.title" class="cta" aria-label="Carta">
+              <NuxtLink to="la-carta" :title="item.link.linkTarget.title" class="custom-btn" aria-label="Carta">
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
             </div>
             <div v-if="index == 1">
-              <NuxtLink to="el-menu" :title="item.link.linkTarget.title" class="cta" aria-label="Menu">
+              <NuxtLink to="el-menu" :title="item.link.linkTarget.title" class="custom-btn" aria-label="Menu">
                 {{ item.link.title || item.link.linkTarget.title }}
               </NuxtLink>
             </div>
@@ -130,60 +131,3 @@ onUnmounted(() => {
     </article>
   </div>
 </template>
-<style lang="postcss" scoped>
-#container {
-  @apply relative w-full;
-
-  article {
-    @apply l-center lg:flex lg:items-center;
-  }
-
-  .panel {
-    @apply relative w-full bg-white dark:bg-secondark will-change-transform;
-
-    .inner {
-      @apply flex lg:justify-center 
-    }
-  }
-
-  .media {
-    .inner {
-      .svg {
-        @apply relative z-20 mx-auto w-7/12 py-10 sm:w-5/12 md:w-3/12 md:py-2 lg:w-8/12 lg:py-8;
-      }
-    }
-  }
-
-  .content {
-    @apply relative bg-white dark:bg-secondark;
-
-    .inner {
-      @apply bg-white dark:bg-secondark w-auto py-5 sm:py-10 lg:py-20;
-
-      .lead{
-        @apply uppercase font-cameo
-      }
-
-      .component.component--text {
-        @apply px-5 md:px-[10vw] md:text-center lg:mx-0 lg:px-0 lg:text-left;
-
-        >* {
-          @apply mb-clus2lev mx-auto;
-        }
-
-        .title-block {
-          @apply mb-5 text-xl uppercase;
-
-          &:after{
-            @apply md:mx-auto lg:ml-0
-          }
-        }
-
-        .cta {
-          @apply mt-10 lg:mt-5;
-        }
-      }
-    }
-  }
-}
-</style>

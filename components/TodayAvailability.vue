@@ -25,7 +25,7 @@ function formatHour(item) {
 <template>
   <section class="today">
     <h2 class="sr-only">Horario del día</h2>
-    <div class="container mx-auto">
+    <div class="container">
       <div v-if="dag.length === 0" class="state">
         <div>
           <Reloj class="mr-1" /> <span> Hoy cerramos</span>

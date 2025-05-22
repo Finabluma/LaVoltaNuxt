@@ -85,16 +85,4 @@
     />
   </svg>
 </template>
-<style lang="postcss" scoped>
-  #grafico {
-    #word,
-    #trazado {
-      @apply fill-neutral-content/90 stroke-neutral
-      dark:fill-neutral-content/70 dark:stroke-neutral-content/50;
-    }
 
-    /* #corazon {
-      @apply fill-red-600 stroke-2 stroke-red-500;
-    } */
-  }
-</style>
