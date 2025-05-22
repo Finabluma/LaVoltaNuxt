@@ -4,8 +4,8 @@ const { siteNav, datos } = useMainStore()
 <template>
   <footer class="relative z-30 pt-10 pb-10 bg-white dark:bg-secondark md:pt-20 md:pb-14">
     <div class="container mx-auto">
-      <SVGAppBoveda class="w-36 mx-auto mb-8 xl:w-40" />
-      <div class="l-stack font-semibold">
+      <SVGAppBoveda class="w-36 mx-auto mb-10 xl:w-40" />
+      <div class="font-semibold">
         <AppNav :links="siteNav?.navFooter" class="footerNav" nav="Main Navigation" />
         <AppColorMode class="w-8 mx-auto" />
       </div>
@@ -34,32 +34,3 @@ const { siteNav, datos } = useMainStore()
     </div>
   </footer>
 </template>
-<style lang="postcss" scoped>
-#footer {
-
-  .innerfooter {
-    @apply w-full l-stack items-center;
-
-    .top,
-    .center,
-    .bottom {
-      @apply l-stack items-center;
-    }
-
-    .top {
-      @apply mb-10;
-
-      #boveda {
-        @apply w-36 xl:w-40;
-      }
-    }
-
-    .center {
-      @apply pb-2 font-semibold;
-    }
-
-
-
-  }
-}
-</style>
