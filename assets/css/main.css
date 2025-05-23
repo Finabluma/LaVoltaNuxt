@@ -323,14 +323,15 @@
     before:top-0
     before:w-full
     before:h-full
-    before:bg-linear-to-b
-    before:from-white/80
+    before:bg-gradient-to-b
+    before:from-white/60
     before:via-white/80
-    before:to-white/90
+    before:to-white
     before:mix-blend-color-dodge
-    dark:before:from-firstdark/90
+    dark:bg-gradient-to-b
+    dark:before:from-firstdark/50
     dark:before:via-firstdark/80
-    dark:before:to-firstdark/90
+    dark:before:to-firstdark
     dark:before:backdrop-contrast-125  
     dark:before:mix-blend-multiply;
   }
