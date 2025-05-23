@@ -10,7 +10,7 @@ const props = defineProps({
     <h2 class="block-title--after mb-0 px-4">Continúa leyendo</h2>
     <div class="mb-5 md:grid md:grid-cols-2 md:mb-0 md:gap-4">
       <div v-for="item in related" :key="item.id">
-        <article class="relative group overflow-hidden mb-2 bg-slate-200 dark:bg-firstdark drop-shadow-sm">
+        <article class="relative group overflow-hidden mb-4 bg-slate-200 dark:bg-firstdark drop-shadow-sm">
           <ElementsTextLink link-type="internalLinkType" route="revista-slug" :slug="item.slug" :title="item?.subtitle"
             :aria-label="`Articulo - ${item?.title}`" class="flex items-center dark:outline-firstdark drop-shadow-xs
             ">
