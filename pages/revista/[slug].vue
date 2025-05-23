@@ -47,17 +47,21 @@ watch(
       <HeroSection>
         <h1 class="page-title">{{ post.title }}</h1>
         <p class="font-coordinates">{{ post.subtitle }}</p>
+
       </HeroSection>
       <div class="main-content">
-        <div class="max-w-4xl mx-auto mb-10 *:mb-2">
-          <ArticleBreadcrumb :post="post">
+        <div class="max-w-4xl mx-auto mt-5 mb-10 lg:my-10 px-[2vw]">
+          <ArticleBreadcrumb :post="post" class="mt-5">
             <li>
               <ElementsTextLink link-type="internalLinkType" route="revista" title="Revista">Revista</ElementsTextLink>
             </li>
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
-          <div v-if="post.mainImage" class="max-w-4xl mx-auto outline">
+          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
+            class="after:block after:w-10 after:h-1 after:bg-current " />
+          <ArticleCategories v-if="post.categories" :tags="post.categories" class="l-box l-box--no-border" />
+          <div v-if="post.mainImage" class=" outline-2 outline-offset-2 my-5 w-10/12 mx-auto lg:w-8/12">
             <ElementsMediaImageItem :src="post.mainImage.asset._ref" :alt="post.mainImage.alt" height="800"
               sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw" :modifiers="{
                 crop: post.mainImage.crop,
@@ -65,10 +69,8 @@ watch(
                 q: 80,
               }" fit="cover" format="webp" />
           </div>
-          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent" />
-          <ArticleCategories v-if="post.categories" :tags="post.categories" />
         </div>
-        <div class="max-w-3xl mx-auto px-[2vw]">
+        <div class="max-w-4xl mx-auto px-[2vw]">
           <ArticleRelated :related="related.articleRelated" v-if="related" />
         </div>
       </div>

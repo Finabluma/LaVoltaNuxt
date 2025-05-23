@@ -1,33 +1,22 @@
 <script setup>
-  const props = defineProps({
-    gallery: {
-      type: Object,
-    },
-    title: {
-      type: String,
-    },
-  })
+const props = defineProps({
+  gallery: {
+    type: Object,
+  },
+  title: {
+    type: String,
+  },
+})
 </script>
 <template>
-  <div class="slide">
-    <p class="text-center text-sm mb-0">{{ title }}</p>
-    <div class="carrusel-wrapper">
-      <div class="wrapper">
-        <Swiper
-          :height="450"
-          :auto-height="false"
-          :modules="[SwiperAutoplay, SwiperFreeMode, SwiperPagination]"
-          :slides-per-view="1"
-          :space-between="0"
-          :autoplay="{
+  <div class="mt-10 slide">
+    <div class="mb-5">
+      <div class="outline-2 outline-offset-2">
+        <Swiper :height="450" :auto-height="false" :modules="[SwiperAutoplay, SwiperFreeMode, SwiperPagination]"
+          :slides-per-view="1" :space-between="0" :autoplay="{
             delay: 5000,
             disableOnInteraction: false,
-          }"
-          :speed="1000"
-          :free-mode="true"
-          :pagination="{ clickable: true }"
-          :loop="true"
-          :breakpoints="{
+          }" :speed="1000" :free-mode="true" :pagination="{ clickable: true }" :loop="true" :breakpoints="{
             320: {
               slidesPerView: 1,
               spaceBetween: 0,
@@ -40,56 +29,17 @@
               slidesPerView: 1,
               spaceBetween: 0,
             },
-          }"
-        >
-          <SwiperSlide
-            v-for="image in gallery.images"
-            :key="image.id"
-            class="gallery"
-          >
-            <ElementsMediaImageItem
-              :src="image.asset._ref"
-              :alt="image.alt"
-              height="300"
-              sizes="xs:100vw"
-              :modifiers="{
-                crop: image.crop,
-                hotspot: image.hotspot,
-                q: 80,
-              }"
-              fit="cover"
-              format="webp"
-            />
+          }">
+          <SwiperSlide v-for="image in gallery.images" :key="image.id">
+            <ElementsMediaImageItem :src="image.asset._ref" :alt="image.alt" height="300" sizes="xs:100vw" :modifiers="{
+              crop: image.crop,
+              hotspot: image.hotspot,
+              q: 80,
+            }" fit="cover" format="webp" />
           </SwiperSlide>
         </Swiper>
       </div>
     </div>
+    <p class="text-center text-sm">{{ title }}</p>
   </div>
 </template>
-<style lang="postcss">
-  .slide {
-    @apply my-5;
-    p {
-      @apply mb-2;
-    }
-  }
-  .carrusel-wrapper {
-    @apply mb-10;
-    .wrapper {
-      @apply p-1
-      border
-      mb-clus2lev;
-    }
-  }
-  .gallery {
-    @apply relative mx-auto;
-
-    &:before {
-      @apply w-full
-        h-full
-        absolute
-        top-0
-        left-0;
-    }
-  }
-</style>

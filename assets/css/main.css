@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-*: initial;
   --color-white: #ffffff;
   --color-firstlight: oklch(69.99% 0.167 347.15);
   --color-firstdark: oklch(33.25% 0.075 257.24);
@@ -64,8 +63,52 @@
     pt-2.5;
   }
 
+  .blockContent {
+    @apply *:not-[figure]:mb-5;
+
+    blockquote,
+    p,
+    ul,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply lg:px-[2vw]
+    }
+
+    blockquote {
+      @apply text-2xl;
+    }
+
+    h1 {
+      @apply text-4xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    p,
+    ul,
+    ol {
+      @apply text-lg;
+    }
+
+    ul,
+    ol {
+      @apply ms-5;
+    }
+  }
+
   /* text component */
-  /* .component--text > * {
+  .component--text > * {
     @apply lg:max-w-2xl;
   }
   .component--text > * + h2,
@@ -74,14 +117,14 @@
   .component--text > * + h5,
   .component--text > * + h6 {
     @apply mt-8;
-  } */
+  }
 
-  /* .component--text > p {
+  .component--text > p {
     @apply mt-2;
-  } */
+  }
 
   /* component-quote */
-  .component--quote {
+  /* .component--quote {
     @apply leading-normal
     me-0
     ms-3
@@ -90,7 +133,7 @@
     relative
     before:-left-3
     before:w-3;
-  }
+  }*/
 
   .component--quote > * {
     @apply max-w-2xl;

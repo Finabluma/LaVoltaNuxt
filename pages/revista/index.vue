@@ -26,8 +26,8 @@ usePageHead({
         <h1 class="page-title">{{ revista.title }}</h1>
       </HeroSection>
       <div class="main-content">
-        <section class="container l-box l-box--no-border lg:px-[10vw] *:mb-10">
-          <div v-if="isFeatured.length > 0" class="sm:px-7 md:px-[5vw]">
+        <section class="max-w-6xl mx-auto l-box l-box--no-border lg:px-[6vw] *:mb-10">
+          <div v-if="isFeatured.length > 0" class="sm:px-7 lg:px-[8vw]">
             <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
           </div>
           <div v-if="notFeatured.length > 0"
