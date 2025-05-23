@@ -124,17 +124,6 @@
   }
 
   /* component-quote */
-  /* .component--quote {
-    @apply leading-normal
-    me-0
-    ms-3
-    px-3
-    sm:p-10
-    relative
-    before:-left-3
-    before:w-3;
-  }*/
-
   .component--quote > * {
     @apply max-w-2xl;
   }
@@ -307,15 +296,14 @@
     before:w-full
     before:h-full
     before:bg-linear-to-b
-    before:from-white
-    before:via-white
-    before:to-white
-    before:backdrop-opacity-20
-    before:mix-blend-soft-light
-    dark:before:from-firstdark/70
+    before:from-white/80
+    before:via-white/80
+    before:to-white/90
+    before:mix-blend-color-dodge
+    dark:before:from-firstdark/90
     dark:before:via-firstdark/80
     dark:before:to-firstdark/90
-    dark:before:backdrop-contrast-125    dark:before:backdrop-opacity-80
+    dark:before:backdrop-contrast-125  
     dark:before:mix-blend-multiply;
   }
 

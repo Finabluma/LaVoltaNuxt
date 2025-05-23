@@ -44,10 +44,9 @@ watch(
 <template>
   <div v-if="post">
     <main>
-      <HeroSection>
+      <HeroSection class="lg:*:*:*:*:px-[7vw]">
         <h1 class="page-title">{{ post.title }}</h1>
-        <p class="font-coordinates">{{ post.subtitle }}</p>
-
+        <p class="font-cameo">{{ post.subtitle }}</p>
       </HeroSection>
       <div class="main-content">
         <div class="max-w-4xl mx-auto mt-5 mb-10 lg:my-10 px-[2vw]">

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 const props = defineProps({
   items: Object,
 })
@@ -45,7 +45,7 @@ onUnmounted(() => {
     <div class="hero-content w-full h-full">
       <div class="bg-hero">
       </div>
-      <div class="container pt-24 pb-10 lg:py-24 relative z-20">
+      <div class="max-w-5xl mx-auto pt-24 pb-10 lg:py-24 relative z-20">
         <div class="l-box l-box--no-border">
           <div class="component--text dark:text-secondark">
             <slot></slot>
