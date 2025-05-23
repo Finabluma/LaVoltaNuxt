@@ -173,38 +173,7 @@
   }
 }
 @layer components {
-  .breadcrumb {
-    @apply lg:px-[5vw];
-    ol {
-      @apply flex flex-wrap;
-
-      > * {
-        @apply mr-2;
-      }
-
-      li {
-        @apply flex
-        items-center
-        font-bold;
-
-        &:after {
-          @apply content-['']
-          w-1
-          h-1
-          bg-current
-          block
-          ml-2;
-        }
-
-        &:last-child {
-          @apply font-normal;
-          &:after {
-            @apply content-none;
-          }
-        }
-      }
-    }
-  }
+  
 
   .l-box {
     @apply border
@@ -232,6 +201,8 @@
     w-auto
     px-[5vw];
   }
+
+  
 
 
   .l-cluster {
@@ -307,10 +278,6 @@
       @apply icon;
     }
   }
-
-  .crosslinks {
-    @apply py-5;
-  }
 }
 
 @layer utilities {
@@ -360,28 +327,5 @@
       w-full
       h-full;
     }
-  }
-
-  
-
-  .cta-invert {
-    @apply inline-flex
-    font-semibold
-    px-6
-    py-4
-    outline
-    outline-4
-    rounded-full
-    outline-white
-    dark:outline-secondark    
-    -outline-offset-1
-    bg-white
-    text-firstlight
-    dark:bg-secondark  
-    dark:text-firstdark   
-    hover:bg-firstlight
-    hover:text-white
-    dark:hover:bg-firstdark   
-    dark:hover:text-secondark;
   }
 }

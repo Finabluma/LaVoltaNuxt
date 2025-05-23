@@ -61,15 +61,15 @@ function skewOnScroll() {
 onMounted(() => {
   ctx = gsap.context((self) => {
     skewOnScroll()
-    mm = gsap.matchMedia()
-    mm.add("(min-width: 1024px)", () => {
-      smPlatos()
-    })
+    // mm = gsap.matchMedia()
+    // mm.add("(min-width: 1024px)", () => {
+
+    // })
+    smPlatos()
   }, main.value)
 })
 onUnmounted(() => {
   ctx.revert()
-  mm.revert()
 })
 </script>
 <template>
@@ -83,7 +83,7 @@ onUnmounted(() => {
         <SanityContent :blocks="menu.menuConditions" />
       </HeroSection>
       <div class="main-content">
-        <section class="relative max-w-7xl mx-auto px-[2vw] xl:px-0">
+        <section class="max-w-6xl mx-auto px-[2vw] xl:px-0">
           <article class="skew l-box l-box--no-border bg-white dark:bg-secondark">
             <h2 class="block-title--after">
               {{ menuDia.primeros.title }}
@@ -106,16 +106,16 @@ onUnmounted(() => {
           <div class="relative bg-white dark:bg-secondark">
             <div class="l-box l-box--no-border">
               <span class="text-7xl capitalize">{{ formatPrice(menu.price) }}€</span>
-              <p class="font-typewriter text-sm">
+              <p class="font-mono text-sm">
                 * El precio no incluye bebida.
               </p>
             </div>
-            <div class="l-box l-box--no-border text-lg">
-              <div class="font-semibold">
+            <div class="l-box l-box--no-border text-lg font-semibold">
+              <div>
                 Medio menu
                 <span>{{ formatPrice(menu.pricehalf) }}€</span>
               </div>
-              <div class="font-semibold">
+              <div>
                 Menú compartido
                 <span>{{ formatPrice(menu.priceshare) }}€</span>
               </div>
@@ -131,8 +131,3 @@ onUnmounted(() => {
     <AppFooter />
   </div>
 </template>
-<style lang="postcss" scoped>
-article {
-  @apply bg-white dark:bg-secondark;
-}
-</style>

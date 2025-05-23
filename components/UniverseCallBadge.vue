@@ -1,31 +1,10 @@
 <script setup>
-//GSAP
 const { gsap, ScrollTrigger } = useGsap()
 let cosmos = ref(),
   bruja = ref()
 
 let ctx = null,
   main = ref(null)
-
-function rotateBadge() {
-  let tl = gsap
-    .timeline({
-      paused: true,
-      defaults: {
-        rotation: '360',
-        repeat: -1,
-        transformOrigin: 'center',
-        ease: 'none',
-      },
-    })
-    .to('#brujaPath', { duration: 60 })
-    .to('#letters', { duration: 40 }, '0')
-    .timeScale(0.5)
-    .play()
-
-  return tl
-}
-
 
 function handleResize() {
   setTimeout(() => {

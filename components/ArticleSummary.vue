@@ -6,7 +6,7 @@
   })
 </script>
 <template>
-  <blockquote class="component component--quote max-w-prose mx-auto">
+  <blockquote class="component--quote max-w-prose mx-auto">
     {{ summary }}
   </blockquote>
 </template>

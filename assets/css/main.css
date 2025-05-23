@@ -13,6 +13,8 @@
   --font-coordinates: "coordinates-variable", "sans-serif";
   --font-houscha: "houschka-rounded", "sans-serif";
   --font-cameo: "nitti-typewriter-cameo", "sans-serif";
+
+  --drop-shadow-divider: 0 25px 35px rgba(0 0 0 / 0.75);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -153,34 +155,27 @@
   }
 
   /* breadcrumbs */
-  .breadcrumb {
-    @apply lg:px-[5vw];
-    ol {
-      @apply flex flex-wrap;
+  .breadcrumb ol li {
+    @apply mr-1
+    text-sm
+    font-coordinates
+    flex
+    items-center
+    after:w-1
+    after:h-1
+    after:bg-current
+    after:rounded-full
+    after:ml-1
+    after:block
+    last:font-normal
+    last:after:content-none;
 
-      > * {
-        @apply mr-2;
-      }
-
-      li {
-        @apply flex
-        items-center
-        font-bold
-        after:w-1
-        after:h-1
-        after:bg-current
-        after:ml-2
-        after:block;
-
-        &:last-child {
-          @apply font-normal
-          after:content-none;
-        }
-      }
+    a {
+      @apply font-semibold;
     }
   }
 
-  /* single && compound */
+  /* Banner bottom */
   .single,
   .compound {
     @apply bg-white
@@ -204,50 +199,22 @@
   .second {
     @apply lg:flex
     lg:justify-center;
+  }
 
-    .optional {
-      .image,
-      .noImg {
-        @apply w-20
-          h-20
-          rounded-full
-          overflow-hidden
-          outline-2
-          -outline-offset-2
-          outline-firstlight
-          dark:outline-firstdark
-          md:w-20
-          md:h-20
-          lg:w-24
-          lg:h-24;
-      }
-
-      .image {
-        @apply relative;
-      }
-
-      .noImg {
-        @apply flex
-          justify-center
-          items-center
-          overflow-hidden
-          bg-white/30;
-      }
-
-      .content {
-        @apply text-center
-        flex
-        flex-col
-        items-center
-        lg:min-h-64
-        lg:px-8;
-
-        .inner-content {
-          @apply text-balance
-            text-center;
-        }
-      }
-    }
+  .optional .image,
+  .optional .noImg {
+    @apply w-20
+      h-20
+      rounded-full
+      overflow-hidden
+      outline-2
+      -outline-offset-2
+      outline-firstlight
+      dark:outline-firstdark
+      md:w-20
+      md:h-20
+      lg:w-24
+      lg:h-24;
   }
 
   /* Buttons */
@@ -308,104 +275,9 @@
     will-change-transform;
   }
 
-  /* accordion carta */
-  .accordion-wrapper {
-    .panel-header {
-      @apply w-full 
-      transition-all
-      duration-300
-      px-0
-      py-1
-      md:py-3;
-    }
-
-    .panel-body {
-      @apply overflow-hidden
-      h-auto
-      px-0
-      lg:px-5;
-    }
-
-    &.is-closed {
-      .panel-body {
-        @apply px-0 max-h-0;
-      }
-    }
-
-    &:last-child .panel-header {
-      @apply border-none;
-    }
-  }
-
-  /* carta items */
-  .carta-items {
-    @apply font-bold
-    md:text-lg
-    mb-2 
-    px-2 
-    lg:px-3;
-    .item-precio {
-      @apply flex px-0;
-      .item {
-        @apply leading-normal
-        w-full
-        flex
-        items-start
-        justify-start
-        pr-5;
-        .solidario {
-          @apply ml-5 
-          flex 
-          items-center 
-          dark:bg-transparent;
-        }
-      }
-
-      .precio {
-        @apply ml-auto font-bold;
-      }
-    }
-    .misc {
-      @apply w-full 
-      flex 
-      flex-col;
-      .do {
-        @apply font-coordinates
-        font-normal;
-
-        abbr {
-          @apply no-underline 
-          mr-1;
-        }
-      }
-      .variedad {
-        @apply w-9/12
-        flex 
-        flex-wrap;
-
-        div {
-          @apply flex
-          items-center
-          font-coordinates
-          font-normal
-          italic;
-
-          &:after {
-            @apply content-['']
-            block
-            mx-1.5
-            h-1
-            w-1
-            rounded-full
-            bg-current;
-          }
-
-          &:last-child:after {
-            @apply hidden;
-          }
-        }
-      }
-    }
+  /* Accordion carta */
+  .accordion-wrapper.is-closed .panel-body {
+    @apply px-0 max-h-0;
   }
 
   /* main navigation */
@@ -494,15 +366,12 @@
 
         a {
           @apply flex
-          items-center;
-
-          &:after {
-            @apply block
-            w-1
-            h-1
-            rounded-full
-            mx-1;
-          }
+          items-center
+          after:block
+          after:w-1
+          after:h-1
+          after:rounded-full
+          after:mx-1;
         }
 
         &:last-of-type a:after {
@@ -538,9 +407,10 @@
   .today {
     @apply w-full
     text-sm
+    font-bold
     py-2
     border-b
-    dark:bg-firstdark/20;
+    dark:bg-secondark/20;
   }
   .state {
     @apply flex
@@ -559,13 +429,9 @@
     }
 
     .franja:last-child {
-      @apply flex justify-center items-center;
-
-      &:before {
-        @apply content-['&']
-        block
-        mx-1;
-      }
+      @apply flex justify-center items-center
+      before:content-['&']
+      before:mx-1;
     }
   }
 }

@@ -5,9 +5,9 @@ const { siteNav, datos } = useMainStore()
   <footer class="relative z-30 pt-10 pb-10 bg-white dark:bg-secondark md:pt-20 md:pb-14">
     <div class="container">
       <SVGAppBoveda class="w-36 mx-auto mb-10 xl:w-40" />
-      <div class="font-semibold">
+      <div class="font-semibold l-stack items-center">
         <AppNav :links="siteNav?.navFooter" class="footerNav" nav="Main Navigation" />
-        <AppColorMode class="w-6 mx-auto" />
+        <AppColorMode />
       </div>
       <div class="text-xs/normal pt-5 pb-10">
         <div class="flex justify-center mb-2">

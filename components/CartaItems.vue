@@ -17,18 +17,18 @@ function formatPrice(num) {
     </template>
     <template #default>
       <div v-if="items.tipo.producto !== null" class="py-3">
-        <div v-for="item in items.tipo.producto" :key="item.slug" class="carta-items">
-          <div class="item-precio">
-            <div v-if="item.title === undefined" class="item">
+        <div v-for="item in items.tipo.producto" :key="item.slug" class="font-bold mb-2 px-2 md:text-lg">
+          <div class="item-precio flex px-0">
+            <div v-if="item.title === undefined" class="flex pr-5">
               {{ item.title }}
-              <span v-if="item.solidario !== false" class="solidario">
+              <span v-if="item.solidario !== false" class="ml-5 flex items-center        dark:bg-transparent">
                 <NuxtIcon name="Star" size="32" />
               </span>
             </div>
-            <div v-else class="item">
+            <div v-else class="flex pr-5">
               {{ item.title }}
             </div>
-            <div class="precio">
+            <div class="ml-auto font-bold">
               <div v-if="item.precio === null">
                 <span v-if="item.precio"> {{ formatPrice(item.precio) }}€</span>
                 <span v-else class="font-bold">s/peso</span>
@@ -38,12 +38,13 @@ function formatPrice(num) {
               </div>
             </div>
           </div>
-          <div v-if="item.do || item.variedades" class="misc">
-            <div class="do">
-              <abbr title="Denominación de Origen">D.O.</abbr>{{ item.do.do }}
+          <div v-if="item.do || item.variedades" class="misc w-full flex flex-col">
+            <div class="font-coordinates font-normal">
+              <abbr title="Denominación de Origen" class="no-underline mr-1">D.O.</abbr>{{ item.do.do }}
             </div>
-            <div class="variedad">
-              <div v-for="variedad in item.variedad" :key="variedad.id">
+            <div class="variedad w-9/12 flex flex-wrap">
+              <div v-for="variedad in item.variedad" :key="variedad.id"
+                class="flex items-center font-coordinates font-normal italic after:mx-1 after:h-1 after:w-1 after:rounded-full after:bg-current after:block last:after:content-none">
                 {{ variedad.variedad }}
               </div>
             </div>
@@ -56,56 +57,3 @@ function formatPrice(num) {
     </template>
   </CartaAccordion>
 </template>
-<style lang="postcss" scoped>
-h3 {
-  @apply font-coordinates text-6xl/tight md:text-7xl tracking-wider lowercase flex items-center;
-}
-
-.items {
-  @apply font-bold mb-2 px-2 lg:px-3;
-
-  .item-precio {
-    @apply flex px-0;
-
-    .item {
-      @apply leading-normal w-full flex items-start justify-start pr-5;
-
-      .solidario {
-        @apply ml-5 flex items-center dark:bg-transparent;
-      }
-    }
-
-    .precio {
-      @apply ml-auto font-bold;
-    }
-  }
-
-  .misc {
-    @apply w-full flex flex-col;
-
-    .do {
-      @apply font-coordinates font-normal;
-
-      abbr {
-        @apply no-underline mr-1;
-      }
-    }
-
-    .variedad {
-      @apply w-9/12 flex flex-wrap;
-
-      div {
-        @apply flex items-center font-coordinates font-normal italic;
-
-        &:after {
-          @apply content-[''] block mx-1.5 h-1 w-1 rounded-full bg-current;
-        }
-
-        &:last-child:after {
-          @apply hidden;
-        }
-      }
-    }
-  }
-}
-</style>

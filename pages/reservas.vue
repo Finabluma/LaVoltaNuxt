@@ -55,18 +55,18 @@ function panels() {
 
 onMounted(() => {
   ctx = gsap.context((self) => {
-    mm = gsap.matchMedia()
-    mm.add("(min-width: 1024px)", () => {
-      panels()
-    })
-
+    // mm = gsap.matchMedia()
+    // mm.add("(min-width: 1024px)", () => {
+      
+    // })
+    panels()
     skewOnScroll()
   }, main.value)
 })
 
 onUnmounted(() => {
   ctx.revert()
-  mm.revert()
+  // mm.revert()
 })
 </script>
 <template>
@@ -93,7 +93,7 @@ onUnmounted(() => {
         </section>
       </div>
     </main>
-    <aside class="relative">
+    <aside>
       <LazyUniverseCallBadge />
     </aside>
     <AppFooter />

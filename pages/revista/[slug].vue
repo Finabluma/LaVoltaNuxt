@@ -45,19 +45,19 @@ watch(
   <div v-if="post">
     <main>
       <HeroSection>
-        <h1 class="title-page">{{ post.title }}</h1>
+        <h1 class="page-title">{{ post.title }}</h1>
         <p class="font-coordinates">{{ post.subtitle }}</p>
       </HeroSection>
       <div class="main-content">
-        <div class="mb-clus3lev post">
+        <div class="post container">
           <ArticleBreadcrumb :post="post">
             <li>
-              <ElementsTextLink link-type="internalLinkType" route="revista">Revista</ElementsTextLink>
+              <ElementsTextLink link-type="internalLinkType" route="revista" title="Revista">Revista</ElementsTextLink>
             </li>
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
-          <div v-if="post.mainImage" class="img">
+          <div v-if="post.mainImage" class="img mb-5 max-w-4xl mx-auto p-1 border">
             <ElementsMediaImageItem :src="post.mainImage.asset._ref" :alt="post.mainImage.alt" height="800"
               sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw" :modifiers="{
                 crop: post.mainImage.crop,
@@ -65,7 +65,7 @@ watch(
                 q: 80,
               }" fit="cover" format="webp" />
           </div>
-          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent" class="mb-clus3lev" />
+          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent" class="mb-5" />
           <ArticleCategories v-if="post.categories" :tags="post.categories" />
         </div>
         <div class="list-related">
@@ -74,7 +74,7 @@ watch(
       </div>
     </main>
     <aside v-if="banner !== null" :class="estilos">
-      <div class="content_wrapper">
+      <div class="container">
         <div v-for="(item, index) in banner" :key="item._id" :class="index == 0 ? 'first' : 'second'">
           <LazyBannerBottom :optional="item" />
         </div>
@@ -93,19 +93,9 @@ watch(
 }
 
 .post {
-  @apply l-center;
 
-  .breadcrumb {
-    @apply max-w-4xl mx-auto px-[2vw];
-  }
 
-  .img {
-    @apply mb-10 max-w-4xl mx-auto;
 
-    img {
-      @apply p-1 border;
-    }
-  }
 
   .categories {
     @apply md:p-[5vw] max-w-4xl mx-auto;

@@ -17,16 +17,16 @@ const props = defineProps({
           'max-h': '350',
         }" sizes="xs:150px md:150px lg:150px" height="150" fit="cover" format="webp" />
       </div>
-      <div v-else class="noImg">
+      <div v-else class="noImg flex    justify-center items-center        overflow-hidden bg-white/30">
         <Corazon class="w-20" />
       </div>
     </div>
-    <div class="content">
+    <div class="text-center flex flex-col items-center lg:min-h-64 lg:px-8">
       <h2 class="mb-5 text-3xl">{{ optional.title }}</h2>
-      <div v-if="optional.banner || optional.subtitle" class="inner">
+      <div v-if="optional.banner || optional.subtitle" class="text-balance">
         {{ optional.banner || optional.subtitle }}
       </div>
-      <div v-if="optional.enlace" class="enlace">
+      <div v-if="optional.enlace">
         <div v-if="optional.enlace.slug !== null">
           <NuxtLink :to="`/revista/${optional.enlace.slug}`" :title="optional.enlace.title" aria-label="Enlace"
             class="custom-btn">

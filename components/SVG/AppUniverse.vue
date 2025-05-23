@@ -40,9 +40,8 @@ function smUniverse() {
     pin: true,
     pinSpacing: false,
     scrub: 1,
-    // preventOverlaps: true, // Previene superposiciones entre animaciones de ScrollTrigger
     fastScrollEnd: true,
-    anticipatePin: 1
+    anticipatePin: 1,
   })
 }
 

@@ -28,10 +28,11 @@ function pinHero() {
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    mm = gsap.matchMedia()
-    mm.add("(min-width: 1024px)", () => {
-      pinHero()
-    })
+    // mm = gsap.matchMedia()
+    // mm.add("(min-width: 1024px)", () => {
+
+    // })
+    pinHero()
   }, main.value)
 })
 
