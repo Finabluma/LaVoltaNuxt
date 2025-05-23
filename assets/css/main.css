@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  --color-*: initial;
   --color-white: #ffffff;
+  --color-slate-200: oklch(0.929 0.013 255.508);
   --color-firstlight: oklch(69.99% 0.167 347.15);
   --color-firstdark: oklch(33.25% 0.075 257.24);
   --color-secondark: oklch(69.58% 0.065 248.78);
@@ -37,7 +39,11 @@
     overflow-x-hidden
     antialiased
     bg-white
-    dark:bg-secondark;
+    dark:bg-secondark
+    selection:bg-secondark
+    selection:text-white
+    dark:selection:bg-firstlight
+    dark:selection:text-white;
   }
 
   /* top level app */
