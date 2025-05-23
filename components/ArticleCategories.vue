@@ -1,25 +1,18 @@
 <script setup>
-  const props = defineProps({
-    title: {
-      type: String,
-    },
-    tags: {
-      type: Object,
-    },
-  })
+const props = defineProps({
+  title: {
+    type: String,
+  },
+  tags: {
+    type: Object,
+  },
+})
 </script>
 <template>
-  <div class="categories">
-    <ul class="clean-list">
-      <li v-for="item in tags" :key="item.id">
-        <span class="tag with-icon--before"
-          ><LazyTags /><span class="grow">{{ item.title }}</span></span
-        >
-
-        <!-- <NuxtLink :to="`/revista/categoria/${item.slug}`">
-          {{ item.title }}
-        </NuxtLink> -->
-      </li>
-    </ul>
-  </div>
+  <ul class="flex flex-wrap  *:mr-1">
+    <li v-for="item in tags" :key="item.id" class="flex">
+      <LazyTags class="w-4 grow" />
+      <span>{{ item.title }}</span>
+    </li>
+  </ul>
 </template>

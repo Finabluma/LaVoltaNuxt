@@ -21,8 +21,8 @@
 
 @layer base {
   :root {
-    @apply bg-(--color-white)
-    dark:bg-(--color-secondark)
+    @apply bg-white
+    dark:bg-secondark
     text-firstlight
     dark:text-firstdark
     fill-firstlight
@@ -128,6 +128,16 @@
     text-shadow-2xs
     mb-2
     lg:text-6xl;
+  }
+
+  .page-title--extra {
+    @apply text-5xl
+    md:text-7xl
+    font-semibold
+    text-shadow-2xs
+    text-center
+    uppercase
+    mb-5;
   }
 
   /* block-titles */

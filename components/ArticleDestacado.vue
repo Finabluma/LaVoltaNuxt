@@ -9,51 +9,32 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="destacado">
-    <h1 v-if="title" class="title-Xtra text-center">{{ title }}</h1>
-    <ArticleTeaser :article="item[0].article">
-      <template #default>
-        <ElementsMediaImageItem :src="item[0].article.mainImage.asset._ref" :alt="item[0].article.mainImage.alt"
-          :modifiers="{
-            crop: item[0].article.mainImage.crop,
-            hotspot: item[0].article.mainImage.hotspot,
-            q: 80,
-          }" sizes="xs:100vw sm:100vw" height="400" fit="cover" format="webp" class="image" />
-      </template>
-      <template #categories>
-        <ArticleCategories :tags="item[0].article.categories" title="Categorias" v-if="item[0].article.categories" />
-      </template>
-    </ArticleTeaser>
+  <div class="mb-5 md:mb-10">
+    <h1 v-if="title" class="page-title--extra">{{ title }}</h1>
+    <article class="relative group">
+      <ElementsTextLink link-type="internalLinkType" route="revista-slug" :slug="item[0].article.slug">
+        <div v-if="item[0].article.mainImage" class="outline-2">
+          <ElementsMediaImageItem :src="item[0].article.mainImage.asset._ref" :alt="item[0].article.mainImage.alt"
+            :modifiers="{
+              crop: item[0].article.mainImage.crop,
+              hotspot: item[0].article.mainImage.hotspot,
+              q: 80,
+            }" sizes="xs:100vw sm:100vw" height="400" fit="cover" format="webp" />
+        </div>
+        <div class="l-box l-box--no-border absolute top-0 w-full h-full flex justify-center items-end lg:items-center">
+          <div class="w-11/12 mx-auto bg-white/95 dark:bg-firstdark/95 drop-shadow-sm dark:text-secondark p-2 outline -outline-offset-4 text-center md:w-9/12 lg:w-auto lg:p-5 group-hover:opacity-90 
+          group-hover:transition-opacity">
+            <h2 class="text-xl font-bold">
+              {{ item[0].article.title }}
+            </h2>
+            <div v-if="item[0].article.subtitle">
+              <p class="lead">{{ item[0].article.subtitle }}</p>
+            </div>
+            <ArticleCategories :tags="item[0].article.categories" title="Categorias" v-if="item[0].article.categories"
+              class="mt-3 justify-center" />
+          </div>
+        </div>
+      </ElementsTextLink>
+    </article>
   </div>
 </template>
-<style lang="postcss">
-.destacado {
-  @apply mb-clus3lev;
-
-  .card {
-    @apply l-stack md:l-box md:l-box--no-border;
-
-    .image {
-      @apply border block;
-    }
-
-    .card__text {
-      @apply p-2 text-center l-center lg:p-4;
-
-      .card__heading {
-        @apply uppercase text-lg/snug mb-clus3lev lg:text-2xl;
-      }
-
-      .lead {
-        @apply mb-clus3lev;
-      }
-    }
-
-    .categories {
-      ul {
-        @apply flex justify-center flex-wrap;
-      }
-    }
-  }
-}
-</style>

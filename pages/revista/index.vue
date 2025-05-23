@@ -23,11 +23,11 @@ usePageHead({
     </div>
     <main>
       <HeroSection>
-        <h1 class="title-page">{{ revista.title }}</h1>
+        <h1 class="page-title">{{ revista.title }}</h1>
       </HeroSection>
       <div class="main-content">
-        <section class="revista">
-          <div v-if="isFeatured.length > 0" class="isDestacado">
+        <section class="container l-box l-box--no-border lg:px-[10vw] *:mb-10">
+          <div v-if="isFeatured.length > 0">
             <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
           </div>
           <div v-if="notFeatured.length > 0" class="isPortada">
@@ -63,8 +63,3 @@ usePageHead({
     <AppFooter />
   </div>
 </template>
-<style lang="postcss" scoped>
-.revista {
-  @apply l-center l-box l-box--no-border lg:px-[10vw];
-}
-</style>
