@@ -17,7 +17,7 @@ usePageHead({
 })
 </script>
 <template>
-  <div class="page">
+  <div class="page ">
     <div v-if="revista.bannerUrgent !== null">
       <AppModal :budskap="revista" v-show="showModal" @close-modal="showModal = false" />
     </div>
@@ -27,32 +27,18 @@ usePageHead({
       </HeroSection>
       <div class="main-content">
         <section class="container l-box l-box--no-border lg:px-[10vw] *:mb-10">
-          <div v-if="isFeatured.length > 0">
+          <div v-if="isFeatured.length > 0" class="sm:px-7 md:px-[5vw]">
             <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
           </div>
-          <div v-if="notFeatured.length > 0" class="isPortada">
-            <ArticlesPortada>
-              <MasonryWall :items="notFeatured" :ssr-columns="1" :column-width="200" :gap="15" :min-columns="1"
-                :maxColumns="2">
-                <template #default="{ item }">
-                  <ArticleTeaser :article="item.article" :heading="item.article.title">
-                    <template #default>
-                      <div class="image">
-                        <ElementsMediaImageItem :src="item.article.mainImage.asset._ref"
-                          :alt="item.article.mainImage.alt" :modifiers="{
-                            crop: item.article.mainImage.crop,
-                            hotspot: item.article.mainImage.hotspot,
-                            q: 80,
-                          }" sizes="xs:100vw" height="200" fit="cover" format="webp" />
-                      </div>
-                    </template>
-                    <template #categories>
-                      <ArticleCategories :tags="item.article.categories" v-if="item.article.categories" />
-                    </template>
-                  </ArticleTeaser>
-                </template>
-              </MasonryWall>
-            </ArticlesPortada>
+          <div v-if="notFeatured.length > 0"
+            class="before:w-2 before:h-2 before:bg-current before:block before:mx-auto before:rounded-full">
+            <h1 class="text-3xl lowercase p-7 flex flex-col justify-center items-center ">Otras Lecturas</h1>
+            <MasonryWall :items="notFeatured" :ssr-columns="1" :column-width="200" :gap="15" :min-columns="1"
+              :maxColumns="2" class="l-box l-box--no-border py-0">
+              <template #default="{ item }">
+                <ArticleTeaser :article="item.article" :heading="item.article.title" />
+              </template>
+            </MasonryWall>
           </div>
         </section>
       </div>

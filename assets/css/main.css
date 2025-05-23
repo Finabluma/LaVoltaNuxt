@@ -65,7 +65,7 @@
   }
 
   /* text component */
-  .component--text > * {
+  /* .component--text > * {
     @apply lg:max-w-2xl;
   }
   .component--text > * + h2,
@@ -74,11 +74,11 @@
   .component--text > * + h5,
   .component--text > * + h6 {
     @apply mt-8;
-  }
+  } */
 
-  .component--text > p {
+  /* .component--text > p {
     @apply mt-2;
-  }
+  } */
 
   /* component-quote */
   .component--quote {
@@ -86,7 +86,6 @@
     me-0
     ms-3
     px-3
-    py-5
     sm:p-10
     relative
     before:-left-3

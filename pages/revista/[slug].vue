@@ -49,7 +49,7 @@ watch(
         <p class="font-coordinates">{{ post.subtitle }}</p>
       </HeroSection>
       <div class="main-content">
-        <div class="post container">
+        <div class="max-w-4xl mx-auto mb-10 *:mb-2">
           <ArticleBreadcrumb :post="post">
             <li>
               <ElementsTextLink link-type="internalLinkType" route="revista" title="Revista">Revista</ElementsTextLink>
@@ -57,7 +57,7 @@ watch(
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
-          <div v-if="post.mainImage" class="img mb-5 max-w-4xl mx-auto p-1 border">
+          <div v-if="post.mainImage" class="max-w-4xl mx-auto outline">
             <ElementsMediaImageItem :src="post.mainImage.asset._ref" :alt="post.mainImage.alt" height="800"
               sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw" :modifiers="{
                 crop: post.mainImage.crop,
@@ -65,10 +65,10 @@ watch(
                 q: 80,
               }" fit="cover" format="webp" />
           </div>
-          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent" class="mb-5" />
+          <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent" />
           <ArticleCategories v-if="post.categories" :tags="post.categories" />
         </div>
-        <div class="list-related">
+        <div class="max-w-3xl mx-auto px-[2vw]">
           <ArticleRelated :related="related.articleRelated" v-if="related" />
         </div>
       </div>
