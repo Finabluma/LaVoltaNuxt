@@ -237,10 +237,8 @@
   }
 
   .compound {
-    > * {
-      @apply lg:grid
-      lg:grid-cols-2;
-    }
+    @apply *:lg:grid
+    *:lg:grid-cols-2;
   }
 
   .first,
@@ -336,13 +334,13 @@
     dark:before:mix-blend-multiply;
   }
 
-  .panel {
+  /* .panel {
     @apply relative 
     w-full 
     bg-white
     dark:bg-secondark 
     will-change-transform;
-  }
+  } */
 
   /* Accordion carta */
   .accordion-wrapper.is-closed .panel-body {
@@ -487,11 +485,9 @@
     items-center
     justify-center
     sm:flex-row
-    sm:justify-center;
-
-    > div:first-of-type {
-      @apply flex items-center;
-    }
+    sm:justify-center
+    *:first-of-type:in-[div]:flex
+    *:first-of-type:in-[div]:items-center;
 
     .franjas {
       @apply flex px-1;

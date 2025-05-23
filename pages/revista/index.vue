@@ -17,7 +17,7 @@ usePageHead({
 })
 </script>
 <template>
-  <div class="page ">
+  <div class="page">
     <div v-if="revista.bannerUrgent !== null">
       <AppModal :budskap="revista" v-show="showModal" @close-modal="showModal = false" />
     </div>
