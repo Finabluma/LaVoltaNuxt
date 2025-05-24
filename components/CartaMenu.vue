@@ -95,12 +95,10 @@ let ctx, mm
 // })
 </script>
 <template>
-  <div class="relative max-w-5xl mx-auto px-[2vw] mt-10 " ref="cartamenu">
-    <article v-for="(item, index) in items" :key="item._key"
-      class="l-box first:mb-10 bg-slate-200 dark:bg-[#97b4cf] md:flex md:items-center">
-      <div class="panel bg-slate-200 dark:bg-[#97b4cf] md:w-4/12 
-      md:shrink-0 will-change-transform">
-        <div class="relative z-20 w-6/12 sm:w-3/12 mx-auto mb-2 md:w-full md:ml-0 ">
+  <div class="carta-menu" ref="cartamenu">
+    <article v-for="(item, index) in items" :key="item._key">
+      <div class="panel">
+        <div>
           <div v-if="index == 0">
             <SVGCartaCircle />
           </div>
@@ -109,14 +107,14 @@ let ctx, mm
           </div>
         </div>
       </div>
-      <div class="panel bg-slate-200 dark:bg-[#97b4cf] will-change-transform">
+      <div class="panel">
         <div class="text-center md:text-left">
-          <div class="component--text md:px-5 lg:px-7">
-            <div class=" mb-5 px-2 md:px-0">
-              <h2 class="block-title">{{ item.heading }}</h2>
+          <div class="component--text">
+            <div>
+              <h2>{{ item.heading }}</h2>
               <p class="lead">{{ item.tagline }}</p>
             </div>
-            <p class="mx-2">{{ item.excerpt }}</p>
+            <p>{{ item.excerpt }}</p>
             <div v-if="index == 0">
               <NuxtLink to="la-carta" :title="item.link.linkTarget.title" class="custom-btn" aria-label="Carta">
                 {{ item.link.title || item.link.linkTarget.title }}

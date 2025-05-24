@@ -22,8 +22,8 @@ let showModal = ref(true)
         <CartaMenu :items="home.cartamenu" />
       </div>
     </main>
-    <aside class="relative z-40 bg-white dark:bg-secondark">
-      <div class="py-5">
+    <aside>
+      <div>
         <LazyGalleryReference :page="home" />
         <LazyOptionalContent :page="home" />
       </div>

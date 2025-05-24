@@ -48,11 +48,13 @@ onUnmounted(() => {
       <div>
         <div class="l-box l-box--no-border">
           <div class="component--text ">
-            <slot></slot>
+            <div>
+              <slot></slot>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <AppDivider />
+    <!-- <AppDivider /> -->
   </div>
 </template>

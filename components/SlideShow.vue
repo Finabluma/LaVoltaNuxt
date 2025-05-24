@@ -9,11 +9,11 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="bg-white dark:bg-secondark mb-10 max-w-5xl mx-auto px-[2vw]">
-    <h2 class="block-title--after l-box l-box--no-border mb-0">
+  <div class="slide">
+    <h2>
       {{ title }}
     </h2>
-    <div class="l-box">
+    <div class="gallery">
       <Swiper :height="300" :auto-height="false" :modules="[SwiperAutoplay, SwiperFreeMode, SwiperPagination]"
         :slides-per-view="2" :space-between="5" :speed="1000" :free-mode="false" :pagination="{ clickable: true }"
         :loop="true" :breakpoints="{

@@ -30,20 +30,15 @@
       min-h-dvh;
   }
 
-  main,
-  #main {
-    @apply box-content
-        mx-auto
-        pb-2
-        md:pb-5;
-  }
-
   /* main content */
   .main-content {
     @apply relative 
       z-30
       bg-white
-      dark:bg-secondark
-      pt-2.5;
+      dark:bg-secondark;
+  }
+
+  aside {
+    @apply relative z-40 bg-white dark:bg-secondark;
   }
 }

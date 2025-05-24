@@ -5,20 +5,6 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer components {
-  .l-box {
-    @apply border
-    block
-    p-4
-    md:p-8;
-  }
-
-  .l-box--no-border {
-    @apply border-none
-    outline-1
-    outline-transparent
-    -outline-offset-1;
-  }
-
   .hero-section {
     @apply relative
     w-screen;
@@ -37,11 +23,9 @@
       *:in-[div]:first-of-type:before:top-0
       *:in-[div]:first-of-type:before:w-full
       *:in-[div]:first-of-type:before:h-full
-      *:in-[div]:first-of-type:before:bg-gradient-to-b
-      *:in-[div]:first-of-type:before:from-white/60
-      *:in-[div]:first-of-type:before:via-white/80
-      *:in-[div]:first-of-type:before:to-white
-      *:in-[div]:first-of-type:before:mix-blend-color-dodge
+      *:in-[div]:first-of-type:before:bg-slate-200/90
+      *:in-[div]:first-of-type:before:mix-blend-hard-light
+      *:in-[div]:first-of-type:dark:before:bg-gradient-to-b
       *:in-[div]:first-of-type:dark:before:from-firstdark/50
       *:in-[div]:first-of-type:dark:before:via-firstdark/80
       *:in-[div]:first-of-type:dark:before:to-firstdark
@@ -54,20 +38,91 @@
       *:in-[div]:last-of-type:lg:py-24;
 
       h1 {
-        @apply font-coordinates
-        text-fluid-hero/fluid-hero;
+        @apply text-fluid-hero/tight;
       }
 
       .lead {
-        @apply text-fluid-md/fluid-hero
-        font-semibold
-        font-coordinates;
+        @apply text-fluid-body-lg/snug
+        mb-3;
       }
 
       p {
-        @apply text-fluid-base/fluid-lg;
+        @apply text-fluid-base;
       }
     }
+  }
+
+  /* carta-menu */
+  .carta-menu {
+    @apply relative 
+    w-screen
+    bg-slate-100
+    dark:bg-firstdark/30;
+
+    article {
+      @apply max-w-5xl
+      mx-auto
+      py-5
+      md:flex
+      md:items-center
+      md:py-10;
+
+      .panel {
+        @apply will-change-transform
+        w-full
+        md:first:w-4/12
+        md:first:shrink-0
+        first:*:relative
+        first:*:w-8/12
+        first:*:mx-auto
+        first:*:mb-5
+        first:*:sm:w-3/12
+        first:*:md:w-10/12
+        first:*:lg:mb-0
+        first:*:lg:w-auto;
+      }
+    }
+  }
+
+  .slide {
+    @apply bg-white
+    dark:bg-secondark
+    max-w-5xl
+    mx-auto
+    py-10;
+
+    h2 {
+      @apply text-fluid-2xl
+      text-center
+      after:block
+      after:w-5
+      after:h-5
+      after:bg-current
+      after:mx-auto
+      mb-5;
+    }
+
+    .gallery {
+      @apply p-4
+      outline
+      outline-current/30
+      bg-slate-200
+      dark:bg-firstdark/30;
+    }
+  }
+
+  .l-box {
+    @apply border
+    block
+    p-4
+    md:p-8;
+  }
+
+  .l-box--no-border {
+    @apply border-none
+    outline-1
+    outline-transparent
+    -outline-offset-1;
   }
 
   .l-stack {
@@ -81,17 +136,11 @@
 
   /* text component */
   .component--text {
-    @apply lg:*:max-w-2xl;
+    @apply *:max-w-2xl
+    /* *:mx-auto; */;
   }
 
   /* page titles */
-  .page-title {
-    @apply text-4xl
-    text-shadow-2xs
-    mb-2
-    lg:text-6xl;
-  }
-
   .page-title--extra {
     @apply text-5xl
     md:text-7xl
@@ -100,30 +149,6 @@
     text-center
     uppercase
     mb-5;
-  }
-
-  /* block-titles */
-  .block-title {
-    @apply text-3xl
-    lg:text-4xl;
-  }
-
-  .block-title--after {
-    @apply text-2xl
-    capitalize
-    font-semibold
-    mb-4
-    after:w-5
-    after:h-0.5
-    after:bg-current
-    after:block;
-  }
-
-  /* titlepage hero dark */
-  .hero-content {
-    .page-title {
-      @apply dark:after:bg-secondark;
-    }
   }
 
   /* Banner bottom */
@@ -385,7 +410,21 @@
   }
 
   .hero-section .component--text {
-    @apply dark:text-secondark;
+    @apply dark:text-secondark
+    *:bg-white
+    *:dark:bg-firstdark
+    *:drop-shadow-xs
+    *:outline-2
+    *:-outline-offset-8
+    *:p-3
+    *:md:p-5;
+  }
+
+  .panel .component--text {
+    @apply px-2
+    md:px-10
+    *:in-[div]:first-of-type:first:text-fluid-2xl/tight
+    *:in-[div]:last-of-type:text-fluid-base;
   }
 
   /* component-quote */
