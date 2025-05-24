@@ -23,10 +23,8 @@ let showModal = ref(true)
       </div>
     </main>
     <aside>
-      <div>
         <LazyGalleryReference :page="home" />
         <LazyOptionalContent :page="home" />
-      </div>
     </aside>
     <AppFooter />
   </div>

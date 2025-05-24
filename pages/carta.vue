@@ -45,19 +45,19 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <div class="page">
+  <div id="carta">
     <div v-if="carta.bannerUrgent !== null">
       <AppModal :budskap="carta" v-show="showModal" @close-modal="showModal = false" />
     </div>
-    <main id="main">
+    <main>
       <HeroSection>
-        <h1 class="page-title">{{ carta.title }}</h1>
+        <h1>{{ carta.title }}</h1>
         <SanityContent :blocks="carta.warning" />
       </HeroSection>
       <div class="main-content">
-        <article class="max-w-7xl mx-auto px-[2vw] xl:px-0 skew">
+        <article class="max-w-5xl mx-auto py-5 md:py-10 skew">
           <section class="mb-10">
-            <h2 class="block-title--after mb-2 ml-4 md:ml-10 md:mb-5">Platos</h2>
+            <h2 class="text-fluid-2xl mx-5 mb-5">Platos</h2>
             <CartaItems :items="mar">
               <DelMar />{{ mar.tipo.title }}
             </CartaItems>
@@ -74,7 +74,7 @@ onUnmounted(() => {
             </CartaItems>
           </section>
           <section>
-            <h2 class="block-title--after mb-2 ml-4 md:ml-10 md:mb-5">
+            <h2 class="text-fluid-2xl mx-5 mb-5">
               {{ title.title }}
             </h2>
             <CartaItems :items="tintos">

@@ -18,8 +18,7 @@ const optional = computed(() => {
 <template>
   <div v-if="page.optionalContent" :class="estilos">
     <div class="container">
-      <div v-for="(item, index) in optional" :key="item.id" :class="index == 0 ? 'first' : 'second'"
-        class="l-box l-box--no-border">
+      <div v-for="(item, index) in optional" :key="item.id" :class="index == 0 ? 'first' : 'second'">
         <LazyBannerBottom :optional="item" />
       </div>
     </div>

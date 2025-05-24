@@ -7,7 +7,7 @@ const props = defineProps({
 </script>
 <template>
   <div class="optional">
-    <div class="l-box l-box--no-border flex justify-center">
+    <div class="flex justify-center">
       <div v-if="optional.image" class="image">
         <ElementsMediaImageItem :src="optional.image.asset._ref" :alt="optional.image.alt" :modifiers="{
           crop: optional.image.crop,
@@ -22,14 +22,14 @@ const props = defineProps({
       </div>
     </div>
     <div class="text-center flex flex-col items-center lg:min-h-64 lg:px-8">
-      <h2 class="mb-5 text-3xl">{{ optional.title }}</h2>
-      <div v-if="optional.banner || optional.subtitle" class="text-balance">
+      <h2 class="mb-5 text-fluid-2xl/tight">{{ optional.title }}</h2>
+      <div v-if="optional.banner || optional.subtitle" class="text-balance text-fluid-base">
         {{ optional.banner || optional.subtitle }}
       </div>
       <div v-if="optional.enlace">
         <div v-if="optional.enlace.slug !== null">
           <NuxtLink :to="`/revista/${optional.enlace.slug}`" :title="optional.enlace.title" aria-label="Enlace"
-            class="custom-btn">
+            class="custom-btn text-fluid-base">
             {{ optional.enlace.title }}
           </NuxtLink>
         </div>

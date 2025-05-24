@@ -99,7 +99,7 @@
       after:h-5
       after:bg-current
       after:mx-auto
-      mb-5;
+      mb-8;
     }
 
     .gallery {
@@ -109,6 +109,38 @@
       bg-slate-200
       dark:bg-firstdark/30;
     }
+  }
+
+  .single,
+  .compound {
+    @apply p-7;
+  }
+
+  .compound {
+    @apply *:lg:grid
+    *:lg:grid-cols-2;
+  }
+
+  .first,
+  .second {
+    @apply flex
+    justify-center;
+  }
+
+  .optional .image,
+  .optional .noImg {
+    @apply w-24
+      h-24
+      mb-5
+      rounded-full
+      overflow-hidden
+      outline-1
+      outline-current/50
+      -outline-offset-2
+      md:w-28
+      md:h-28
+      lg:w-32
+      lg:h-32;
   }
 
   .l-box {
@@ -149,46 +181,6 @@
     text-center
     uppercase
     mb-5;
-  }
-
-  /* Banner bottom */
-  .single,
-  .compound {
-    @apply bg-white
-    dark:bg-secondark
-    before:w-2
-    before:h-2
-    before:rounded-full
-    before:mx-auto
-    before:bg-current
-    before:block;
-  }
-
-  .compound {
-    @apply *:lg:grid
-    *:lg:grid-cols-2;
-  }
-
-  .first,
-  .second {
-    @apply lg:flex
-    lg:justify-center;
-  }
-
-  .optional .image,
-  .optional .noImg {
-    @apply w-20
-      h-20
-      rounded-full
-      overflow-hidden
-      outline-2
-      -outline-offset-2
-      outline-firstlight
-      dark:outline-firstdark
-      md:w-20
-      md:h-20
-      lg:w-24
-      lg:h-24;
   }
 
   /* Buttons */
