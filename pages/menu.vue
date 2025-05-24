@@ -83,7 +83,7 @@ onUnmounted(() => {
         <SanityContent :blocks="menu.menuConditions" />
       </HeroSection>
       <div class="main-content">
-        <section class="max-w-6xl mx-auto px-[1vw] py-5 md:py-10 lg:px-0">
+        <section class="max-w-6xl mx-auto px-[2vw] py-5 md:py-10 xl:px-0">
           <article class="card skew">
             <div>
               <h2>
@@ -108,7 +108,7 @@ onUnmounted(() => {
               <MenuItems :platos="menuDia.postres.platos" />
             </div>
           </article>
-          <div class="relative bg-white dark:bg-secondark">
+          <div class="relative bg-white dark:bg-secondark py-10">
             <div class="l-box l-box--no-border">
               <span class="text-fluid-hero capitalize">{{ formatPrice(menu.price) }}€</span>
               <p class="font-mono text-fluid-base">

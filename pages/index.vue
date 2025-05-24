@@ -8,7 +8,7 @@ let showModal = ref(true)
 
 </script>
 <template>
-  <div class="page">
+  <div id="home">
     <div v-if="home.bannerUrgent">
       <AppModal :budskap="home" v-show="showModal" @close-modal="showModal = false" />
     </div>

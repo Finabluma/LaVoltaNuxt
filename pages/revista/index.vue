@@ -17,17 +17,17 @@ usePageHead({
 })
 </script>
 <template>
-  <div id="home">
+  <div id="revista">
     <div v-if="revista.bannerUrgent !== null">
       <AppModal :budskap="revista" v-show="showModal" @close-modal="showModal = false" />
     </div>
     <main>
       <HeroSection>
-        <h1 class="page-title">{{ revista.title }}</h1>
+        <h1>{{ revista.title }}</h1>
       </HeroSection>
       <div class="main-content">
-        <section class="max-w-6xl mx-auto l-box l-box--no-border lg:px-[6vw] *:mb-10">
-          <div v-if="isFeatured.length > 0" class="sm:px-7 lg:px-[8vw]">
+        <section class="max-w-6xl mx-auto px-[1vw] py-5 md:py-10 xl:px-0">
+          <div v-if="isFeatured.length > 0" class="px-[5vw]">
             <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />
           </div>
           <div v-if="notFeatured.length > 0"

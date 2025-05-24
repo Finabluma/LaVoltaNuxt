@@ -25,7 +25,7 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <div class="universeCallBadge relative z-30">
+  <div class="universeCallBadge relative z-10">
     <div class="wrapper relative w-full h-full">
       <div class="contacta relative
       z-20 w-full">

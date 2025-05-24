@@ -63,9 +63,11 @@
       @apply max-w-6xl
       mx-auto
       py-5
+      px-[2vw]
       md:flex
       md:items-center
-      md:py-10;
+      md:py-10
+      xl:px-0;
 
       .panel {
         @apply will-change-transform
@@ -112,18 +114,21 @@
   }
 
   .card {
-    @apply p-2
+    @apply p-3
+    lg:p-4
     *:bg-slate-200
     *:dark:bg-firstdark/80
     *:drop-shadow-sm
     *:max-w-xl
     *:p-5
     *:outline-8
-    *:-outline-offset-8
+    *:-outline-offset-2
     *:outline-white
     *:dark:outline-secondark
     *:dark:text-secondark
-    *:first-of-type:text-fluid-3xl;
+    *:*:first-of-type:first:text-fluid-3xl/tight
+    *:*:first-of-type:first:capitalize
+    *:*:last-of-type:text-fluid-body-lg;
   }
 
   .single,
@@ -187,17 +192,6 @@
     /* *:mx-auto; */;
   }
 
-  /* page titles */
-  .page-title--extra {
-    @apply text-5xl
-    md:text-7xl
-    font-semibold
-    text-shadow-2xs
-    text-center
-    uppercase
-    mb-5;
-  }
-
   /* Buttons */
   .cookies-buttons {
     @apply first:mr-2
@@ -224,7 +218,7 @@
     @apply mt-5
     lg:mt-10
     inline-flex
-    font-semibold
+    font-bold
     outline-2
     -outline-offset-1
     bg-firstlight
@@ -232,16 +226,13 @@
     text-white
     dark:text-secondark
     transition-all
-    rounded-sm
-    px-4
-    py-2
+    rounded-full
+    px-6
+    py-4
     hover:bg-white
     hover:text-firstlight
     dark:hover:bg-secondark
-    dark:hover:text-firstdark
-    lg:rounded-full
-    lg:px-6
-    lg:py-4;
+    dark:hover:text-firstdark;
   }
 
   /* main navigation */
@@ -423,8 +414,16 @@
     *:drop-shadow-xs
     *:outline-2
     *:-outline-offset-8
-    *:p-3
+    *:p-5
     *:md:p-5;
+  }
+
+  #revista .hero-section .component--text,
+  #terms .hero-section .component--text {
+    @apply *:max-w-fit
+    **:text-fluid-4xl
+    **:uppercase
+    **:p-2;
   }
 
   .panel .component--text {

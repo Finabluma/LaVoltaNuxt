@@ -8,10 +8,10 @@ usePageHead({
 })
 </script>
 <template>
-  <div class="page">
+  <div id="terms">
     <main>
       <HeroSection>
-        <h1 class="page-title">{{ terms.title }}</h1>
+        <h1>{{ terms.title }}</h1>
       </HeroSection>
       <div class="main-content">
         <section class="container">

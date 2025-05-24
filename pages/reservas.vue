@@ -57,7 +57,7 @@ onMounted(() => {
   ctx = gsap.context((self) => {
     // mm = gsap.matchMedia()
     // mm.add("(min-width: 1024px)", () => {
-      
+
     // })
     panels()
     skewOnScroll()
@@ -70,17 +70,17 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <div class="page">
+  <div id="reservas">
     <div v-if="reservas.bannerUrgent !== null">
       <AppModal :budskap="reservas" v-show="showModal" @close-modal="showModal = false" />
     </div>
     <main>
       <HeroSection>
-        <h2 class="page-title">{{ reservas.title }}</h2>
+        <h1>{{ reservas.title }}</h1>
         <SanityContent :blocks="reservas.introTerms" />
       </HeroSection>
       <div class="main-content">
-        <section class="max-w-7xl mx-auto px-[2vw] xl:px-0">
+        <section class="max-w-6xl mx-auto px-[2vw] py-5 md:py-10 xl:px-0">
           <h1 class="sr-only">{{ reservas.title }}</h1>
           <ReservasConditions>
             <template #header>

@@ -55,7 +55,7 @@ onUnmounted(() => {
         <SanityContent :blocks="carta.warning" />
       </HeroSection>
       <div class="main-content">
-        <article class="max-w-6xl mx-auto px-[1vw] py-5 md:py-10 lg:px-0 skew">
+        <article class="max-w-6xl mx-auto px-[1vw] py-5 md:py-10 xl:px-0 skew">
           <section class="mb-10">
             <h2 class="text-fluid-2xl mx-5 mb-5">Platos</h2>
             <CartaItems :items="mar">
