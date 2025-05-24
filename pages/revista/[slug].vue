@@ -58,8 +58,8 @@ watch(
           </ArticleBreadcrumb>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
           <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
-            class="after:block after:w-10 after:h-1 after:bg-current after:mt-10" />
-          <ArticleCategories v-if="post.categories" :tags="post.categories" class="l-box l-box--no-border" />
+            class="after:block after:w-10 after:h-1 after:bg-current after:mt-8" />
+          <ArticleCategories v-if="post.categories" :tags="post.categories" class="py-7 px-[2vw]" />
           <div v-if="post.mainImage" class=" outline-2 outline-offset-2 my-5 w-10/12 mx-auto lg:w-8/12">
             <ElementsMediaImageItem :src="post.mainImage.asset._ref" :alt="post.mainImage.alt" height="800"
               sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw" :modifiers="{

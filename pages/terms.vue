@@ -14,9 +14,9 @@ usePageHead({
         <h1>{{ terms.title }}</h1>
       </HeroSection>
       <div class="main-content">
-        <section class="container">
-          <div v-if="terms.richtext" class="lg:l-box l-box--no-border">
-            <ElementsTextContent :blocks="terms.richtext" class="lg:l-box lg:l-box l-box--no-border" />
+        <section class="max-w-6xl mx-auto px-[4vw] py-5 md:py-10 xl:px-0">
+          <div v-if="terms.richtext">
+            <ElementsTextContent :blocks="terms.richtext" />
           </div>
         </section>
       </div>

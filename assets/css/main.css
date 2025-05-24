@@ -38,7 +38,8 @@
       *:in-[div]:last-of-type:lg:py-24;
 
       h1 {
-        @apply text-fluid-hero/none;
+        @apply text-fluid-hero/none
+        mb-2;
       }
 
       .lead {
@@ -47,7 +48,7 @@
       }
 
       p {
-        @apply text-fluid-base mt-3;
+        @apply text-fluid-base mt-1;
       }
     }
   }
@@ -423,7 +424,8 @@
     @apply *:max-w-fit
     **:text-fluid-4xl
     **:uppercase
-    **:p-2;
+    **:p-2
+    **:mb-0;
   }
 
   #post .hero-section .component--text {

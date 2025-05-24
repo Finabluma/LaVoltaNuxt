@@ -13,7 +13,7 @@ function drawerOn() {
 <template>
   <header class="p-2 w-screen">
     <span role="status" aria-live="polite"></span>
-    <div class="container flex items-center p-2 px-[4vw]" role="navigation">
+    <div class="w-full max-w-6xl mx-auto flex items-center px-[5vw]" role="navigation">
       <div class="w-8">
         <NuxtLink exact to="/" aria-label="logo" labelledby="logo" title="Bienvenidos a la Volta">
           <SVGAppLogo />
