@@ -43,12 +43,12 @@ const props = defineProps({
 })
 </script>
 <template>
-  <figure class="mb-5 mt-10">
+  <figure class="my-5">
     <div class="mb-5 outline-2 outline-offset-2">
       <NuxtPicture :src="asset._ref" :alt="asset.alt" :modifiers="{ crop: crop, hotspot: hotspot, q: 80 }" fit="cover"
         sizes="xs:100vw" />
     </div>
 
-    <figcaption class="text-center text-sm">{{ caption }}</figcaption>
+    <figcaption class="text-center text-fluid-base">{{ caption }}</figcaption>
   </figure>
 </template>

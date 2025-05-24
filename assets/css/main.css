@@ -43,11 +43,11 @@
 
       .lead {
         @apply text-fluid-body-lg/snug
-        mb-3;
+        mt-3;
       }
 
       p {
-        @apply text-fluid-base;
+        @apply text-fluid-base mt-3;
       }
     }
   }
@@ -376,7 +376,7 @@
   /* breadcrumbs */
   .breadcrumb ol li {
     @apply mr-1
-    text-sm
+    text-fluid-base
     font-coordinates
     flex
     items-center
@@ -426,6 +426,10 @@
     **:p-2;
   }
 
+  #post .hero-section .component--text {
+    @apply *:text-fluid-4xl;
+  }
+
   .panel .component--text {
     @apply px-2
     md:px-10
@@ -467,14 +471,14 @@
 
   /* Blockcontent */
   .blockContent {
-    @apply *:not-[figure]:mb-5;
+    @apply *:not-[figure]:mb-2;
 
     ul,
     ol {
       @apply ms-5;
     }
 
-    /* blockquote,
+    blockquote,
     p,
     ul,
     ol,
@@ -488,26 +492,28 @@
     }
 
     blockquote {
-      @apply text-2xl;
+      @apply text-fluid-2xl
+      ml-5
+      py-3;
     }
 
     h1 {
-      @apply text-4xl;
+      @apply text-fluid-4xl/none;
     }
 
     h2 {
-      @apply text-2xl;
+      @apply text-fluid-3xl;
     }
 
     h3 {
-      @apply text-xl;
+      @apply text-fluid-2xl;
     }
 
     p,
     ul,
     ol {
-      @apply text-lg;
-    } */
+      @apply text-fluid-body-lg;
+    }
   }
 }
 

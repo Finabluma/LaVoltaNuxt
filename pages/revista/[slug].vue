@@ -42,15 +42,15 @@ watch(
 );
 </script>
 <template>
-  <div v-if="post">
+  <div v-if="post" id="post">
     <main>
-      <HeroSection class="lg:*:*:*:*:px-[7vw]">
-        <h1 class="page-title">{{ post.title }}</h1>
-        <p class="font-cameo">{{ post.subtitle }}</p>
+      <HeroSection>
+        <h1>{{ post.title }}</h1>
+        <p class="lead">{{ post.subtitle }}</p>
       </HeroSection>
       <div class="main-content">
-        <div class="max-w-4xl mx-auto mt-5 mb-10 lg:my-10 px-[2vw]">
-          <ArticleBreadcrumb :post="post" class="mt-5">
+        <div class="max-w-6xl mx-auto px-[4vw] py-5 md:py-10">
+          <ArticleBreadcrumb :post="post">
             <li>
               <ElementsTextLink link-type="internalLinkType" route="revista" title="Revista">Revista</ElementsTextLink>
             </li>
@@ -58,7 +58,7 @@ watch(
           </ArticleBreadcrumb>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
           <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
-            class="after:block after:w-10 after:h-1 after:bg-current " />
+            class="after:block after:w-10 after:h-1 after:bg-current after:mt-10" />
           <ArticleCategories v-if="post.categories" :tags="post.categories" class="l-box l-box--no-border" />
           <div v-if="post.mainImage" class=" outline-2 outline-offset-2 my-5 w-10/12 mx-auto lg:w-8/12">
             <ElementsMediaImageItem :src="post.mainImage.asset._ref" :alt="post.mainImage.alt" height="800"
