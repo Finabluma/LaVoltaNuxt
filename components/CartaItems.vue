@@ -31,7 +31,7 @@ function formatPrice(num) {
             <div class="ml-auto">
               <div v-if="item.precio === null">
                 <span v-if="item.precio"> {{ formatPrice(item.precio) }}€</span>
-                <span v-else class="font-bold">s/peso</span>
+                <span v-else>s/peso</span>
               </div>
               <div v-else>
                 <span> {{ formatPrice(item.precio) }}€</span>

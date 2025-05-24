@@ -83,26 +83,31 @@ onUnmounted(() => {
         <SanityContent :blocks="menu.menuConditions" />
       </HeroSection>
       <div class="main-content">
-        <section class="max-w-5xl mx-auto px-[1vw] py-5 md:py-10 lg:px-0">
-          <article class="skew l-box l-box--no-border bg-white dark:bg-secondark">
-            <h2 class="text-fluid-4xl">
-              {{ menuDia.primeros.title }}
-            </h2>
-            <MenuItems :platos="menuDia.primeros.platos" />
+        <section class="max-w-6xl mx-auto px-[1vw] py-5 md:py-10 lg:px-0">
+          <article class="card skew">
+            <div>
+              <h2>
+                {{ menuDia.primeros.title }}
+              </h2>
+              <MenuItems :platos="menuDia.primeros.platos" />
+            </div>
           </article>
-          <article class="skew l-box l-box--no-border bg-white dark:bg-secondark">
-            <h2 class="text-fluid-4xl">
-              {{ menuDia.segundos.title }}
-            </h2>
-            <MenuItems :platos="menuDia.segundos.platos" />
+          <article class="card skew ">
+            <div>
+              <h2>
+                {{ menuDia.segundos.title }}
+              </h2>
+              <MenuItems :platos="menuDia.segundos.platos" />
+            </div>
           </article>
-          <article class="skew l-box l-box--no-border bg-white dark:bg-secondark">
-            <h2 class="text-fluid-4xl">
-              {{ menuDia.postres.title }}
-            </h2>
-            <MenuItems :platos="menuDia.postres.platos" />
+          <article class="card skew">
+            <div>
+              <h2>
+                {{ menuDia.postres.title }}
+              </h2>
+              <MenuItems :platos="menuDia.postres.platos" />
+            </div>
           </article>
-
           <div class="relative bg-white dark:bg-secondark">
             <div class="l-box l-box--no-border">
               <span class="text-fluid-hero capitalize">{{ formatPrice(menu.price) }}€</span>

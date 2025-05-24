@@ -31,7 +31,7 @@
       *:in-[div]:first-of-type:dark:before:to-firstdark
       *:in-[div]:first-of-type:dark:before:mix-blend-multiply
       /* block text */
-      *:in-[div]:last-of-type:max-w-5xl
+      *:in-[div]:last-of-type:max-w-6xl
       *:in-[div]:last-of-type:mx-auto
       *:in-[div]:last-of-type:pt-24
       *:in-[div]:last-of-type:pb-10
@@ -60,7 +60,7 @@
     dark:bg-firstdark/30;
 
     article {
-      @apply max-w-5xl
+      @apply max-w-6xl
       mx-auto
       py-5
       md:flex
@@ -111,6 +111,21 @@
     }
   }
 
+  .card {
+    @apply p-2
+    *:bg-slate-200
+    *:dark:bg-firstdark/80
+    *:drop-shadow-sm
+    *:max-w-xl
+    *:p-5
+    *:outline-8
+    *:-outline-offset-8
+    *:outline-white
+    *:dark:outline-secondark
+    *:dark:text-secondark
+    *:first-of-type:text-fluid-3xl;
+  }
+
   .single,
   .compound {
     @apply p-7;
@@ -139,8 +154,8 @@
       -outline-offset-2
       md:w-28
       md:h-28
-      lg:w-32
-      lg:h-32;
+      lg:w-30
+      lg:h-30;
   }
 
   .l-box {

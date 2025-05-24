@@ -6,8 +6,8 @@
   })
 </script>
 <template>
-  <ul>
-    <li v-for="(plato, index) in platos" :key="index">
+  <ul class="py-2">
+    <li v-for="(plato, index) in platos" :key="index" class="text-fluid-body-lg ">
       {{ plato.title }}
     </li>
   </ul>

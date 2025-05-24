@@ -18,7 +18,7 @@ const props = defineProps({
         }" sizes="xs:150px md:150px lg:150px" height="150" fit="cover" format="webp" />
       </div>
       <div v-else class="noImg flex    justify-center items-center        overflow-hidden bg-white/30">
-        <Corazon class="w-20" />
+        <Corazon class="w-10" />
       </div>
     </div>
     <div class="text-center flex flex-col items-center lg:min-h-64 lg:px-8">
