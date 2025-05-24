@@ -38,7 +38,7 @@
       *:in-[div]:last-of-type:lg:py-24;
 
       h1 {
-        @apply text-fluid-hero/tight;
+        @apply text-fluid-hero/none;
       }
 
       .lead {

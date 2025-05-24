@@ -26,11 +26,11 @@ const props = defineProps({
         class="absolute w-full bottom-0 p-0.5 lg:translate-y-full lg:group-hover:translate-0 lg:group-hover:transition-transform">
         <div class="bg-white/90 dark:bg-firstdark/90 dark:text-secondark
         outline -outline-offset-4 p-3">
-          <h2 class="text-lg/tight font-bold">
+          <h2 class="text-fluid-2xl/none font-bold">
             {{ article?.title }}
           </h2>
           <div v-if="article?.subtitle">
-            <p class="lead">{{ article?.subtitle }}</p>
+            <p class="text-fluid-base">{{ article?.subtitle }}</p>
           </div>
           <ArticleCategories :tags="article?.categories" v-if="article?.categories" class="mt-3" />
         </div>

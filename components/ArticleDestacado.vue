@@ -23,9 +23,9 @@ const props = defineProps({
             }" sizes="xs:100vw sm:100vw" height="400" fit="cover" format="webp" />
         </div>
         <div class="l-box l-box--no-border absolute top-0 w-full h-full flex justify-center items-end">
-          <div class="w-11/12 mx-auto bg-white/95 dark:bg-firstdark/95 drop-shadow-sm dark:text-secondark p-2 outline -outline-offset-4 text-center md:w-9/12 lg:p-4 group-hover:opacity-90 
+          <div class="w-full mx-auto bg-white/95 dark:bg-firstdark/95 drop-shadow-sm dark:text-secondark p-2 outline -outline-offset-4 text-center md:w-9/12 lg:p-4 group-hover:opacity-90 
           group-hover:transition-opacity">
-            <h2 class="text-fluid-2xl font-bold">
+            <h2 class="text-fluid-4xl/none font-bold">
               {{ item[0].article?.title }}
             </h2>
             <div v-if="item[0].article?.subtitle">
