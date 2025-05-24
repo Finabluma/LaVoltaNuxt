@@ -106,7 +106,7 @@ onUnmounted(() => {
           <div class="relative bg-white dark:bg-secondark">
             <div class="l-box l-box--no-border">
               <span class="text-7xl capitalize">{{ formatPrice(menu.price) }}€</span>
-              <p class="font-mono text-sm">
+              <p class="font-mono text-fluid-sm">
                 * El precio no incluye bebida.
               </p>
             </div>

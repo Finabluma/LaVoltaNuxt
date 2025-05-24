@@ -1,0 +1,49 @@
+@layer base {
+  :root {
+    @apply bg-white
+      dark:bg-secondark
+      text-firstlight
+      dark:text-firstdark
+      fill-firstlight
+      dark:fill-secondark;
+  }
+
+  body {
+    @apply font-houscha
+      text-pretty
+      leading-snug
+      overflow-x-hidden
+      antialiased
+      bg-white
+      dark:bg-secondark
+      selection:bg-secondark
+      selection:text-white
+      dark:selection:bg-firstlight
+      dark:selection:text-white;
+  }
+
+  /* top level app */
+  .grid-wrap {
+    @apply grid
+      grid-cols-1
+      grid-rows-1
+      min-h-dvh;
+  }
+
+  main,
+  #main {
+    @apply box-content
+        mx-auto
+        pb-2
+        md:pb-5;
+  }
+
+  /* main content */
+  .main-content {
+    @apply relative 
+      z-30
+      bg-white
+      dark:bg-secondark
+      pt-2.5;
+  }
+}

@@ -14,7 +14,7 @@ let showModal = ref(true)
     </div>
     <main>
       <HeroSection>
-        <h1 class="page-title">{{ home.title }}</h1>
+        <h1>{{ home.title }}</h1>
         <p class="lead">{{ home.subtitle }}</p>
         <p>{{ home.content }}</p>
       </HeroSection>

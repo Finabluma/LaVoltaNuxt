@@ -1,140 +1,8 @@
 @import "tailwindcss";
-
-@theme {
-  --color-*: initial;
-  --color-white: #ffffff;
-  --color-slate-200: oklch(0.929 0.013 255.508);
-  --color-firstlight: oklch(69.99% 0.167 347.15);
-  --color-firstdark: oklch(33.25% 0.075 257.24);
-  --color-secondark: oklch(69.58% 0.065 248.78);
-  --color-constlines: oklch(82.8% 0.09 248.96);
-  --color-orbit: oklch(83.62% 0.02 230.75);
-  --color-cardinales: oklch(68.59% 0.196 16.71);
-
-  --font-coordinates: "coordinates-variable", "sans-serif";
-  --font-houscha: "houschka-rounded", "sans-serif";
-  --font-cameo: "nitti-typewriter-cameo", "sans-serif";
-
-  --drop-shadow-divider: 0 25px 35px rgba(0 0 0 / 0.75);
-  --drop-shadow-cookies: 0 2px 8px rgba(0 0 0 /0.25);
-}
+@import "assets/css/theme.css";
+@import "assets/css/base.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-@layer base {
-  :root {
-    @apply bg-white
-    dark:bg-secondark
-    text-firstlight
-    dark:text-firstdark
-    fill-firstlight
-    dark:fill-secondark;
-  }
-
-  body {
-    @apply text-base/snug
-    font-houscha
-    text-pretty
-    leading-snug
-    overflow-x-hidden
-    antialiased
-    bg-white
-    dark:bg-secondark
-    selection:bg-secondark
-    selection:text-white
-    dark:selection:bg-firstlight
-    dark:selection:text-white;
-  }
-
-  /* top level app */
-  .grid-wrap {
-    @apply grid
-    grid-cols-1
-    grid-rows-1
-    min-h-dvh;
-  }
-
-  main,
-  #main {
-    @apply box-content
-      mx-auto
-      pb-12;
-  }
-
-  /* main content */
-  .main-content {
-    @apply relative 
-    z-30
-    bg-white
-    dark:bg-secondark
-    pt-2.5;
-  }
-
-  .blockContent {
-    @apply *:not-[figure]:mb-5;
-
-    blockquote,
-    p,
-    ul,
-    ol,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply lg:px-[2vw];
-    }
-
-    blockquote {
-      @apply text-2xl;
-    }
-
-    h1 {
-      @apply text-4xl;
-    }
-
-    h2 {
-      @apply text-2xl;
-    }
-
-    h3 {
-      @apply text-xl;
-    }
-
-    p,
-    ul,
-    ol {
-      @apply text-lg;
-    }
-
-    ul,
-    ol {
-      @apply ms-5;
-    }
-  }
-
-  /* text component */
-  .component--text > * {
-    @apply lg:max-w-2xl;
-  }
-  .component--text > * + h2,
-  .component--text > * + h3,
-  .component--text > * + h4,
-  .component--text > * + h5,
-  .component--text > * + h6 {
-    @apply mt-8;
-  }
-
-  .component--text > p {
-    @apply mt-2;
-  }
-
-  /* component-quote */
-  .component--quote > * {
-    @apply max-w-2xl;
-  }
-}
 
 @layer components {
   .l-box {
@@ -151,6 +19,57 @@
     -outline-offset-1;
   }
 
+  .hero-section {
+    @apply relative
+    w-screen;
+
+    .hero-content {
+      @apply w-full 
+      h-full
+      /* bg image */
+      *:in-[div]:first-of-type:absolute
+      *:in-[div]:first-of-type:w-full
+      *:in-[div]:first-of-type:h-full
+      *:in-[div]:first-of-type:bg-cover
+      *:in-[div]:first-of-type:bg-[url(/assets/images/azulejos2.svg)]
+      *:in-[div]:first-of-type:dark:bg-[url(/assets/images/azulejos.svg)]
+      *:in-[div]:first-of-type:before:absolute
+      *:in-[div]:first-of-type:before:top-0
+      *:in-[div]:first-of-type:before:w-full
+      *:in-[div]:first-of-type:before:h-full
+      *:in-[div]:first-of-type:before:bg-gradient-to-b
+      *:in-[div]:first-of-type:before:from-white/60
+      *:in-[div]:first-of-type:before:via-white/80
+      *:in-[div]:first-of-type:before:to-white
+      *:in-[div]:first-of-type:before:mix-blend-color-dodge
+      *:in-[div]:first-of-type:dark:before:from-firstdark/50
+      *:in-[div]:first-of-type:dark:before:via-firstdark/80
+      *:in-[div]:first-of-type:dark:before:to-firstdark
+      *:in-[div]:first-of-type:dark:before:mix-blend-multiply
+      /* block text */
+      *:in-[div]:last-of-type:max-w-5xl
+      *:in-[div]:last-of-type:mx-auto
+      *:in-[div]:last-of-type:pt-24
+      *:in-[div]:last-of-type:pb-10
+      *:in-[div]:last-of-type:lg:py-24;
+
+      h1 {
+        @apply font-coordinates
+        text-fluid-hero/fluid-hero;
+      }
+
+      .lead {
+        @apply text-fluid-md/fluid-hero
+        font-semibold
+        font-coordinates;
+      }
+
+      p {
+        @apply text-fluid-base/fluid-lg;
+      }
+    }
+  }
+
   .l-stack {
     @apply flex
     flex-col;
@@ -158,6 +77,11 @@
     > * + * {
       @apply mt-5;
     }
+  }
+
+  /* text component */
+  .component--text {
+    @apply lg:*:max-w-2xl;
   }
 
   /* page titles */
@@ -199,27 +123,6 @@
   .hero-content {
     .page-title {
       @apply dark:after:bg-secondark;
-    }
-  }
-
-  /* breadcrumbs */
-  .breadcrumb ol li {
-    @apply mr-1
-    text-sm
-    font-coordinates
-    flex
-    items-center
-    after:w-1
-    after:h-1
-    after:bg-current
-    after:rounded-full
-    after:ml-1
-    after:block
-    last:font-normal
-    last:after:content-none;
-
-    a {
-      @apply font-semibold;
     }
   }
 
@@ -307,44 +210,6 @@
     lg:rounded-full
     lg:px-6
     lg:py-4;
-  }
-
-  /* bghero */
-  .bg-hero {
-    @apply absolute
-    bg-cover
-    w-full
-    h-full
-    bg-[url(/assets/images/azulejos2.svg)]
-    dark:bg-[url(/assets/images/azulejos.svg)]
-    before:absolute
-    before:top-0
-    before:w-full
-    before:h-full
-    before:bg-gradient-to-b
-    before:from-white/60
-    before:via-white/80
-    before:to-white
-    before:mix-blend-color-dodge
-    dark:bg-gradient-to-b
-    dark:before:from-firstdark/50
-    dark:before:via-firstdark/80
-    dark:before:to-firstdark
-    dark:before:backdrop-contrast-125  
-    dark:before:mix-blend-multiply;
-  }
-
-  /* .panel {
-    @apply relative 
-    w-full 
-    bg-white
-    dark:bg-secondark 
-    will-change-transform;
-  } */
-
-  /* Accordion carta */
-  .accordion-wrapper.is-closed .panel-body {
-    @apply px-0 max-h-0;
   }
 
   /* main navigation */
@@ -448,28 +313,6 @@
     }
   }
 
-  /* svg's carta menu */
-  .objectSVG {
-    @apply fill-white
-      stroke-[4px]
-      stroke-firstlight
-      dark:fill-firstdark
-      dark:stroke-secondark/80;
-  }
-
-  .circleSVG {
-    @apply fill-white
-      stroke-firstlight
-      stroke-[6px]
-      dark:fill-secondark
-      dark:stroke-firstdark;
-  }
-
-  .rectSVG {
-    @apply fill-firstlight
-      dark:fill-firstdark;
-  }
-
   /* baner horarios */
   .today {
     @apply w-full
@@ -504,6 +347,123 @@
 @utility container {
   @apply mx-auto
   px-[2vw];
+}
+
+@layer utilities {
+  /* breadcrumbs */
+  .breadcrumb ol li {
+    @apply mr-1
+    text-sm
+    font-coordinates
+    flex
+    items-center
+    after:w-1
+    after:h-1
+    after:bg-current
+    after:rounded-full
+    after:ml-1
+    after:block
+    last:font-normal
+    last:after:content-none;
+
+    a {
+      @apply font-semibold;
+    }
+  }
+
+  /* Component--text */
+  .component--text > * + h2,
+  .component--text > * + h3,
+  .component--text > * + h4,
+  .component--text > * + h5,
+  .component--text > * + h6 {
+    @apply mt-8;
+  }
+
+  .component--text > p {
+    @apply mt-2;
+  }
+
+  .hero-section .component--text {
+    @apply dark:text-secondark;
+  }
+
+  /* component-quote */
+  .component--quote > * {
+    @apply max-w-2xl;
+  }
+
+  /* svg's carta menu */
+  .objectSVG {
+    @apply fill-white
+      stroke-[4px]
+      stroke-firstlight
+      dark:fill-firstdark
+      dark:stroke-secondark/80;
+  }
+
+  .circleSVG {
+    @apply fill-white
+      stroke-firstlight
+      stroke-[6px]
+      dark:fill-secondark
+      dark:stroke-firstdark;
+  }
+
+  .rectSVG {
+    @apply fill-firstlight
+      dark:fill-firstdark;
+  }
+
+  /* Accordion carta */
+  .accordion-wrapper.is-closed .panel-body {
+    @apply px-0 max-h-0;
+  }
+
+  /* Blockcontent */
+  .blockContent {
+    @apply *:not-[figure]:mb-5;
+
+    ul,
+    ol {
+      @apply ms-5;
+    }
+
+    /* blockquote,
+    p,
+    ul,
+    ol,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply lg:px-[2vw];
+    }
+
+    blockquote {
+      @apply text-2xl;
+    }
+
+    h1 {
+      @apply text-4xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    p,
+    ul,
+    ol {
+      @apply text-lg;
+    } */
+  }
 }
 
 .page-enter-active,

@@ -41,13 +41,13 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <div ref="main" class="w-screen relative">
-    <div class="hero-content w-full h-full">
-      <div class="bg-hero">
+  <div ref="main" class="hero-section">
+    <div class="hero-content">
+      <div>
       </div>
-      <div class="max-w-5xl mx-auto pt-24 pb-10 lg:py-24 relative z-20">
+      <div>
         <div class="l-box l-box--no-border">
-          <div class="component--text dark:text-secondark">
+          <div class="component--text ">
             <slot></slot>
           </div>
         </div>

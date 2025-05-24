@@ -1,0 +1,32 @@
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-slate-200: oklch(0.929 0.013 255.508);
+  --color-firstlight: oklch(69.99% 0.167 347.15);
+  --color-firstdark: oklch(33.25% 0.075 257.24);
+  --color-secondark: oklch(69.58% 0.065 248.78);
+  --color-constlines: oklch(82.8% 0.09 248.96);
+  --color-orbit: oklch(83.62% 0.02 230.75);
+  --color-cardinales: oklch(68.59% 0.196 16.71);
+
+  --font-coordinates: "coordinates-variable", "sans-serif";
+  --font-houscha: "houschka-rounded", "sans-serif";
+  --font-cameo: "nitti-typewriter-cameo", "sans-serif";
+
+  --drop-shadow-divider: 0 25px 35px rgba(0 0 0 / 0.75);
+  --drop-shadow-cookies: 0 2px 8px rgba(0 0 0 /0.25);
+
+  --text-fluid-sm: clamp(1rem, 2vw, 1.25rem);
+  --text-fluid-base: clamp(1.25rem, 2.5vw, 1.5rem);
+  --text-fluid-md: clamp(1.5rem, 3vw, 2rem);
+  --text-fluid-lg: clamp(2rem, 4vw, 2.75rem);
+  --text-fluid-xl: clamp(2.5rem, 6vw, 3.5rem);
+  --text-fluid-hero: clamp(3rem, 8vw, 5rem);
+
+  --leading-fluid-sm: 1.6;
+  --leading-fluid-base: 1.6;
+  --leading-fluid-md: 1.5;
+  --leading-fluid-lg: 1.4;
+  --leading-fluid-xl: 1.25;
+  --leading-fluid-hero: 1.1;
+}
