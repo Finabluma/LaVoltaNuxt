@@ -40,6 +40,7 @@ function panels() {
   gsap.set(panels[0], { autoAlpha: 1 })
   panels.forEach((panel) => {
     ScrollTrigger.create({
+      id: 'conditions-st',
       trigger: panel,
       start: 'top top',
       pin: true,
@@ -53,13 +54,19 @@ function panels() {
   })
 }
 
+function handleResize() {
+  setTimeout(() => {
+    ScrollTrigger?.getById('conditions-st').refresh()
+  }, 300)
+}
+
 onMounted(() => {
   ctx = gsap.context((self) => {
     // mm = gsap.matchMedia()
-    // mm.add("(min-width: 1024px)", () => {
-
-    // })
+    // mm.add("(min-width: 1024px)", () => {})
     panels()
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('orientationchange', handleResize)
     skewOnScroll()
   }, main.value)
 })

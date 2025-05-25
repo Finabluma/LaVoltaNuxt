@@ -15,6 +15,7 @@ function PanelsTl() {
   const panels = gsap.utils.toArray('.panel')
   panels.forEach((panel) => {
     ScrollTrigger.create({
+      id: 'carta-menu-st',
       trigger: panel,
       start:
         panel.offsetHeight < window.innerHeight
@@ -67,10 +68,18 @@ function PanelsTl() {
   })
 }
 
+function handleResize() {
+  setTimeout(() => {
+    ScrollTrigger?.getById('carta-menu-st').refresh()
+  }, 300)
+}
+
 
 onMounted(() => {
   ctx = gsap.context(() => {
     PanelsTl()
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('orientationchange', handleResize)
   }, cartamenu.value)
 })
 

@@ -8,7 +8,8 @@ let ctx = null,
 
 function handleResize() {
   setTimeout(() => {
-    ScrollTrigger?.refresh()
+    ScrollTrigger?.getById('stUniverse').refresh()
+    ScrollTrigger?.getById('stBadge').refresh()
   }, 300)
 }
 
