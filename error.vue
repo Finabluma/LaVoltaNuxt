@@ -1,67 +1,33 @@
 <script setup>
-  const props = defineProps({
-    error: Object,
-  })
+const props = defineProps({
+  error: Object,
+})
 </script>
 
 <template>
-  <div class="page">
+  <div id="error">
     <AppHeader />
     <main>
-      <div class="wrapper">
-        <div class="content">
-          <h1 class="statusCode">
-            {{ error.statusCode }}
-          </h1>
-          <NuxtLink to="/" class="enlace">
-            Algo salió mal. Vuelve al
-            <span class="underline dark:text-slate-300 font-cameo">inicio</span>
-          </NuxtLink>
-        </div>
-        <div class="svg overflow-hidden">
-          <SVGAppBotero />
+      <div class="main-content">
+        <div class="w-screen mx-auto px-[2vw] py-5 md:py-10 xl:px-0">
+          <div class="absolute w-full h-full flex justify-center items-center pb-40">
+            <div class="w-8/12 mx-auto text-center bg-white/80 outline -outline-offset-8 dark:bg-firstdark/80 py-10">
+              <h1 class="mb-2 text-fluid-hero dark:text-secondark">
+                {{ error.statusCode }}
+              </h1>
+              <NuxtLink to="/"
+                class="flex-col justify-center items-center flex-wrap dark:text-secondark text-fluid-body-lg">
+                Algo salió mal. Vuelve al
+                <span class="underline dark:text-slate-300 font-cameo">inicio</span>
+              </NuxtLink>
+            </div>
+          </div>
+          <div class="w-full mx-auto">
+            <SVGAppBotero class="dark:fill-firstdark" />
+          </div>
         </div>
       </div>
     </main>
     <AppFooter />
   </div>
 </template>
-<style lang="postcss" scoped>
-  .wrapper {
-    @apply relative 
-    max-w-prose 
-    mx-auto
-    flex 
-    justify-center;
-
-    .content {
-      @apply absolute
-      w-11/12
-      top-[40%]
-      left-[5%]
-      flex
-      flex-col
-      items-center
-      p-5
-      bg-white/80
-      dark:bg-firstdark;
-
-      .statusCode {
-        @apply mb-2
-        text-8xl
-         dark:text-secondark;
-      }
-
-      .enlace {
-        @apply font-coordinates
-        dark:text-secondark
-        text-center        
-        px-2 
-        flex-col
-        justify-center
-        items-center
-        flex-wrap;
-      }
-    }
-  }
-</style>
