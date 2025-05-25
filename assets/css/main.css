@@ -59,13 +59,15 @@
     @apply relative 
     w-screen
     bg-slate-100
-    dark:bg-firstdark/30;
+    dark:bg-[#597A9E];
 
     article {
       @apply max-w-6xl
       mx-auto
       py-5
       px-[2vw]
+      bg-slate-100
+      dark:bg-[#597A9E]
       md:flex
       md:items-center
       md:py-10
@@ -344,6 +346,10 @@
 }
 
 @layer utilities {
+  .carta-menu article .panel .content {
+    @apply bg-slate-100
+    dark:bg-[#597A9E];
+  }
   /* breadcrumbs */
   .breadcrumb ol li {
     @apply mr-1
