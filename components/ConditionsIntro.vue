@@ -9,7 +9,7 @@ const props = defineProps({
 <template>
   <div class="l-box l-box--no-border">
     <h1
-      class="font-semibold text-fluid-2xl text-shadow-2xs text-slate-300 dark:text-firstdark text-center lg:text-left">
+      class="font-semibold text-fluid-2xl text-shadow-2xs text-slate-300 dark:text-firstdark text-center md:text-left">
       {{ title }}</h1>
   </div>
 </template>

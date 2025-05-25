@@ -1,86 +1,67 @@
 <script setup>
-import { onMounted } from 'vue'
-const { gsap } = useGsap()
+import { ref, nextTick } from 'vue'
+import gsap from 'gsap'
 const { siteNav } = useMainStore()
-const drawer = ref()
-let ctx = ref(false)
 
-let tlNav = gsap.timeline({
-  paused: true,
-})
+const drawer = ref(null)
+const isOpen = ref(false)
+const navComponent = ref(null) // para acceder a navList expuesto
 
-function drawerAnim() {
-  const navigation = gsap.utils.toArray('#drawer nav ul li a')
-  tlNav
-    .add('nav')
-    .set(drawer.value, {
-      visibility: 'visible',
-      yPercent: '-100',
-      autoAlpha: 0,
-    })
-    .set('#close', { autoAlpha: 0, yPercent: '+=10' })
-    .to(
-      drawer.value,
-      {
-        duration: 0.25,
-        autoAlpha: 1,
-        yPercent: '0',
-        ease: 'none',
-      },
-      'nav'
-    )
-    .from(
-      '.drawerInner',
-      {
-        autoAlpha: 0,
-        yPercent: '-20',
-      },
-      'nav+=0.1'
-    )
-    .from(
-      navigation,
-      {
-        autoAlpha: 0,
-        yPercent: '-=10',
-        stagger: 0.25,
-        ease: 'power2.in',
-      },
-      'nav+=0.1'
-    )
-    .to('#close', { autoAlpha: 1, yPercent: 0 })
+const openDrawer = async () => {
+  isOpen.value = true
+  await nextTick()
+  document.body.style.overflow = 'hidden'
+
+  // Reset position instantáneamente
+  gsap.set(drawer.value, { xPercent: 100 })
+
+  // Luego lo animamos a 0 (entra)
+  const navList = navComponent.value?.navList
+  if (navList) {
+    // Reset inicial de cada li
+    gsap.set(navList.children, { opacity: 0, x: 40 })
+  }
+
+  gsap.to(drawer.value, {
+    xPercent: 0,
+    duration: 0.3,
+    ease: 'power2.out',
+    onComplete: () => {
+      if (navList) {
+        gsap.to(navList.children, {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          stagger: 0.06,
+          ease: 'power2.out'
+        })
+      }
+    }
+  })
 }
 
-function drawerIn() {
-  tlNav.play()
+const closeDrawer = () => {
+  gsap.to(drawer.value, {
+    xPercent: 100, // volver a salir hacia la derecha
+    duration: 0.3,
+    ease: 'power2.in',
+    onComplete: () => {
+      isOpen.value = false
+      document.body.style.overflow = ''
+    }
+  })
 }
 
-function drawerOut() {
-  tlNav.reverse()
-}
 
-onMounted(() => {
-  ctx = gsap.context(() => {
-    drawerAnim()
-  }, drawer.value)
-})
-
-defineExpose({
-  drawerIn,
-})
+defineExpose({ openDrawer }) // para poder abrirlo desde el header
 </script>
 <template>
-  <div id="drawer" ref="drawer" class="fixed z-50
-    inset-0 invisible  bg-white dark:bg-secondark">
-    <div
-      class="drawerInner m-auto w-screen max-h-dvh flex flex-col items-end py-5 px-5 landscape:pt-1 landscape:lg:pt-5">
-      <button id="close" aria-label="close drawer" @click="drawerOut()">
-        <NuxtIcon name="Close" class="w-8 lg:w-6" />
-      </button>
-      <div class="w-full h-full mx-auto" @click="drawerOut()">
-        <div class="h-full w-full flex justify-center items-center">
-          <AppNav :links="siteNav?.navMain" class="mainNav" nav="Main Navigation" />
-        </div>
-      </div>
+  <div ref="drawer" v-show="isOpen" class="fixed top-0 left-0 w-screen h-full bg-white dark:bg-secondark z-50">
+    <button @click="closeDrawer" class="absolute w-20 h-20 right-4 top-4 flex justify-center">
+      <span class="text-fluid-2xl text-slate-200 dark:text-white/40">&times;</span>
+    </button>
+    <div class="max-w-5xl mx-auto min-h-[80vh] flex justify-center items-center px-[5vw] sm:px-[10vw] my-10 sm:my-5 md:my-10">
+      <AppNav :links="siteNav?.navMain" ref="navComponent" class="mainNav" nav="Main Navigation" @click="closeDrawer" />
     </div>
   </div>
 </template>

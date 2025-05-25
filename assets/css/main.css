@@ -33,9 +33,10 @@
       /* block text */
       *:in-[div]:last-of-type:max-w-6xl
       *:in-[div]:last-of-type:mx-auto
-      *:in-[div]:last-of-type:pt-24
+      *:in-[div]:last-of-type:pt-28
       *:in-[div]:last-of-type:pb-10
-      *:in-[div]:last-of-type:lg:py-24;
+      *:in-[div]:last-of-type:lg:pt-32
+      *:in-[div]:last-of-type:lg:pb-12;
 
       h1 {
         @apply text-fluid-hero/none
@@ -238,39 +239,22 @@
 
   /* main navigation */
   .mainNav {
-    @apply w-full;
+    @apply w-full
+    h-full;
 
     ul {
-      @apply flex 
-      flex-col 
-      justify-evenly;
-
-      li {
-        @apply font-mono
-        font-bold
-        text-5xl/tight
-        text-balance
-        md:px-20;
-
-        a {
-          @apply block
-          py-3
-          no-underline
-          cursor-pointer
-          text-firstlight         
-          dark:text-firstdark;
-
-          &.router-link-active {
-            @apply cursor-default 
-            text-firstlight/80
-            dark:text-firstdark/80;
-          }
-        }
-
-        &:first-of-type a {
-          @apply pt-0;
-        }
-      }
+      @apply text-center
+      *:font-bold
+      *:text-fluid-5xl      
+      **:block
+      **:py-1.5
+      **:sm:py-0.5
+      **:lg:py-2
+      **:hover:opacity-50
+      **:hover:transition-opacity
+      **:has-[.router-link-active]:text-slate-200
+      **:dark:has-[.router-link-active]:text-white/50
+      **:has-[.router-link-active]:pointer-events-none;
     }
   }
 
@@ -289,9 +273,9 @@
       li {
         @apply block
         w-full
+        font-bold
         capitalize
-        tracking-wider
-        font-coordinates;
+        text-fluid-base;
 
         a {
           @apply w-full
@@ -318,21 +302,7 @@
 
       li {
         @apply capitalize
-        xl:text-sm;
-
-        a {
-          @apply flex
-          items-center
-          after:block
-          after:w-1
-          after:h-1
-          after:rounded-full
-          after:mx-1;
-        }
-
-        &:last-of-type a:after {
-          @apply content-none;
-        }
+       text-fluid-sm;
       }
     }
   }

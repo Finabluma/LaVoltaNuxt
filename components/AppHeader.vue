@@ -4,6 +4,13 @@ import { ref } from 'vue'
 const { phone, linkCarta } = useMainStore()
 
 
+const drawerRef = ref(null)
+
+const openMenu = () => {
+  drawerRef.value.openDrawer()
+}
+
+
 let draw = ref()
 
 function drawerOn() {
@@ -24,7 +31,7 @@ function drawerOn() {
           <ElementsTextLink :to="phone?.phone" :title="phone?.phone" aria-label="Teléfono">
             <Phone class="w-8" /><span class="sr-only">{{
               phone?.phone
-              }}</span>
+            }}</span>
           </ElementsTextLink>
         </div>
         <div v-if="linkCarta" class="mr-4">
@@ -33,14 +40,14 @@ function drawerOn() {
             <ForksRound class="w-6 fill-white dark:fill-firstdark" />
             <span class="sr-only">{{
               linkCarta?.title
-              }}</span>
+            }}</span>
           </ElementsTextLink>
         </div>
-        <button @click="drawerOn()" title="Menu" aria-label="Menu">
+        <button @click="openMenu" title="Menu" aria-label="Menu">
           <NuxtIcon name="Burguer" size="36" />
         </button>
       </div>
     </div>
   </header>
-  <AppDrawer ref="draw" />
+  <AppDrawer ref="drawerRef" />
 </template>
