@@ -11,7 +11,7 @@ function toggleAccordion() {
 </script>
 <template>
   <div class="accordion-wrapper" :class="accordion">
-    <div class="panel-header w-full transition-all duration-300 px-0 py-1 md:py-3 cursor-pointer"
+    <div class="panel-header w-full transition-all duration-300 px-0 py-2 md:py-3 cursor-pointer"
       @click="toggleAccordion">
       <slot name="header"></slot>
     </div>
