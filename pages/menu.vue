@@ -117,7 +117,7 @@ onUnmounted(() => {
             </div>
             <div class="l-box l-box--no-border text-fluid-body-lg font-semibold">
               <div class="mb-3">
-                Medio menu
+                Medio menú
                 <span>{{ formatPrice(menu.pricehalf) }}€</span>
               </div>
               <div>
