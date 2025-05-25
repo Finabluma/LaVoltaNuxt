@@ -55,7 +55,7 @@
     consent.value = false
     showBanner.value = false
     showToggle.value = true
-    showToastMessage('Has rechazado las cookies ❌')
+    showToastMessage('Has rechazado las cookies')
   }
 
   function toggleBanner() {
