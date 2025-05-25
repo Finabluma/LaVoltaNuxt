@@ -32,23 +32,3 @@
     </ul>
   </div>
 </template>
-
-<style lang="postcss" scoped>
-  .meta-info {
-    ul {
-      @apply text-xs
-      font-sans
-      flex
-      justify-start;
-
-      li {
-        @apply border-b-0 mb-0;
-
-        &:first-child {
-          @apply content-after flex items-center
-          mr-2;
-        }
-      }
-    }
-  }
-</style>
