@@ -17,7 +17,7 @@
   <transition name="fade">
     <div
       v-if="show"
-      class="fixed bottom-20 right-4 z-50 bg-firstlight/90 dark:bg-firstdark/90 text-white dark:text-secondark px-4 py-2 rounded-lg shadow-md"
+      class="fixed bottom-20 right-4 z-50 bg-firstlight/90 dark:bg-firstdark/90 text-white dark:text-secondark px-4 py-2 rounded-lg shadow-md text-fluid-base"
     >
       {{ message }}
     </div>

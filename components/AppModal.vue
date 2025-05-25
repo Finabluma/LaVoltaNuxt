@@ -39,7 +39,7 @@ onUnmounted(() => {
         class="max-w-5xl mx-auto l-box l-box--no-border flex flex-col justify-center items-center sm:flex-row sm:justify-start">
         <InfoModal class="w-10 mb-5 sm:mb-0 sm:mr-5" />
         <div class="sm:w-10/12">
-          <p class="font-coordinates font-semibold text-center text-sm text-white dark:text-secondark sm:text-left">{{
+          <p class="font-coordinates font-semibold text-center text-fluid-base text-white dark:text-secondark sm:text-left">{{
             budskap.bannerUrgent.urgentContent.banner }}</p>
         </div>
       </div>
