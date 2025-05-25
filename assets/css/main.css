@@ -436,6 +436,8 @@
     @apply px-2
     md:px-10
     *:in-[div]:first-of-type:first:text-fluid-2xl/tight
+    *:in-[div]:**:not-[p]:font-bold
+    *:in-[div]:**:first-of-type:last:not-[a]:text-fluid-3xl/tight
     *:in-[div]:last-of-type:text-fluid-base;
   }
 
