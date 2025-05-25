@@ -21,6 +21,8 @@ usePageHead({
         </section>
       </div>
     </main>
-    <AppFooter />
+    <ClientOnly>
+      <AppFooter />
+    </ClientOnly>
   </div>
 </template>

@@ -45,6 +45,7 @@
 
       .lead {
         @apply text-fluid-body-lg/snug
+        font-black
         mt-3;
       }
 

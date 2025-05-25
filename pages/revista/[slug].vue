@@ -87,35 +87,3 @@ watch(
   </div>
   <div v-else>Cargando ...</div>
 </template>
-
-<style lang="postcss">
-.hero .l-center {
-  @apply lg:px-[10vw];
-}
-
-.post {
-
-
-
-
-  .categories {
-    @apply md:p-[5vw] max-w-4xl mx-auto;
-
-    .tag {
-      @apply text-base items-center;
-
-      svg {
-        @apply icon--larger;
-      }
-    }
-
-    &::before {
-      @apply content-[''] w-1/12 h-1 bg-current block mb-clus3lev;
-    }
-  }
-}
-
-.list-related {
-  @apply l-center l-box l-box--no-border max-w-4xl lg:px-[10vw];
-}
-</style>

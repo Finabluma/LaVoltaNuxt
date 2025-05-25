@@ -70,6 +70,7 @@ function PanelsTl() {
 
 function handleResize() {
   setTimeout(() => {
+    PanelsTl()
     ScrollTrigger?.getById('carta-menu-st').refresh()
   }, 300)
 }
