@@ -125,7 +125,7 @@ onMounted(() => {
       smooth: 1.5,
       effects: true,
       smoothTouch: 0.5,
-      speed: 1,
+      speed: 2,
     })
     ScrollTrigger.refresh()
   })
