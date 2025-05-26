@@ -1,8 +1,13 @@
 <script setup>
+import { ref } from 'vue'
+
 import { useSkewOnScroll } from '@/composables/useSkewOnScroll'
 const { carta } = usePagesStore()
 const { tintos, blancos, rosados, cavas, title } = useBebidaStore()
 const { mar, postre, tierra, carpaccio } = usePlatoStore()
+
+// MODAL
+let showModal = ref(true)
 
 // meta
 usePageHead({
@@ -64,8 +69,8 @@ useSkewOnScroll()
       </div>
     </main>
     <aside>
-      <GalleryReference :page="carta" />
-      <OptionalContent :page="carta" />
+      <LazyGalleryReference :page="carta" />
+      <LazyOptionalContent :page="carta" />
     </aside>
     <AppFooter />
   </div>

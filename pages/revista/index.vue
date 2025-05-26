@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 const { revista } = usePagesStore()
 
 const isFeatured = computed(() => {
@@ -9,6 +9,9 @@ const isFeatured = computed(() => {
 const notFeatured = computed(() => {
   return revista.portada.cover.filter((item) => item.featured === false)
 })
+
+// MODAL
+let showModal = ref(true)
 
 // meta
 usePageHead({

@@ -1,15 +1,19 @@
 <script setup>
 import { ref } from 'vue'
 const { home } = usePagesStore()
+
 // const isFeatured = computed(() => {
 //   return home.portada.portada.cover.filter((item) => item.featured !== false)
 // })
+
+// MODAL
 let showModal = ref(true)
+
 </script>
 <template>
   <div id="home">
     <div v-if="home.bannerUrgent">
-      <AppModal :budskap="home" v-show="showModal" @close-modal="showModal = false" />
+      <LazyAppModal :budskap="home" v-show="showModal" @close-modal="showModal = false" />
     </div>
     <main>
       <HeroSection>

@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { useSkewOnScroll } from '@/composables/useSkewOnScroll'
 import { useStickyPanels } from '@/composables/useStickyPanels'
 const { menu } = usePagesStore()
@@ -8,6 +9,8 @@ function formatPrice(num) {
   return parseFloat(num).toFixed(2)
 }
 
+// MODAL
+let showModal = ref(true)
 // SkewScroll
 useSkewOnScroll()
 // StickyPanels
@@ -22,7 +25,7 @@ usePageHead({
 <template>
   <div id="menu">
     <div v-if="menu.bannerUrgent !== null">
-      <AppModal :budskap="menu" v-show="showModal" @close-modal="showModal = false" />
+      <LazyAppModal :budskap="menu" v-show="showModal" @close-modal="showModal = false" />
     </div>
     <main>
       <HeroSection>
@@ -77,8 +80,8 @@ usePageHead({
       </div>
     </main>
     <aside>
-      <GalleryReference :page="menu" />
-      <OptionalContent :page="menu" />
+      <LazyGalleryReference :page="menu" />
+      <LazyOptionalContent :page="menu" />
     </aside>
     <AppFooter />
   </div>

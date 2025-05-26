@@ -1,17 +1,22 @@
 <script setup>
+import { ref } from 'vue'
 import { useSkewOnScroll } from '@/composables/useSkewOnScroll'
 import { useStickyPanels } from '@/composables/useStickyPanels'
 const { reservas } = usePagesStore()
-// meta
-usePageHead({
-  title: reservas.title,
-  seo: reservas.seo,
-})
+
+// MODAL
+let showModal = ref(true)
 
 // SkewScroll
 useSkewOnScroll()
 // StickyPanels
 useStickyPanels()
+
+// meta
+usePageHead({
+  title: reservas.title,
+  seo: reservas.seo,
+})
 
 </script>
 <template>
