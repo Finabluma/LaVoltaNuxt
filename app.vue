@@ -125,7 +125,7 @@ onMounted(() => {
       smooth: 1.5,
       effects: true,
       smoothTouch: 0.5,
-      speed: 2,
+      speed: 1,
     })
     ScrollTrigger.refresh()
   })
@@ -150,13 +150,3 @@ onUnmounted(() => {
     </div>
   </div>
 </template>
-<style lang="postcss" scoped>
-#smooth-wrapper,
-#smooth-content {
-  @apply h-full m-0 p-0
-}
-
-#smooth-wrapper {
-  @apply overflow-hidden;
-}
-</style>
