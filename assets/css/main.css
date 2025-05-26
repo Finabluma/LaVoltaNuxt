@@ -111,10 +111,10 @@
 
     .gallery {
       @apply p-4
-      outline
-      outline-current/30
-      bg-slate-200
-      dark:bg-firstdark/30;
+      sm:outline
+      sm:outline-current/30
+      sm:bg-slate-200
+      dark:sm:bg-firstdark/30;
     }
   }
 
