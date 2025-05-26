@@ -106,7 +106,8 @@
       after:h-5
       after:bg-current
       after:mx-auto
-      mb-8;
+      mb-2
+      sm:mb-8;
     }
 
     .gallery {
