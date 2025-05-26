@@ -7,8 +7,7 @@ const props = defineProps({
 
 const { gsap } = useGsap()
 
-let main = ref(),
-  ctx = ref()
+let ctx = ref()
 
 function banner() {
   let q = gsap.utils.selector('.modal-overlay')
@@ -23,7 +22,7 @@ function banner() {
 onMounted(() => {
   ctx = gsap.context((self) => {
     banner()
-  }, main.value)
+  })
 })
 
 onUnmounted(() => {
@@ -43,7 +42,7 @@ onUnmounted(() => {
           <p
             class="font-coordinates font-semibold text-center text-fluid-base text-white dark:text-secondark sm:text-left">
             {{
-            budskap.bannerUrgent.urgentContent.banner }}</p>
+              budskap.bannerUrgent.urgentContent.banner }}</p>
         </div>
       </div>
     </div>
