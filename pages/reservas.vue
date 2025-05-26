@@ -7,44 +7,12 @@ usePageHead({
   title: reservas.title,
   seo: reservas.seo,
 })
-//GSAP
-// const { gsap, ScrollTrigger } = useGsap()
-// let main = ref(),
-//   ctx = ref()
-
-function panels() {
-  const panels = gsap.utils.toArray('article')
-  gsap.set(panels[0], { autoAlpha: 1 })
-  panels.forEach((panel) => {
-    ScrollTrigger.create({
-      id: 'conditions-st',
-      trigger: panel,
-      start: 'top top',
-      pin: true,
-      pinSpacing: false,
-      start: () =>
-        panel.offsetHeight < window.innerHeight ? 'top top' : 'bottom bottom',
-      fastScrollEnd: true,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-    })
-  })
-}
 
 // SkewScroll
 useSkewOnScroll()
 // StickyPanels
 useStickyPanels()
 
-// onMounted(() => {
-//   ctx = gsap.context((self) => {
-//     panels()
-//   }, main.value)
-// })
-
-// onUnmounted(() => {
-//   ctx.revert()
-// })
 </script>
 <template>
   <div id="reservas">
