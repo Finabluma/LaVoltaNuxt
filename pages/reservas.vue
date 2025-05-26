@@ -54,26 +54,21 @@ function panels() {
   })
 }
 
-function handleResize() {
-  setTimeout(() => {
-    ScrollTrigger?.getById('conditions-st').refresh()
-  }, 300)
-}
+// function handleResize() {
+//   setTimeout(() => {
+//     ScrollTrigger?.getById('conditions-st').refresh()
+//   }, 300)
+// }
 
 onMounted(() => {
   ctx = gsap.context((self) => {
-    // mm = gsap.matchMedia()
-    // mm.add("(min-width: 1024px)", () => {})
     panels()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
     skewOnScroll()
   }, main.value)
 })
 
 onUnmounted(() => {
   ctx.revert()
-  // mm.revert()
 })
 </script>
 <template>

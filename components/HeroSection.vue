@@ -26,25 +26,16 @@ function pinHero() {
   })
 }
 
-function handleResize() {
-  setTimeout(() => {
-    ScrollTrigger?.getById('pin-hero-st').refresh()
-  }, 300)
-}
+// function handleResize() {
+//   setTimeout(() => {
+//     ScrollTrigger?.getById('pin-hero-st').refresh()
+//   }, 300)
+// }
 
 onMounted(() => {
   ctx = gsap.context(() => {
-    // mm = gsap.matchMedia()
-    // mm.add("(min-width: 1024px)", () => {
-    // })
     pinHero()
-    // window.addEventListener('resize', handleResize)
-    // window.addEventListener('orientationchange', handleResize)
   }, main.value)
-})
-
-onBeforeUnmount(() => {
-  
 })
 
 onUnmounted(() => {

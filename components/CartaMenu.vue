@@ -68,18 +68,16 @@ function PanelsTl() {
   })
 }
 
-function handleResize() {
-  setTimeout(() => {
-    ScrollTrigger?.getById('carta-menu-st').refresh()
-  }, 300)
-}
+// function handleResize() {
+//   setTimeout(() => {
+//     ScrollTrigger?.getById('carta-menu-st').refresh()
+//   }, 300)
+// }
 
 
 onMounted(() => {
   ctx = gsap.context(() => {
     PanelsTl()
-    // window.addEventListener('resize', handleResize)
-    // window.addEventListener('orientationchange', handleResize)
   }, cartamenu.value)
 })
 

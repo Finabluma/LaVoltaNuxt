@@ -60,19 +60,15 @@ function skewOnScroll() {
   gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
 }
 
-function handleResize() {
-  setTimeout(() => {
-    ScrollTrigger?.getById('menu-st').refresh()
-  }, 300)
-}
+// function handleResize() {
+//   setTimeout(() => {
+//     ScrollTrigger?.getById('menu-st').refresh()
+//   }, 300)
+// }
 onMounted(() => {
   ctx = gsap.context((self) => {
     skewOnScroll()
-    // mm = gsap.matchMedia()
-    // mm.add("(min-width: 1024px)", () => {})
     smPlatos()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
   }, main.value)
 })
 onUnmounted(() => {
