@@ -38,9 +38,13 @@ onMounted(() => {
     // mm.add("(min-width: 1024px)", () => {
     // })
     pinHero()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
+    // window.addEventListener('resize', handleResize)
+    // window.addEventListener('orientationchange', handleResize)
   }, main.value)
+})
+
+onBeforeUnmount(() => {
+  
 })
 
 onUnmounted(() => {

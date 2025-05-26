@@ -70,7 +70,6 @@ function PanelsTl() {
 
 function handleResize() {
   setTimeout(() => {
-    PanelsTl()
     ScrollTrigger?.getById('carta-menu-st').refresh()
   }, 300)
 }
@@ -79,8 +78,8 @@ function handleResize() {
 onMounted(() => {
   ctx = gsap.context(() => {
     PanelsTl()
-    window.addEventListener('resize', handleResize)
-    window.addEventListener('orientationchange', handleResize)
+    // window.addEventListener('resize', handleResize)
+    // window.addEventListener('orientationchange', handleResize)
   }, cartamenu.value)
 })
 
