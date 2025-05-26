@@ -1,11 +1,10 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 const { home } = usePagesStore()
-const isFeatured = computed(() => {
-  return home.portada.portada.cover.filter((item) => item.featured !== false)
-})
+// const isFeatured = computed(() => {
+//   return home.portada.portada.cover.filter((item) => item.featured !== false)
+// })
 let showModal = ref(true)
-
 </script>
 <template>
   <div id="home">
@@ -23,8 +22,8 @@ let showModal = ref(true)
       </div>
     </main>
     <aside>
-        <LazyGalleryReference :page="home" />
-        <LazyOptionalContent :page="home" />
+      <LazyGalleryReference :page="home" />
+      <LazyOptionalContent :page="home" />
     </aside>
     <AppFooter />
   </div>

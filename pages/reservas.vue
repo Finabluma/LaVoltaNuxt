@@ -1,4 +1,6 @@
 <script setup>
+import { useSkewOnScroll } from '@/composables/useSkewOnScroll'
+import { useStickyPanels } from '@/composables/useStickyPanels'
 const { reservas } = usePagesStore()
 // meta
 usePageHead({
@@ -6,34 +8,9 @@ usePageHead({
   seo: reservas.seo,
 })
 //GSAP
-const { gsap, ScrollTrigger } = useGsap()
-let main = ref(),
-  skew = ref(),
-  ctx = ref(),
-  mm
-
-function skewOnScroll() {
-  let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter('.skew', 'skewY', 'deg'), // fast
-    clamp = gsap.utils.clamp(-5, 5)
-
-  ScrollTrigger.create({
-    onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -300)
-      if (Math.abs(skew) > Math.abs(proxy.skew)) {
-        proxy.skew = skew
-        gsap.to(proxy, {
-          skew: 0,
-          duration: 0.8,
-          ease: 'power3',
-          overwrite: true,
-          onUpdate: () => skewSetter(proxy.skew),
-        })
-      }
-    },
-  })
-  gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
-}
+// const { gsap, ScrollTrigger } = useGsap()
+// let main = ref(),
+//   ctx = ref()
 
 function panels() {
   const panels = gsap.utils.toArray('article')
@@ -54,22 +31,20 @@ function panels() {
   })
 }
 
-// function handleResize() {
-//   setTimeout(() => {
-//     ScrollTrigger?.getById('conditions-st').refresh()
-//   }, 300)
-// }
+// SkewScroll
+useSkewOnScroll()
+// StickyPanels
+useStickyPanels()
 
-onMounted(() => {
-  ctx = gsap.context((self) => {
-    panels()
-    skewOnScroll()
-  }, main.value)
-})
+// onMounted(() => {
+//   ctx = gsap.context((self) => {
+//     panels()
+//   }, main.value)
+// })
 
-onUnmounted(() => {
-  ctx.revert()
-})
+// onUnmounted(() => {
+//   ctx.revert()
+// })
 </script>
 <template>
   <div id="reservas">

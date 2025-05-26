@@ -1,24 +1,15 @@
 <script setup>
-const { gsap, ScrollTrigger } = useGsap()
+const { gsap } = useGsap()
 let cosmos = ref(),
   bruja = ref()
 
 let ctx = null,
   main = ref(null)
 
-// function handleResize() {
-//   setTimeout(() => {
-//     ScrollTrigger?.getById('stUniverse').refresh()
-//     ScrollTrigger?.getById('stBadge').refresh()
-//   }, 300)
-// }
-
 onMounted(() => {
   ctx = gsap.context((self) => {
     cosmos.value.smUniverse()
     bruja.value.tlCallBadge()
-    // window.addEventListener('resize', handleResize)
-    // window.addEventListener('orientationchange', handleResize)
   }, main.value)
 })
 onUnmounted(() => {

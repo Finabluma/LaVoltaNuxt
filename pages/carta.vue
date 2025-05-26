@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { useSkewOnScroll } from '@/composables/useSkewOnScroll'
 const { carta } = usePagesStore()
 const { tintos, blancos, rosados, cavas, title } = useBebidaStore()
 const { mar, postre, tierra, carpaccio } = usePlatoStore()
@@ -9,40 +9,10 @@ usePageHead({
   title: carta.title,
   seo: carta.seo,
 })
-// GSAP
-const { gsap, ScrollTrigger } = useGsap()
-let main = ref(),
-  ctx = ref()
-function skewOnScroll() {
-  let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter('.skew', 'skewY', 'deg'), // fast
-    clamp = gsap.utils.clamp(-5, 5)
 
-  ScrollTrigger.create({
-    onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -300)
-      if (Math.abs(skew) > Math.abs(proxy.skew)) {
-        proxy.skew = skew
-        gsap.to(proxy, {
-          skew: 0,
-          duration: 0.8,
-          ease: 'power3',
-          overwrite: true,
-          onUpdate: () => skewSetter(proxy.skew),
-        })
-      }
-    },
-  })
-  gsap.set('.skew', { transformOrigin: 'right center', force3D: true })
-}
-onMounted(() => {
-  ctx = gsap.context((self) => {
-    skewOnScroll()
-  }, main.value)
-})
-onUnmounted(() => {
-  ctx.revert()
-})
+// SkewScroll
+useSkewOnScroll()
+
 </script>
 <template>
   <div id="carta">

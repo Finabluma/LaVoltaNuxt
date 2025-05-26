@@ -8,7 +8,6 @@ const { gsap, ScrollTrigger } = useGsap()
 let main = ref()
 let ctx = null
 let tl = null
-let mm
 
 function pinHero() {
   tl = gsap.timeline().to('.component--text', {
@@ -25,12 +24,6 @@ function pinHero() {
     animation: tl
   })
 }
-
-// function handleResize() {
-//   setTimeout(() => {
-//     ScrollTrigger?.getById('pin-hero-st').refresh()
-//   }, 300)
-// }
 
 onMounted(() => {
   ctx = gsap.context(() => {
