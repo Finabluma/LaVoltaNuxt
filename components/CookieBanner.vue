@@ -14,9 +14,9 @@ function onReject() {
 
 <template>
   <div
-    class="fixed w-full bottom-0 z-40 bg-white dark:bg-secondark flex justify-center items-center drop-shadow-cookies">
+    class="fixed w-full bottom-0 z-30 bg-white dark:bg-secondark flex justify-center items-center drop-shadow-cookies">
     <div
-      class="max-w-6xl mx-auto flex flex-col items-center py-2 md:flex-row md:justify-between md:items-center md:py-4">
+      class="max-w-6xl mx-auto flex flex-col items-center p-2 md:flex-row md:justify-between md:items-center md:py-4">
       <p class="text-fluid-base text-center md:text-left">
         Usamos <b>Google Analytics</b> para analizar el uso de nuestro sitio.
         <b>¿Aceptas el uso de cookies para estos fines?</b>

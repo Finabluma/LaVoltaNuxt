@@ -56,12 +56,12 @@ const closeDrawer = () => {
 defineExpose({ openDrawer }) // para poder abrirlo desde el header
 </script>
 <template>
-  <div ref="drawer" v-show="isOpen" class="fixed top-0 left-0 w-screen h-full bg-white dark:bg-secondark z-50">
+  <div ref="drawer" v-show="isOpen" class="fixed top-0 left-0 w-screen h-full bg-white dark:bg-secondark z-[70]">
     <button @click="closeDrawer" class="absolute w-20 h-20 right-4 top-4 flex justify-center">
       <span class="text-fluid-4xl text-firstlight/50 dark:text-white/40">&times;</span>
     </button>
     <div
-      class="max-w-5xl mx-auto min-h-[80vh] flex justify-center items-center px-[5vw] sm:px-[10vw] my-10 sm:my-5 md:my-10">
+      class="max-w-5xl mx-auto min-h-[80vh] flex justify-center items-center pb-10 px-[5vw] sm:px-[10vw] sm:pb-0 my-10 sm:my-5 md:my-10">
       <AppNav :links="siteNav?.navMain" ref="navComponent" class="mainNav" nav="Main Navigation" @click="closeDrawer" />
     </div>
   </div>

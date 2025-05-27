@@ -256,7 +256,7 @@
       **:lg:py-2
       **:hover:opacity-50
       **:hover:transition-opacity
-      **:has-[.router-link-active]:text-slate-200
+      **:has-[.router-link-active]:text-firstlight/50
       **:dark:has-[.router-link-active]:text-white/50
       **:has-[.router-link-active]:pointer-events-none;
     }
