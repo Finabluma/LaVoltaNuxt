@@ -17,7 +17,7 @@ const props = defineProps({
           'max-h': '350',
         }" sizes="xs:150px md:150px lg:150px" height="150" fit="cover" format="webp" />
       </div>
-      <div v-else class="noImg flex    justify-center items-center overflow-hidden bg-slate-200 dark:bg-white/30">
+      <div v-else class="noImg flex justify-center items-center overflow-hidden bg-slate-200 dark:bg-white/30">
         <Corazon class="w-10" />
       </div>
     </div>
