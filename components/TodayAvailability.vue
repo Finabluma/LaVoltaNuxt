@@ -28,16 +28,16 @@ function formatHour(item) {
     <div class="container">
       <div v-if="dag.length === 0" class="state">
         <div>
-          <Reloj class="mr-1" /> <span> Hoy cerramos</span>
+          <Reloj class="mr-1" /> <span>Cerrado</span>
         </div>
       </div>
       <div v-if="dag.length === 1" class="state">
         <div>
           <Reloj class="mr-1" />
-          <span class="sm:mr-2">Hoy abrimos</span>
+          <span class="sm:mr-0.5">Hoy abrimos</span>
         </div>
         <div v-for="hours in dag" :key="hours.key" class="franjas">
-          <div class="franjas">
+          <div>
             <span>{{ formatHour(hours.from) }}</span>
             <span> -{{ formatHour(hours.to) }}</span>pm
           </div>
@@ -46,7 +46,7 @@ function formatHour(item) {
       <div v-if="dag.length === 2" class="state">
         <div>
           <Reloj class="mr-1" />
-          <span class="sm:mr-2">Hoy abrimos</span>
+          <span class="sm:mr-2">Abierto</span>
         </div>
         <div class="franjas">
           <div v-for="hours in dag" :key="hours.key" class="franja">

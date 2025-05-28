@@ -331,7 +331,7 @@
     *:first-of-type:in-[div]:items-center;
 
     .franjas {
-      @apply flex px-1;
+      @apply flex px-0.5;
     }
 
     .franja:last-child {
