@@ -37,7 +37,7 @@ onUnmounted(() => {
       </div>
       <div
         class="mx-auto l-box l-box--no-border flex flex-col justify-center items-center sm:flex-row sm:justify-start">
-        <InfoModal class="w-12 mb-5 sm:mb-0 sm:mr-5 fill-white/80" />
+        <InfoModal class="w-12 mb-5 sm:mb-0 sm:mr-5 fill-white/80 dark:fill-secondark" />
         <div class="sm:w-10/12">
           <p
             class="font-coordinates font-semibold text-center text-fluid-base text-white dark:text-secondark sm:text-left">
