@@ -103,7 +103,8 @@
       md:flex
       md:items-center
       md:py-10
-      xl:px-0;
+      xl:px-0
+      xl:py-14;
 
       .panel {
         @apply will-change-transform
