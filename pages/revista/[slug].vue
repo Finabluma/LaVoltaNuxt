@@ -1,4 +1,5 @@
 <script setup>
+import { LazyClientOnly } from "#components";
 import { computed } from "vue";
 
 const props = defineProps({
@@ -69,8 +70,9 @@ watch(
               }" fit="cover" format="webp" />
           </div>
         </div>
-        <div class="max-w-4xl mx-auto px-[2vw]">
-          <ArticleRelated :related="related.articleRelated" v-if="related" />
+        <div class="max-w-4xl mx-auto px-[2vw] mb-10">
+          <h2 class="text-fluid-body-lg font-bold mb-4 px-4">Continúa leyendo</h2>
+          <ArticleNavigation :previousPost="postStore.previousPost" :nextPost="postStore.nextPost" />
         </div>
       </div>
     </main>
@@ -81,9 +83,9 @@ watch(
         </div>
       </div>
     </aside>
-    <ClientOnly>
+    <LazyClientOnly>
       <AppFooter />
-    </ClientOnly>
+    </LazyClientOnly>
   </div>
   <div v-else>Cargando ...</div>
 </template>

@@ -3,7 +3,7 @@ import { platosQuery } from './content/platos'
 import { bebidasQuery } from './content/bebidas'
 import { siteQuery } from './site/siteQuery'
 import { pagesQuery } from './content/pages'
-import { articleQuery, articleCategory, postBySlugQuery, postsQuery } from './content/article'
+import { articleCategory, postBySlugQuery, postsQuery } from './content/article'
 import { categoryQuery } from './content/categories'
 import {
   siteContact,
@@ -25,7 +25,6 @@ export {
   siteContact,
   platosQuery,
   bebidasQuery,
-  articleQuery,
   articleCategory,
   categoryQuery,
   solidariosQuery,

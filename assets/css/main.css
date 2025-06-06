@@ -5,6 +5,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer components {
+  /* Hero Section */
   .hero-section {
     @apply relative
     w-screen;
@@ -52,6 +53,36 @@
       p {
         @apply text-fluid-base mt-1;
       }
+    }
+  }
+
+  /* Teaser */
+  .teaser {
+    @apply relative
+    overflow-hidden
+    bg-slate-200
+    dark:bg-firstdark/80
+    drop-shadow-sm
+    md:w-6/12;
+
+    a {
+      @apply flex
+      *:first-of-type:p-0
+      *:first-of-type:w-24
+      *:first-of-type:md:w-36
+      *:first-of-type:lg:w-auto
+      *:last-of-type:w-10/12
+      *:last-of-type:flex
+      *:last-of-type:flex-col
+      *:last-of-type:justify-center
+      *:last-of-type:px-2
+      *:last-of-type:text-firstlight
+      *:last-of-type:dark:text-secondark
+      *:last-of-type:**:first:not-[li]:text-fluid-base
+      *:last-of-type:**:first:not-[li]:font-bold
+      *:last-of-type:**:first:not-[li]:uppercase
+      *:last-of-type:**:first:leading-snug
+      *:last-of-type:**:last:text-fluid-sm;
     }
   }
 
