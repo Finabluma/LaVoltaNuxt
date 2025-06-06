@@ -21,14 +21,14 @@ usePageHead({
 </script>
 <template>
   <div id="revista">
-    <div v-if="revista.bannerUrgent !== null">
-      <AppModal :budskap="revista" v-show="showModal" @close-modal="showModal = false" />
-    </div>
     <main>
       <HeroSection>
         <h1>{{ revista.title }}</h1>
       </HeroSection>
       <div class="main-content">
+        <div v-if="revista.bannerUrgent !== null" class="skew">
+          <AppModal :budskap="revista" v-show="showModal" @close-modal="showModal = false" />
+        </div>
         <section class="max-w-6xl mx-auto px-[1vw] py-5 md:py-10 xl:px-0">
           <div v-if="isFeatured.length > 0" class="px-[2vw]">
             <ArticleDestacado :item="isFeatured" :title="revista.portada.title" />

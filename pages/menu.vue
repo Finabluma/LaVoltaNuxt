@@ -24,15 +24,16 @@ usePageHead({
 </script>
 <template>
   <div id="menu">
-    <div v-if="menu.bannerUrgent !== null">
-      <LazyAppModal :budskap="menu" v-show="showModal" @close-modal="showModal = false" />
-    </div>
+
     <main>
       <HeroSection>
         <h1>{{ menuDia.title }}</h1>
         <SanityContent :blocks="menu.menuConditions" />
       </HeroSection>
       <div class="main-content" ref="main">
+        <div v-if="menu.bannerUrgent !== null" class="skew">
+          <LazyAppModal :budskap="menu" v-show="showModal" @close-modal="showModal = false" />
+        </div>
         <section class="max-w-6xl mx-auto px-[2vw] py-5 md:py-10 xl:px-0">
           <article class="card skew">
             <div>

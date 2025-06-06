@@ -12,9 +12,6 @@ let showModal = ref(true)
 </script>
 <template>
   <div id="home">
-    <div v-if="home.bannerUrgent">
-      <LazyAppModal :budskap="home" v-show="showModal" @close-modal="showModal = false" />
-    </div>
     <main>
       <HeroSection>
         <h1>{{ home.title }}</h1>
@@ -22,6 +19,9 @@ let showModal = ref(true)
         <p>{{ home.content }}</p>
       </HeroSection>
       <div class="main-content">
+        <div v-if="home.bannerUrgent !== null" class="skew">
+          <LazyAppModal :budskap="home" v-show="showModal" @close-modal="showModal = false" />
+        </div>
         <CartaMenu :items="home.cartamenu" />
       </div>
     </main>
