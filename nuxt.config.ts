@@ -101,11 +101,12 @@ export default defineNuxtConfig({
     dataset: process.env.SANITY_DATASET,
     apiVersion: process.env.SANITY_API_VERSION,
     useCdn: false,
-    token: process.env.NUXT_SANITY_TOKEN, // privado, no en public
+    //  // privado, no en public
     additionalClients: {
       preview: {
         useCdn: false,
         withCredentials: true,
+        token: process.env.NUXT_SANITY_TOKEN,
       },
     },
   },

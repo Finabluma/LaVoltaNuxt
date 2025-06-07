@@ -43,16 +43,18 @@ export const usePostStore = defineStore("PostStore", () => {
 
   async function initLikes() {
     if (typeof window === "undefined") return;
-    const storedLikes = localStorage.getItem("likesByPost");
-    const storedLiked = localStorage.getItem("likedPosts");
 
+    likedPosts.value = {};
+
+    // Cargar likes reales desde Sanity siempre
+    await fetchLikesFromSanity();
+
+    // Luego cargar likedPosts desde localStorage para conservar qué posts ha dado like el usuario
+    const storedLiked = localStorage.getItem("likedPosts");
     likedPosts.value = storedLiked ? JSON.parse(storedLiked) : {};
 
-    if (storedLikes) {
-      likesByPost.value = JSON.parse(storedLikes);
-    } else {
-      await fetchLikesFromSanity();
-    }
+    // Guardar likes en localStorage para evitar llamadas innecesarias después
+    localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
   }
 
   async function updateLikesInSanity(postId, likeChange = 1) {
@@ -75,29 +77,21 @@ export const usePostStore = defineStore("PostStore", () => {
     const hasLiked = likedPosts.value[postId];
     const change = hasLiked ? -1 : 1;
 
-    // Actualiza estado local primero (optimista)
+    // Primero intenta actualizar en Sanity
+    const success = await updateLikesInSanity(postId, change);
+
+    if (!success) {
+      // No hacer nada o avisar usuario
+      return;
+    }
+
+    // Si éxito, actualiza el estado local y localStorage
     likedPosts.value[postId] = !hasLiked;
     if (!likesByPost.value[postId]) likesByPost.value[postId] = 0;
     likesByPost.value[postId] = Math.max(0, likesByPost.value[postId] + change);
 
-    // Guarda en localStorage
     localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
     localStorage.setItem("likedPosts", JSON.stringify(likedPosts.value));
-
-    // Intenta actualizar en Sanity
-    const success = await updateLikesInSanity(postId, change);
-
-    if (!success) {
-      // Rollback si falla actualización en Sanity
-      likedPosts.value[postId] = hasLiked;
-      likesByPost.value[postId] = Math.max(
-        0,
-        likesByPost.value[postId] - change
-      );
-
-      localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
-      localStorage.setItem("likedPosts", JSON.stringify(likedPosts.value));
-    }
   }
 
   function isLiked(postId) {
