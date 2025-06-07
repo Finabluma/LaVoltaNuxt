@@ -29,9 +29,17 @@ const estilos = computed(() => {
   return post.value.optionalContent.length == 1 ? "single" : "compound";
 });
 
-onMounted(() => {
-  postStore.initLikes()
-})
+// onMounted(() => {
+//   initPostAndLikes();
+// });
+
+// async function initPostAndLikes() {
+//   const slug = route.params.slug;
+//   if (slug) {
+//     await postStore.fetchPostBySlug(slug);
+//   }
+//   await postStore.initLikes();
+// }
 
 function handleLike() {
   if (postStore.post?.id) {
@@ -65,11 +73,11 @@ watch(
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
           <!-- Botón Like -->
-          <button @click="handleLike" :aria-pressed="postStore.isLiked(postStore.post?.id)">
+          <!-- <button @click="handleLike" :aria-pressed="postStore.isLiked(postStore.post?.id)">
             <span v-if="postStore.isLiked(postStore.post?.id)">❤️</span>
             <span v-else>🤍</span>
             {{ postStore.getLikes(postStore.post?.id) }}
-          </button>
+          </button> -->
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
           <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
             class="after:block after:w-10 after:h-1 after:bg-current after:mt-8" />

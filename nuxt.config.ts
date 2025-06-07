@@ -101,8 +101,8 @@ export default defineNuxtConfig({
     dataset: process.env.SANITY_DATASET,
     apiVersion: process.env.SANITY_API_VERSION,
     useCdn: false,
-
-    //  // privado, no en public
+    // token: process.env.NUXT_SANITY_TOKEN,
+    // ignoreBrowserTokenWarning: true,
     additionalClients: {
       preview: {
         useCdn: false,
