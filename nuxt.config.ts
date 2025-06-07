@@ -101,12 +101,12 @@ export default defineNuxtConfig({
     dataset: process.env.SANITY_DATASET,
     apiVersion: process.env.SANITY_API_VERSION,
     useCdn: false,
+
     //  // privado, no en public
     additionalClients: {
       preview: {
         useCdn: false,
         withCredentials: true,
-        token: process.env.NUXT_SANITY_TOKEN,
       },
     },
   },
@@ -114,6 +114,11 @@ export default defineNuxtConfig({
     public: {
       baseURL: process.env.BASE_URL,
       GA_ID: process.env.NUXT_PUBLIC_GA_ID || "", // fallback por si no está definida
+    },
+    private: {
+      sanity: {
+        token: process.env.NUXT_SANITY_TOKEN,
+      },
     },
   },
   colorMode: {
