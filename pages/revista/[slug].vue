@@ -1,6 +1,6 @@
 <script setup>
-import { LazyClientOnly } from "#components";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
+
 
 const props = defineProps({
   error: Object,
@@ -8,6 +8,7 @@ const props = defineProps({
 // get project
 const route = useRoute();
 const postStore = usePostStore();
+
 
 // Cargar al montar
 await postStore.fetchPostBySlug(route.params.slug);
@@ -20,10 +21,6 @@ usePageHead({
   seo: post.seoPage,
 });
 
-const related = computed(() => {
-  return post.value.relatedContent;
-});
-
 const banner = computed(() => {
   return post.value.optionalContent;
 });
@@ -31,6 +28,16 @@ const banner = computed(() => {
 const estilos = computed(() => {
   return post.value.optionalContent.length == 1 ? "single" : "compound";
 });
+
+onMounted(() => {
+  postStore.initLikes()
+})
+
+function handleLike() {
+  if (postStore.post?.id) {
+    postStore.toggleLike(postStore.post.id)
+  }
+}
 
 // Reaccionar si cambia el slug (por ejemplo, navegación interna)
 watch(
@@ -57,6 +64,12 @@ watch(
             </li>
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
+          <!-- Botón Like -->
+          <button @click="handleLike" :aria-pressed="postStore.isLiked(postStore.post?.id)">
+            <span v-if="postStore.isLiked(postStore.post?.id)">❤️</span>
+            <span v-else>🤍</span>
+            {{ postStore.getLikes(postStore.post?.id) }}
+          </button>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
           <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
             class="after:block after:w-10 after:h-1 after:bg-current after:mt-8" />

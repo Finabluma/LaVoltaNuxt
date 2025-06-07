@@ -19,28 +19,16 @@ export const postBySlugQuery = groq`*[_type == 'articleType' && slug.current == 
         "slug":slug.current,
         seoPage,
         publishedAt,
-        "update":_updatedAt,
         mainImage,
         "id":_id,
         subtitle,
         summary,
         maincontent,
+        likes,
         categories[]->{
                 "id":_id,
                 title,
                 "slug":slug.current
-        },
-        relatedContent{
-                articleRelated[]->{
-                        mainImage,
-                        title,
-                        "slug":slug.current,
-                        categories[]->{
-                                "id":_id,
-                                title,
-                                "slug":slug.current
-                        },
-                },
         },
         optionalContent[]->{
                 "id":_id,
