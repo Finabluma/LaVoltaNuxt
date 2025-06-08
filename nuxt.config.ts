@@ -110,11 +110,11 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    sanityProjectId: process.env.SANITY_PROJECT_ID,
+    sanityDataset: process.env.SANITY_DATASET,
+    sanityApiVersion: process.env.SANITY_API_VERSION,
     apiSecret: process.env.NUXT_SANITY_TOKEN,
     public: {
-      sanityProjectId: process.env.SANITY_PROJECT_ID,
-      sanityDataset: process.env.SANITY_DATASET,
-      sanityApiVersion: process.env.SANITY_API_VERSION,
       baseURL: process.env.BASE_URL,
       GA_ID: process.env.NUXT_PUBLIC_GA_ID || "", // fallback por si no está definida
     },

@@ -7,7 +7,6 @@ export const usePostStore = defineStore("PostStore", () => {
   const post = ref(null);
   const likesByPost = ref({});
   const likedPosts = ref({});
-  const sanity = useSanity();
 
   // ✅ Cargar todos los posts
   const fetchAllPosts = async () => {
@@ -62,12 +61,11 @@ export const usePostStore = defineStore("PostStore", () => {
   // ✅ Actualizar en Sanity
   const updateLikesInSanity = async (postId, likeChange = 1) => {
     try {
-      await sanity.client
-        .patch(postId)
-        .setIfMissing({ likes: 0 })
-        .inc({ likes: likeChange })
-        .commit();
-      return true;
+      const res = await $fetch("/api/likes", {
+        method: "POST",
+        body: { postId, likeChange },
+      });
+      return res.success === true;
     } catch (err) {
       console.error("Error actualizando likes:", err);
       return false;
