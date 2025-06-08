@@ -14,7 +14,6 @@ export default defineNuxtPlugin(async () => {
   await platoStore.fetchPlatosContent();
   await bebidaStore.fetchBebidasContent();
   await menuStore.fetchMenuContent();
-  await postStore.initLikes();
   await postStore.fetchAllPosts();
   await postStore.fetchPostBySlug();
 

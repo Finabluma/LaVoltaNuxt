@@ -9,14 +9,21 @@ export const usePostStore = defineStore("PostStore", () => {
   const likedPosts = ref({});
   const sanity = useSanity();
 
+  // ✅ Cargar todos los posts
   const fetchAllPosts = async () => {
     const { data } = await useSanityQuery(postsQuery);
-    posts.value = data.value;
+    posts.value = data.value || [];
   };
 
+  // ✅ Cargar un solo post por slug
   const fetchPostBySlug = async (slug) => {
     const { data } = await useSanityQuery(postBySlugQuery, { slug });
     post.value = data.value;
+
+    // Actualizar likes locales
+    if (post.value && post.value.id) {
+      likesByPost.value[post.value.id] = post.value.likes || 0;
+    }
   };
 
   // Computed: ordenar por ID (alfabéticamente)
@@ -41,23 +48,19 @@ export const usePostStore = defineStore("PostStore", () => {
     return sortedPosts.value[currentIndex.value - 1] || null;
   });
 
-  async function initLikes() {
-    if (typeof window === "undefined") return;
+  // ✅ Inicializar desde localStorage
+  const initLikes = () => {
+    if (import.meta.server) return; // Sólo en cliente
 
-    likedPosts.value = {};
-
-    // Cargar likes reales desde Sanity siempre
-    await fetchLikesFromSanity();
-
-    // Luego cargar likedPosts desde localStorage para conservar qué posts ha dado like el usuario
     const storedLiked = localStorage.getItem("likedPosts");
     likedPosts.value = storedLiked ? JSON.parse(storedLiked) : {};
 
-    // Guardar likes en localStorage para evitar llamadas innecesarias después
-    localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
-  }
+    const storedCounts = localStorage.getItem("likesByPost");
+    likesByPost.value = storedCounts ? JSON.parse(storedCounts) : {};
+  };
 
-  async function updateLikesInSanity(postId, likeChange = 1) {
+  // ✅ Actualizar en Sanity
+  const updateLikesInSanity = async (postId, likeChange = 1) => {
     try {
       await sanity.client
         .patch(postId)
@@ -66,56 +69,33 @@ export const usePostStore = defineStore("PostStore", () => {
         .commit();
       return true;
     } catch (err) {
-      console.error("Error actualizando likes en Sanity:", err);
+      console.error("Error actualizando likes:", err);
       return false;
     }
-  }
+  };
 
-  async function toggleLike(postId) {
+  // ✅ Like / Unlike
+  const toggleLike = async (postId) => {
     if (!postId) return;
 
     const hasLiked = likedPosts.value[postId];
     const change = hasLiked ? -1 : 1;
 
-    // Primero intenta actualizar en Sanity
     const success = await updateLikesInSanity(postId, change);
+    if (!success) return;
 
-    if (!success) {
-      // No hacer nada o avisar usuario
-      return;
-    }
-
-    // Si éxito, actualiza el estado local y localStorage
     likedPosts.value[postId] = !hasLiked;
-    if (!likesByPost.value[postId]) likesByPost.value[postId] = 0;
-    likesByPost.value[postId] = Math.max(0, likesByPost.value[postId] + change);
+    likesByPost.value[postId] = Math.max(
+      0,
+      (likesByPost.value[postId] || 0) + change
+    );
 
-    localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
     localStorage.setItem("likedPosts", JSON.stringify(likedPosts.value));
-  }
+    localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
+  };
 
-  function isLiked(postId) {
-    return likedPosts.value[postId] === true;
-  }
-
-  function getLikes(postId) {
-    return likesByPost.value[postId] || 0;
-  }
-
-  async function fetchLikesFromSanity() {
-    try {
-      const { data } = await useSanityQuery(postsQuery);
-      if (data.value) {
-        likesByPost.value = {};
-        data.value.forEach((post) => {
-          likesByPost.value[post._id] = post.likes || 0;
-        });
-        localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
-      }
-    } catch (error) {
-      console.error("Error fetching likes from Sanity:", error);
-    }
-  }
+  const isLiked = (postId) => likedPosts.value[postId] === true;
+  const getLikes = (postId) => likesByPost.value[postId] || 0;
 
   return {
     posts,
@@ -130,6 +110,5 @@ export const usePostStore = defineStore("PostStore", () => {
     toggleLike,
     isLiked,
     getLikes,
-    fetchLikesFromSanity,
   };
 });

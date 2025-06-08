@@ -1,5 +1,6 @@
 import type { NuxtPage } from "@nuxt/schema";
 import tailwindcss from "@tailwindcss/vite";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
@@ -100,9 +101,7 @@ export default defineNuxtConfig({
     projectId: process.env.SANITY_PROJECT_ID,
     dataset: process.env.SANITY_DATASET,
     apiVersion: process.env.SANITY_API_VERSION,
-    useCdn: false,
-    // token: process.env.NUXT_SANITY_TOKEN,
-    // ignoreBrowserTokenWarning: true,
+    useCdn: true,
     additionalClients: {
       preview: {
         useCdn: false,
@@ -111,14 +110,13 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
+    apiSecret: process.env.NUXT_SANITY_TOKEN,
     public: {
+      sanityProjectId: process.env.SANITY_PROJECT_ID,
+      sanityDataset: process.env.SANITY_DATASET,
+      sanityApiVersion: process.env.SANITY_API_VERSION,
       baseURL: process.env.BASE_URL,
       GA_ID: process.env.NUXT_PUBLIC_GA_ID || "", // fallback por si no está definida
-    },
-    private: {
-      sanity: {
-        token: process.env.NUXT_SANITY_TOKEN,
-      },
     },
   },
   colorMode: {

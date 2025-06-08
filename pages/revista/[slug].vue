@@ -1,6 +1,5 @@
 <script setup>
-import { computed, onMounted } from "vue";
-
+import { computed, watch } from "vue";
 
 const props = defineProps({
   error: Object,
@@ -9,10 +8,8 @@ const props = defineProps({
 const route = useRoute();
 const postStore = usePostStore();
 
-
 // Cargar al montar
 await postStore.fetchPostBySlug(route.params.slug);
-
 const post = computed(() => postStore.post);
 
 // meta
@@ -29,28 +26,21 @@ const estilos = computed(() => {
   return post.value.optionalContent.length == 1 ? "single" : "compound";
 });
 
+// ✅ Inicializar likes desde localStorage solo en cliente
 // onMounted(() => {
-//   initPostAndLikes();
+//   postStore.initLikes();
+//   if (route.params.slug) {
+//     postStore.fetchPostBySlug(route.params.slug);
+//   }
 // });
 
-// async function initPostAndLikes() {
-//   const slug = route.params.slug;
-//   if (slug) {
-//     await postStore.fetchPostBySlug(slug);
-//   }
-//   await postStore.initLikes();
-// }
-
-function handleLike() {
-  if (postStore.post?.id) {
-    postStore.toggleLike(postStore.post.id)
-  }
-}
-
-// Reaccionar si cambia el slug (por ejemplo, navegación interna)
+// ✅ Escuchar cambios por navegación interna
 watch(
   () => route.params.slug,
   async (newSlug) => {
+    if (import.meta.client) {
+      postStore.initLikes(); // Solo cliente
+    }
     if (newSlug) {
       await postStore.fetchPostBySlug(newSlug);
     }
@@ -72,12 +62,13 @@ watch(
             </li>
             <li>{{ post.title }}</li>
           </ArticleBreadcrumb>
-          <!-- Botón Like -->
-          <!-- <button @click="handleLike" :aria-pressed="postStore.isLiked(postStore.post?.id)">
-            <span v-if="postStore.isLiked(postStore.post?.id)">❤️</span>
-            <span v-else>🤍</span>
-            {{ postStore.getLikes(postStore.post?.id) }}
-          </button> -->
+          <div>
+            <button @click="postStore.toggleLike(postStore.post.id)">
+              {{ postStore.isLiked(postStore.post._id) ? '💔 Unlike' : '❤️ Like' }}
+            </button>
+
+            <p>Likes: {{ postStore.getLikes(postStore.post.id) }}</p>
+          </div>
           <ArticleSummary v-if="post.summary" :summary="post.summary" />
           <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
             class="after:block after:w-10 after:h-1 after:bg-current after:mt-8" />
