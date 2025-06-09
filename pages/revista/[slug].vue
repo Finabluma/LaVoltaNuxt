@@ -79,7 +79,7 @@ watch(
           <ElementsTextContent :blocks="post?.maincontent" v-if="post?.maincontent"
             class="after:block after:w-10 after:h-1 after:bg-current after:mt-8" />
           <ArticleCategories v-if="post.categories" :tags="post.categories" class="pt-7 pb-3 px-[2vw]" />
-          <div class="flex items-center pb-7 px-[3vw]">
+          <div class="flex items-center py-7 px-[3vw]">
             <button @click="handleLike(post.id)" :disabled="postStore.isProcessing" :class="[
               postStore.isLiked(post.id) ? 'text-firstlight dark:text-firstdark' : 'text-firstlight dark:text-firstdark'
             ]" class="w-5 h-5">
