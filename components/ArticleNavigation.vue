@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="flex flex-col md:flex-row md:space-x-4 space-y-3 md:space-y-0">
+    <div class="px-2 flex flex-col md:flex-row md:space-x-4 space-y-5 md:space-y-0">
         <!-- Artículo anterior -->
         <article v-if="previousPost" class="teaser">
             <ElementsTextLink link-type="internalLinkType" route="revista-slug" :slug="previousPost.slug"
