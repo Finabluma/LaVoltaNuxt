@@ -386,33 +386,34 @@
     .wrapper {
       @apply max-w-2xl
       mx-auto
-      bg-firstlight
-      dark:bg-firstdark
+      bg-slate-300
+      dark:bg-firstdark/70
       outline-2
       outline-white/50
-      dark:outline-secondark/50
+      dark:outline-white/20
       -outline-offset-6
       *:first-of-type:absolute
       *:first-of-type:top-1
       *:first-of-type:right-1
-      *:first-of-type:opacity-40
+      *:first-of-type:opacity-80
       *:first-of-type:w-8
-      *:first-of-type:sm:w-7
       *:last-of-type:p-5
       *:last-of-type:flex
       *:last-of-type:flex-col
       *:last-of-type:sm:flex-row
-      *:last-of-type:*:first:w-10
-      *:last-of-type:*:first:fill-white/80
-      *:last-of-type:*:first:dark:fill-secondark
+      *:last-of-type:*:first:w-20
+      *:last-of-type:*:first:mx-auto
       *:last-of-type:*:first:mb-1
-      *:last-of-type:*:first:sm:w-14
+      *:last-of-type:*:first:sm:w-10
+      *:last-of-type:*:first:sm:ml-0
       *:last-of-type:*:first:sm:mb-0
       *:last-of-type:*:first:sm:mr-4
       *:last-of-type:*:last:sm:w-10/12
       *:last-of-type:*:last:*:font-bold
       *:last-of-type:*:last:*:text-fluid-base
-      *:last-of-type:*:last:*:text-white
+      *:last-of-type:*:last:*:text-center
+      *:last-of-type:*:last:*:sm:text-left
+      *:last-of-type:*:last:*:text-firstlight      
       *:last-of-type:*:last:*:dark:text-secondark;
     }
   }
