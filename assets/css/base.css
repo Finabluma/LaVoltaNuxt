@@ -8,6 +8,11 @@
       dark:fill-secondark;
   }
 
+  html {
+    @apply bg-white
+      dark:bg-secondark;
+  }
+
   body {
     @apply font-houscha
       text-pretty
