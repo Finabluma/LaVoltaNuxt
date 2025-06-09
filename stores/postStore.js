@@ -7,6 +7,7 @@ export const usePostStore = defineStore("PostStore", () => {
   const post = ref(null);
   const likesByPost = ref({});
   const likedPosts = ref({});
+  const isProcessing = ref(false);
 
   // ✅ Cargar todos los posts
   const fetchAllPosts = async () => {
@@ -49,7 +50,7 @@ export const usePostStore = defineStore("PostStore", () => {
 
   // ✅ Inicializar desde localStorage
   const initLikes = () => {
-    if (import.meta.server) return; // Sólo en cliente
+    if (typeof window === "undefined") return; // Solo cliente
 
     const storedLiked = localStorage.getItem("likedPosts");
     likedPosts.value = storedLiked ? JSON.parse(storedLiked) : {};
@@ -58,8 +59,8 @@ export const usePostStore = defineStore("PostStore", () => {
     likesByPost.value = storedCounts ? JSON.parse(storedCounts) : {};
   };
 
-  // ✅ Actualizar en Sanity
-  const updateLikesInSanity = async (postId, likeChange = 1) => {
+  // Actualiza likes en Sanity (llamada API)
+  const updateLikesInSanity = async (postId, likeChange) => {
     try {
       const res = await $fetch("/api/likes", {
         method: "POST",
@@ -72,24 +73,26 @@ export const usePostStore = defineStore("PostStore", () => {
     }
   };
 
-  // ✅ Like / Unlike
+  // ✅ Toggle like: solo permite dar like si no ha dado antes, y quitar si ya dio
   const toggleLike = async (postId) => {
-    if (!postId) return;
+    if (!postId || isProcessing.value) return;
+
+    isProcessing.value = true;
 
     const hasLiked = likedPosts.value[postId];
+
     const change = hasLiked ? -1 : 1;
-
     const success = await updateLikesInSanity(postId, change);
-    if (!success) return;
 
-    likedPosts.value[postId] = !hasLiked;
-    likesByPost.value[postId] = Math.max(
-      0,
-      (likesByPost.value[postId] || 0) + change
-    );
+    if (success) {
+      likedPosts.value[postId] = !hasLiked;
+      likesByPost.value[postId] = (likesByPost.value[postId] || 0) + change;
 
-    localStorage.setItem("likedPosts", JSON.stringify(likedPosts.value));
-    localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
+      localStorage.setItem("likedPosts", JSON.stringify(likedPosts.value));
+      localStorage.setItem("likesByPost", JSON.stringify(likesByPost.value));
+    }
+
+    isProcessing.value = false; // <--- IMPORTANTE: siempre volver a false
   };
 
   const isLiked = (postId) => likedPosts.value[postId] === true;
@@ -100,10 +103,11 @@ export const usePostStore = defineStore("PostStore", () => {
     post,
     nextPost,
     previousPost,
-    likesByPost,
-    likedPosts,
     fetchAllPosts,
     fetchPostBySlug,
+    likesByPost,
+    likedPosts,
+    isProcessing, // <-- ¡IMPORTANTE!
     initLikes,
     toggleLike,
     isLiked,
