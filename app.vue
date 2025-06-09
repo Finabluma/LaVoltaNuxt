@@ -123,8 +123,8 @@ onMounted(() => {
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
       smooth: 1.5,
-      effects: false,
-      smoothTouch: 0.1,
+      effects: true,
+      smoothTouch: true,
       speed: 2,
     })
     ScrollTrigger.refresh()
