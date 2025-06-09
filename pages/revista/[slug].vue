@@ -56,7 +56,7 @@ watch(
       </HeroSection>
       <div class="main-content">
         <div class="max-w-6xl mx-auto px-[4vw] py-5 md:py-10">
-          <div class="flex items-center mb-2 lg:mb-5">
+          <div class="flex items-center px-1 py-3 mb-2 lg:mb-5">
             <button @click="handleLike(post.id)" :disabled="postStore.isProcessing" :class="[
               postStore.isLiked(post.id) ? 'text-firstlight dark:text-firstdark' : 'text-firstlight dark:text-firstdark'
             ]" class="w-5 h-5">
