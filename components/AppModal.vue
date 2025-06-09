@@ -29,7 +29,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div v-if="budskap.bannerUrgent" class="modal-banner">
-    <div class="wrapper">
+    <div class="wrapper relative">
       <div @click="$emit('close-modal')">
         <Close class="p-1 fill-white" />
       </div>
