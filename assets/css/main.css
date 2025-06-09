@@ -394,15 +394,15 @@
       -outline-offset-6
       *:first-of-type:absolute
       *:first-of-type:top-1
-      *:first-of-type:right-2
+      *:first-of-type:right-1
       *:first-of-type:opacity-40
-      *:first-of-type:w-10
+      *:first-of-type:w-8
       *:first-of-type:sm:w-7
       *:last-of-type:p-5
       *:last-of-type:flex
       *:last-of-type:flex-col
       *:last-of-type:sm:flex-row
-      *:last-of-type:*:first:w-6
+      *:last-of-type:*:first:w-10
       *:last-of-type:*:first:fill-white/80
       *:last-of-type:*:first:dark:fill-secondark
       *:last-of-type:*:first:mb-1
