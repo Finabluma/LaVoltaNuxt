@@ -348,28 +348,27 @@
     @apply w-full
     text-sm
     font-bold
-    py-2
+    py-1
     border-b
     dark:bg-secondark/20;
   }
   .state {
     @apply flex
+    flex-col
     flex-wrap
     items-center
     justify-center
-    sm:flex-row
-    sm:justify-center
     *:first-of-type:in-[div]:flex
     *:first-of-type:in-[div]:items-center;
 
     .franjas {
-      @apply flex px-0.5;
+      @apply flex;
     }
 
     .franja:last-child {
       @apply flex justify-center items-center
       before:content-['&']
-      before:mx-1;
+      before:mx-0.5;
     }
   }
 
