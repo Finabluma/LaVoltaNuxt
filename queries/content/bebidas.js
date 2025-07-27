@@ -2,6 +2,7 @@ const bebidaItem = groq`
     _type == 'reference' => @->{
         "title":bebida,
         "slug": slug.current,
+        "id":_id,
         precio,
         "do":do->{do},
         "variedad":variedades[]->{variedad},
@@ -13,7 +14,7 @@ const bebidaItem = groq`
             "parentVariedad":variedad
         })
     }
-`
+`;
 export const bebidasQuery = groq`{
     "title":*[_type == "bebidasType"][0]{title},
     "cavas":*[_type == "bebidasType"][0]{
@@ -49,4 +50,4 @@ export const bebidasQuery = groq`{
         }
     }
 }
-`
+`;

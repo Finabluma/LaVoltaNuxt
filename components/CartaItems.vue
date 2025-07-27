@@ -16,12 +16,12 @@ function formatPrice(num) {
       </h3>
     </template>
     <template #default>
-      <div v-if="items.tipo.producto !== null" class="py-3">
-        <div v-for="item in items.tipo.producto" :key="item.id" class="mb-2 px-2">
+      <div v-if="items?.tipo.producto !== null" class="py-3">
+        <div v-for="item in items?.tipo.producto" :key="item.id" class="mb-2 px-2">
           <div class="flex px-0 text-fluid-body-lg">
-            <div v-if="item.title === undefined" class="font-bold flex pr-5">
+            <div v-if="item.title" class="font-bold flex pr-5">
               {{ item.title }}
-              <span v-if="item.solidario !== false" class="ml-5 flex items-center        dark:bg-transparent">
+              <span v-if="item.solidario" class="ml-5 flex items-center        dark:bg-transparent">
                 <NuxtIcon name="Star" size="32" />
               </span>
             </div>

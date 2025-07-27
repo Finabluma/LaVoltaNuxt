@@ -122,9 +122,9 @@ onMounted(() => {
     smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
-      smooth: 1.5,
+      smooth: 2,
       effects: true,
-      smoothTouch: 0.1,
+      smoothTouch: 0,
       speed: 2,
     })
     ScrollTrigger.refresh()
