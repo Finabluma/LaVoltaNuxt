@@ -25,7 +25,7 @@ function formatHour(item) {
 <template>
   <section class="today">
     <h2 class="sr-only">Horario del día</h2>
-    <div class="container">
+    <div v-if="dag" class="container">
       <div v-if="dag.length === 0" class="state">
         <div>
           <Reloj class="mr-1" /><span>HOY CERRAMOS</span>
@@ -54,6 +54,13 @@ function formatHour(item) {
             <span>{{ formatHour(hours.from) }}</span>
             <span>-{{ formatHour(hours.to) }}</span>
           </div>
+        </div>
+      </div>
+    </div>
+    <div v-else class="container">
+      <div class="state">
+        <div>
+          <Reloj class="mr-1" /><span>cerrado temporalmente</span>
         </div>
       </div>
     </div>
