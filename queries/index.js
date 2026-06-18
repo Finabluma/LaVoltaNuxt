@@ -1,7 +1,7 @@
 import { menuQuery } from './content/menu'
 import { platosQuery } from './content/platos'
 import { bebidasQuery } from './content/bebidas'
-import { siteQuery } from './site/siteQuery'
+import { siteQuery, maintenanceQuery } from './site/siteQuery'
 import { pagesQuery } from './content/pages'
 import { articleCategory, postBySlugQuery, postsQuery } from './content/article'
 import { categoryQuery } from './content/categories'
@@ -33,5 +33,6 @@ export {
   phoneContact,
   cartaLink,
   postBySlugQuery,
-  postsQuery
+  postsQuery,
+  maintenanceQuery
 }

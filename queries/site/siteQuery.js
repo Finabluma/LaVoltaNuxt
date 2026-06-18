@@ -29,3 +29,8 @@ export const siteQuery = groq`{
     "linkCarta":${cartaLink},
     "datos":${siteContact}
 }`
+
+export const maintenanceQuery = groq`*[_type == "siteSettings"][0]{
+  maintenanceMode,
+  maintenanceMessage
+}`

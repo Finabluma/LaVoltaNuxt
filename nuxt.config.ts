@@ -71,7 +71,12 @@ export default defineNuxtConfig({
           name: "revista",
           path: "/revista",
           file: "~/pages/revista/index.vue",
-        }
+        },
+        {
+          name: "maintenance",
+          path: "/maintenance",
+          file: "~/pages/maintenance.vue",
+        },
       );
 
       // remove routes
