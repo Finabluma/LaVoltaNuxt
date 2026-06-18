@@ -24,7 +24,6 @@ usePageHead({
 </script>
 <template>
   <div id="menu">
-
     <main>
       <HeroSection>
         <h1>{{ menuDia.title }}</h1>
