@@ -146,7 +146,7 @@ onUnmounted(() => {
       <div id="smooth-content">
         <NuxtPage />
       </div>
-      <CookieConsent />
+      <CookieConsent class="offline"/>
     </div>
   </div>
 </template>

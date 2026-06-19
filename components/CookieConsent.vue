@@ -2,6 +2,8 @@
   import { ref, onMounted } from 'vue'
   import { useCookie } from '#app'
 
+  const isOffline = ref(false)
+
   const consent = useCookie('banner-dismissed', {
     default: () => null,
     maxAge: 60 * 60 * 24 * 30,
@@ -76,7 +78,15 @@
 </script>
 
 <template>
-  <CookieBanner v-if="showBanner" @accept="accept" @reject="reject" />
-  <CookieToggle v-if="showToggle" @toggle="toggleBanner" />
-  <ToastMessage :message="toastMessage" :visible="showToast" />
+  <div :class="{ offline: isOffline }">
+    <CookieBanner v-if="showBanner" @accept="accept" @reject="reject" />
+    <CookieToggle v-if="showToggle" @toggle="toggleBanner" />
+    <ToastMessage :message="toastMessage" :visible="showToast" />
+  </div>    
 </template>
+
+<style>
+.offline{
+  display:none;
+}
+</style>
