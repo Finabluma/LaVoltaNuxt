@@ -1,5 +1,6 @@
 <script setup>
 const { horarios } = useHorarioStore()
+const isOffline = ref(false)
 const date = new Date()
 const day = date.getDay(date)
 const dayNames = [
@@ -23,7 +24,7 @@ function formatHour(item) {
 }
 </script>
 <template>
-  <section class="today">
+  <section class="today" :class="{ offline: isOffline }">
     <h2 class="sr-only">Horario del día</h2>
     <div v-if="dag" class="container">
       <div v-if="dag.length === 0" class="state">

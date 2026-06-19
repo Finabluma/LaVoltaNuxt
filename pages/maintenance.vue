@@ -1,9 +1,12 @@
 <template>
-  <div class="maintenance">
-    <h1>🛠 En mantenimiento</h1>
-
-    <p v-if="message">{{ message }}</p>
-    <p v-else>Volvemos pronto.</p>
+  <div id="maintenance">
+    <main>
+        <div class="h-svh flex flex-col justify-center">
+        <h1 class="sr-only">🛠 En mantenimiento</h1>
+        <TodayAvailability class="offline" />
+        <SVGAppBotero class="dark:fill-firstdark" />
+      </div>      
+    </main>
   </div>
 </template>
 
@@ -14,3 +17,13 @@ const message = computed(() =>
   site.maintenanceMessage || 'Volvemos pronto.'
 )
 </script>
+
+<style>
+header, .today{
+  display: none;
+}
+.today.offline{
+  display:block;
+  border-bottom:none
+}
+</style>
