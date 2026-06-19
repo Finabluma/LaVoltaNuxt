@@ -3,8 +3,8 @@
     <main>
         <div class="h-svh flex flex-col justify-center">
         <h1 class="sr-only">🛠 En mantenimiento</h1>
-        <TodayAvailability class="offline lg:mt-5 lg:mb-2" />
-        <SVGAppBotero class="dark:fill-firstdark lg:w-8/12 lg:mx-auto " />
+        <TodayAvailability class="offline xl:mt-5" />
+        <SVGAppBotero class="dark:fill-firstdark xl:w-8/12 xl:mx-auto " />
       </div>      
     </main>
   </div>
