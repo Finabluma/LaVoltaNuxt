@@ -34,7 +34,7 @@ function formatHour(item) {
       </div>
       <div v-if="dag.length === 1" class="state">
         <div>
-          <span>Cocina abierta</span>
+          <span>Abierto</span>
           <Reloj class="mr-0.5" />
         </div>
         <div v-for="hours in dag" :key="hours.key" class="franjas">
@@ -47,7 +47,7 @@ function formatHour(item) {
       <div v-if="dag.length === 2" class="state">
         <div>
 
-          <span class="sm:mr-0.5">Cocina abierta</span>
+          <span class="sm:mr-0.5">Abierto</span>
           <Reloj />
         </div>
         <div class="franjas">
